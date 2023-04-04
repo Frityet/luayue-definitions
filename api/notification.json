@@ -1,0 +1,330 @@
+{
+  "name": "Notification",
+  "component": "gui",
+  "header": "nativeui/notification.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Send native notifications.",
+  "detail": "The `Notification` API is responsible for sending notifications, for handling\nevents of notifications, the `<!type>NotificationCenter` API should be used.\n\nBefore sending notifications, you should set app's ID and name otherwise the\nnotifications may not be displayed.\n\n```cpp\nauto* app = nu::App::GetCurrent();\napp->SetName(\"MyApp\");\n#if defined(OS_LINUX) || defined(OS_WIN)\napp->SetID(\"org.yue.myapp\");\n#else\nif (app->GetID().empty())\n  LOG(ERROR) << \"Unable to send notifications due to app not being bundled\";\n#endif\n\n#if defined(OS_WIN)\n// Create start menu shortcut for testing.\napp->CreateStartMenuShortcut(nu::App::ShortcutOptions());\n#endif\n\nscoped_refptr<nu::Notification> notification = new nu::Notification;\nnotification->SetTitle(\"Title\");\nnotification->SetBody(\"Message\");\nnotification->SetInfo(\"first-notification\");\nnotification->Show();\n```\n\n```lua\ngui.app:setname(\"MyApp\")\nif (sys.platform ~= \"macos\")\n  gui.app:setid(\"org.yue.myapp\")\nelse if (gui.app:getid() == '')\n  print(\"Unable to send notifications due to app not being bundled\")\n\n-- Create start menu shortcut for testing.\nif (sys.platform == \"win32\")\n  gui.app:createstartmenushortcut{}\n\nlocal notification = gui.Notification.create()\nnotification:settitle(\"Title\")\nnotification:setbody(\"Message\")\nnotification:setinfo(\"first-notification\")\nnotification:show()\n```\n\n```js\ngui.app.setName(\"MyApp\")\nif (process.platform !== 'darwin')\n  gui.app.setID(\"org.yue.myapp\")\nelse if (gui.app.getID().length === 0)\n  console.error(\"Unable to send notifications due to app not being bundled\")\n\n// Create start menu shortcut for testing.\nif (process.platform === \"win32\")\n  gui.app.createStartMenuShortcut({})\n\nconst notification = gui.Notification.create()\nnotification.setTitle(\"Title\")\nnotification.setBody(\"Message\")\nnotification.setInfo(\"first-notification\")\nnotification.show()\n```\n\n## Platform requirements\n\nOn macOS, only bundled apps can send notifications. To check if the app is\nbundled, you can check whether `<!method>App::GetID()` returns a non-empty\nstring.\n\nOn Linux, `Notification` is implemented by sending DBus messages following the\n[Desktop Notifications Specification](https://developer.gnome.org/notification-spec/),\nthe desktop environment must has a desktop notifications service running to\nshow the notifications.\n\nOn Windows, to display the notifications the app must has an AppUserModelID,\nand a shortcut on the start menu. For testing purpose, you can use the\n`<!method>App::CreateStartMenuShortcut(options)` API to create a start menu\nshortcut file.\n\nAlso on Windows `Notification` uses toast notifications under the hood, and\ncurrently only Windows 10 and above are supported.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Notification",
+          "id": "notification"
+        },
+        "name": "create",
+        "parameters": [],
+        "shortStr": "create()",
+        "str": "create()"
+      },
+      "description": "Create a new Notification instance.",
+      "id": "create"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "show",
+        "parameters": [],
+        "shortStr": "show()",
+        "str": "show()"
+      },
+      "description": "Display the notification.",
+      "detail": "If the notification has already been displayed, calling this method again\nwill update the contents of the notification. If the notification has been\nclosed, calling this method will show the notification again.\n\nOn Windows due to platform limitation, only the title and body of the\nnotification can be updated after it has been displayed.\n",
+      "id": "show"
+    },
+    {
+      "signature": {
+        "name": "close",
+        "parameters": [],
+        "shortStr": "close()",
+        "str": "close()"
+      },
+      "description": "Close the notification.",
+      "id": "close"
+    },
+    {
+      "signature": {
+        "name": "settitle",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "title"
+          }
+        ],
+        "shortStr": "settitle(title)",
+        "str": "settitle(title)"
+      },
+      "description": "Set the title of the notification.",
+      "id": "settitle-title"
+    },
+    {
+      "signature": {
+        "name": "setbody",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "body"
+          }
+        ],
+        "shortStr": "setbody(body)",
+        "str": "setbody(body)"
+      },
+      "description": "Set the body text of the notification.",
+      "id": "setbody-body"
+    },
+    {
+      "signature": {
+        "name": "setinfo",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "info"
+          }
+        ],
+        "shortStr": "setinfo(info)",
+        "str": "setinfo(info)"
+      },
+      "description": "Set the user info to be attached to the notification.",
+      "detail": "When handling notification events with `<!type>NotificationCenter`, only\nthe user info will be passed to the event handler.\n",
+      "id": "setinfo-info"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "string"
+        },
+        "name": "getinfo",
+        "parameters": [],
+        "shortStr": "getinfo()",
+        "str": "getinfo()"
+      },
+      "description": "Return the attached user info.",
+      "id": "getinfo"
+    },
+    {
+      "signature": {
+        "name": "setactions",
+        "parameters": [
+          {
+            "type": {
+              "name": "table"
+            },
+            "name": "actions",
+            "description": "An array of `<!type>Notification::Action`."
+          }
+        ],
+        "shortStr": "setactions(actions)",
+        "str": "setactions(actions)"
+      },
+      "description": "Set the buttons to be displayed in the notification.",
+      "detail": "The `<!name>on_notification_action` event of `<!type>NotificationCenter`\nwill be emitted when user clicks one of the buttons.\n",
+      "id": "setactions-actions"
+    },
+    {
+      "signature": {
+        "name": "setsilent",
+        "parameters": [
+          {
+            "type": {
+              "name": "boolean"
+            },
+            "name": "silent"
+          }
+        ],
+        "shortStr": "setsilent(silent)",
+        "str": "setsilent(silent)"
+      },
+      "description": "Set whether to play sound when the notification is displayed.",
+      "id": "setsilent-silent"
+    },
+    {
+      "signature": {
+        "name": "setimage",
+        "parameters": [
+          {
+            "type": {
+              "name": "Image",
+              "id": "image"
+            },
+            "name": "image"
+          }
+        ],
+        "shortStr": "setimage(image)",
+        "str": "setimage(image)"
+      },
+      "description": "Set the image shown in the content of the notification.",
+      "detail": "Different platforms may choose to put the image in different places, there\nis no guarentee on where the image is placed.\n",
+      "id": "setimage-image"
+    },
+    {
+      "signature": {
+        "name": "setimagepath",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "path"
+          }
+        ],
+        "shortStr": "setimagepath(path)",
+        "str": "setimagepath(path)"
+      },
+      "description": "Set the file path of the image shown in the content of the notification.\n",
+      "detail": "This method is usually faster than reading a file from disk and passing\nits content to `<!name>SetImage`, so it is recommended to use this\nmethod over `<!name>SetImage` if the image is stored on disk.\n\nDifferent platforms may choose to put the image in different places, there\nis no guarentee on where the image is placed.\n",
+      "id": "setimagepath-path"
+    },
+    {
+      "signature": {
+        "name": "setimageplacement",
+        "parameters": [
+          {
+            "type": {
+              "name": "string",
+              "nullable": true
+            },
+            "name": "placement"
+          }
+        ],
+        "shortStr": "setimageplacement(placement)",
+        "str": "setimageplacement(placement)"
+      },
+      "platform": [
+        "Windows"
+      ],
+      "description": "Set the `placement` attribute of the image.",
+      "detail": "The most common used `placement`s are `\"appLogoOverride\"` and `\"hero\"`.\n",
+      "id": "setimageplacement-placement"
+    },
+    {
+      "signature": {
+        "name": "sethasreplybutton",
+        "parameters": [
+          {
+            "type": {
+              "name": "boolean"
+            },
+            "name": "has"
+          }
+        ],
+        "shortStr": "sethasreplybutton(has)",
+        "str": "sethasreplybutton(has)"
+      },
+      "platform": [
+        "macOS",
+        "Windows"
+      ],
+      "description": "Set whether to display an input field and a reply button in the\nnotification.\n",
+      "detail": "The `<!name>on_notification_reply` event of `<!type>NotificationCenter`\nwill be emitted when user sends a reply in the notification.\n",
+      "id": "sethasreplybutton-has"
+    },
+    {
+      "signature": {
+        "name": "setresponseplaceholder",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "placeholder"
+          }
+        ],
+        "shortStr": "setresponseplaceholder(placeholder)",
+        "str": "setresponseplaceholder(placeholder)"
+      },
+      "platform": [
+        "macOS",
+        "Windows"
+      ],
+      "description": "The the placeholder of the input field.",
+      "id": "setresponseplaceholder-placeholder"
+    },
+    {
+      "signature": {
+        "name": "setidentifier",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "identifier"
+          }
+        ],
+        "shortStr": "setidentifier(identifier)",
+        "str": "setidentifier(identifier)"
+      },
+      "platform": [
+        "macOS",
+        "Windows"
+      ],
+      "description": "Set an unique `identifier` that can identifies a notification.",
+      "detail": "When there is already a displayed notification with the same identifier,\nshowing this notification will update its contents.\n\nOn Windows due to platform limitation, only the title and body of the\nnotification can be updated after it has been displayed.\n\nNote that there is no equivalent API on Linux, to update an existing\nnotification's contents you have to keep the instance of the notification\nand call its `<!name>Show` method.\n",
+      "id": "setidentifier-identifier"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "string"
+        },
+        "name": "getidentifier",
+        "parameters": [],
+        "shortStr": "getidentifier()",
+        "str": "getidentifier()"
+      },
+      "platform": [
+        "macOS",
+        "Windows"
+      ],
+      "description": "Return the unique identifier of the notification.",
+      "id": "getidentifier"
+    },
+    {
+      "signature": {
+        "name": "setxml",
+        "parameters": [
+          {
+            "type": {
+              "name": "string",
+              "nullable": true
+            },
+            "name": "xml"
+          }
+        ],
+        "shortStr": "setxml(xml)",
+        "str": "setxml(xml)"
+      },
+      "platform": [
+        "Windows"
+      ],
+      "description": "Set custom XML of the toast notification.",
+      "detail": "On Windows the notification can have rich contents and the Notification\nAPIs do not cover all the possible features. In case you want to show\nsome rich contents, you can use this API to set raw XML of the\nnotification.\n\nYou can find documentation on the XML schema and tools to generate XML\nat [here](https://docs.microsoft.com/en-us/windows/apps/design/shell/tiles-and-notifications/adaptive-interactive-toasts?tabs=xml).\n",
+      "id": "setxml-xml"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "string"
+        },
+        "name": "getxml",
+        "parameters": [],
+        "shortStr": "getxml()",
+        "str": "getxml()"
+      },
+      "platform": [
+        "Windows"
+      ],
+      "description": "Return the XML representation of the toast notification.",
+      "id": "getxml"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "notification"
+}

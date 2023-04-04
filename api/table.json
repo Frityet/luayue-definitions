@@ -1,0 +1,272 @@
+{
+  "name": "Table",
+  "component": "gui",
+  "header": "nativeui/table.h",
+  "type": "Class",
+  "namespace": "nu",
+  "inherit": {
+    "name": "View",
+    "id": "view"
+  },
+  "description": "Table view.",
+  "detail": "The `Table` does not store any data itself, to display data in `Table`, users\nhave to provide a `<!type>TableModel`.\n\nHow data are renderered depends on the type of column. It is also possible to\ncreate a custom renderer for arbitrary data.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Table",
+          "id": "table"
+        },
+        "name": "create",
+        "parameters": [],
+        "shortStr": "create()",
+        "str": "create()"
+      },
+      "description": "Create a new `Table`.",
+      "id": "create"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "setmodel",
+        "parameters": [
+          {
+            "type": {
+              "name": "TableModel",
+              "id": "tablemodel"
+            },
+            "name": "model"
+          }
+        ],
+        "shortStr": "setmodel(model)",
+        "str": "setmodel(model)"
+      },
+      "description": "Set `model` as table's data source.",
+      "id": "setmodel-model"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "TableModel",
+          "id": "tablemodel"
+        },
+        "name": "getmodel",
+        "parameters": [],
+        "shortStr": "getmodel()",
+        "str": "getmodel()"
+      },
+      "description": "Return table's model.",
+      "id": "getmodel"
+    },
+    {
+      "signature": {
+        "name": "addcolumn",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "title"
+          }
+        ],
+        "shortStr": "addcolumn(title)",
+        "str": "addcolumn(title)"
+      },
+      "description": "Add a new column with `title`, which shows readonly text.",
+      "id": "addcolumn-title"
+    },
+    {
+      "signature": {
+        "name": "addcolumnwithoptions",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "title"
+          },
+          {
+            "type": {
+              "name": "Table::ColumnOptions",
+              "id": "table_columnoptions"
+            },
+            "name": "options"
+          }
+        ],
+        "shortStr": "addcolumnwithoptions(title, options)",
+        "str": "addcolumnwithoptions(title, options)"
+      },
+      "description": "Add a new column with `title` and `options`.",
+      "id": "addcolumnwithoptions-title-options"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "integer"
+        },
+        "name": "getcolumncount",
+        "parameters": [],
+        "shortStr": "getcolumncount()",
+        "str": "getcolumncount()"
+      },
+      "description": "Return the number of columns.",
+      "id": "getcolumncount"
+    },
+    {
+      "signature": {
+        "name": "setcolumnsvisible",
+        "parameters": [
+          {
+            "type": {
+              "name": "boolean"
+            },
+            "name": "visible"
+          }
+        ],
+        "shortStr": "setcolumnsvisible(visible)",
+        "str": "setcolumnsvisible(visible)"
+      },
+      "description": "Set whether the columns header is visible.",
+      "detail": "On macOS adding column after hiding the header will result in missing\ncolumns in the header even after making the header visible again.\n\nIt is recommended to never show the header again after hiding the header,\nfor consistent behaviors between platforms.\n",
+      "id": "setcolumnsvisible-visible"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "boolean"
+        },
+        "name": "iscolumnsvisible",
+        "parameters": [],
+        "shortStr": "iscolumnsvisible()",
+        "str": "iscolumnsvisible()"
+      },
+      "description": "Return whether the columns header is visible.",
+      "id": "iscolumnsvisible"
+    },
+    {
+      "signature": {
+        "name": "setrowheight",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "height"
+          }
+        ],
+        "shortStr": "setrowheight(height)",
+        "str": "setrowheight(height)"
+      },
+      "description": "Set the `height` of each row.",
+      "detail": "It is not recommended to change row height unless you are drawing all\ncells yourself, as the default text cells may not show decently under\nlarge or small height.\n\nOn Linux, due to platform implementations, this method has to be called\nbefore adding columns. It does not have any effect when columns have\nalready been added.\n",
+      "id": "setrowheight-height"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "number"
+        },
+        "name": "getrowheight",
+        "parameters": [],
+        "shortStr": "getrowheight()",
+        "str": "getrowheight()"
+      },
+      "description": "Return the `height` of each row.",
+      "id": "getrowheight"
+    },
+    {
+      "signature": {
+        "name": "enablemultipleselection",
+        "parameters": [
+          {
+            "type": {
+              "name": "boolean"
+            },
+            "name": "enable"
+          }
+        ],
+        "shortStr": "enablemultipleselection(enable)",
+        "str": "enablemultipleselection(enable)"
+      },
+      "description": "Set whether it is allowed to select more than one row at a time.\n",
+      "id": "enablemultipleselection-enable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "boolean"
+        },
+        "name": "ismultipleselectionenabled",
+        "parameters": [],
+        "shortStr": "ismultipleselectionenabled()",
+        "str": "ismultipleselectionenabled()"
+      },
+      "description": "Return whether it is allowed to select more than one row at a time.\n",
+      "id": "ismultipleselectionenabled"
+    },
+    {
+      "signature": {
+        "name": "selectrow",
+        "parameters": [
+          {
+            "type": {
+              "name": "integer"
+            },
+            "name": "row"
+          }
+        ],
+        "shortStr": "selectrow(row)",
+        "str": "selectrow(row)"
+      },
+      "description": "Select a `row`.",
+      "id": "selectrow-row"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "integer"
+        },
+        "name": "getselectedrow",
+        "parameters": [],
+        "shortStr": "getselectedrow()",
+        "str": "getselectedrow()"
+      },
+      "description": "Return the index of selected row.",
+      "detail": "For table that allows multiple selections, this will return the index of\nfirst selected row. When no row is selected, `-1` will be returned.\n",
+      "id": "getselectedrow"
+    },
+    {
+      "signature": {
+        "name": "selectrows",
+        "parameters": [
+          {
+            "type": {
+              "name": "table"
+            },
+            "name": "rows"
+          }
+        ],
+        "shortStr": "selectrows(rows)",
+        "str": "selectrows(rows)"
+      },
+      "description": "Select multiple `rows`.",
+      "id": "selectrows-rows"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "table"
+        },
+        "name": "getselectedrows",
+        "parameters": [],
+        "shortStr": "getselectedrows()",
+        "str": "getselectedrows()"
+      },
+      "description": "Return selected rows' indexes.",
+      "id": "getselectedrows"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "table"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "TextAttributes",
+  "header": "nativeui/gfx/text.h",
+  "type": "table",
+  "namespace": "nu",
+  "inherit": {
+    "name": "TextFormat",
+    "id": "textformat"
+  },
+  "description": "Options for drawing text.",
+  "properties": [
+    {
+      "optional": true,
+      "description": "Font for drawing text, default is system UI font.",
+      "id": "font",
+      "type": {
+        "name": "Font",
+        "id": "font"
+      },
+      "name": "font"
+    },
+    {
+      "optional": true,
+      "description": "Text color, default is system UI text color.",
+      "id": "color",
+      "type": {
+        "name": "Color",
+        "id": "color"
+      },
+      "name": "color"
+    }
+  ],
+  "id": "textattributes"
+}

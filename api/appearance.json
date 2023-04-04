@@ -1,0 +1,61 @@
+{
+  "name": "Appearance",
+  "component": "gui",
+  "header": "nativeui/appearance.h",
+  "type": "table",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Information about user's appearance preferences.",
+  "methods": [
+    {
+      "signature": {
+        "name": "setdarkmodeenabled",
+        "parameters": [
+          {
+            "type": {
+              "name": "boolean"
+            },
+            "name": "enable"
+          }
+        ],
+        "shortStr": "setdarkmodeenabled(enable)",
+        "str": "setdarkmodeenabled(enable)"
+      },
+      "platform": [
+        "Windows"
+      ],
+      "description": "Enable Windows 10 dark mode for current app.",
+      "detail": "The dark mode of Windows 10 does not support Win32 apps officially and\nthis API makes use of private APIs to force enabling dark mode for current\napp.\n\nNote that this API can only enable dark mode for window titlebars, all\nthe views and colors are still using light color schemes. You should only\nuse this API when developing custom-drawn apps.\n",
+      "id": "setdarkmodeenabled-enable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "boolean"
+        },
+        "name": "isdarkscheme",
+        "parameters": [],
+        "shortStr": "isdarkscheme()",
+        "str": "isdarkscheme()"
+      },
+      "description": "Return whether this app is using a dark color scheme.",
+      "detail": "Note that on Windows the dark mode does not support Win32 apps, and this\nmethod will always return false unless dark mode is explicitly enabled\nwith `<!name>SetDarkModeEnabled`.\n",
+      "id": "isdarkscheme"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "oncolorschemechange",
+        "parameters": [],
+        "shortStr": "oncolorschemechange()",
+        "str": "oncolorschemechange()"
+      },
+      "description": "Emitted when user has changed system color scheme preferences.",
+      "id": "oncolorschemechange"
+    }
+  ],
+  "module": "yue.gui",
+  "detail": "\nThis class can not be created by user, you can only receive its global\ninstance from the `appearance` property of the module:\n\n```lua\ngui.appearance:isdarkscheme()\n```\n",
+  "id": "appearance"
+}

@@ -1,0 +1,182 @@
+{
+  "name": "DatePicker",
+  "component": "gui",
+  "header": "nativeui/date_picker.h",
+  "type": "Class",
+  "namespace": "nu",
+  "inherit": {
+    "name": "View",
+    "id": "view"
+  },
+  "description": "A view displays date and time with editing ability.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "DatePicker",
+          "id": "datepicker"
+        },
+        "name": "create",
+        "parameters": [
+          {
+            "type": {
+              "name": "DatePicker::Options",
+              "id": "datepicker_options"
+            },
+            "name": "options"
+          }
+        ],
+        "shortStr": "create(options)",
+        "str": "create(options)"
+      },
+      "description": "Create a new `DatePicker` with `options`.",
+      "id": "create-options"
+    }
+  ],
+  "class_properties": [
+    {
+      "id": "elementyearmonth",
+      "type": {
+        "name": "integer"
+      },
+      "name": "elementyearmonth"
+    },
+    {
+      "id": "elementyearmonthday",
+      "type": {
+        "name": "integer"
+      },
+      "name": "elementyearmonthday"
+    },
+    {
+      "id": "elementhourminute",
+      "type": {
+        "name": "integer"
+      },
+      "name": "elementhourminute"
+    },
+    {
+      "id": "elementhourminutesecond",
+      "type": {
+        "name": "integer"
+      },
+      "name": "elementhourminutesecond"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "setdate",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "time"
+          }
+        ],
+        "shortStr": "setdate(time)",
+        "str": "setdate(time)"
+      },
+      "description": "Set the selected date to `time`.",
+      "id": "setdate-time"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "number"
+        },
+        "name": "getdate",
+        "parameters": [],
+        "shortStr": "getdate()",
+        "str": "getdate()"
+      },
+      "description": "Get the selected date.",
+      "id": "getdate"
+    },
+    {
+      "signature": {
+        "name": "setrange",
+        "parameters": [
+          {
+            "type": {
+              "name": "number",
+              "nullable": true
+            },
+            "name": "minimum"
+          },
+          {
+            "type": {
+              "name": "number",
+              "nullable": true
+            },
+            "name": "maximum"
+          }
+        ],
+        "shortStr": "setrange(minimum, maximum)",
+        "str": "setrange(minimum, maximum)"
+      },
+      "description": "Set the `minimum` and `maximum` date values.",
+      "id": "setrange-minimum-maximum"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "args": [
+            {
+              "name": "number",
+              "nullable": true
+            },
+            {
+              "name": "number",
+              "nullable": true
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getrange",
+        "parameters": [],
+        "shortStr": "getrange()",
+        "str": "getrange()"
+      },
+      "description": "Return  the `minimum` and `maximum` date values.",
+      "id": "getrange"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "boolean"
+        },
+        "name": "hasstepper",
+        "parameters": [],
+        "shortStr": "hasstepper()",
+        "str": "hasstepper()"
+      },
+      "description": "Return whether there is a stepper attached to the text field.",
+      "id": "hasstepper"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "ondatechange",
+        "parameters": [
+          {
+            "type": {
+              "name": "DatePicker",
+              "id": "datepicker"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "ondatechange(self)",
+        "str": "ondatechange(self)"
+      },
+      "description": "Emitted when the selected date has been changed.",
+      "id": "ondatechange-self"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "datepicker"
+}

@@ -1,0 +1,241 @@
+{
+  "name": "AttributedText",
+  "component": "gui",
+  "header": "nativeui/gfx/attributed_text.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Text with styles.",
+  "detail": "On Windows, due to the limitations of GdiPlus, it is only supported to change\nthe whole text's color and font, i.e. the `SetFontFor` and `SetColorFor` APIs\nare unsupported.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "AttributedText",
+          "id": "attributedtext"
+        },
+        "name": "create",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "text"
+          },
+          {
+            "type": {
+              "name": "TextAttributes",
+              "id": "textattributes"
+            },
+            "name": "attributes"
+          }
+        ],
+        "shortStr": "create(text, attributes)",
+        "str": "create(text, attributes)"
+      },
+      "description": "Create an `AttributedText`.",
+      "id": "create-text-attributes"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "setformat",
+        "parameters": [
+          {
+            "type": {
+              "name": "TextFormat",
+              "id": "textformat"
+            },
+            "name": "format"
+          }
+        ],
+        "shortStr": "setformat(format)",
+        "str": "setformat(format)"
+      },
+      "description": "Overwrite styles with `format`.",
+      "id": "setformat-format"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "TextFormat",
+          "id": "textformat"
+        },
+        "name": "getformat",
+        "parameters": [],
+        "shortStr": "getformat()",
+        "str": "getformat()"
+      },
+      "description": "Return current styles.",
+      "id": "getformat"
+    },
+    {
+      "signature": {
+        "name": "setfont",
+        "parameters": [
+          {
+            "type": {
+              "name": "Font",
+              "id": "font"
+            },
+            "name": "font"
+          }
+        ],
+        "shortStr": "setfont(font)",
+        "str": "setfont(font)"
+      },
+      "description": "Set the whole text's `font`.",
+      "id": "setfont-font"
+    },
+    {
+      "signature": {
+        "name": "setfontfor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Font",
+              "id": "font"
+            },
+            "name": "font"
+          },
+          {
+            "type": {
+              "name": "integer"
+            },
+            "name": "start"
+          },
+          {
+            "type": {
+              "name": "integer"
+            },
+            "name": "end"
+          }
+        ],
+        "shortStr": "setfontfor(font, start, end)",
+        "str": "setfontfor(font, start, end)"
+      },
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "description": "Set the `font` of text between character range `[start, end)`. Passing\n`-1` as `end` means the rest of the text.\n",
+      "id": "setfontfor-font-start-end"
+    },
+    {
+      "signature": {
+        "name": "setcolor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "setcolor(color)",
+        "str": "setcolor(color)"
+      },
+      "description": "Set the whole text's `color`.",
+      "id": "setcolor-color"
+    },
+    {
+      "signature": {
+        "name": "setcolorfor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "font"
+          },
+          {
+            "type": {
+              "name": "integer"
+            },
+            "name": "start"
+          },
+          {
+            "type": {
+              "name": "integer"
+            },
+            "name": "end"
+          }
+        ],
+        "shortStr": "setcolorfor(font, start, end)",
+        "str": "setcolorfor(font, start, end)"
+      },
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "description": "Set the `color` of text between character range `[start, end)`. Passing\n`-1` as `end` means the rest of the text.\n",
+      "id": "setcolorfor-font-start-end"
+    },
+    {
+      "signature": {
+        "name": "clear",
+        "parameters": [],
+        "shortStr": "clear()",
+        "str": "clear()"
+      },
+      "description": "Reset font and color to system default.",
+      "id": "clear"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "getboundsfor",
+        "parameters": [
+          {
+            "type": {
+              "name": "SizeF",
+              "id": "sizef"
+            },
+            "name": "size"
+          }
+        ],
+        "shortStr": "getboundsfor(size)",
+        "str": "getboundsfor(size)"
+      },
+      "description": "Return the bounds required to draw the text within `size`.",
+      "id": "getboundsfor-size"
+    },
+    {
+      "signature": {
+        "name": "settext",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "text"
+          }
+        ],
+        "shortStr": "settext(text)",
+        "str": "settext(text)"
+      },
+      "description": "Change the text content.",
+      "id": "settext-text"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "string"
+        },
+        "name": "gettext",
+        "parameters": [],
+        "shortStr": "gettext()",
+        "str": "gettext()"
+      },
+      "description": "Return the plain text.",
+      "id": "gettext"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "attributedtext"
+}

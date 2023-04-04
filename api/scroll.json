@@ -1,0 +1,330 @@
+{
+  "name": "Scroll",
+  "component": "gui",
+  "header": "nativeui/scroll.h",
+  "type": "Class",
+  "namespace": "nu",
+  "inherit": {
+    "name": "View",
+    "id": "view"
+  },
+  "description": "Show a part of view with scrollbar.",
+  "detail": "The `Scroll` view can show an arbitrary content view inside it.\n\nWhen the content is larger than the `Scroll` view, scrollbars will be\noptionally showed. When the content view is smaller then the `Scroll` view,\nthe content view will be resized to the size of the `Scroll` view.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Scroll",
+          "id": "scroll"
+        },
+        "name": "create",
+        "parameters": [],
+        "shortStr": "create()",
+        "str": "create()"
+      },
+      "description": "Create a new `Scroll` view.",
+      "id": "create"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "setcontentview",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "view"
+          }
+        ],
+        "shortStr": "setcontentview(view)",
+        "str": "setcontentview(view)"
+      },
+      "description": "Set the content `view`.",
+      "id": "setcontentview-view"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "View",
+          "id": "view"
+        },
+        "name": "getcontentview",
+        "parameters": [],
+        "shortStr": "getcontentview()",
+        "str": "getcontentview()"
+      },
+      "description": "Return the content `view`.",
+      "id": "getcontentview"
+    },
+    {
+      "signature": {
+        "name": "setcontentsize",
+        "parameters": [
+          {
+            "type": {
+              "name": "SizeF",
+              "id": "sizef"
+            },
+            "name": "size"
+          }
+        ],
+        "shortStr": "setcontentsize(size)",
+        "str": "setcontentsize(size)"
+      },
+      "description": "Set the size of content view.",
+      "id": "setcontentsize-size"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "SizeF",
+          "id": "sizef"
+        },
+        "name": "getcontentsize",
+        "parameters": [],
+        "shortStr": "getcontentsize()",
+        "str": "getcontentsize()"
+      },
+      "description": "Return the size of content view.",
+      "id": "getcontentsize"
+    },
+    {
+      "signature": {
+        "name": "setscrollposition",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "horizon"
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "vertical"
+          }
+        ],
+        "shortStr": "setscrollposition(horizon, vertical)",
+        "str": "setscrollposition(horizon, vertical)"
+      },
+      "description": "Scroll to the `horizon` and `vertical` position.",
+      "id": "setscrollposition-horizon-vertical"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "args": [
+            {
+              "name": "number"
+            },
+            {
+              "name": "number"
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getscrollposition",
+        "parameters": [],
+        "shortStr": "getscrollposition()",
+        "str": "getscrollposition()"
+      },
+      "description": "Return the horizon and vertical scroll position.",
+      "id": "getscrollposition"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "args": [
+            {
+              "name": "number"
+            },
+            {
+              "name": "number"
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getmaximumscrollposition",
+        "parameters": [],
+        "shortStr": "getmaximumscrollposition()",
+        "str": "getmaximumscrollposition()"
+      },
+      "description": "Return the maximum horizon and vertical scroll position.",
+      "id": "getmaximumscrollposition"
+    },
+    {
+      "signature": {
+        "name": "setoverlayscrollbar",
+        "parameters": [
+          {
+            "type": {
+              "name": "boolean"
+            },
+            "name": "overlay"
+          }
+        ],
+        "shortStr": "setoverlayscrollbar(overlay)",
+        "str": "setoverlayscrollbar(overlay)"
+      },
+      "platform": [
+        "macOS",
+        "linux"
+      ],
+      "description": "Set whether to use overlay scrolling.",
+      "id": "setoverlayscrollbar-overlay"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "boolean"
+        },
+        "name": "isoverlayscrollbar",
+        "parameters": [],
+        "shortStr": "isoverlayscrollbar()",
+        "str": "isoverlayscrollbar()"
+      },
+      "platform": [
+        "macOS",
+        "linux"
+      ],
+      "description": "Return whether overlay scrolling is used.",
+      "id": "isoverlayscrollbar"
+    },
+    {
+      "signature": {
+        "name": "setscrollbarpolicy",
+        "parameters": [
+          {
+            "type": {
+              "name": "Scroll::Policy",
+              "id": "scroll_policy"
+            },
+            "name": "hpolicy",
+            "description": "Policy for horizontal scrollbar."
+          },
+          {
+            "type": {
+              "name": "Scroll::Policy",
+              "id": "scroll_policy"
+            },
+            "name": "vpolicy",
+            "description": "Policy for vertical scrollbar."
+          }
+        ],
+        "shortStr": "setscrollbarpolicy(hpolicy, vpolicy)",
+        "str": "setscrollbarpolicy(hpolicy, vpolicy)"
+      },
+      "description": "Set the policy for displaying horizontal and vertical scrollbars.\n",
+      "id": "setscrollbarpolicy-hpolicy-vpolicy"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "args": [
+            {
+              "name": "Scroll::Policy",
+              "id": "scroll_policy"
+            },
+            {
+              "name": "Scroll::Policy",
+              "id": "scroll_policy"
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getscrollbarpolicy",
+        "parameters": [],
+        "shortStr": "getscrollbarpolicy()",
+        "str": "getscrollbarpolicy()"
+      },
+      "description": "Return the display policy of horizontal and vertical scrollbars.\n",
+      "id": "getscrollbarpolicy"
+    },
+    {
+      "signature": {
+        "name": "setscrollelasticity",
+        "parameters": [
+          {
+            "type": {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            },
+            "name": "helasticity",
+            "description": "Horizontal scroll elasticity."
+          },
+          {
+            "type": {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            },
+            "name": "velasticity",
+            "description": "Vertical scroll elasticity."
+          }
+        ],
+        "shortStr": "setscrollelasticity(helasticity, velasticity)",
+        "str": "setscrollelasticity(helasticity, velasticity)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set horizontal and vertical scroll elasticity (bounce).\n",
+      "id": "setscrollelasticity-helasticity-velasticity"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "args": [
+            {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            },
+            {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getscrollelasticity",
+        "parameters": [],
+        "shortStr": "getscrollelasticity()",
+        "str": "getscrollelasticity()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return the horizontal and vertical scroll elasticity.\n",
+      "id": "getscrollelasticity"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "onscroll",
+        "parameters": [
+          {
+            "type": {
+              "name": "Scroll",
+              "id": "scroll"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "onscroll(self)",
+        "str": "onscroll(self)"
+      },
+      "description": "Emitted when the content view is being scrolled.",
+      "id": "onscroll-self"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "scroll"
+}

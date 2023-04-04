@@ -1,0 +1,10 @@
+{
+    "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
+    "name": "yue",
+    "words": [
+        "require%s*%(%s*(['\"])yue%1%s*%)",
+        "require%s*(['\"]yuel%1",
+        "require%s*%(%s*(['\"])yue%.%w+%1%s*%)",
+        "require%s*(['\"])yue%.%w+%1"
+    ]
+}

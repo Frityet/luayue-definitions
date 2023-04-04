@@ -1,0 +1,76 @@
+{
+  "name": "Lifetime",
+  "component": "gui",
+  "header": "nativeui/lifetime.h",
+  "type": "Class",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Application lifetime.",
+  "detail": "This class does system GUI toolkit intializations, and provides APIs around\nnative GUI toolkit's application lifetime APIs. You should not use this API\nwhen integrating Yue into existing GUI apps.\n\nWhen using this class, you must create `Lifetime` before creating `State`.\n",
+  "constructor": [
+    {
+      "signature": "Lifetime()",
+      "lang": [
+        "cpp"
+      ],
+      "description": "Create a `Lifetime` instance, you can only have one instance per thread.\n"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "onready",
+        "parameters": [],
+        "shortStr": "onready()",
+        "str": "onready()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Emitted when received `applicationDidFinishLaunching` notification.\n",
+      "id": "onready"
+    },
+    {
+      "signature": {
+        "name": "onactivate",
+        "parameters": [],
+        "shortStr": "onactivate()",
+        "str": "onactivate()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Emitted when received `applicationShouldHandleReopen` notification and\nthere is no visible windows. This usually happens when the app is\nactivated by Finder, or user clicks on the dock icon.\n",
+      "id": "onactivate"
+    }
+  ],
+  "delegates": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Lifetime::Reply",
+          "id": "lifetime_reply"
+        },
+        "name": "openfiles",
+        "parameters": [
+          {
+            "type": {
+              "name": "table"
+            },
+            "name": "files"
+          }
+        ],
+        "shortStr": "openfiles(files)",
+        "str": "openfiles(files)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Called when received message to open files.",
+      "detail": "This delegate method is usually called when the app is used to open files\nwith double clicking, or when files are dropped onto the app's dock icon.\n",
+      "id": "openfiles-files"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "lifetime"
+}

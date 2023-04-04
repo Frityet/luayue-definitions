@@ -1,0 +1,25 @@
+{
+  "name": "Vibrant::Material",
+  "platform": [
+    "macOS"
+  ],
+  "header": "nativeui/vibrant.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "The material of a `Vibrant` view.",
+  "enums": [
+    {
+      "name": "\"appearance-based\""
+    },
+    {
+      "name": "\"light\""
+    },
+    {
+      "name": "\"dark\""
+    },
+    {
+      "name": "\"titlebar\""
+    }
+  ],
+  "id": "vibrant_material"
+}

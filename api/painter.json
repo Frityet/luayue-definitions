@@ -1,0 +1,587 @@
+{
+  "name": "Painter",
+  "component": "gui",
+  "header": "nativeui/gfx/painter.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Graphic context.",
+  "detail": "The `Painter` class can not be created by user, its instance can only be recevied in drawing events or via the `<!type>Canvas` class.",
+  "methods": [
+    {
+      "signature": {
+        "name": "save",
+        "parameters": [],
+        "shortStr": "save()",
+        "str": "save()"
+      },
+      "description": "Save the entire state of the painter.",
+      "id": "save"
+    },
+    {
+      "signature": {
+        "name": "restore",
+        "parameters": [],
+        "shortStr": "restore()",
+        "str": "restore()"
+      },
+      "description": "Restore the most recently saved state.",
+      "id": "restore"
+    },
+    {
+      "signature": {
+        "name": "setblendmode",
+        "parameters": [
+          {
+            "type": {
+              "name": "BlendMode",
+              "id": "blendmode"
+            },
+            "name": "mode"
+          }
+        ],
+        "shortStr": "setblendmode(mode)",
+        "str": "setblendmode(mode)"
+      },
+      "description": "Set how sample values are composited.",
+      "detail": "On Windows only `<!enum class>Normal` and `<!enum class>Copy` are supported.\n",
+      "id": "setblendmode-mode"
+    },
+    {
+      "signature": {
+        "name": "beginpath",
+        "parameters": [],
+        "shortStr": "beginpath()",
+        "str": "beginpath()"
+      },
+      "description": "Create a new path.",
+      "id": "beginpath"
+    },
+    {
+      "signature": {
+        "name": "closepath",
+        "parameters": [],
+        "shortStr": "closepath()",
+        "str": "closepath()"
+      },
+      "description": "Close current path and move current point to the start of current path.\n\nA straight line will be drew from current point to the start.\n",
+      "id": "closepath"
+    },
+    {
+      "signature": {
+        "name": "moveto",
+        "parameters": [
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "moveto(point)",
+        "str": "moveto(point)"
+      },
+      "description": "Move current point to `point`.",
+      "id": "moveto-point"
+    },
+    {
+      "signature": {
+        "name": "lineto",
+        "parameters": [
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "lineto(point)",
+        "str": "lineto(point)"
+      },
+      "description": "Connect the last point in current path to `point` with a straight line.\n",
+      "id": "lineto-point"
+    },
+    {
+      "signature": {
+        "name": "beziercurveto",
+        "parameters": [
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "cp1"
+          },
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "cp2"
+          },
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "ep"
+          }
+        ],
+        "shortStr": "beziercurveto(cp1, cp2, ep)",
+        "str": "beziercurveto(cp1, cp2, ep)"
+      },
+      "description": "Add a cubic Bézier curve to current path.\n\nThe first two points are control points and the third one is the end\npoint. The starting point is the last point in the current path.\n",
+      "id": "beziercurveto-cp1-cp2-ep"
+    },
+    {
+      "signature": {
+        "name": "arc",
+        "parameters": [
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "point",
+            "description": "Arc's center."
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "radius",
+            "description": "Arc's radius."
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "sa",
+            "description": "The angle at which the arc starts, measured clockwise from the positive x axis and expressed in radians.\n"
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "ea",
+            "description": "The angle at which the arc ends, measured clockwise from the positive x axis and expressed in radians.\n"
+          }
+        ],
+        "shortStr": "arc(point, radius, sa, ea)",
+        "str": "arc(point, radius, sa, ea)"
+      },
+      "description": "Add an arc to the path which is centered at `point` with `radius`\nstarting at `sa` angle and ending at `ea` angle going in clockwise\ndirection.\n",
+      "id": "arc-point-radius-sa-ea"
+    },
+    {
+      "signature": {
+        "name": "rect",
+        "parameters": [
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "rect(rect)",
+        "str": "rect(rect)"
+      },
+      "description": "Add rectangle to current path.",
+      "id": "rect-rect"
+    },
+    {
+      "signature": {
+        "name": "clip",
+        "parameters": [],
+        "shortStr": "clip()",
+        "str": "clip()"
+      },
+      "description": "Add current path to clip area by intersection.",
+      "id": "clip"
+    },
+    {
+      "signature": {
+        "name": "cliprect",
+        "parameters": [
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "cliprect(rect)",
+        "str": "cliprect(rect)"
+      },
+      "description": "Add `rect` to clip area by intersection.",
+      "id": "cliprect-rect"
+    },
+    {
+      "signature": {
+        "name": "translate",
+        "parameters": [
+          {
+            "type": {
+              "name": "Vector2dF",
+              "id": "vector2df"
+            },
+            "name": "offset"
+          }
+        ],
+        "shortStr": "translate(offset)",
+        "str": "translate(offset)"
+      },
+      "description": "Add translate transformation which moves the origin by `offset`.\n",
+      "id": "translate-offset"
+    },
+    {
+      "signature": {
+        "name": "rotate",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "angle",
+            "description": "The angle to rotate clockwise in radians."
+          }
+        ],
+        "shortStr": "rotate(angle)",
+        "str": "rotate(angle)"
+      },
+      "description": "Add rotation transformation.",
+      "id": "rotate-angle"
+    },
+    {
+      "signature": {
+        "name": "scale",
+        "parameters": [
+          {
+            "type": {
+              "name": "Vector2dF",
+              "id": "vector2df"
+            },
+            "name": "scale"
+          }
+        ],
+        "shortStr": "scale(scale)",
+        "str": "scale(scale)"
+      },
+      "description": "Add scaling transformation to the painter.",
+      "id": "scale-scale"
+    },
+    {
+      "signature": {
+        "name": "setcolor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "setcolor(color)",
+        "str": "setcolor(color)"
+      },
+      "description": "Set stroke color and fill color to `color`.",
+      "id": "setcolor-color"
+    },
+    {
+      "signature": {
+        "name": "setstrokecolor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "setstrokecolor(color)",
+        "str": "setstrokecolor(color)"
+      },
+      "description": "Set the color used for shapes' outlines.",
+      "id": "setstrokecolor-color"
+    },
+    {
+      "signature": {
+        "name": "setfillcolor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "setfillcolor(color)",
+        "str": "setfillcolor(color)"
+      },
+      "description": "Set the color used when filling shapes.",
+      "id": "setfillcolor-color"
+    },
+    {
+      "signature": {
+        "name": "setlinewidth",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "width"
+          }
+        ],
+        "shortStr": "setlinewidth(width)",
+        "str": "setlinewidth(width)"
+      },
+      "description": "Set the width of lines.",
+      "id": "setlinewidth-width"
+    },
+    {
+      "signature": {
+        "name": "stroke",
+        "parameters": [],
+        "shortStr": "stroke()",
+        "str": "stroke()"
+      },
+      "description": "Draw current path by stroking its outline.",
+      "id": "stroke"
+    },
+    {
+      "signature": {
+        "name": "fill",
+        "parameters": [],
+        "shortStr": "fill()",
+        "str": "fill()"
+      },
+      "description": "Draw a solid shape by filling current path's content area.",
+      "id": "fill"
+    },
+    {
+      "signature": {
+        "name": "clear",
+        "parameters": [],
+        "shortStr": "clear()",
+        "str": "clear()"
+      },
+      "description": "Fill the whole area with transparent color.",
+      "id": "clear"
+    },
+    {
+      "signature": {
+        "name": "strokerect",
+        "parameters": [
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "strokerect(rect)",
+        "str": "strokerect(rect)"
+      },
+      "description": "Draw a rectangular outline.",
+      "id": "strokerect-rect"
+    },
+    {
+      "signature": {
+        "name": "fillrect",
+        "parameters": [
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "fillrect(rect)",
+        "str": "fillrect(rect)"
+      },
+      "description": "Draw a filled rectangle.",
+      "id": "fillrect-rect"
+    },
+    {
+      "signature": {
+        "name": "drawimage",
+        "parameters": [
+          {
+            "type": {
+              "name": "Image",
+              "id": "image"
+            },
+            "name": "image"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "drawimage(image, rect)",
+        "str": "drawimage(image, rect)"
+      },
+      "description": "Draw scaled `image` to fit `rect`.",
+      "id": "drawimage-image-rect"
+    },
+    {
+      "signature": {
+        "name": "drawimagefromrect",
+        "parameters": [
+          {
+            "type": {
+              "name": "Image",
+              "id": "image"
+            },
+            "name": "image"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "src"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "dest"
+          }
+        ],
+        "shortStr": "drawimagefromrect(image, src, dest)",
+        "str": "drawimagefromrect(image, src, dest)"
+      },
+      "description": "Draw the specified portion of `image` at `src` to fit `rect`.",
+      "id": "drawimagefromrect-image-src-dest"
+    },
+    {
+      "signature": {
+        "name": "drawcanvas",
+        "parameters": [
+          {
+            "type": {
+              "name": "Canvas",
+              "id": "canvas"
+            },
+            "name": "canvas"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "drawcanvas(canvas, rect)",
+        "str": "drawcanvas(canvas, rect)"
+      },
+      "description": "Draw scaled `canvas` to fit `rect`.",
+      "id": "drawcanvas-canvas-rect"
+    },
+    {
+      "signature": {
+        "name": "drawcanvasfromrect",
+        "parameters": [
+          {
+            "type": {
+              "name": "Canvas",
+              "id": "canvas"
+            },
+            "name": "canvas"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "src"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "dest"
+          }
+        ],
+        "shortStr": "drawcanvasfromrect(canvas, src, dest)",
+        "str": "drawcanvasfromrect(canvas, src, dest)"
+      },
+      "description": "Draw the specified portion of `canvas` at `src` to fit `rect`.",
+      "id": "drawcanvasfromrect-canvas-src-dest"
+    },
+    {
+      "signature": {
+        "name": "drawattributedtext",
+        "parameters": [
+          {
+            "type": {
+              "name": "AttributedText",
+              "id": "attributedtext"
+            },
+            "name": "text"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "drawattributedtext(text, rect)",
+        "str": "drawattributedtext(text, rect)"
+      },
+      "description": "Draw `text` bounded by `rect`.",
+      "id": "drawattributedtext-text-rect"
+    },
+    {
+      "signature": {
+        "name": "drawtext",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "text"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          },
+          {
+            "type": {
+              "name": "TextAttributes",
+              "id": "textattributes"
+            },
+            "name": "attributes"
+          }
+        ],
+        "shortStr": "drawtext(text, rect, attributes)",
+        "str": "drawtext(text, rect, attributes)"
+      },
+      "description": "Draw `text` with `attributes` bounded by `rect`.",
+      "id": "drawtext-text-rect-attributes"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "painter"
+}

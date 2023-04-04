@@ -1,0 +1,16 @@
+{
+  "name": "Font::Style",
+  "header": "nativeui/gfx/font.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Represent font styles.",
+  "enums": [
+    {
+      "name": "\"normal\""
+    },
+    {
+      "name": "\"italic\""
+    }
+  ],
+  "id": "font_style"
+}

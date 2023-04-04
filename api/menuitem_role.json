@@ -1,0 +1,66 @@
+{
+  "name": "MenuItem::Role",
+  "header": "nativeui/menu_item.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Preset defaults for common menu items.",
+  "detail": "For common menu items like `Copy` and `Paste`, manually implementing them for\nall platforms is very boring work. You can instead specify a `role` for a menu\nitem, and Yue will automatically set labels, accelerators and actions for the\nmenu item.\n",
+  "enums": [
+    {
+      "name": "\"copy\""
+    },
+    {
+      "name": "\"cut\""
+    },
+    {
+      "name": "\"paste\""
+    },
+    {
+      "name": "\"select-all\""
+    },
+    {
+      "name": "\"undo\""
+    },
+    {
+      "name": "\"redo\""
+    },
+    {
+      "name": "\"minimize\""
+    },
+    {
+      "name": "\"maximize\""
+    },
+    {
+      "name": "\"close-window\""
+    },
+    {
+      "name": "\"about\"",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "\"hide\"",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "\"hide-others\"",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "\"unhide\"",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "\"help\"",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "\"window\"",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "\"services\"",
+      "description": "Only available on macOS."
+    }
+  ],
+  "id": "menuitem_role"
+}

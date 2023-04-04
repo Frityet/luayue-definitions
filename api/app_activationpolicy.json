@@ -1,0 +1,25 @@
+{
+  "name": "App::ActivationPolicy",
+  "platform": [
+    "macOS"
+  ],
+  "header": "nativeui/app.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Activation policies that control how the app is activated.",
+  "enums": [
+    {
+      "name": "\"regular\"",
+      "description": "The application is an ordinary app that appears in the Dock and may have\na user interface.\n"
+    },
+    {
+      "name": "\"accessory\"",
+      "description": "The application does not appear in the Dock and does not have a menu bar,\nbut it may be activated programmatically or by clicking on one of its\nwindows.\n"
+    },
+    {
+      "name": "\"prohibited\"",
+      "description": "The application does not appear in the Dock and may not create windows or\nbe activated.\n"
+    }
+  ],
+  "id": "app_activationpolicy"
+}

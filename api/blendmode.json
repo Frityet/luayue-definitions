@@ -1,0 +1,85 @@
+{
+  "name": "BlendMode",
+  "header": "nativeui/painter.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Compositing operations.",
+  "enums": [
+    {
+      "name": "\"normal\""
+    },
+    {
+      "name": "\"multiply\""
+    },
+    {
+      "name": "\"screen\""
+    },
+    {
+      "name": "\"overlay\""
+    },
+    {
+      "name": "\"darken\""
+    },
+    {
+      "name": "\"lighten\""
+    },
+    {
+      "name": "\"color-dodge\""
+    },
+    {
+      "name": "\"color-burn\""
+    },
+    {
+      "name": "\"soft-light\""
+    },
+    {
+      "name": "\"hard-light\""
+    },
+    {
+      "name": "\"difference\""
+    },
+    {
+      "name": "\"exclusion\""
+    },
+    {
+      "name": "\"hue\""
+    },
+    {
+      "name": "\"saturation\""
+    },
+    {
+      "name": "\"color\""
+    },
+    {
+      "name": "\"luminosity\""
+    },
+    {
+      "name": "\"clear\""
+    },
+    {
+      "name": "\"copy\""
+    },
+    {
+      "name": "\"source-in\""
+    },
+    {
+      "name": "\"source-out\""
+    },
+    {
+      "name": "\"source-atop\""
+    },
+    {
+      "name": "\"destination-over\""
+    },
+    {
+      "name": "\"destination-in\""
+    },
+    {
+      "name": "\"destination-atop\""
+    },
+    {
+      "name": "\"xor\""
+    }
+  ],
+  "id": "blendmode"
+}

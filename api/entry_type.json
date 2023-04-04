@@ -1,0 +1,16 @@
+{
+  "name": "Entry::Type",
+  "header": "nativeui/entry.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Represent possible `Entry` types.",
+  "enums": [
+    {
+      "name": "\"normal\""
+    },
+    {
+      "name": "\"password\""
+    }
+  ],
+  "id": "entry_type"
+}

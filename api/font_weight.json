@@ -1,0 +1,37 @@
+{
+  "name": "Font::Weight",
+  "header": "nativeui/gfx/font.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Represent font weights.",
+  "enums": [
+    {
+      "name": "\"thin\""
+    },
+    {
+      "name": "\"extra-light\""
+    },
+    {
+      "name": "\"light\""
+    },
+    {
+      "name": "\"normal\""
+    },
+    {
+      "name": "\"medium\""
+    },
+    {
+      "name": "\"semi-bold\""
+    },
+    {
+      "name": "\"bold\""
+    },
+    {
+      "name": "\"extra-bold\""
+    },
+    {
+      "name": "\"black\""
+    }
+  ],
+  "id": "font_weight"
+}

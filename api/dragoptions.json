@@ -1,0 +1,19 @@
+{
+  "name": "DragOptions",
+  "header": "nativeui/dragging_info.h",
+  "type": "table",
+  "namespace": "nu",
+  "description": "Options for starting a drag operation.",
+  "properties": [
+    {
+      "description": "The image that will show under cursor when dragging.",
+      "id": "image",
+      "type": {
+        "name": "Image",
+        "id": "image"
+      },
+      "name": "image"
+    }
+  ],
+  "id": "dragoptions"
+}

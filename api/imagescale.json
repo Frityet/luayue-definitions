@@ -1,0 +1,26 @@
+{
+  "name": "ImageScale",
+  "header": "nativeui/standard_enums.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Image scaling behaviors.",
+  "enums": [
+    {
+      "name": "\"none\"",
+      "description": "The image is not scaled."
+    },
+    {
+      "name": "\"fill\"",
+      "description": "Scale each dimension to exactly fit destination, the aspect ratio of the\nimage is no preserved.\n"
+    },
+    {
+      "name": "\"down\"",
+      "description": "If it is too large for the destination, scale the image down while\npreserving the aspect ratio.\n"
+    },
+    {
+      "name": "\"up-or-down\"",
+      "description": "Scale the image to its maximum possible dimensions while both staying\nwithin the destination area and preserving its aspect ratio.\n"
+    }
+  ],
+  "id": "imagescale"
+}

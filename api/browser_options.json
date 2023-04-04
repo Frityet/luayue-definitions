@@ -1,0 +1,69 @@
+{
+  "name": "Browser::Options",
+  "header": "nativeui/browser.h",
+  "type": "table",
+  "namespace": "nu",
+  "description": "Options for creating browser.",
+  "properties": [
+    {
+      "optional": true,
+      "description": "Whether the browser can show devtools, default is `false`.",
+      "detail": "Depending on platform, the option to show devtools is usually in the\ncontext menu, so you should also enable builtin context menu when using\nthis option.\n\nThis option is not working on Windows when IE is used as backend.\n",
+      "id": "devtools",
+      "type": {
+        "name": "boolean"
+      },
+      "name": "devtools"
+    },
+    {
+      "optional": true,
+      "description": "Whether to use builtin context menu, default is `false`.",
+      "detail": "On macOS due to the limitation of system APIs, right-clicking certain\nelements would still popup a menu with Services items.\n",
+      "id": "contextmenu",
+      "type": {
+        "name": "boolean"
+      },
+      "name": "contextmenu"
+    },
+    {
+      "optional": true,
+      "description": "Whether file access is allowed from file URLs, default is `false`.",
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "detail": "By default, when something is loaded in using a file URI, cross origin\nrequests to other file resources are not allowed. This setting allows\nyou to change that behaviour, so that it would be possible to do a\n`XMLHttpRequest` of a local file, for example.\n",
+      "id": "allowfileaccessfromfiles",
+      "type": {
+        "name": "boolean"
+      },
+      "name": "allowfileaccessfromfiles"
+    },
+    {
+      "optional": true,
+      "description": "Whether to enable hardware acceleration, default is `true`.",
+      "platform": [
+        "Linux"
+      ],
+      "id": "hardwareacceleration",
+      "type": {
+        "name": "boolean"
+      },
+      "name": "hardwareacceleration"
+    },
+    {
+      "optional": true,
+      "description": "Whether to use WebView2 as backend, default is `false`.",
+      "platform": [
+        "Windows"
+      ],
+      "detail": "Please read [WebView2 support](./browser.html#webview2-support) for more\ninformation.\n",
+      "id": "webview2support",
+      "type": {
+        "name": "boolean"
+      },
+      "name": "webview2support"
+    }
+  ],
+  "id": "browser_options"
+}

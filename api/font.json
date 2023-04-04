@@ -1,0 +1,186 @@
+{
+  "name": "Font",
+  "component": "gui",
+  "header": "nativeui/gfx/font.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Native font.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Font",
+          "id": "font"
+        },
+        "name": "default",
+        "parameters": [],
+        "shortStr": "default()",
+        "str": "default()"
+      },
+      "description": "Return the default font used for displaying text.",
+      "id": "default"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Font",
+          "id": "font"
+        },
+        "name": "create",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "name"
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "size"
+          },
+          {
+            "type": {
+              "name": "Font::Weight",
+              "id": "font_weight"
+            },
+            "name": "weight"
+          },
+          {
+            "type": {
+              "name": "Font::Style",
+              "id": "font_style"
+            },
+            "name": "style"
+          }
+        ],
+        "shortStr": "create(name, size, weight, style)",
+        "str": "create(name, size, weight, style)"
+      },
+      "description": "Create a Font implementation with the specified `name`, DIP `size`,\n`weight` and `style`.\n",
+      "id": "create-name-size-weight-style"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Font",
+          "id": "font"
+        },
+        "name": "createfrompath",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "path"
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "size"
+          }
+        ],
+        "shortStr": "createfrompath(path, size)",
+        "str": "createfrompath(path, size)"
+      },
+      "description": "Create a Font by reading from |path|. If the font file contains multiple\nfamilies or weights, only the first encountered font will be used.\n",
+      "id": "createfrompath-path-size"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Font",
+          "id": "font"
+        },
+        "name": "derive",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "sizedelta"
+          },
+          {
+            "type": {
+              "name": "Font::Weight",
+              "id": "font_weight"
+            },
+            "name": "weight"
+          },
+          {
+            "type": {
+              "name": "Font::Style",
+              "id": "font_style"
+            },
+            "name": "style"
+          }
+        ],
+        "shortStr": "derive(sizedelta, weight, style)",
+        "str": "derive(sizedelta, weight, style)"
+      },
+      "description": "Returns a new Font derived from the existing font.",
+      "detail": "The `size_delta` is the size in DIP to add to the current font.",
+      "id": "derive-sizedelta-weight-style"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "string"
+        },
+        "name": "getname",
+        "parameters": [],
+        "shortStr": "getname()",
+        "str": "getname()"
+      },
+      "description": "Return font's family name.",
+      "id": "getname"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "number"
+        },
+        "name": "getsize",
+        "parameters": [],
+        "shortStr": "getsize()",
+        "str": "getsize()"
+      },
+      "description": "Return font's DIP size.",
+      "id": "getsize"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Font::Weight",
+          "id": "font_weight"
+        },
+        "name": "getweight",
+        "parameters": [],
+        "shortStr": "getweight()",
+        "str": "getweight()"
+      },
+      "description": "Return the font weight.",
+      "id": "getweight"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Font::Style",
+          "id": "font_style"
+        },
+        "name": "getstyle",
+        "parameters": [],
+        "shortStr": "getstyle()",
+        "str": "getstyle()"
+      },
+      "description": "Return the font style.",
+      "id": "getstyle"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "font"
+}

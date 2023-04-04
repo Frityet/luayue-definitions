@@ -1,0 +1,11 @@
+{
+    "Lua.diagnostics.globals": [
+        "lfs"
+    ],
+    "Lua.workspace.library": [
+        "/usr/local/share/lua/5.4/",
+        "/usr/local/share/lua/5.1/",
+        "/usr/local/lib/lua/5.1/",
+        "${3rd}/lfs/library"
+    ]
+}
