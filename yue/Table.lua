@@ -1,6 +1,14 @@
 ---@meta
 
----Table view.
+--[[
+Table view.
+The `Table` does not store any data itself, to display data in `Table`, users
+have to provide a `<!type>TableModel`.
+
+How data are renderered depends on the type of column. It is also possible to
+create a custom renderer for arbitrary data.
+
+]]
 ---@class Table : View
 local Table = {}
 ---Create a new `Table`.

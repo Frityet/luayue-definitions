@@ -1,6 +1,8 @@
 ---@meta
 
----Base class of Window and View for event processing.
+--[[
+Base class of Window and View for event processing.
+]]
 ---@class Responder
 ---@field onmousedown fun(self: Responder, event: MouseEvent): boolean Emitted when pressing mouse buttons.
 ---@field onmouseup fun(self: Responder, event: MouseEvent): boolean Emitted when releasing mouse buttons.

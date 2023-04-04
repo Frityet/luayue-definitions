@@ -1,6 +1,11 @@
 ---@meta
 
----Connect and emit events.
+--[[
+Connect and emit events.
+
+This class implements the signal/slot pattern, which is used as event type.
+
+]]
 ---@class Signal
 local Signal = {}
 ---Connect `slot` to the signal, and return an ID that can be used to disconnect it.  The signature of `slot` must match the event's type. 

@@ -1,6 +1,8 @@
 ---@meta
 
----The data passed in `<!name>on_toast_activate` event.
+--[[
+The data passed in `<!name>on_toast_activate` event.
+]]
 ---@class NotificationCenter.InputData
 ---@field key string 
 ---@field value string 

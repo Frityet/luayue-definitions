@@ -1,6 +1,14 @@
 ---@meta
 
----Show a part of view with scrollbar.
+--[[
+Show a part of view with scrollbar.
+The `Scroll` view can show an arbitrary content view inside it.
+
+When the content is larger than the `Scroll` view, scrollbars will be
+optionally showed. When the content view is smaller then the `Scroll` view,
+the content view will be resized to the size of the `Scroll` view.
+
+]]
 ---@class Scroll : View
 ---@field onscroll fun(self: Scroll): nil Emitted when the content view is being scrolled.
 local Scroll = {}

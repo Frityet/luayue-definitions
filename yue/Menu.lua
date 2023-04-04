@@ -1,6 +1,8 @@
 ---@meta
 
----Popup menu.
+--[[
+Popup menu.
+]]
 ---@class Menu : MenuBase
 local Menu = {}
 ---Create a popup menu.

@@ -1,6 +1,16 @@
 ---@meta
 
----Tray item displayed in system notification area.
+--[[
+Tray item displayed in system notification area.
+Platform limitations:
+
+* On Linux tray items are displayed as app indicators.
+* On Linux there is no fallback when app indicators are not supported.
+* On Linux app indicator can only show when it has menu attached.
+* On Windows you have to explicitly remove the tray item on exit, otherwise
+  a zombie icon would be left.
+
+]]
 ---@class Tray
 ---@field onclick fun(self: Tray): nil Emitted when the tray item is clicked.
 local Tray = {}

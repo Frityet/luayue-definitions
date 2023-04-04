@@ -1,6 +1,8 @@
 ---@meta
 
----Represent an item of `Toolbar`.
+--[[
+Represent an item of `Toolbar`.
+]]
 ---@class Toolbar.Item
 ---@field label string Item's label.
 ---@field minsize SizeF Item's minimum size.

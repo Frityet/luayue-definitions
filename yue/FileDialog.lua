@@ -1,6 +1,8 @@
 ---@meta
 
----Base class for file dialogs.
+--[[
+Base class for file dialogs.
+]]
 ---@class FileDialog
 local FileDialog = {}
 ---Return the chosen item in dialog.

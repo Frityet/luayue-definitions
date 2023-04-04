@@ -1,6 +1,17 @@
 ---@meta
 
----Application class.
+--[[
+Application class.
+This class represents current app and provides app wide APIs.
+
+This class can not be created by user, you can only receive its global
+instance from the `app` property of the module:
+
+```lua
+gui.app:getapplicationmenu()
+```
+
+]]
 ---@class App
 local App = {}
 ---Set the name of current app.

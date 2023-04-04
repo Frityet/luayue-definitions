@@ -1,6 +1,14 @@
 ---@meta
 
----Base class for models of Table.
+--[[
+Base class for models of Table.
+
+For simple use cases, the `<!type>SimpleTableModel` can be used.
+
+For implementing a custom `TableModel`, please see
+`<!type>AbstractTableModel`.
+
+]]
 ---@class TableModel
 local TableModel = {}
 ---Return how many rows are in the model.

@@ -1,6 +1,8 @@
 ---@meta
 
----Native font.
+--[[
+Native font.
+]]
 ---@class Font
 local Font = {}
 ---Return the default font used for displaying text.

@@ -1,6 +1,8 @@
 ---@meta
 
----Native button, can also be used as checkbox and radio button.
+--[[
+Native button, can also be used as checkbox and radio button.
+]]
 ---@class Button : View
 ---@field onclick fun(self: Button): nil Emitted when button is clicked.
 local Button = {}

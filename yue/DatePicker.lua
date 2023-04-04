@@ -1,6 +1,8 @@
 ---@meta
 
----A view displays date and time with editing ability.
+--[[
+A view displays date and time with editing ability.
+]]
 ---@class DatePicker : View
 ---@field ondatechange fun(self: DatePicker): nil Emitted when the selected date has been changed.
 local DatePicker = {}

@@ -1,6 +1,8 @@
 ---@meta
 
----Multipage view with tabs.
+--[[
+Multipage view with tabs.
+]]
 ---@class Tab : View
 ---@field onselectedpagechange fun(self: Tab): nil Emitted when user has changed the selected page.
 local Tab = {}

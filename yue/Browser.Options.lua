@@ -1,6 +1,8 @@
 ---@meta
 
----Options for creating browser.
+--[[
+Options for creating browser.
+]]
 ---@class Browser.Options
 ---@field devtools boolean Whether the browser can show devtools, default is `false`.
 ---@field contextmenu boolean Whether to use builtin context menu, default is `false`.

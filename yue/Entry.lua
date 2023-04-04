@@ -1,6 +1,8 @@
 ---@meta
 
----Single-line text input view.
+--[[
+Single-line text input view.
+]]
 ---@class Entry : View
 ---@field ontextchange fun(self: Entry): nil Emitted when user has changed text.
 ---@field onactivate fun(self: Entry): nil Emitted when user has pressed <kbd>Enter</kbd> in the view.

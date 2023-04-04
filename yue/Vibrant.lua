@@ -1,6 +1,14 @@
 ---@meta
 
----Translucency view.
+--[[
+Translucency view.
+This view is only implemented for macOS by wrapping
+[`NSVisualEffectView`](https://developer.apple.com/documentation/appkit/nsvisualeffectview).
+
+It is not possible to draw on this view, to display content on it you have to
+add the content as child view.
+
+]]
 ---@class Vibrant : Container
 local Vibrant = {}
 ---Create a new `Vibrant` view.

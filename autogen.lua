@@ -10,6 +10,13 @@
 local json = require("json")
 local lfs = require("lfs")
 
+--[[
+These are more docs
+
+```lua
+self:is_a("code block")
+```
+]]
 ---@class APIDefinition.Type
 ---@field name string
 ---@field id string?
@@ -147,11 +154,7 @@ local function generate_cats_defintion(api, to)
             return
         end
 
-        -- First, the description, we must remove the newlines from the description
-        api.description = api.description:gsub("\r\n", " "):gsub("\r", " "):gsub("\n", " ")
-        wl("---", api.description)
-
-
+        wl("--[[\n", api.description, (api.detail and "\n"..api.detail or ""), "\n]]")
         if api.name:find("%.") then
             local class, sub = api.name:match("(.+)%.(.+)")
             wl("---@class ", class, ".", sub, (api.inherit and " : "..api.inherit.name or ""))

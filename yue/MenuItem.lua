@@ -1,6 +1,8 @@
 ---@meta
 
----Menu item.
+--[[
+Menu item.
+]]
 ---@class MenuItem
 ---@field onclick fun(self: MenuItem): nil Emitted when item is clicked.
 ---@field validate fun(self: MenuItem): boolean Called before the item shows or activates, should return whether the item is enabled. 

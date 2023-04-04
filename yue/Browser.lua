@@ -1,6 +1,39 @@
 ---@meta
 
----Native webview using system browser.
+--[[
+Native webview using system browser.
+Using `Browser` requires relatively new operating systems, for macOS the
+minimum version required is 10.10, for Linux it is required to install the
+`webkit2gtk` library with at least version 2.8.
+
+On Windows the latest version of IE installed would be used by default.
+
+On Linux due to poor support of hardware acceleration, the browser may fail to
+show anything, in that case you may want to disable hardware acceleration.
+
+## WebView2 support
+
+On Windows there is support for using
+[WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) as
+browser backend, to enable it, you need to:
+
+1. Set the `<!name>webview2_support` option to `true`.
+2. Ship the `WebView2Loader.dll` file together with your program.
+3. Have users install Edge Beta/Dev/Canary or
+[WebView2 Runtime](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution)
+on their machines.
+
+There are also a few things to notice:
+1. When WebView2 failed to initialize for any reason, the browser will
+fallback to use IE as backend quietly.
+2. If you don't use WebView2, it is safe to remove the `WebView2Loader.dll`
+file.
+3. WebView2 can not use stable channels of Edge, it will search channels in
+the order of WebView2 Runtime, Beta, Dev, and Canary.
+4. Some `Browser` APIs are not implemented with WebView2 backend, due to lack
+of APIs in WebView2.
+
+]]
 ---@class Browser : View
 ---@field onclose fun(self: Browser): nil Emitted when the web page requests to close.
 ---@field onupdatecommand fun(self: Browser): nil Emitted when the back-forward list has changed.

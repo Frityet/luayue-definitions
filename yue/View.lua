@@ -1,6 +1,10 @@
 ---@meta
 
----Base class for GUI components.
+--[[
+Base class for GUI components.
+`View` provides methods to receive and change various style properties.
+
+]]
 ---@class View : Responder
 ---@field ondragleave fun(self: View, info: DraggingInfo): nil Emitted when cursor leaves the view while dragging.
 ---@field onsizechanged fun(self: View): nil Emitted when the view's size has been changed.

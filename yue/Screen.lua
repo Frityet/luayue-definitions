@@ -1,6 +1,16 @@
 ---@meta
 
----Receive information about system’s monitor or screen.
+--[[
+Receive information about system’s monitor or screen.
+
+This class can not be created by user, you can only receive its global
+instance from the `screen` property of the module:
+
+```lua
+gui.screen:getprimarydisplay()
+```
+
+]]
 ---@class Screen
 ---@field onadddisplay fun(display: Display): nil Emitted when a new `display` is available.
 ---@field onremovedisplay fun(display: Display): nil Emitted when the `display` has been removed.

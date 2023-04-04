@@ -1,6 +1,8 @@
 ---@meta
 
----A horizontal or vertical line.
+--[[
+A horizontal or vertical line.
+]]
 ---@class Separator : View
 local Separator = {}
 ---Create a new `Separator` with `orientation`.

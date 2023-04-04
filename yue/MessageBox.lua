@@ -1,6 +1,8 @@
 ---@meta
 
----A window showing some text and buttons.
+--[[
+A window showing some text and buttons.
+]]
 ---@class MessageBox
 ---@field onresponse fun(self: MessageBox, response: integer): nil Emitted when the message box is closed.
 local MessageBox = {}

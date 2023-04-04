@@ -1,6 +1,8 @@
 ---@meta
 
----Native window.
+--[[
+Native window.
+]]
 ---@class Window : Responder
 ---@field onclose fun(self: Window): nil Emitted when the window is closed.
 ---@field onfocus fun(self: Window): nil Emitted when the window is focused.

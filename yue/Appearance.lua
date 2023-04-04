@@ -1,6 +1,16 @@
 ---@meta
 
----Information about user's appearance preferences.
+--[[
+Information about user's appearance preferences.
+
+This class can not be created by user, you can only receive its global
+instance from the `appearance` property of the module:
+
+```lua
+gui.appearance:isdarkscheme()
+```
+
+]]
 ---@class Appearance
 ---@field oncolorschemechange fun(): nil Emitted when user has changed system color scheme preferences.
 local Appearance = {}

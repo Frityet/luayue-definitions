@@ -1,6 +1,8 @@
 ---@meta
 
----Display text.
+--[[
+Display text.
+]]
 ---@class Label : View
 local Label = {}
 ---Create a new `Label` with `text`.

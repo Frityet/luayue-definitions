@@ -1,6 +1,8 @@
 ---@meta
 
----Native cursor.
+--[[
+Native cursor.
+]]
 ---@class Cursor
 local Cursor = {}
 ---Create a cursor of `type`.

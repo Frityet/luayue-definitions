@@ -1,6 +1,8 @@
 ---@meta
 
----Options for columns of Table.
+--[[
+Options for columns of Table.
+]]
 ---@class Table.ColumnOptions
 ---@field type Table::ColumnType The `type` of column, which decides how table cells are rendered.
 ---@field ondraw function If the `type` is `Custom`, this function will be used for renderering table cells under the column. 
