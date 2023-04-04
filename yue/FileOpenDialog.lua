@@ -9,6 +9,6 @@ function FileOpenDialog.create() end
 
 ---Return the chosen items in dialog.
 ---@return table
-function FileOpenDialog.getresults() end
+function FileOpenDialog:getresults() end
 
 return FileOpenDialog

@@ -11,19 +11,19 @@ function Group.create(title) end
 ---Set the content view.
 ---@param view Container
 ---@return nil
-function Group.setcontentview(view) end
+function Group:setcontentview(view) end
 
 ---Return the content view.
 ---@return Container
-function Group.getcontentview() end
+function Group:getcontentview() end
 
 ---Set the title.
 ---@param title string
 ---@return nil
-function Group.settitle(title) end
+function Group:settitle(title) end
 
 ---Return the title.
 ---@return string
-function Group.gettitle() end
+function Group:gettitle() end
 
 return Group

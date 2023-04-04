@@ -10,10 +10,10 @@ function ComboBox.create() end
 ---Change the text in the view.
 ---@param text string
 ---@return nil
-function ComboBox.settext(text) end
+function ComboBox:settext(text) end
 
 ---Return currently displayed text.
 ---@return string
-function ComboBox.gettext() end
+function ComboBox:gettext() end
 
 return ComboBox

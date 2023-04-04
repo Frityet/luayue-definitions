@@ -163,7 +163,7 @@ local function generate_cats_defintion(api, to)
 
         if api.methods then
             for _, method in ipairs(api.methods) do
-                generate_method(wl, method, api.name, true)
+                generate_method(wl, method, api.name, false)
                 nl()
                 yield()
             end
