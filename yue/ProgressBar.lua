@@ -3,22 +3,26 @@
 ---Horizontal bar showing progress.
 ---@class ProgressBar : View
 local ProgressBar = {}
+---Create a new `ProgressBar`.
+---@return ProgressBar
+function ProgressBar.create() end
+
 ---Set the percent value between `0` and `100.0`.
 ---@param percent number
 ---@return nil
-function ProgressBar:setvalue(percent) end
+function ProgressBar.setvalue(percent) end
 
 ---Return the percent value between `0` and `100.0`.
 ---@return number
-function ProgressBar:getvalue() end
+function ProgressBar.getvalue() end
 
 ---Set whether the progress bar is indeterminate.
 ---@param indeterminate boolean
 ---@return nil
-function ProgressBar:setindeterminate(indeterminate) end
+function ProgressBar.setindeterminate(indeterminate) end
 
 ---Return whether the progress bar is indeterminate.
 ---@return boolean
-function ProgressBar:isindeterminate() end
+function ProgressBar.isindeterminate() end
 
 return ProgressBar

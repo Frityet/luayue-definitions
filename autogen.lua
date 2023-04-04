@@ -61,8 +61,11 @@ end
 ---@param wl fun(...)
 ---@param method APIDefinition.MethodSignature
 ---@param apiname string
-local function generate_method(wl, method, apiname)
+---@param class_method boolean
+local function generate_method(wl, method, apiname, class_method)
     print("Generating method definition for "..method.id..":"..method.signature.name.." in "..apiname)
+
+    local sep = class_method and "." or ":"
     local sig = method.signature
     local params = {}
     for _, param in ipairs(sig.parameters) do
@@ -86,7 +89,7 @@ local function generate_method(wl, method, apiname)
         params[#params+1] = param.name
     end
     params_str = table.concat(params, ", ")
-    wl("function ", apiname, ":", sig.name, "(", params_str, ") end")
+    wl("function ", apiname, sep, sig.name, "(", params_str, ") end")
 end
 
 ---Generates standard LuaLanguageServer (CATS) annotations for the libyue library
@@ -150,9 +153,17 @@ local function generate_cats_defintion(api, to)
         end
         yield()
 
+        if api.class_methods then
+            for _, method in ipairs(api.class_methods) do
+                generate_method(wl, method, api.name, true)
+                nl()
+                yield()
+            end
+        end
+
         if api.methods then
             for _, method in ipairs(api.methods) do
-                generate_method(wl, method, api.name)
+                generate_method(wl, method, api.name, true)
                 nl()
                 yield()
             end
