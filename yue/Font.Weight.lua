@@ -1,0 +1,12 @@
+---@meta
+
+---@alias Font.Weight
+---| "thin"
+---| "extra-light"
+---| "light"
+---| "normal"
+---| "medium"
+---| "semi-bold"
+---| "bold"
+---| "extra-bold"
+---| "black"
