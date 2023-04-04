@@ -65,4 +65,9 @@ function Scroll:setscrollelasticity(helasticity, velasticity) end
 ---@return std::tuple
 function Scroll:getscrollelasticity() end
 
+---Emitted when the content view is being scrolled.
+---@param self Scroll
+---@return nil
+function Scroll:onscroll(self) end
+
 return Scroll

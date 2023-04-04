@@ -76,4 +76,14 @@ function MenuItem:setimage(image) end
 ---@return Image
 function MenuItem:getimage() end
 
+---Emitted when item is clicked.
+---@param self MenuItem
+---@return nil
+function MenuItem:onclick(self) end
+
+---Called before the item shows or activates, should return whether the item is enabled. 
+---@param self MenuItem
+---@return boolean
+function MenuItem:validate(self) end
+
 return MenuItem

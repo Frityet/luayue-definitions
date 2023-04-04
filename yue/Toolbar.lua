@@ -41,4 +41,9 @@ function Toolbar:isvisible() end
 ---@return string
 function Toolbar:getidentifier() end
 
+---Called lazily when the toolbar is going to get the item with `identifier`.  You should not cache the item to be returned. 
+---@param toolbar Toolbar, identifier string
+---@return Toolbar::Item
+function Toolbar:getitem(toolbar, identifier) end
+
 return Toolbar

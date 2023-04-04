@@ -255,4 +255,24 @@ function Window:removechildwindow(child) end
 ---@return table
 function Window:getchildwindows() end
 
+---Emitted when the window is closed.
+---@param self Window
+---@return nil
+function Window:onclose(self) end
+
+---Emitted when the window is focused.
+---@param self Window
+---@return nil
+function Window:onfocus(self) end
+
+---Emitted when the window lost focus.
+---@param self Window
+---@return nil
+function Window:onblur(self) end
+
+---Called when user requests to close the window, should return whether the window can be closed. 
+---@param self Window
+---@return boolean
+function Window:shouldclose(self) end
+
 return Window

@@ -45,4 +45,9 @@ function Container:childcount() end
 ---@return View
 function Container:childat(index) end
 
+---Emitted when button the operating system or application requests to draw a portion of the view. 
+---@param self Container, painter Painter, dirty RectF
+---@return nil
+function Container:ondraw(self, painter, dirty) end
+
 return Container

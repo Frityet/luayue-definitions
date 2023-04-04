@@ -169,6 +169,22 @@ local function generate_cats_defintion(api, to)
             end
         end
 
+        if api.events then
+            for _, event in ipairs(api.events) do
+                generate_method(wl, event, api.name, false)
+                nl()
+                yield()
+            end
+        end
+
+        if api.delegates then
+            for _, delegate in ipairs(api.delegates) do
+                generate_method(wl, delegate, api.name, false)
+                nl()
+                yield()
+            end
+        end
+
         wl("return ", api.name)
         return true
     end)
@@ -210,7 +226,7 @@ for _, api in ipairs(apis) do
 end
 
 local done = false
-repeat
+while not done do
     for i = 1, #threads do
         coroutine.resume(threads[i])
         if coroutine.status(threads[i]) == "dead" then
@@ -219,7 +235,7 @@ repeat
         end
     end
     if #threads == 0 then done = true end
-until done
+end
 
 --Generate the last yue/gui.lua file, which will require all the other files and return the yue module
 local f = io.open(cwd.."/yue/gui.lua", "w+")
@@ -228,7 +244,7 @@ if not f then error("Failed to open "..cwd.."/yue/gui.lua") end
 f:write("---@meta\n")
 f:write("---@class yue.gui\n")
 for _, api in ipairs(apis) do
-    f:write("---@field ", api.name, api.name, "\n")
+    f:write("---@field ", api.name, ' ', api.name, "\n")
 end
 f:write("local yue = {}\n")
 f:write("return yue\n")

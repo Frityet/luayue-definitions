@@ -21,4 +21,14 @@ function Entry:settext(text) end
 ---@return string
 function Entry:gettext() end
 
+---Emitted when user has changed text.
+---@param self Entry
+---@return nil
+function Entry:ontextchange(self) end
+
+---Emitted when user has pressed <kbd>Enter</kbd> in the view.
+---@param self Entry
+---@return nil
+function Entry:onactivate(self) end
+
 return Entry

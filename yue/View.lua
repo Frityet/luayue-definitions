@@ -137,4 +137,29 @@ function View:getparent() end
 ---@return Window
 function View:getwindow() end
 
+---Emitted when cursor leaves the view while dragging.
+---@param self View, info DraggingInfo
+---@return nil
+function View:ondragleave(self, info) end
+
+---Emitted when the view's size has been changed.
+---@param self View
+---@return nil
+function View:onsizechanged(self) end
+
+---Called when user drags the cursor over the view for the first time. 
+---@param self View, info DraggingInfo, point PointF
+---@return integer
+function View:handledragenter(self, info, point) end
+
+---Called when user moves the cursor over the view while dragging. 
+---@param self View, info DraggingInfo, point PointF
+---@return integer
+function View:handledragupdate(self, info, point) end
+
+---Called when user releases the dragged data on the view.
+---@param self View, info DraggingInfo, point PointF
+---@return boolean
+function View:handledrop(self, info, point) end
+
 return View

@@ -58,4 +58,9 @@ function Button:sethasborder(yes) end
 ---@return boolean
 function Button:hasborder() end
 
+---Emitted when button is clicked.
+---@param self Button
+---@return nil
+function Button:onclick(self) end
+
 return Button

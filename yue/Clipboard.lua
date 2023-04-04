@@ -48,4 +48,9 @@ function Clipboard:startwatching() end
 ---@return nil
 function Clipboard:stopwatching() end
 
+---Emitted when clipboard's content has been changed.
+---@param self Clipboard
+---@return nil
+function Clipboard:onchange(self) end
+
 return Clipboard

@@ -16,4 +16,9 @@ function ComboBox:settext(text) end
 ---@return string
 function ComboBox:gettext() end
 
+---Emitted when user has changed text.
+---@param self Entry
+---@return nil
+function ComboBox:ontextchange(self) end
+
 return ComboBox

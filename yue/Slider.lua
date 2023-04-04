@@ -34,4 +34,14 @@ function Slider:setrange(min, max) end
 ---@return std::tuple
 function Slider:getrange() end
 
+---Emitted when user is changing the slider.
+---@param self Slider
+---@return nil
+function Slider:onvaluechange(self) end
+
+---Emitted when user releases the slider.
+---@param self Slider
+---@return nil
+function Slider:onslidingcomplete(self) end
+
 return Slider

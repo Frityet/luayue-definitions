@@ -82,4 +82,9 @@ function MessageBox:setimage(image) end
 ---@return Image
 function MessageBox:getimage() end
 
+---Emitted when the message box is closed.
+---@param self MessageBox, response integer
+---@return nil
+function MessageBox:onresponse(self, response) end
+
 return MessageBox

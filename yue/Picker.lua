@@ -34,4 +34,9 @@ function Picker:getselecteditem() end
 ---@return integer
 function Picker:getselecteditemindex() end
 
+---Emitted when user has changed the selected item.
+---@param self Picker
+---@return nil
+function Picker:onselectionchange(self) end
+
 return Picker

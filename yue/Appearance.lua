@@ -12,4 +12,8 @@ function Appearance:setdarkmodeenabled(enable) end
 ---@return boolean
 function Appearance:isdarkscheme() end
 
+---Emitted when user has changed system color scheme preferences.
+---@return nil
+function Appearance:oncolorschemechange() end
+
 return Appearance

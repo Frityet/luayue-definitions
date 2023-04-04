@@ -39,4 +39,9 @@ function Tab:getselectedpageindex() end
 ---@return View
 function Tab:getselectedpage() end
 
+---Emitted when user has changed the selected page.
+---@param self Tab
+---@return nil
+function Tab:onselectedpagechange(self) end
+
 return Tab

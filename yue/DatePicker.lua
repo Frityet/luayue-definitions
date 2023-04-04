@@ -30,4 +30,9 @@ function DatePicker:getrange() end
 ---@return boolean
 function DatePicker:hasstepper() end
 
+---Emitted when the selected date has been changed.
+---@param self DatePicker
+---@return nil
+function DatePicker:ondatechange(self) end
+
 return DatePicker

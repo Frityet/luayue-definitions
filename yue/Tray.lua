@@ -45,4 +45,9 @@ function Tray:setmenu(menu) end
 ---@return Menu
 function Tray:getmenu() end
 
+---Emitted when the tray item is clicked.
+---@param self Tray
+---@return nil
+function Tray:onclick(self) end
+
 return Tray

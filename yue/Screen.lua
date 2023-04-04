@@ -25,4 +25,19 @@ function Screen:getdisplaynearestpoint(point) end
 ---@return PointF
 function Screen:getcursorscreenpoint() end
 
+---Emitted when a new `display` is available.
+---@param display Display
+---@return nil
+function Screen:onadddisplay(display) end
+
+---Emitted when the `display` has been removed.
+---@param display Display
+---@return nil
+function Screen:onremovedisplay(display) end
+
+---Emitted when there are changes happened to `display`.
+---@param display Display
+---@return nil
+function Screen:onupdatedisplay(display) end
+
 return Screen
