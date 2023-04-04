@@ -4,7 +4,6 @@
 Choose a single item from a list of items.
 By default, the first item is automatically selected, and duplicate items
 are merged into one.
-
 ]]
 ---@class Picker : View
 ---@field onselectionchange fun(self: Picker): nil Emitted when user has changed the selected item.

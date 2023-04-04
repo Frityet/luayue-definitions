@@ -7,7 +7,6 @@ For simple use cases, the `<!type>SimpleTableModel` can be used.
 
 For implementing a custom `TableModel`, please see
 `<!type>AbstractTableModel`.
-
 ]]
 ---@class TableModel
 local TableModel = {}

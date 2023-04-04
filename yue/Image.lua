@@ -16,7 +16,6 @@ its base filename, for example `iconTemplate.png` and `iconTemplate@2x.png`.
 Template images should consist of only black and clear colors, and macOS will
 mix with other content to create best appearance. This is useful for tray
 icons and menu item icons that automatically adjust to light and dark themes.
-
 ]]
 ---@class Image
 local Image = {}

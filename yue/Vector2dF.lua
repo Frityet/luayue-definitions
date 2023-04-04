@@ -10,7 +10,6 @@ distance in two dimensions between two points.
 print(view:offsetfromwindow())
 -- { x=100, y=100 }
 ```
-
 ]]
 ---@class Vector2dF
 ---@field x number X component.

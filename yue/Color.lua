@@ -11,7 +11,6 @@ the color, like `"#A123"`, `"#123"`, `"#AA112233"`, `"#112233"`.
 ```lua
 label:setcolor('#F000')
 ```
-
 ]]
 ---@class Color
 local Color = {}

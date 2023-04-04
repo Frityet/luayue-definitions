@@ -154,7 +154,11 @@ local function generate_cats_defintion(api, to)
             return
         end
 
-        wl("--[[\n", api.description, (api.detail and "\n"..api.detail or ""), "\n]]")
+        api.detail = api.detail or ""
+        --If there is any C++ or JS code in the detail, remove the block
+        api.detail = api.detail:gsub("```cpp.-```", ""):gsub("```js.-```", "")
+
+        wl("--[[\n", api.description, "\n", api.detail, "]]")
         if api.name:find("%.") then
             local class, sub = api.name:match("(.+)%.(.+)")
             wl("---@class ", class, ".", sub, (api.inherit and " : "..api.inherit.name or ""))

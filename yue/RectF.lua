@@ -19,7 +19,6 @@ unpack the properties:
 ```lua
 window:setbounds(11, 24, 100, 100)
 ```
-
 ]]
 ---@class RectF
 ---@field x number X coordinate.

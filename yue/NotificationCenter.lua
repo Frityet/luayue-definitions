@@ -15,12 +15,7 @@ To pass information in notifications, you should use
 `<!method>Notification::SetInfo(info)` to store a custom string, which will
 be passed to the event handlers of `NotificationCenter`.
 
-```cpp
-auto* notification_center = nu::NotificationCenter::GetCurrent();
-notification_center->on_notification_click.Connect([=](const std::string& info) {
-  LOG(ERROR) << "Clicked: " << info;
-});
-```
+
 
 ```lua
 function app.notificationcenter.onnotificationclick(info)
@@ -28,11 +23,7 @@ function app.notificationcenter.onnotificationclick(info)
 end
 ```
 
-```js
-gui.notificationCenter.onNotificationClick = (info) => {
-  console.log('Clicked', info)
-}
-```
+
 
 ## Linux notices
 
@@ -66,7 +57,6 @@ is done automatcially when any event is subscribed. This behavior can be
 turned off with `<!method>NotificationCenter::SetCOMServerOptions(options)`,
 and the item in registry can be removed with
 `<!method>NotificationCenter::RemoveCOMServerFromRegistry()`.
-
 ]]
 ---@class NotificationCenter
 ---@field onnotificationshow fun(info: string): nil Emitted when a notification has been displayed, the custom `info` of the notification is passed. 

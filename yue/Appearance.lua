@@ -9,7 +9,6 @@ instance from the `appearance` property of the module:
 ```lua
 gui.appearance:isdarkscheme()
 ```
-
 ]]
 ---@class Appearance
 ---@field oncolorschemechange fun(): nil Emitted when user has changed system color scheme preferences.

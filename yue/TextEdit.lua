@@ -9,7 +9,6 @@ Using -1 as `end` means the end of the text.
 
 The range uses character index instead of byte index, be careful when using
 programming languages without Unicode support.
-
 ]]
 ---@class TextEdit : View
 ---@field ontextchange fun(self: TextEdit): nil Emitted when user has changed text.

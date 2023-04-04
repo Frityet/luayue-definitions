@@ -15,7 +15,6 @@ unpack `x` and `y`:
 ```lua
 painter:moveto(11, 24)
 ```
-
 ]]
 ---@class PointF
 ---@field x number X coordinate.

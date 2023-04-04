@@ -14,7 +14,6 @@ This class can not be created by user, you can only call its class methods.
 local gui = require('yue.gui')
 gui.MessageLoop.run()
 ```
-
 ]]
 ---@class MessageLoop
 local MessageLoop = {}

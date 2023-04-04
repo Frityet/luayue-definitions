@@ -65,7 +65,6 @@ useful when defining some common keyboard shortcuts.
 * `Space`
 * `Subtract`
 * `Tab`
-
 ]]
 ---@class Accelerator
 local Accelerator = {}

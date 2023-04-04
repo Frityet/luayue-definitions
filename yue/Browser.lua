@@ -32,7 +32,6 @@ file.
 the order of WebView2 Runtime, Beta, Dev, and Canary.
 4. Some `Browser` APIs are not implemented with WebView2 backend, due to lack
 of APIs in WebView2.
-
 ]]
 ---@class Browser : View
 ---@field onclose fun(self: Browser): nil Emitted when the web page requests to close.

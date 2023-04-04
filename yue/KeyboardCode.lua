@@ -10,7 +10,6 @@ keys can be found at:
 
 There is an exception that the <kbd>Space Bar</kbd> is represented as
 `"Space"` in Yue instead of `" "`.
-
 ]]
 ---@class KeyboardCode
 local KeyboardCode = {}

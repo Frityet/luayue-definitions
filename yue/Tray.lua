@@ -9,7 +9,6 @@ Platform limitations:
 * On Linux app indicator can only show when it has menu attached.
 * On Windows you have to explicitly remove the tray item on exit, otherwise
   a zombie icon would be left.
-
 ]]
 ---@class Tray
 ---@field onclick fun(self: Tray): nil Emitted when the tray item is clicked.

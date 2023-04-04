@@ -6,7 +6,6 @@ There is no need to call `Notify` methods when using `SimpleTableModel`.
 
 Note that all data are stored as primary types, it is not possible to store
 a native object (for example `Image`s) in table model.
-
 ]]
 ---@class SimpleTableModel : TableModel
 local SimpleTableModel = {}

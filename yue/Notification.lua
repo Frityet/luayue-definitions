@@ -8,27 +8,7 @@ events of notifications, the `<!type>NotificationCenter` API should be used.
 Before sending notifications, you should set app's ID and name otherwise the
 notifications may not be displayed.
 
-```cpp
-auto* app = nu::App::GetCurrent();
-app->SetName("MyApp");
-#if defined(OS_LINUX) || defined(OS_WIN)
-app->SetID("org.yue.myapp");
-#else
-if (app->GetID().empty())
-  LOG(ERROR) << "Unable to send notifications due to app not being bundled";
-#endif
 
-#if defined(OS_WIN)
-// Create start menu shortcut for testing.
-app->CreateStartMenuShortcut(nu::App::ShortcutOptions());
-#endif
-
-scoped_refptr<nu::Notification> notification = new nu::Notification;
-notification->SetTitle("Title");
-notification->SetBody("Message");
-notification->SetInfo("first-notification");
-notification->Show();
-```
 
 ```lua
 gui.app:setname("MyApp")
@@ -48,23 +28,7 @@ notification:setinfo("first-notification")
 notification:show()
 ```
 
-```js
-gui.app.setName("MyApp")
-if (process.platform !== 'darwin')
-  gui.app.setID("org.yue.myapp")
-else if (gui.app.getID().length === 0)
-  console.error("Unable to send notifications due to app not being bundled")
 
-// Create start menu shortcut for testing.
-if (process.platform === "win32")
-  gui.app.createStartMenuShortcut({})
-
-const notification = gui.Notification.create()
-notification.setTitle("Title")
-notification.setBody("Message")
-notification.setInfo("first-notification")
-notification.show()
-```
 
 ## Platform requirements
 
@@ -84,7 +48,6 @@ shortcut file.
 
 Also on Windows `Notification` uses toast notifications under the hood, and
 currently only Windows 10 and above are supported.
-
 ]]
 ---@class Notification
 local Notification = {}

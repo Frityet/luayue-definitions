@@ -11,30 +11,6 @@ The toolbar items are not added manually like the normal views, instead you
 have to implement the `get_item` delegate which creates items on request, and
 then call `SetDefaultItemIdentifiers` to specify the default items to show.
 
-```js
-const toolbar = gui.Toolbar.create('my-toolbar')
-toolbar.getItem = (toolbar, identifier) => {
-  switch (identifier) {
-    case 'entry':
-      const entry = gui.Entry.create()
-      const minSize = entry.getMinimumSize()
-      minSize.width = 200
-      const maxSize = { width: 2 << 30 - 1, height: minSize.height }
-      return { label: 'Address', view: entry, minSize, maxSize }
-    case 'button':
-      const button = gui.Button.create('GO')
-      button.setImage(gui.Image.createFromPath('go.png'))
-      return {
-        label: 'GO',
-        minSize: {width: 30, height: 35},
-        view: button
-      }
-  }
-}
-toolbar.setDefaultItemIdentifiers(['entry', 'button'])
-toolbar.setDisplayMode('icon')
-window.setToolbar(toolbar)
-```
 
 ]]
 ---@class Toolbar

@@ -15,7 +15,6 @@ unpack `width` and `height`:
 ```lua
 window:setcontentsize(100, 100)
 ```
-
 ]]
 ---@class SizeF
 ---@field width number Size width.

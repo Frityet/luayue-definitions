@@ -4,7 +4,6 @@
 Connect and emit events.
 
 This class implements the signal/slot pattern, which is used as event type.
-
 ]]
 ---@class Signal
 local Signal = {}

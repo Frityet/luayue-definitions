@@ -7,7 +7,6 @@ This view is only implemented for macOS by wrapping
 
 It is not possible to draw on this view, to display content on it you have to
 add the content as child view.
-
 ]]
 ---@class Vibrant : Container
 local Vibrant = {}

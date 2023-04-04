@@ -8,7 +8,6 @@ in the Delegates section. It is also required to call the `Notify` methods of
 `<!type>Table` can correctly update.
 
 For simple use cases, the `<!type>SimpleTableModel` can be used.
-
 ]]
 ---@class AbstractTableModel : TableModel
 ---@field getrowcount fun(self: AbstractTableModel): integer Return how many rows are in the model.

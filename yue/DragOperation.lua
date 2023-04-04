@@ -10,7 +10,6 @@ together with other operations.
 
 The values of `DragOperation` are available as the class properties of the
 `<!type>DraggingInfo` class.
-
 ]]
 ---@class DragOperation
 local DragOperation = {}

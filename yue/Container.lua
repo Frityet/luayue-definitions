@@ -7,7 +7,6 @@ The `Container` view is mainly used for two purposes:
 * Display a collection of child views.
 
 Note that the `index` counts from `1`, following lua's convention.
-
 ]]
 ---@class Container : View
 ---@field ondraw fun(self: Container, painter: Painter, dirty: RectF): nil Emitted when button the operating system or application requests to draw a portion of the view. 

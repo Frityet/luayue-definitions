@@ -7,7 +7,6 @@ native GUI toolkit's application lifetime APIs. You should not use this API
 when integrating Yue into existing GUI apps.
 
 When using this class, you must create `Lifetime` before creating `State`.
-
 ]]
 ---@class Lifetime
 ---@field onready fun(): nil Emitted when received `applicationDidFinishLaunching` notification. 

@@ -10,7 +10,6 @@ unrecommended to constantly display animated GIF images.
 
 For optimization, hiding the view would automatically pause the animation,
 and showing the view would automatically resume previous state.
-
 ]]
 ---@class GifPlayer : View
 local GifPlayer = {}

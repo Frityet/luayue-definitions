@@ -9,7 +9,6 @@ instance from the `screen` property of the module:
 ```lua
 gui.screen:getprimarydisplay()
 ```
-
 ]]
 ---@class Screen
 ---@field onadddisplay fun(display: Display): nil Emitted when a new `display` is available.

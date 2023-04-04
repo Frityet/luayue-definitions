@@ -10,7 +10,6 @@ instance from the `app` property of the module:
 ```lua
 gui.app:getapplicationmenu()
 ```
-
 ]]
 ---@class App
 local App = {}
