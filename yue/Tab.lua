@@ -2,6 +2,7 @@
 
 ---Multipage view with tabs.
 ---@class Tab : View
+---@field onselectedpagechange fun(self: Tab): nil Emitted when user has changed the selected page.
 local Tab = {}
 ---Create a new `Tab` view.
 ---@return Tab
@@ -38,10 +39,5 @@ function Tab:getselectedpageindex() end
 ---Return the view of selected page.
 ---@return View
 function Tab:getselectedpage() end
-
----Emitted when user has changed the selected page.
----@param self Tab
----@return nil
-function Tab:onselectedpagechange(self) end
 
 return Tab

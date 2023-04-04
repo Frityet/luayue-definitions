@@ -2,6 +2,7 @@
 
 ---Show a part of view with scrollbar.
 ---@class Scroll : View
+---@field onscroll fun(self: Scroll): nil Emitted when the content view is being scrolled.
 local Scroll = {}
 ---Create a new `Scroll` view.
 ---@return Scroll
@@ -64,10 +65,5 @@ function Scroll:setscrollelasticity(helasticity, velasticity) end
 ---Return the horizontal and vertical scroll elasticity. 
 ---@return std::tuple
 function Scroll:getscrollelasticity() end
-
----Emitted when the content view is being scrolled.
----@param self Scroll
----@return nil
-function Scroll:onscroll(self) end
 
 return Scroll

@@ -2,10 +2,9 @@
 
 ---Rectangle type.
 ---@class RectF
----@field x number
----@field y number
----@field width number
----@field height number
-
+---@field x number X coordinate.
+---@field y number Y coordinate.
+---@field width number Rectangle width.
+---@field height number Rectangle height.
 local RectF = {}
 return RectF

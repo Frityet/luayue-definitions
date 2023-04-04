@@ -2,6 +2,8 @@
 
 ---Single-line text input view.
 ---@class Entry : View
+---@field ontextchange fun(self: Entry): nil Emitted when user has changed text.
+---@field onactivate fun(self: Entry): nil Emitted when user has pressed <kbd>Enter</kbd> in the view.
 local Entry = {}
 ---Create a normal `Entry`.
 ---@return Entry
@@ -20,15 +22,5 @@ function Entry:settext(text) end
 ---Return currently displayed text.
 ---@return string
 function Entry:gettext() end
-
----Emitted when user has changed text.
----@param self Entry
----@return nil
-function Entry:ontextchange(self) end
-
----Emitted when user has pressed <kbd>Enter</kbd> in the view.
----@param self Entry
----@return nil
-function Entry:onactivate(self) end
 
 return Entry

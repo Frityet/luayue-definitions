@@ -2,6 +2,7 @@
 
 ---A view displays date and time with editing ability.
 ---@class DatePicker : View
+---@field ondatechange fun(self: DatePicker): nil Emitted when the selected date has been changed.
 local DatePicker = {}
 ---Create a new `DatePicker` with `options`.
 ---@param options DatePicker::Options
@@ -29,10 +30,5 @@ function DatePicker:getrange() end
 ---Return whether there is a stepper attached to the text field.
 ---@return boolean
 function DatePicker:hasstepper() end
-
----Emitted when the selected date has been changed.
----@param self DatePicker
----@return nil
-function DatePicker:ondatechange(self) end
 
 return DatePicker

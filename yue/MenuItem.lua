@@ -2,6 +2,7 @@
 
 ---Menu item.
 ---@class MenuItem
+---@field onclick fun(self: MenuItem): nil Emitted when item is clicked.
 local MenuItem = {}
 ---Create a menu item with `type`.
 ---@param type MenuItem::Type
@@ -75,11 +76,6 @@ function MenuItem:setimage(image) end
 ---Return the item's image.
 ---@return Image
 function MenuItem:getimage() end
-
----Emitted when item is clicked.
----@param self MenuItem
----@return nil
-function MenuItem:onclick(self) end
 
 ---Called before the item shows or activates, should return whether the item is enabled. 
 ---@param self MenuItem

@@ -2,6 +2,7 @@
 
 ---Native button, can also be used as checkbox and radio button.
 ---@class Button : View
+---@field onclick fun(self: Button): nil Emitted when button is clicked.
 local Button = {}
 ---Create a normal button with `title`.
 ---@param title string
@@ -57,10 +58,5 @@ function Button:sethasborder(yes) end
 ---Return whether the button has a border.
 ---@return boolean
 function Button:hasborder() end
-
----Emitted when button is clicked.
----@param self Button
----@return nil
-function Button:onclick(self) end
 
 return Button

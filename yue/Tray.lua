@@ -2,6 +2,7 @@
 
 ---Tray item displayed in system notification area.
 ---@class Tray
+---@field onclick fun(self: Tray): nil Emitted when the tray item is clicked.
 local Tray = {}
 ---Create a tray item with `icon`.
 ---@param icon Image
@@ -44,10 +45,5 @@ function Tray:setmenu(menu) end
 ---Return the menu attached.
 ---@return Menu
 function Tray:getmenu() end
-
----Emitted when the tray item is clicked.
----@param self Tray
----@return nil
-function Tray:onclick(self) end
 
 return Tray

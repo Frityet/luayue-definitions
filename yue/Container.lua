@@ -2,6 +2,7 @@
 
 ---Drawable view with child views.
 ---@class Container : View
+---@field ondraw fun(self: Container, painter: Painter, dirty: RectF): nil Emitted when button the operating system or application requests to draw a portion of the view. 
 local Container = {}
 ---Create a new container view.
 ---@return Container
@@ -44,10 +45,5 @@ function Container:childcount() end
 ---@param index integer
 ---@return View
 function Container:childat(index) end
-
----Emitted when button the operating system or application requests to draw a portion of the view. 
----@param self Container, painter Painter, dirty RectF
----@return nil
-function Container:ondraw(self, painter, dirty) end
 
 return Container

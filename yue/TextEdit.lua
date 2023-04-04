@@ -2,6 +2,7 @@
 
 ---Plain text input view.
 ---@class TextEdit : View
+---@field ontextchange fun(self: TextEdit): nil Emitted when user has changed text.
 local TextEdit = {}
 ---Create a new `TextEdit`.
 ---@return TextEdit
@@ -103,11 +104,6 @@ function TextEdit:getscrollelasticity() end
 ---Return the text extend.
 ---@return RectF
 function TextEdit:gettextbounds() end
-
----Emitted when user has changed text.
----@param self TextEdit
----@return nil
-function TextEdit:ontextchange(self) end
 
 ---Called when user presses `Return` to insert new line, should return whether it is allowed. 
 ---@param self TextEdit

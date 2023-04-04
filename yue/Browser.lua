@@ -2,6 +2,14 @@
 
 ---Native webview using system browser.
 ---@class Browser : View
+---@field onclose fun(self: Browser): nil Emitted when the web page requests to close.
+---@field onupdatecommand fun(self: Browser): nil Emitted when the back-forward list has changed.
+---@field onchangeloading fun(self: Browser): nil Emitted when the browser starts or stops loading content.
+---@field onupdatetitle fun(self: Browser, title: string): nil Emitted when document's title is changed.
+---@field onstartnavigation fun(self: Browser, url: string): nil Emitted when the browser begins provisional navigation.
+---@field oncommitnavigation fun(self: Browser, url: string): nil Emitted when the browser begins to receive web content.
+---@field onfinishnavigation fun(self: Browser, url: string): nil Emitted when the navigation is complete.
+---@field onfailnavigation fun(self: Browser, url: string, code: integer): nil Emitted when the navigation fails.
 local Browser = {}
 ---Create a new browser view.
 ---@param options Browser::Options
@@ -102,45 +110,5 @@ function Browser:addrawbinding(name, func) end
 ---@param name string
 ---@return nil
 function Browser:removebinding(name) end
-
----Emitted when the web page requests to close.
----@param self Browser
----@return nil
-function Browser:onclose(self) end
-
----Emitted when the back-forward list has changed.
----@param self Browser
----@return nil
-function Browser:onupdatecommand(self) end
-
----Emitted when the browser starts or stops loading content.
----@param self Browser
----@return nil
-function Browser:onchangeloading(self) end
-
----Emitted when document's title is changed.
----@param self Browser, title string
----@return nil
-function Browser:onupdatetitle(self, title) end
-
----Emitted when the browser begins provisional navigation.
----@param self Browser, url string
----@return nil
-function Browser:onstartnavigation(self, url) end
-
----Emitted when the browser begins to receive web content.
----@param self Browser, url string
----@return nil
-function Browser:oncommitnavigation(self, url) end
-
----Emitted when the navigation is complete.
----@param self Browser, url string
----@return nil
-function Browser:onfinishnavigation(self, url) end
-
----Emitted when the navigation fails.
----@param self Browser, url string, code integer
----@return nil
-function Browser:onfailnavigation(self, url, code) end
 
 return Browser

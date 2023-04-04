@@ -2,6 +2,7 @@
 
 ---Information about user's appearance preferences.
 ---@class Appearance
+---@field oncolorschemechange fun(): nil Emitted when user has changed system color scheme preferences.
 local Appearance = {}
 ---Enable Windows 10 dark mode for current app.
 ---@param enable boolean
@@ -11,9 +12,5 @@ function Appearance:setdarkmodeenabled(enable) end
 ---Return whether this app is using a dark color scheme.
 ---@return boolean
 function Appearance:isdarkscheme() end
-
----Emitted when user has changed system color scheme preferences.
----@return nil
-function Appearance:oncolorschemechange() end
 
 return Appearance

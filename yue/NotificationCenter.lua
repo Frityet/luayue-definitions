@@ -2,6 +2,12 @@
 
 ---Handle events of notifications.
 ---@class NotificationCenter
+---@field onnotificationshow fun(info: string): nil Emitted when a notification has been displayed, the custom `info` of the notification is passed. 
+---@field onnotificationclose fun(info: string): nil Emitted when a notification has been closed without activation, the custom `info` of the notification is passed. 
+---@field onnotificationclick fun(info: string): nil Emitted when user clicks on the body of a notification, the custom `info` of the notification is passed. 
+---@field onnotificationaction fun(actioninfo: string): nil Emitted when user clicks on an action button of a notification, the custom `<!name>action_info` string of the action button is passed. 
+---@field onnotificationreply fun(info: string, reply: string): nil Emitted when user sends a text using inline reply in a notification, the custom `info` of the notification, and the `reply` string will be passed. 
+---@field ontoastactivate fun(appusermodelid: string, invokedargs: string, data: table): boolean Emitted when the notification activator COM server receives the Activate message. 
 local NotificationCenter = {}
 ---Remove all notifications sent by this app.
 ---@return nil
@@ -23,35 +29,5 @@ function NotificationCenter:removecomserverfromregistry() end
 ---Return current `ToastActivatorCLSID`.
 ---@return string
 function NotificationCenter:gettoastactivatorclsid() end
-
----Emitted when a notification has been displayed, the custom `info` of the notification is passed. 
----@param info string
----@return nil
-function NotificationCenter:onnotificationshow(info) end
-
----Emitted when a notification has been closed without activation, the custom `info` of the notification is passed. 
----@param info string
----@return nil
-function NotificationCenter:onnotificationclose(info) end
-
----Emitted when user clicks on the body of a notification, the custom `info` of the notification is passed. 
----@param info string
----@return nil
-function NotificationCenter:onnotificationclick(info) end
-
----Emitted when user clicks on an action button of a notification, the custom `<!name>action_info` string of the action button is passed. 
----@param actioninfo string
----@return nil
-function NotificationCenter:onnotificationaction(actioninfo) end
-
----Emitted when user sends a text using inline reply in a notification, the custom `info` of the notification, and the `reply` string will be passed. 
----@param info string, reply string
----@return nil
-function NotificationCenter:onnotificationreply(info, reply) end
-
----Emitted when the notification activator COM server receives the Activate message. 
----@param appusermodelid string, invokedargs string, data table
----@return boolean
-function NotificationCenter:ontoastactivate(appusermodelid, invokedargs, data) end
 
 return NotificationCenter

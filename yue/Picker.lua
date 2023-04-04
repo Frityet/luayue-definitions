@@ -2,6 +2,7 @@
 
 ---Choose a single item from a list of items.
 ---@class Picker : View
+---@field onselectionchange fun(self: Picker): nil Emitted when user has changed the selected item.
 local Picker = {}
 ---Create a new `Picker` view.
 ---@return Picker
@@ -33,10 +34,5 @@ function Picker:getselecteditem() end
 ---Return the index of selected item.
 ---@return integer
 function Picker:getselecteditemindex() end
-
----Emitted when user has changed the selected item.
----@param self Picker
----@return nil
-function Picker:onselectionchange(self) end
 
 return Picker

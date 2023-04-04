@@ -2,6 +2,7 @@
 
 ---A window showing some text and buttons.
 ---@class MessageBox
+---@field onresponse fun(self: MessageBox, response: integer): nil Emitted when the message box is closed.
 local MessageBox = {}
 ---Create a message box.
 ---@return MessageBox
@@ -81,10 +82,5 @@ function MessageBox:setimage(image) end
 ---Return the custom icon.
 ---@return Image
 function MessageBox:getimage() end
-
----Emitted when the message box is closed.
----@param self MessageBox, response integer
----@return nil
-function MessageBox:onresponse(self, response) end
 
 return MessageBox

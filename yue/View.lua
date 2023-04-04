@@ -2,6 +2,8 @@
 
 ---Base class for GUI components.
 ---@class View : Responder
+---@field ondragleave fun(self: View, info: DraggingInfo): nil Emitted when cursor leaves the view while dragging.
+---@field onsizechanged fun(self: View): nil Emitted when the view's size has been changed.
 local View = {}
 ---Return offset from `view`.
 ---@param view View
@@ -136,16 +138,6 @@ function View:getparent() end
 ---Return the window that the view belongs to.
 ---@return Window
 function View:getwindow() end
-
----Emitted when cursor leaves the view while dragging.
----@param self View, info DraggingInfo
----@return nil
-function View:ondragleave(self, info) end
-
----Emitted when the view's size has been changed.
----@param self View
----@return nil
-function View:onsizechanged(self) end
 
 ---Called when user drags the cursor over the view for the first time. 
 ---@param self View, info DraggingInfo, point PointF

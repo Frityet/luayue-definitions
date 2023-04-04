@@ -2,6 +2,8 @@
 
 ---A slider bar for selecting numerical value.
 ---@class Slider : View
+---@field onvaluechange fun(self: Slider): nil Emitted when user is changing the slider.
+---@field onslidingcomplete fun(self: Slider): nil Emitted when user releases the slider.
 local Slider = {}
 ---Create a new `Slider` view.
 ---@return Slider
@@ -33,15 +35,5 @@ function Slider:setrange(min, max) end
 ---Return the range of the slider.
 ---@return std::tuple
 function Slider:getrange() end
-
----Emitted when user is changing the slider.
----@param self Slider
----@return nil
-function Slider:onvaluechange(self) end
-
----Emitted when user releases the slider.
----@param self Slider
----@return nil
-function Slider:onslidingcomplete(self) end
 
 return Slider

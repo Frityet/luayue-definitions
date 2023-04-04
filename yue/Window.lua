@@ -2,6 +2,9 @@
 
 ---Native window.
 ---@class Window : Responder
+---@field onclose fun(self: Window): nil Emitted when the window is closed.
+---@field onfocus fun(self: Window): nil Emitted when the window is focused.
+---@field onblur fun(self: Window): nil Emitted when the window lost focus.
 local Window = {}
 ---Create a new window with `options`.
 ---@param options Window::Options
@@ -254,21 +257,6 @@ function Window:removechildwindow(child) end
 ---Return all the child windows of this window.
 ---@return table
 function Window:getchildwindows() end
-
----Emitted when the window is closed.
----@param self Window
----@return nil
-function Window:onclose(self) end
-
----Emitted when the window is focused.
----@param self Window
----@return nil
-function Window:onfocus(self) end
-
----Emitted when the window lost focus.
----@param self Window
----@return nil
-function Window:onblur(self) end
 
 ---Called when user requests to close the window, should return whether the window can be closed. 
 ---@param self Window

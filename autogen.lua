@@ -54,7 +54,24 @@ local yield = coroutine.yield
 ---@param apiname string
 local function generate_property(wl, property, apiname)
     print("Generating property definition for "..property.id)
-    wl("---@field ", property.name, " ", property.type.name)
+    --Strip newline characters from the description
+    property.description = property.description and property.description:gsub("\r\n", " "):gsub("\n", " ") or ""
+    wl("---@field ", property.name, " ", property.type.name, " ", property.description)
+end
+
+---Generates a event definition for the given event
+---@param wl fun(...)
+---@param event APIDefinition.MethodSignature
+---@param apiname string
+local function generate_event(wl, event, apiname)
+    print("Generating event definition for "..event.id)
+    event.description = event.description and event.description:gsub("\r\n", " "):gsub("\n", " ") or ""
+    local params = {}
+    for _, param in ipairs(event.signature.parameters) do
+        params[#params+1] = param.name..(param.type and (": "..param.type.name) or "")
+    end
+    params_str = table.concat(params, ", ")
+    wl("---@field ", event.signature.name, " fun(", params_str, "): ", event.signature.returnType and event.signature.returnType.name or "nil", " ", event.description)
 end
 
 ---Generates a method definition for the given method
@@ -147,8 +164,20 @@ local function generate_cats_defintion(api, to)
                     generate_property(wl, property, api.name)
                     yield()
                 end
-                nl()
             end
+
+            if api.events then
+                --Events must be registered as fields to the class in the format
+                --[[
+                    ---@field <EVENT_NAME> fun(<PARAMS>): (<RETURN> | nil) <DESCRIPTION>
+                ]]
+                for _, event in ipairs(api.events) do
+                    generate_event(wl, event, api.name)
+                    yield()
+                end
+            end
+
+
             wl("local ", api.name, " = {}")
         end
         yield()
@@ -164,14 +193,6 @@ local function generate_cats_defintion(api, to)
         if api.methods then
             for _, method in ipairs(api.methods) do
                 generate_method(wl, method, api.name, false)
-                nl()
-                yield()
-            end
-        end
-
-        if api.events then
-            for _, event in ipairs(api.events) do
-                generate_method(wl, event, api.name, false)
                 nl()
                 yield()
             end

@@ -2,6 +2,7 @@
 
 ---Native clipboard.
 ---@class Clipboard
+---@field onchange fun(self: Clipboard): nil Emitted when clipboard's content has been changed.
 local Clipboard = {}
 ---Return the default copy-paste clipboard.
 ---@return Clipboard
@@ -47,10 +48,5 @@ function Clipboard:startwatching() end
 ---Stop watching clipboard's content.
 ---@return nil
 function Clipboard:stopwatching() end
-
----Emitted when clipboard's content has been changed.
----@param self Clipboard
----@return nil
-function Clipboard:onchange(self) end
 
 return Clipboard

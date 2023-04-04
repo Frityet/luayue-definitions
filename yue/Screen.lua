@@ -2,6 +2,9 @@
 
 ---Receive information about system’s monitor or screen.
 ---@class Screen
+---@field onadddisplay fun(display: Display): nil Emitted when a new `display` is available.
+---@field onremovedisplay fun(display: Display): nil Emitted when the `display` has been removed.
+---@field onupdatedisplay fun(display: Display): nil Emitted when there are changes happened to `display`.
 local Screen = {}
 ---Return the primary display.
 ---@return Display
@@ -24,20 +27,5 @@ function Screen:getdisplaynearestpoint(point) end
 ---Return the current absolute position of the mouse pointer.
 ---@return PointF
 function Screen:getcursorscreenpoint() end
-
----Emitted when a new `display` is available.
----@param display Display
----@return nil
-function Screen:onadddisplay(display) end
-
----Emitted when the `display` has been removed.
----@param display Display
----@return nil
-function Screen:onremovedisplay(display) end
-
----Emitted when there are changes happened to `display`.
----@param display Display
----@return nil
-function Screen:onupdatedisplay(display) end
 
 return Screen
