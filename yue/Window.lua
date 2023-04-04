@@ -5,6 +5,7 @@
 ---@field onclose fun(self: Window): nil Emitted when the window is closed.
 ---@field onfocus fun(self: Window): nil Emitted when the window is focused.
 ---@field onblur fun(self: Window): nil Emitted when the window lost focus.
+---@field shouldclose fun(self: Window): boolean Called when user requests to close the window, should return whether the window can be closed. 
 local Window = {}
 ---Create a new window with `options`.
 ---@param options Window.Options
@@ -259,10 +260,5 @@ function Window:removechildwindow(child) end
 ---Return all the child windows of this window.
 ---@return table
 function Window:getchildwindows() end
-
----Called when user requests to close the window, should return whether the window can be closed. 
----@param self Window
----@return boolean
-function Window:shouldclose(self) end
 
 return Window

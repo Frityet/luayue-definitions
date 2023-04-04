@@ -3,6 +3,7 @@
 ---Menu item.
 ---@class MenuItem
 ---@field onclick fun(self: MenuItem): nil Emitted when item is clicked.
+---@field validate fun(self: MenuItem): boolean Called before the item shows or activates, should return whether the item is enabled. 
 local MenuItem = {}
 ---Create a menu item with `type`.
 ---@param type MenuItem.Type
@@ -76,10 +77,5 @@ function MenuItem:setimage(image) end
 ---Return the item's image.
 ---@return Image
 function MenuItem:getimage() end
-
----Called before the item shows or activates, should return whether the item is enabled. 
----@param self MenuItem
----@return boolean
-function MenuItem:validate(self) end
 
 return MenuItem

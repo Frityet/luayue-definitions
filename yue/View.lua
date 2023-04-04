@@ -4,6 +4,9 @@
 ---@class View : Responder
 ---@field ondragleave fun(self: View, info: DraggingInfo): nil Emitted when cursor leaves the view while dragging.
 ---@field onsizechanged fun(self: View): nil Emitted when the view's size has been changed.
+---@field handledragenter fun(self: View, info: DraggingInfo, point: PointF): integer Called when user drags the cursor over the view for the first time. 
+---@field handledragupdate fun(self: View, info: DraggingInfo, point: PointF): integer Called when user moves the cursor over the view while dragging. 
+---@field handledrop fun(self: View, info: DraggingInfo, point: PointF): boolean Called when user releases the dragged data on the view.
 local View = {}
 ---Return offset from `view`.
 ---@param view View
@@ -141,26 +144,5 @@ function View:getparent() end
 ---Return the window that the view belongs to.
 ---@return Window
 function View:getwindow() end
-
----Called when user drags the cursor over the view for the first time. 
----@param self View
----@param info DraggingInfo
----@param point PointF
----@return integer
-function View:handledragenter(self, info, point) end
-
----Called when user moves the cursor over the view while dragging. 
----@param self View
----@param info DraggingInfo
----@param point PointF
----@return integer
-function View:handledragupdate(self, info, point) end
-
----Called when user releases the dragged data on the view.
----@param self View
----@param info DraggingInfo
----@param point PointF
----@return boolean
-function View:handledrop(self, info, point) end
 
 return View

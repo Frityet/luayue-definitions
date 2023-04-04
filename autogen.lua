@@ -183,6 +183,12 @@ local function generate_cats_defintion(api, to)
                 end
             end
 
+            if api.delegates then
+                for _, delegate in ipairs(api.delegates) do
+                    generate_event(wl, delegate, api.name)
+                    yield()
+                end
+            end
 
             wl("local ", api.name, " = {}")
         end
@@ -199,14 +205,6 @@ local function generate_cats_defintion(api, to)
         if api.methods then
             for _, method in ipairs(api.methods) do
                 generate_method(wl, method, api.name, false)
-                nl()
-                yield()
-            end
-        end
-
-        if api.delegates then
-            for _, delegate in ipairs(api.delegates) do
-                generate_method(wl, delegate, api.name, false)
                 nl()
                 yield()
             end

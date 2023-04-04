@@ -3,6 +3,7 @@
 ---Plain text input view.
 ---@class TextEdit : View
 ---@field ontextchange fun(self: TextEdit): nil Emitted when user has changed text.
+---@field shouldinsertnewline fun(self: TextEdit): boolean Called when user presses `Return` to insert new line, should return whether it is allowed. 
 local TextEdit = {}
 ---Create a new `TextEdit`.
 ---@return TextEdit
@@ -110,10 +111,5 @@ function TextEdit:getscrollelasticity() end
 ---Return the text extend.
 ---@return RectF
 function TextEdit:gettextbounds() end
-
----Called when user presses `Return` to insert new line, should return whether it is allowed. 
----@param self TextEdit
----@return boolean
-function TextEdit:shouldinsertnewline(self) end
 
 return TextEdit

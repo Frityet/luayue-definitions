@@ -2,6 +2,7 @@
 
 ---Window toolbar.
 ---@class Toolbar
+---@field getitem fun(toolbar: Toolbar, identifier: string): Toolbar::Item Called lazily when the toolbar is going to get the item with `identifier`.  You should not cache the item to be returned. 
 local Toolbar = {}
 ---Create a new `Toolbar` view with `identifier`.  Within the application all toolbars with the same identifier are synchronized to maintain the same state, including for example, the display mode and item order. The identifier is used as the autosave name for toolbars that save their configuration. 
 ---@param identifier string
@@ -40,11 +41,5 @@ function Toolbar:isvisible() end
 ---Return the identifier of the toolbar.
 ---@return string
 function Toolbar:getidentifier() end
-
----Called lazily when the toolbar is going to get the item with `identifier`.  You should not cache the item to be returned. 
----@param toolbar Toolbar
----@param identifier string
----@return Toolbar::Item
-function Toolbar:getitem(toolbar, identifier) end
 
 return Toolbar
