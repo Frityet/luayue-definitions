@@ -31,7 +31,7 @@ function MessageBox:showforwindow(window) end
 function MessageBox:close() end
 
 ---Set the `type` of message box, system will show the corresponding icon in the message box. 
----@param type MessageBox::Type
+---@param type MessageBox.Type
 ---@return nil
 function MessageBox:settype(type) end
 
@@ -41,7 +41,8 @@ function MessageBox:settype(type) end
 function MessageBox:settitle(title) end
 
 ---Add a button with `title`. The `response` ID will be used as result when the button is clicked. 
----@param title string, response integer
+---@param title string
+---@param response integer
 ---@return nil
 function MessageBox:addbutton(title, response) end
 

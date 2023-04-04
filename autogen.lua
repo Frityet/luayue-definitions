@@ -95,8 +95,14 @@ local function generate_method(wl, method, apiname, class_method)
     --We need to remove the newlines from the description
     method.description = method.description:gsub("\r\n", " "):gsub("\r", " "):gsub("\n", " ")
     wl("---", method.description)
-    if params_str ~= "" then
-        wl("---@param ", params_str)
+
+    --Params are one after the other, like this
+    --[[
+        ---@param param1 string
+        ---@param param2 number
+    ]]
+    for _, param in ipairs(sig.parameters) do
+        wl("---@param ", param.name, " ", param.type and param.type.name:gsub("::", ".") or "any")
     end
     wl("---@return ", ret)
 

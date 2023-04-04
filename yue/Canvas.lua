@@ -4,7 +4,8 @@
 ---@class Canvas
 local Canvas = {}
 ---Create a new canvas with specified size and scale factor. 
----@param size SizeF, scalefactor number
+---@param size SizeF
+---@param scalefactor number
 ---@return Canvas
 function Canvas.create(size, scalefactor) end
 

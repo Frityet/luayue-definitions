@@ -28,7 +28,8 @@ function Container:getpreferredwidthforheight(height) end
 function Container:addchildview(view) end
 
 ---Add a child `view` to the container at `index`.  This method will silently fail if the `view` already has a parent. 
----@param view View, index integer
+---@param view View
+---@param index integer
 ---@return nil
 function Container:addchildviewat(view, index) end
 

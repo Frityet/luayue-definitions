@@ -14,7 +14,7 @@ local NotificationCenter = {}
 function NotificationCenter:clear() end
 
 ---Set COM server related options, `false` will be returned if the passed `ToastActivatorCLSID` is invalid. 
----@param options NotificationCenter::COMServerOptions
+---@param options NotificationCenter.COMServerOptions
 ---@return boolean
 function NotificationCenter:setcomserveroptions(options) end
 

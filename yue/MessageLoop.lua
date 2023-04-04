@@ -17,7 +17,8 @@ function MessageLoop.quit() end
 function MessageLoop.posttask(task) end
 
 ---Post a `task` to main thread's message loop and execute it after `ms`. 
----@param ms integer, task function
+---@param ms integer
+---@param task function
 ---@return nil
 function MessageLoop.postdelayedtask(ms, task) end
 

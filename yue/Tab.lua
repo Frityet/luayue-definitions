@@ -9,7 +9,8 @@ local Tab = {}
 function Tab.create() end
 
 ---Add `view` as a new page with `title`.
----@param title string, view View
+---@param title string
+---@param view View
 ---@return nil
 function Tab:addpage(title, view) end
 

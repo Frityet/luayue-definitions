@@ -28,7 +28,8 @@ function Slider:setstep(step) end
 function Slider:getstep() end
 
 ---Set the range of the slider.
----@param min number, max number
+---@param min number
+---@param max number
 ---@return nil
 function Slider:setrange(min, max) end
 

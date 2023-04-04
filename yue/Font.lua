@@ -8,17 +8,23 @@ local Font = {}
 function Font.default() end
 
 ---Create a Font implementation with the specified `name`, DIP `size`, `weight` and `style`. 
----@param name string, size number, weight Font::Weight, style Font::Style
+---@param name string
+---@param size number
+---@param weight Font.Weight
+---@param style Font.Style
 ---@return Font
 function Font.create(name, size, weight, style) end
 
 ---Create a Font by reading from |path|. If the font file contains multiple families or weights, only the first encountered font will be used. 
----@param path string, size number
+---@param path string
+---@param size number
 ---@return Font
 function Font.createfrompath(path, size) end
 
 ---Returns a new Font derived from the existing font.
----@param sizedelta number, weight Font::Weight, style Font::Style
+---@param sizedelta number
+---@param weight Font.Weight
+---@param style Font.Style
 ---@return Font
 function Font:derive(sizedelta, weight, style) end
 

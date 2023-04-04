@@ -5,7 +5,7 @@
 ---@field ondatechange fun(self: DatePicker): nil Emitted when the selected date has been changed.
 local DatePicker = {}
 ---Create a new `DatePicker` with `options`.
----@param options DatePicker::Options
+---@param options DatePicker.Options
 ---@return DatePicker
 function DatePicker.create(options) end
 
@@ -19,7 +19,8 @@ function DatePicker:setdate(time) end
 function DatePicker:getdate() end
 
 ---Set the `minimum` and `maximum` date values.
----@param minimum number, maximum number
+---@param minimum number
+---@param maximum number
 ---@return nil
 function DatePicker:setrange(minimum, maximum) end
 

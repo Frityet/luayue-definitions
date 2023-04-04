@@ -4,7 +4,8 @@
 ---@class AttributedText
 local AttributedText = {}
 ---Create an `AttributedText`.
----@param text string, attributes TextAttributes
+---@param text string
+---@param attributes TextAttributes
 ---@return AttributedText
 function AttributedText.create(text, attributes) end
 
@@ -23,7 +24,9 @@ function AttributedText:getformat() end
 function AttributedText:setfont(font) end
 
 ---Set the `font` of text between character range `[start, end)`. Passing `-1` as `end` means the rest of the text. 
----@param font Font, start integer, end integer
+---@param font Font
+---@param start integer
+---@param end integer
 ---@return nil
 function AttributedText:setfontfor(font, start, end) end
 
@@ -33,7 +36,9 @@ function AttributedText:setfontfor(font, start, end) end
 function AttributedText:setcolor(color) end
 
 ---Set the `color` of text between character range `[start, end)`. Passing `-1` as `end` means the rest of the text. 
----@param font Color, start integer, end integer
+---@param font Color
+---@param start integer
+---@param end integer
 ---@return nil
 function AttributedText:setcolorfor(font, start, end) end
 

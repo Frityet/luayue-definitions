@@ -9,12 +9,17 @@ local AbstractTableModel = {}
 function AbstractTableModel:getrowcount(self) end
 
 ---Return the data at `column` and `row`.
----@param self AbstractTableModel, column integer, row integer
+---@param self AbstractTableModel
+---@param column integer
+---@param row integer
 ---@return any
 function AbstractTableModel:getvalue(self, column, row) end
 
 ---Change the `value` at `column` and `row`.
----@param self AbstractTableModel, column integer, row integer, value any
+---@param self AbstractTableModel
+---@param column integer
+---@param row integer
+---@param value any
 ---@return nil
 function AbstractTableModel:setvalue(self, column, row, value) end
 

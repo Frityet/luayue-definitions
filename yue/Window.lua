@@ -7,7 +7,7 @@
 ---@field onblur fun(self: Window): nil Emitted when the window lost focus.
 local Window = {}
 ---Create a new window with `options`.
----@param options Window::Options
+---@param options Window.Options
 ---@return Window
 function Window.create(options) end
 
@@ -64,7 +64,8 @@ function Window:setbounds(bounds) end
 function Window:getbounds() end
 
 ---Set the minimum and maximum sizes of the window.  Passing an empty size means no constraint. 
----@param minsize SizeF, maxsize SizeF
+---@param minsize SizeF
+---@param maxsize SizeF
 ---@return nil
 function Window:setsizeconstraints(minsize, maxsize) end
 
@@ -73,7 +74,8 @@ function Window:setsizeconstraints(minsize, maxsize) end
 function Window:getsizeconstraints() end
 
 ---Set the minimum and maximum content sizes of the window.  Passing an empty size means no constraint. 
----@param minsize SizeF, maxsize SizeF
+---@param minsize SizeF
+---@param maxsize SizeF
 ---@return nil
 function Window:setcontentsizeconstraints(minsize, maxsize) end
 

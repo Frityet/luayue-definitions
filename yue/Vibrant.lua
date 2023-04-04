@@ -8,7 +8,7 @@ local Vibrant = {}
 function Vibrant.create() end
 
 ---Set the material for the view.
----@param material Vibrant::Material
+---@param material Vibrant.Material
 ---@return nil
 function Vibrant:setmaterial(material) end
 
@@ -17,7 +17,7 @@ function Vibrant:setmaterial(material) end
 function Vibrant:getmaterial() end
 
 ---Set the blending mode for the view.
----@param mode Vibrant::BlendingMode
+---@param mode Vibrant.BlendingMode
 ---@return nil
 function Vibrant:setblendingmode(mode) end
 

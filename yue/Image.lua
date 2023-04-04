@@ -13,7 +13,8 @@ function Image.createempty() end
 function Image.createfrompath(path) end
 
 ---Create an image from `buffer` in memory, with `scale_factor`. 
----@param buffer string, scalefactor number
+---@param buffer string
+---@param scalefactor number
 ---@return Image
 function Image.createfrombuffer(buffer, scalefactor) end
 

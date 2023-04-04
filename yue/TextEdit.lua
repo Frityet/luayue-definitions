@@ -54,12 +54,14 @@ function TextEdit:selectall() end
 function TextEdit:getselectionrange() end
 
 ---Select text between `start` and `end` positions.
----@param start integer, end integer
+---@param start integer
+---@param end integer
 ---@return nil
 function TextEdit:selectrange(start, end) end
 
 ---Return the text between `start` and `end` positions.
----@param start integer, end integer
+---@param start integer
+---@param end integer
 ---@return string
 function TextEdit:gettextinrange(start, end) end
 
@@ -69,7 +71,8 @@ function TextEdit:gettextinrange(start, end) end
 function TextEdit:inserttext(text) end
 
 ---Insert `text` at the `position`.
----@param text string, position integer
+---@param text string
+---@param position integer
 ---@return nil
 function TextEdit:inserttextat(text, position) end
 
@@ -78,7 +81,8 @@ function TextEdit:inserttextat(text, position) end
 function TextEdit:delete() end
 
 ---Delete text between `start` and `end` positions.
----@param start integer, end integer
+---@param start integer
+---@param end integer
 ---@return nil
 function TextEdit:deleterange(start, end) end
 
@@ -88,12 +92,14 @@ function TextEdit:deleterange(start, end) end
 function TextEdit:setoverlayscrollbar(overlay) end
 
 ---Set the policy for displaying horizontal and vertical scrollbars. 
----@param hpolicy Scroll::Policy, vpolicy Scroll::Policy
+---@param hpolicy Scroll.Policy
+---@param vpolicy Scroll.Policy
 ---@return nil
 function TextEdit:setscrollbarpolicy(hpolicy, vpolicy) end
 
 ---Set horizontal and vertical scroll elasticity (bounce). 
----@param helasticity Scroll::Elasticity, velasticity Scroll::Elasticity
+---@param helasticity Scroll.Elasticity
+---@param velasticity Scroll.Elasticity
 ---@return nil
 function TextEdit:setscrollelasticity(helasticity, velasticity) end
 

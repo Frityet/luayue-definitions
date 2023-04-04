@@ -24,7 +24,7 @@ function Toolbar:setalloweditemidentifiers(identifiers) end
 function Toolbar:setallowcustomization(allow) end
 
 ---Set the display mode of the toolbar items.
----@param mode Toolbar::DisplayMode
+---@param mode Toolbar.DisplayMode
 ---@return nil
 function Toolbar:setdisplaymode(mode) end
 
@@ -42,7 +42,8 @@ function Toolbar:isvisible() end
 function Toolbar:getidentifier() end
 
 ---Called lazily when the toolbar is going to get the item with `identifier`.  You should not cache the item to be returned. 
----@param toolbar Toolbar, identifier string
+---@param toolbar Toolbar
+---@param identifier string
 ---@return Toolbar::Item
 function Toolbar:getitem(toolbar, identifier) end
 

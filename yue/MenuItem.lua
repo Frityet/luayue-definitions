@@ -5,7 +5,7 @@
 ---@field onclick fun(self: MenuItem): nil Emitted when item is clicked.
 local MenuItem = {}
 ---Create a menu item with `type`.
----@param type MenuItem::Type
+---@param type MenuItem.Type
 ---@return MenuItem
 function MenuItem.create(type) end
 

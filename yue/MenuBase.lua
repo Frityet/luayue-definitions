@@ -9,7 +9,8 @@ local MenuBase = {}
 function MenuBase:append(item) end
 
 ---Insert the `item` at `index` to the menu.
----@param item MenuItem, index integer
+---@param item MenuItem
+---@param index integer
 ---@return nil
 function MenuBase:insert(item, index) end
 

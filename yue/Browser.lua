@@ -12,12 +12,13 @@
 ---@field onfailnavigation fun(self: Browser, url: string, code: integer): nil Emitted when the navigation fails.
 local Browser = {}
 ---Create a new browser view.
----@param options Browser::Options
+---@param options Browser.Options
 ---@return Browser
 function Browser.create(options) end
 
 ---Register a custom protocol with `scheme` and `handler`.
----@param scheme string, handler function
+---@param scheme string
+---@param handler function
 ---@return boolean
 function Browser.registerprotocol(scheme, handler) end
 
@@ -32,7 +33,8 @@ function Browser.unregisterprotocol(scheme) end
 function Browser:loadurl(url) end
 
 ---Set the webpage contents and base URL.
----@param html string, baseurl string
+---@param html string
+---@param baseurl string
 ---@return nil
 function Browser:loadhtml(html, baseurl) end
 
@@ -59,7 +61,8 @@ function Browser:ismagnifiable() end
 function Browser:setmagnifiable(magnifiable) end
 
 ---Evaluate `code` in browser and get the evaluated result.
----@param code string, callback function
+---@param code string
+---@param callback function
 ---@return nil
 function Browser:executejavascript(code, callback) end
 
@@ -97,12 +100,14 @@ function Browser:isloading() end
 function Browser:setbindingname(name) end
 
 ---Add a native binding to web page with `name`.
----@param name string, func function
+---@param name string
+---@param func function
 ---@return nil
 function Browser:addbinding(name, func) end
 
 ---Add a raw handler to web page with `name`.
----@param name string, func function
+---@param name string
+---@param func function
 ---@return nil
 function Browser:addrawbinding(name, func) end
 

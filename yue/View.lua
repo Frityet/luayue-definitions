@@ -76,12 +76,15 @@ function View:setmousedowncanmovewindow(can) end
 function View:ismousedowncanmovewindow() end
 
 ---Like `DoDragWithOptions` but do not set drag image.
----@param data table, operations integer
+---@param data table
+---@param operations integer
 ---@return integer
 function View:dodrag(data, operations) end
 
 ---Start a drag session.
----@param data table, operations integer, options DragOptions
+---@param data table
+---@param operations integer
+---@param options DragOptions
 ---@return integer
 function View:dodragwithoptions(data, operations, options) end
 
@@ -140,17 +143,23 @@ function View:getparent() end
 function View:getwindow() end
 
 ---Called when user drags the cursor over the view for the first time. 
----@param self View, info DraggingInfo, point PointF
+---@param self View
+---@param info DraggingInfo
+---@param point PointF
 ---@return integer
 function View:handledragenter(self, info, point) end
 
 ---Called when user moves the cursor over the view while dragging. 
----@param self View, info DraggingInfo, point PointF
+---@param self View
+---@param info DraggingInfo
+---@param point PointF
 ---@return integer
 function View:handledragupdate(self, info, point) end
 
 ---Called when user releases the dragged data on the view.
----@param self View, info DraggingInfo, point PointF
+---@param self View
+---@param info DraggingInfo
+---@param point PointF
 ---@return boolean
 function View:handledrop(self, info, point) end
 

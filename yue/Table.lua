@@ -22,7 +22,8 @@ function Table:getmodel() end
 function Table:addcolumn(title) end
 
 ---Add a new column with `title` and `options`.
----@param title string, options Table::ColumnOptions
+---@param title string
+---@param options Table.ColumnOptions
 ---@return nil
 function Table:addcolumnwithoptions(title, options) end
 

@@ -9,7 +9,7 @@ local Clipboard = {}
 function Clipboard.get() end
 
 ---Return the clipboard with `type`.
----@param type Clipboard::Type
+---@param type Clipboard.Type
 ---@return Clipboard
 function Clipboard.fromtype(type) end
 
@@ -27,12 +27,12 @@ function Clipboard:settext(text) end
 function Clipboard:gettext() end
 
 ---Return whether the data of `type` is available.
----@param type Clipboard::Data::Type
+---@param type Clipboard.Data.Type
 ---@return boolean
 function Clipboard:isdataavailable(type) end
 
 ---Get the data of `type` from clipboard.
----@param type Clipboard::Data::Type
+---@param type Clipboard.Data.Type
 ---@return Clipboard::Data
 function Clipboard:getdata(type) end
 

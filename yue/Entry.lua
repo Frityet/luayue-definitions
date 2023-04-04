@@ -10,7 +10,7 @@ local Entry = {}
 function Entry.create() end
 
 ---Create an `Entry` with `type`.
----@param type Entry::Type
+---@param type Entry.Type
 ---@return Entry
 function Entry.createtype(type) end
 

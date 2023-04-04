@@ -27,7 +27,8 @@ function Scroll:setcontentsize(size) end
 function Scroll:getcontentsize() end
 
 ---Scroll to the `horizon` and `vertical` position.
----@param horizon number, vertical number
+---@param horizon number
+---@param vertical number
 ---@return nil
 function Scroll:setscrollposition(horizon, vertical) end
 
@@ -49,7 +50,8 @@ function Scroll:setoverlayscrollbar(overlay) end
 function Scroll:isoverlayscrollbar() end
 
 ---Set the policy for displaying horizontal and vertical scrollbars. 
----@param hpolicy Scroll::Policy, vpolicy Scroll::Policy
+---@param hpolicy Scroll.Policy
+---@param vpolicy Scroll.Policy
 ---@return nil
 function Scroll:setscrollbarpolicy(hpolicy, vpolicy) end
 
@@ -58,7 +60,8 @@ function Scroll:setscrollbarpolicy(hpolicy, vpolicy) end
 function Scroll:getscrollbarpolicy() end
 
 ---Set horizontal and vertical scroll elasticity (bounce). 
----@param helasticity Scroll::Elasticity, velasticity Scroll::Elasticity
+---@param helasticity Scroll.Elasticity
+---@param velasticity Scroll.Elasticity
 ---@return nil
 function Scroll:setscrollelasticity(helasticity, velasticity) end
 

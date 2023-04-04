@@ -35,12 +35,17 @@ function Painter:moveto(point) end
 function Painter:lineto(point) end
 
 ---Add a cubic Bézier curve to current path.  The first two points are control points and the third one is the end point. The starting point is the last point in the current path. 
----@param cp1 PointF, cp2 PointF, ep PointF
+---@param cp1 PointF
+---@param cp2 PointF
+---@param ep PointF
 ---@return nil
 function Painter:beziercurveto(cp1, cp2, ep) end
 
 ---Add an arc to the path which is centered at `point` with `radius` starting at `sa` angle and ending at `ea` angle going in clockwise direction. 
----@param point PointF, radius number, sa number, ea number
+---@param point PointF
+---@param radius number
+---@param sa number
+---@param ea number
 ---@return nil
 function Painter:arc(point, radius, sa, ea) end
 
@@ -116,32 +121,41 @@ function Painter:strokerect(rect) end
 function Painter:fillrect(rect) end
 
 ---Draw scaled `image` to fit `rect`.
----@param image Image, rect RectF
+---@param image Image
+---@param rect RectF
 ---@return nil
 function Painter:drawimage(image, rect) end
 
 ---Draw the specified portion of `image` at `src` to fit `rect`.
----@param image Image, src RectF, dest RectF
+---@param image Image
+---@param src RectF
+---@param dest RectF
 ---@return nil
 function Painter:drawimagefromrect(image, src, dest) end
 
 ---Draw scaled `canvas` to fit `rect`.
----@param canvas Canvas, rect RectF
+---@param canvas Canvas
+---@param rect RectF
 ---@return nil
 function Painter:drawcanvas(canvas, rect) end
 
 ---Draw the specified portion of `canvas` at `src` to fit `rect`.
----@param canvas Canvas, src RectF, dest RectF
+---@param canvas Canvas
+---@param src RectF
+---@param dest RectF
 ---@return nil
 function Painter:drawcanvasfromrect(canvas, src, dest) end
 
 ---Draw `text` bounded by `rect`.
----@param text AttributedText, rect RectF
+---@param text AttributedText
+---@param rect RectF
 ---@return nil
 function Painter:drawattributedtext(text, rect) end
 
 ---Draw `text` with `attributes` bounded by `rect`.
----@param text string, rect RectF, attributes TextAttributes
+---@param text string
+---@param rect RectF
+---@param attributes TextAttributes
 ---@return nil
 function Painter:drawtext(text, rect, attributes) end
 

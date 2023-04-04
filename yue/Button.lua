@@ -46,7 +46,7 @@ function Button:setimage(image) end
 function Button:getimage() end
 
 ---Set the visual style of the button.
----@param style Button::Style
+---@param style Button.Style
 ---@return nil
 function Button:setbuttonstyle(style) end
 

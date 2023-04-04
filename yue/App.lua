@@ -44,7 +44,7 @@ function App:getdockbadgelabel() end
 function App:isrunningasuwp() end
 
 ---Create a start menu shortcut for current user linking to current process.
----@param options App::ShortcutOptions
+---@param options App.ShortcutOptions
 ---@return boolean
 function App:createstartmenushortcut(options) end
 
@@ -66,7 +66,7 @@ function App:deactivate() end
 function App:isactive() end
 
 ---Modify the app's activation policy.
----@param policy App::ActivationPolicy
+---@param policy App.ActivationPolicy
 ---@return nil
 function App:setactivationpolicy(policy) end
 
