@@ -1,15 +1,16 @@
 ---@meta
 
---[[]]
----Native window.
+--[[### Native window.
+
+]]
 ---@class Window : Responder
----@field onclose fun(self: Window) 
----@field onfocus fun(self: Window) 
----@field onblur fun(self: Window) 
----@field shouldclose fun(self: Window): boolean 
+---@field onclose fun(self: Window): nil Emitted when the window is closed.
+---@field onfocus fun(self: Window): nil Emitted when the window is focused.
+---@field onblur fun(self: Window): nil Emitted when the window lost focus.
+---@field shouldclose fun(self: Window): boolean Called when user requests to close the window, should return whether the window can be closed. 
 local Window = {}
 --[[Create a new window with `options`.]]
----@param options Window::Options 
+---@param options Window.Options 
 ---@return Window 
 function Window.create(options) end
 

@@ -1,14 +1,15 @@
 ---@meta
 
---[[The `Scroll` view can show an arbitrary content view inside it.
+--[[### Show a part of view with scrollbar.
+
+The `Scroll` view can show an arbitrary content view inside it.
 
 When the content is larger than the `Scroll` view, scrollbars will be
 optionally showed. When the content view is smaller then the `Scroll` view,
 the content view will be resized to the size of the `Scroll` view.
 ]]
----Show a part of view with scrollbar.
 ---@class Scroll : View
----@field onscroll fun(self: Scroll) 
+---@field onscroll fun(self: Scroll): nil Emitted when the content view is being scrolled.
 local Scroll = {}
 --[[Create a new `Scroll` view.]]
 ---@return Scroll 
@@ -57,8 +58,8 @@ function Scroll:isoverlayscrollbar() end
 
 --[[Set the policy for displaying horizontal and vertical scrollbars.
 ]]
----@param hpolicy Scroll::Policy 
----@param vpolicy Scroll::Policy 
+---@param hpolicy Scroll.Policy 
+---@param vpolicy Scroll.Policy 
 ---@return nil 
 function Scroll:setscrollbarpolicy(hpolicy, vpolicy) end
 
@@ -69,8 +70,8 @@ function Scroll:getscrollbarpolicy() end
 
 --[[Set horizontal and vertical scroll elasticity (bounce).
 ]]
----@param helasticity Scroll::Elasticity 
----@param velasticity Scroll::Elasticity 
+---@param helasticity Scroll.Elasticity 
+---@param velasticity Scroll.Elasticity 
 ---@return nil 
 function Scroll:setscrollelasticity(helasticity, velasticity) end
 

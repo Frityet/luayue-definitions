@@ -1,10 +1,11 @@
 ---@meta
 
---[[The default range is between `0` and `100`.]]
----A slider bar for selecting numerical value.
+--[[### A slider bar for selecting numerical value.
+
+The default range is between `0` and `100`.]]
 ---@class Slider : View
----@field onvaluechange fun(self: Slider) 
----@field onslidingcomplete fun(self: Slider) 
+---@field onvaluechange fun(self: Slider): nil Emitted when user is changing the slider.
+---@field onslidingcomplete fun(self: Slider): nil Emitted when user releases the slider.
 local Slider = {}
 --[[Create a new `Slider` view.]]
 ---@return Slider 

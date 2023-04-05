@@ -1,6 +1,8 @@
 ---@meta
 
---[[The `Notification` API is responsible for sending notifications, for handling
+--[[### Send native notifications.
+
+The `Notification` API is responsible for sending notifications, for handling
 events of notifications, the `<!type>NotificationCenter` API should be used.
 
 Before sending notifications, you should set app's ID and name otherwise the
@@ -47,8 +49,7 @@ shortcut file.
 Also on Windows `Notification` uses toast notifications under the hood, and
 currently only Windows 10 and above are supported.
 ]]
----Send native notifications.
----@class Notification 
+---@class Notification
 local Notification = {}
 --[[Create a new Notification instance.]]
 ---@return Notification 

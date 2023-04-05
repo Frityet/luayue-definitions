@@ -1,6 +1,8 @@
 ---@meta
 
---[[This class represents current app and provides app wide APIs.
+--[[### Application class.
+
+This class represents current app and provides app wide APIs.
 
 This class can not be created by user, you can only receive its global
 instance from the `app` property of the module:
@@ -9,8 +11,7 @@ instance from the `app` property of the module:
 gui.app:getapplicationmenu()
 ```
 ]]
----Application class.
----@class App 
+---@class App
 local App = {}
 --[[Set the name of current app.]]
 ---@param name string 
@@ -53,7 +54,7 @@ function App:getdockbadgelabel() end
 function App:isrunningasuwp() end
 
 --[[Create a start menu shortcut for current user linking to current process.]]
----@param options App::ShortcutOptions 
+---@param options App.ShortcutOptions 
 ---@return boolean 
 function App:createstartmenushortcut(options) end
 
@@ -75,7 +76,7 @@ function App:deactivate() end
 function App:isactive() end
 
 --[[Modify the app's activation policy.]]
----@param policy App::ActivationPolicy 
+---@param policy App.ActivationPolicy 
 ---@return nil 
 function App:setactivationpolicy(policy) end
 

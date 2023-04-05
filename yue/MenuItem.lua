@@ -1,13 +1,14 @@
 ---@meta
 
---[[]]
----Menu item.
----@class MenuItem 
----@field onclick fun(self: MenuItem) 
----@field validate fun(self: MenuItem): boolean 
+--[[### Menu item.
+
+]]
+---@class MenuItem
+---@field onclick fun(self: MenuItem): nil Emitted when item is clicked.
+---@field validate fun(self: MenuItem): boolean Called before the item shows or activates, should return whether the item is enabled. 
 local MenuItem = {}
 --[[Create a menu item with `type`.]]
----@param type MenuItem::Type 
+---@param type MenuItem.Type 
 ---@return MenuItem 
 function MenuItem.create(type) end
 

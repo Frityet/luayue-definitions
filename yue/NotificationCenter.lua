@@ -1,6 +1,8 @@
 ---@meta
 
---[[The `NotificationCenter` API is responsible for handling events of
+--[[### Handle events of notifications.
+
+The `NotificationCenter` API is responsible for handling events of
 notifications, for sending notifications, the `<!type>Notification` API should
 be used.
 
@@ -56,14 +58,13 @@ turned off with `<!method>NotificationCenter::SetCOMServerOptions(options)`,
 and the item in registry can be removed with
 `<!method>NotificationCenter::RemoveCOMServerFromRegistry()`.
 ]]
----Handle events of notifications.
----@class NotificationCenter 
----@field onnotificationshow fun(info: string) 
----@field onnotificationclose fun(info: string) 
----@field onnotificationclick fun(info: string) 
----@field onnotificationaction fun(actioninfo: string) 
----@field onnotificationreply fun(info: string, reply: string) 
----@field ontoastactivate fun(appusermodelid: string, invokedargs: string, data: table): boolean 
+---@class NotificationCenter
+---@field onnotificationshow fun(info: string): nil Emitted when a notification has been displayed, the custom `info` of the notification is passed. 
+---@field onnotificationclose fun(info: string): nil Emitted when a notification has been closed without activation, the custom `info` of the notification is passed. 
+---@field onnotificationclick fun(info: string): nil Emitted when user clicks on the body of a notification, the custom `info` of the notification is passed. 
+---@field onnotificationaction fun(actioninfo: string): nil Emitted when user clicks on an action button of a notification, the custom `<!name>action_info` string of the action button is passed. 
+---@field onnotificationreply fun(info: string, reply: string): nil Emitted when user sends a text using inline reply in a notification, the custom `info` of the notification, and the `reply` string will be passed. 
+---@field ontoastactivate fun(appusermodelid: string, invokedargs: string, data: table): boolean Emitted when the notification activator COM server receives the Activate message. 
 local NotificationCenter = {}
 --[[Remove all notifications sent by this app.]]
 ---@return nil 
@@ -72,7 +73,7 @@ function NotificationCenter:clear() end
 --[[Set COM server related options, `false` will be returned if the passed
 `ToastActivatorCLSID` is invalid.
 ]]
----@param options NotificationCenter::COMServerOptions 
+---@param options NotificationCenter.COMServerOptions 
 ---@return boolean 
 function NotificationCenter:setcomserveroptions(options) end
 

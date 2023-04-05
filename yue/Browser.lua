@@ -1,6 +1,8 @@
 ---@meta
 
---[[Using `Browser` requires relatively new operating systems, for macOS the
+--[[### Native webview using system browser.
+
+Using `Browser` requires relatively new operating systems, for macOS the
 minimum version required is 10.10, for Linux it is required to install the
 `webkit2gtk` library with at least version 2.8.
 
@@ -31,19 +33,18 @@ the order of WebView2 Runtime, Beta, Dev, and Canary.
 4. Some `Browser` APIs are not implemented with WebView2 backend, due to lack
 of APIs in WebView2.
 ]]
----Native webview using system browser.
 ---@class Browser : View
----@field onclose fun(self: Browser) 
----@field onupdatecommand fun(self: Browser) 
----@field onchangeloading fun(self: Browser) 
----@field onupdatetitle fun(self: Browser, title: string) 
----@field onstartnavigation fun(self: Browser, url: string) 
----@field oncommitnavigation fun(self: Browser, url: string) 
----@field onfinishnavigation fun(self: Browser, url: string) 
----@field onfailnavigation fun(self: Browser, url: string, code: integer) 
+---@field onclose fun(self: Browser): nil Emitted when the web page requests to close.
+---@field onupdatecommand fun(self: Browser): nil Emitted when the back-forward list has changed.
+---@field onchangeloading fun(self: Browser): nil Emitted when the browser starts or stops loading content.
+---@field onupdatetitle fun(self: Browser, title: string): nil Emitted when document's title is changed.
+---@field onstartnavigation fun(self: Browser, url: string): nil Emitted when the browser begins provisional navigation.
+---@field oncommitnavigation fun(self: Browser, url: string): nil Emitted when the browser begins to receive web content.
+---@field onfinishnavigation fun(self: Browser, url: string): nil Emitted when the navigation is complete.
+---@field onfailnavigation fun(self: Browser, url: string, code: integer): nil Emitted when the navigation fails.
 local Browser = {}
 --[[Create a new browser view.]]
----@param options Browser::Options 
+---@param options Browser.Options 
 ---@return Browser 
 function Browser.create(options) end
 

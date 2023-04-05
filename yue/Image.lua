@@ -1,6 +1,8 @@
 ---@meta
 
---[[## High DPI Image
+--[[### Native image.
+
+## High DPI Image
 
 By appending `@{scaleFactor}x` to the image's base filename, you can mark
 the image as a high DPI image. For example an image file with filename of
@@ -15,8 +17,7 @@ Template images should consist of only black and clear colors, and macOS will
 mix with other content to create best appearance. This is useful for tray
 icons and menu item icons that automatically adjust to light and dark themes.
 ]]
----Native image.
----@class Image 
+---@class Image
 local Image = {}
 --[[Create an empty image.]]
 ---@return Image 

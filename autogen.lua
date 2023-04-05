@@ -56,11 +56,11 @@ self:is_a("code block")
 local yield = coroutine.yield
 
 ---@param ... string
----@return fun(ret: string?): string
+---@return fun(ret: string): string
 local function fun(...)
     local args = {...}
     return function (ret)
-        return string.format("fun(%s)%s", table.concat(args, ', '), ret and ": "..ret or "")
+        return string.format("fun(%s): %s", table.concat(args, ', '), ret)
     end
 end
 
@@ -77,15 +77,8 @@ end
 ---@param desc string?
 ---@return string
 local function param(name, type, desc)
+    type = type:gsub("::", ".")
     return string.format("---@param %s %s %s", name, type, desc or "")
-end
-
----@param name string
----@param desc string?
----@param inherit string?
----@return string
-local function class(name, desc, inherit)
-    return string.format("---%s\n---@class %s %s", desc or "", name, inherit and (": "..inherit) or "")
 end
 
 ---@param type string
@@ -121,7 +114,7 @@ local function generate_event(wl, event, apiname)
     end
 
     -- wl("---@field ", event.signature.name, " fun(", params_str, "): ", event.signature.returnType and event.signature.returnType.name or "nil", " ", event.description)
-    wl(field(event.signature.name, fun(table.unpack(params))((event.signature.returnType or {}).name)))
+    wl(field(event.signature.name, fun(table.unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description))
 end
 
 ---Generates a method definition for the given method
@@ -149,8 +142,8 @@ local function generate_method(wl, method, apiname, class_method)
         ---@param param1 string
         ---@param param2 number
     ]]
-    for _, p in ipairs(sig.parameters) do
-        wl(param(p.name, p.type and p.type.name or "any"))
+    for _, prm in ipairs(sig.parameters) do
+        wl(param(prm.name, prm.type and prm.type.name or "any"))
     end
     wl(return_t(ret))
 
@@ -199,11 +192,10 @@ local function generate_cats_defintion(api, to)
         --If there is any C++ or JS code in the detail, remove the block
         api.detail = api.detail:gsub("```cpp.-```", ""):gsub("```js.-```", "")
 
-        wl("--[[", api.detail, "]]")
+        wl("--[[### ", api.description, "\n\n", api.detail, "]]")
         if api.name:find("%.") then
-            local cls, sub = api.name:match("(.+)%.(.+)")
-            -- wl("---@class ", cls, ".", sub, (api.inherit and " : "..api.inherit.name or ""))
-            wl(class(cls.."."..sub, api.description, api.inherit and api.inherit.name or nil))
+            local class, sub = api.name:match("(.+)%.(.+)")
+            wl("---@class ", class, ".", sub, (api.inherit and " : "..api.inherit.name or ""))
             if api.properties then
                 for _, property in ipairs(api.properties) do
                     generate_property(wl, property, api.name)
@@ -211,9 +203,9 @@ local function generate_cats_defintion(api, to)
                 end
                 nl()
             end
-            wl(cls, ".", sub, " = {}")
+            wl(class, ".", sub, " = {}")
         else
-            wl(class(api.name, api.description, api.inherit and api.inherit.name or nil))
+            wl("---@class ", api.name, (api.inherit and " : "..api.inherit.name or ""))
             if api.properties then
                 for _, property in ipairs(api.properties) do
                     generate_property(wl, property, api.name)

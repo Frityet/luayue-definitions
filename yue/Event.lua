@@ -1,8 +1,9 @@
 ---@meta
 
---[[]]
----Generic input event type.
----@class Event 
+--[[### Generic input event type.
+
+]]
+---@class Event
 ---@field type EventType The type of the event.
 ---@field modifiers integer A bit array of keyboard modifiers of the event.
 ---@field timestamp integer Time when event was created, starts from when machine was booted. 

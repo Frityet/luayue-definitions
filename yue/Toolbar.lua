@@ -1,6 +1,8 @@
 ---@meta
 
---[[This view is only implemented for macOS by wrapping
+--[[### Window toolbar.
+
+This view is only implemented for macOS by wrapping
 [`NSToolbar`](https://developer.apple.com/documentation/appkit/nstoolbar).
 The API is still experimental and will be changed in future. Currently certain
 items are not aligned correctly in toolbar.
@@ -11,9 +13,8 @@ then call `SetDefaultItemIdentifiers` to specify the default items to show.
 
 
 ]]
----Window toolbar.
----@class Toolbar 
----@field getitem fun(toolbar: Toolbar, identifier: string): Toolbar::Item 
+---@class Toolbar
+---@field getitem fun(toolbar: Toolbar, identifier: string): Toolbar::Item Called lazily when the toolbar is going to get the item with `identifier`.  You should not cache the item to be returned. 
 local Toolbar = {}
 --[[Create a new `Toolbar` view with `identifier`.
 
@@ -45,7 +46,7 @@ function Toolbar:setalloweditemidentifiers(identifiers) end
 function Toolbar:setallowcustomization(allow) end
 
 --[[Set the display mode of the toolbar items.]]
----@param mode Toolbar::DisplayMode 
+---@param mode Toolbar.DisplayMode 
 ---@return nil 
 function Toolbar:setdisplaymode(mode) end
 

@@ -1,11 +1,12 @@
 ---@meta
 
---[[On Windows, due to the limitations of GdiPlus, it is only supported to change
+--[[### Text with styles.
+
+On Windows, due to the limitations of GdiPlus, it is only supported to change
 the whole text's color and font, i.e. the `SetFontFor` and `SetColorFor` APIs
 are unsupported.
 ]]
----Text with styles.
----@class AttributedText 
+---@class AttributedText
 local AttributedText = {}
 --[[Create an `AttributedText`.]]
 ---@param text string 

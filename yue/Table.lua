@@ -1,12 +1,13 @@
 ---@meta
 
---[[The `Table` does not store any data itself, to display data in `Table`, users
+--[[### Table view.
+
+The `Table` does not store any data itself, to display data in `Table`, users
 have to provide a `<!type>TableModel`.
 
 How data are renderered depends on the type of column. It is also possible to
 create a custom renderer for arbitrary data.
 ]]
----Table view.
 ---@class Table : View
 local Table = {}
 --[[Create a new `Table`.]]
@@ -29,7 +30,7 @@ function Table:addcolumn(title) end
 
 --[[Add a new column with `title` and `options`.]]
 ---@param title string 
----@param options Table::ColumnOptions 
+---@param options Table.ColumnOptions 
 ---@return nil 
 function Table:addcolumnwithoptions(title, options) end
 

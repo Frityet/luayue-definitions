@@ -1,7 +1,8 @@
 ---@meta
 
---[[]]
----Display a container view with title and border.
+--[[### Display a container view with title and border.
+
+]]
 ---@class Group : View
 local Group = {}
 --[[Create a new `Group` with `title`.]]

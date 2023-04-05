@@ -1,6 +1,8 @@
 ---@meta
 
---[[Depending on the runtime you use, Yue may or may not provide this API.
+--[[### Post events to main GUI message loop.
+
+Depending on the runtime you use, Yue may or may not provide this API.
 
 Note that `MessageLoop` is a class instead of an instance, the APIs are
 provided as class methods. This is because the `MessageLoop` does not manage
@@ -13,8 +15,7 @@ local gui = require('yue.gui')
 gui.MessageLoop.run()
 ```
 ]]
----Post events to main GUI message loop.
----@class MessageLoop 
+---@class MessageLoop
 local MessageLoop = {}
 --[[Enter GUI message loop.]]
 ---@return nil 

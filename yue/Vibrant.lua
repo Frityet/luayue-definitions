@@ -1,12 +1,13 @@
 ---@meta
 
---[[This view is only implemented for macOS by wrapping
+--[[### Translucency view.
+
+This view is only implemented for macOS by wrapping
 [`NSVisualEffectView`](https://developer.apple.com/documentation/appkit/nsvisualeffectview).
 
 It is not possible to draw on this view, to display content on it you have to
 add the content as child view.
 ]]
----Translucency view.
 ---@class Vibrant : Container
 local Vibrant = {}
 --[[Create a new `Vibrant` view.]]
@@ -14,7 +15,7 @@ local Vibrant = {}
 function Vibrant.create() end
 
 --[[Set the material for the view.]]
----@param material Vibrant::Material 
+---@param material Vibrant.Material 
 ---@return nil 
 function Vibrant:setmaterial(material) end
 
@@ -23,7 +24,7 @@ function Vibrant:setmaterial(material) end
 function Vibrant:getmaterial() end
 
 --[[Set the blending mode for the view.]]
----@param mode Vibrant::BlendingMode 
+---@param mode Vibrant.BlendingMode 
 ---@return nil 
 function Vibrant:setblendingmode(mode) end
 

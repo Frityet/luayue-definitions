@@ -1,6 +1,8 @@
 ---@meta
 
---[[
+--[[### 32-bit Color with alpha channel.
+
+
 `Color` is represented by a 32-bit ARGB integer.
 
 For APIs that accept `Color`, you can also pass a hex string representing
@@ -10,11 +12,10 @@ the color, like `"#A123"`, `"#123"`, `"#AA112233"`, `"#112233"`.
 label:setcolor('#F000')
 ```
 ]]
----32-bit Color with alpha channel.
----@class Color 
+---@class Color
 local Color = {}
 --[[Return the color with theme `name`.]]
----@param name Color::Name 
+---@param name Color.Name 
 ---@return Color 
 function Color.get(name) end
 

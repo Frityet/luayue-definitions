@@ -1,8 +1,9 @@
 ---@meta
 
---[[]]
----Native font.
----@class Font 
+--[[### Native font.
+
+]]
+---@class Font
 local Font = {}
 --[[Return the default font used for displaying text.]]
 ---@return Font 
@@ -13,8 +14,8 @@ function Font.default() end
 ]]
 ---@param name string 
 ---@param size number 
----@param weight Font::Weight 
----@param style Font::Style 
+---@param weight Font.Weight 
+---@param style Font.Style 
 ---@return Font 
 function Font.create(name, size, weight, style) end
 
@@ -28,8 +29,8 @@ function Font.createfrompath(path, size) end
 
 --[[Returns a new Font derived from the existing font.]]
 ---@param sizedelta number 
----@param weight Font::Weight 
----@param style Font::Style 
+---@param weight Font.Weight 
+---@param style Font.Style 
 ---@return Font 
 function Font:derive(sizedelta, weight, style) end
 

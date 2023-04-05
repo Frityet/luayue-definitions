@@ -1,6 +1,8 @@
 ---@meta
 
---[[It can also display other types of images, but only GIF images can be
+--[[### Image view with animated GIF support.
+
+It can also display other types of images, but only GIF images can be
 animated.
 
 Displaying animated GIF images consumes lots of CPU resources, it is highly
@@ -9,7 +11,6 @@ unrecommended to constantly display animated GIF images.
 For optimization, hiding the view would automatically pause the animation,
 and showing the view would automatically resume previous state.
 ]]
----Image view with animated GIF support.
 ---@class GifPlayer : View
 local GifPlayer = {}
 --[[Create a new `GifPlayer`.]]

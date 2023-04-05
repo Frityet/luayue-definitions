@@ -1,6 +1,8 @@
 ---@meta
 
---[[
+--[[### Information about user's appearance preferences.
+
+
 This class can not be created by user, you can only receive its global
 instance from the `appearance` property of the module:
 
@@ -8,9 +10,8 @@ instance from the `appearance` property of the module:
 gui.appearance:isdarkscheme()
 ```
 ]]
----Information about user's appearance preferences.
----@class Appearance 
----@field oncolorschemechange fun() 
+---@class Appearance
+---@field oncolorschemechange fun(): nil Emitted when user has changed system color scheme preferences.
 local Appearance = {}
 --[[Enable Windows 10 dark mode for current app.]]
 ---@param enable boolean 

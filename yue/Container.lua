@@ -1,14 +1,15 @@
 ---@meta
 
---[[The `Container` view is mainly used for two purposes:
+--[[### Drawable view with child views.
+
+The `Container` view is mainly used for two purposes:
 * Show custom drawn content;
 * Display a collection of child views.
 
 Note that the `index` counts from `1`, following lua's convention.
 ]]
----Drawable view with child views.
 ---@class Container : View
----@field ondraw fun(self: Container, painter: Painter, dirty: RectF) 
+---@field ondraw fun(self: Container, painter: Painter, dirty: RectF): nil Emitted when button the operating system or application requests to draw a portion of the view. 
 local Container = {}
 --[[Create a new container view.]]
 ---@return Container 

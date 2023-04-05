@@ -1,12 +1,13 @@
 ---@meta
 
---[[]]
----A view displays date and time with editing ability.
+--[[### A view displays date and time with editing ability.
+
+]]
 ---@class DatePicker : View
----@field ondatechange fun(self: DatePicker) 
+---@field ondatechange fun(self: DatePicker): nil Emitted when the selected date has been changed.
 local DatePicker = {}
 --[[Create a new `DatePicker` with `options`.]]
----@param options DatePicker::Options 
+---@param options DatePicker.Options 
 ---@return DatePicker 
 function DatePicker.create(options) end
 

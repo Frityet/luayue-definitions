@@ -1,8 +1,9 @@
 ---@meta
 
---[[]]
----Offscreen drawing.
----@class Canvas 
+--[[### Offscreen drawing.
+
+]]
+---@class Canvas
 local Canvas = {}
 --[[Create a new canvas with specified size and scale factor.
 ]]

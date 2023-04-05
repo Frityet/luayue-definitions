@@ -1,14 +1,15 @@
 ---@meta
 
---[[`View` provides methods to receive and change various style properties.
+--[[### Base class for GUI components.
+
+`View` provides methods to receive and change various style properties.
 ]]
----Base class for GUI components.
 ---@class View : Responder
----@field ondragleave fun(self: View, info: DraggingInfo) 
----@field onsizechanged fun(self: View) 
----@field handledragenter fun(self: View, info: DraggingInfo, point: PointF): integer 
----@field handledragupdate fun(self: View, info: DraggingInfo, point: PointF): integer 
----@field handledrop fun(self: View, info: DraggingInfo, point: PointF): boolean 
+---@field ondragleave fun(self: View, info: DraggingInfo): nil Emitted when cursor leaves the view while dragging.
+---@field onsizechanged fun(self: View): nil Emitted when the view's size has been changed.
+---@field handledragenter fun(self: View, info: DraggingInfo, point: PointF): integer Called when user drags the cursor over the view for the first time. 
+---@field handledragupdate fun(self: View, info: DraggingInfo, point: PointF): integer Called when user moves the cursor over the view while dragging. 
+---@field handledrop fun(self: View, info: DraggingInfo, point: PointF): boolean Called when user releases the dragged data on the view.
 local View = {}
 --[[Return offset from `view`.]]
 ---@param view View 

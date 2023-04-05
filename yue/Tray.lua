@@ -1,6 +1,8 @@
 ---@meta
 
---[[Platform limitations:
+--[[### Tray item displayed in system notification area.
+
+Platform limitations:
 
 * On Linux tray items are displayed as app indicators.
 * On Linux there is no fallback when app indicators are not supported.
@@ -8,9 +10,8 @@
 * On Windows you have to explicitly remove the tray item on exit, otherwise
   a zombie icon would be left.
 ]]
----Tray item displayed in system notification area.
----@class Tray 
----@field onclick fun(self: Tray) 
+---@class Tray
+---@field onclick fun(self: Tray): nil Emitted when the tray item is clicked.
 local Tray = {}
 --[[Create a tray item with `icon`.]]
 ---@param icon Image 

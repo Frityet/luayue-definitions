@@ -1,12 +1,13 @@
 ---@meta
 
---[[The `ComboBox` behaves differently from `Picker` that:
+--[[### Choose a single item from a list of items or type a custom value.
+
+The `ComboBox` behaves differently from `Picker` that:
 1. no item is selected by default;
 2. duplicate items are allowed.
 ]]
----Choose a single item from a list of items or type a custom value.
 ---@class ComboBox : Picker
----@field ontextchange fun(self: Entry) 
+---@field ontextchange fun(self: Entry): nil Emitted when user has changed text.
 local ComboBox = {}
 --[[Create a new `ComboBox` view.]]
 ---@return ComboBox 

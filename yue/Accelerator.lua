@@ -1,6 +1,8 @@
 ---@meta
 
---[[Accelerators are represented by strings that contain multiple modifier and
+--[[### Keyboard shortcut.
+
+Accelerators are represented by strings that contain multiple modifier and
 key codes, combined by the `+` character.
 
 Examples:
@@ -64,7 +66,6 @@ useful when defining some common keyboard shortcuts.
 * `Subtract`
 * `Tab`
 ]]
----Keyboard shortcut.
----@class Accelerator 
+---@class Accelerator
 local Accelerator = {}
 return Accelerator

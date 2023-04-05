@@ -1,7 +1,8 @@
 ---@meta
 
---[[]]
----Dialog used for saveing files.
+--[[### Dialog used for saveing files.
+
+]]
 ---@class FileSaveDialog : FileDialog
 local FileSaveDialog = {}
 --[[Create an save dialog.]]

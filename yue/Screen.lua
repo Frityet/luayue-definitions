@@ -1,6 +1,8 @@
 ---@meta
 
---[[
+--[[### Receive information about system’s monitor or screen.
+
+
 This class can not be created by user, you can only receive its global
 instance from the `screen` property of the module:
 
@@ -8,11 +10,10 @@ instance from the `screen` property of the module:
 gui.screen:getprimarydisplay()
 ```
 ]]
----Receive information about system’s monitor or screen.
----@class Screen 
----@field onadddisplay fun(display: Display) 
----@field onremovedisplay fun(display: Display) 
----@field onupdatedisplay fun(display: Display) 
+---@class Screen
+---@field onadddisplay fun(display: Display): nil Emitted when a new `display` is available.
+---@field onremovedisplay fun(display: Display): nil Emitted when the `display` has been removed.
+---@field onupdatedisplay fun(display: Display): nil Emitted when there are changes happened to `display`.
 local Screen = {}
 --[[Return the primary display.]]
 ---@return Display 

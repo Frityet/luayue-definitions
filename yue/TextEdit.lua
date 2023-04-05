@@ -1,6 +1,8 @@
 ---@meta
 
---[[The selection range in `TextEdit` use 0-based index, the `start` and `end`
+--[[### Plain text input view.
+
+The selection range in `TextEdit` use 0-based index, the `start` and `end`
 both start from 0, and `end` is the index of the character after the range.
 
 Using -1 as `end` means the end of the text.
@@ -8,10 +10,9 @@ Using -1 as `end` means the end of the text.
 The range uses character index instead of byte index, be careful when using
 programming languages without Unicode support.
 ]]
----Plain text input view.
 ---@class TextEdit : View
----@field ontextchange fun(self: TextEdit) 
----@field shouldinsertnewline fun(self: TextEdit): boolean 
+---@field ontextchange fun(self: TextEdit): nil Emitted when user has changed text.
+---@field shouldinsertnewline fun(self: TextEdit): boolean Called when user presses `Return` to insert new line, should return whether it is allowed. 
 local TextEdit = {}
 --[[Create a new `TextEdit`.]]
 ---@return TextEdit 
@@ -108,15 +109,15 @@ function TextEdit:setoverlayscrollbar(overlay) end
 
 --[[Set the policy for displaying horizontal and vertical scrollbars.
 ]]
----@param hpolicy Scroll::Policy 
----@param vpolicy Scroll::Policy 
+---@param hpolicy Scroll.Policy 
+---@param vpolicy Scroll.Policy 
 ---@return nil 
 function TextEdit:setscrollbarpolicy(hpolicy, vpolicy) end
 
 --[[Set horizontal and vertical scroll elasticity (bounce).
 ]]
----@param helasticity Scroll::Elasticity 
----@param velasticity Scroll::Elasticity 
+---@param helasticity Scroll.Elasticity 
+---@param velasticity Scroll.Elasticity 
 ---@return nil 
 function TextEdit:setscrollelasticity(helasticity, velasticity) end
 

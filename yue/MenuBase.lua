@@ -1,10 +1,11 @@
 ---@meta
 
---[[
+--[[### Base class of menu bar and popup menu.
+
+
 Note that the `index` counts from `1`, following lua's convention.
 ]]
----Base class of menu bar and popup menu.
----@class MenuBase 
+---@class MenuBase
 local MenuBase = {}
 --[[Append the `item` to the menu.]]
 ---@param item MenuItem 

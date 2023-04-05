@@ -1,7 +1,8 @@
 ---@meta
 
---[[]]
----Horizontal bar showing progress.
+--[[### Horizontal bar showing progress.
+
+]]
 ---@class ProgressBar : View
 local ProgressBar = {}
 --[[Create a new `ProgressBar`.]]

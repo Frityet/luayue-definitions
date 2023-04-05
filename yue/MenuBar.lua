@@ -1,7 +1,8 @@
 ---@meta
 
---[[]]
----Menu bar.
+--[[### Menu bar.
+
+]]
 ---@class MenuBar : MenuBase
 local MenuBar = {}
 --[[Create a menubar.]]

@@ -1,9 +1,10 @@
 ---@meta
 
---[[]]
----Native button, can also be used as checkbox and radio button.
+--[[### Native button, can also be used as checkbox and radio button.
+
+]]
 ---@class Button : View
----@field onclick fun(self: Button) 
+---@field onclick fun(self: Button): nil Emitted when button is clicked.
 local Button = {}
 --[[Create a normal button with `title`.]]
 ---@param title string 
@@ -47,7 +48,7 @@ function Button:setimage(image) end
 function Button:getimage() end
 
 --[[Set the visual style of the button.]]
----@param style Button::Style 
+---@param style Button.Style 
 ---@return nil 
 function Button:setbuttonstyle(style) end
 

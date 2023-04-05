@@ -1,11 +1,12 @@
 ---@meta
 
---[[By default, the first item is automatically selected, and duplicate items
+--[[### Choose a single item from a list of items.
+
+By default, the first item is automatically selected, and duplicate items
 are merged into one.
 ]]
----Choose a single item from a list of items.
 ---@class Picker : View
----@field onselectionchange fun(self: Picker) 
+---@field onselectionchange fun(self: Picker): nil Emitted when user has changed the selected item.
 local Picker = {}
 --[[Create a new `Picker` view.]]
 ---@return Picker 
