@@ -55,6 +55,46 @@ self:is_a("code block")
 
 local yield = coroutine.yield
 
+---@param ... string
+---@return fun(ret: string?): string
+local function fun(...)
+    local args = {...}
+    return function (ret)
+        return string.format("fun(%s)%s", table.concat(args, ', '), ret and ": "..ret or "")
+    end
+end
+
+---@param name string
+---@param type string
+---@param desc string?
+---@return string
+local function field(name, type, desc)
+    return string.format("---@field %s %s %s", name, type, desc or "")
+end
+
+---@param name string
+---@param type string
+---@param desc string?
+---@return string
+local function param(name, type, desc)
+    return string.format("---@param %s %s %s", name, type, desc or "")
+end
+
+---@param name string
+---@param desc string?
+---@param inherit string?
+---@return string
+local function class(name, desc, inherit)
+    return string.format("---%s\n---@class %s %s", desc or "", name, inherit and (": "..inherit) or "")
+end
+
+---@param type string
+---@param desc string?
+---@return string
+local function return_t(type, desc)
+    return string.format("---@return %s %s", type, desc or "")
+end
+
 ---Generates a property definition for the given property
 ---@param wl fun(...)
 ---@param property APIDefinition.Property
@@ -63,7 +103,8 @@ local function generate_property(wl, property, apiname)
     print("Generating property definition for "..property.id)
     --Strip newline characters from the description
     property.description = property.description and property.description:gsub("\r\n", " "):gsub("\n", " ") or ""
-    wl("---@field ", property.name, " ", property.type.name, " ", property.description)
+    -- wl("---@field ", property.name, " ", property.type.name, " ", property.description)
+    wl(field(property.name, property.type.name, property.description))
 end
 
 ---Generates a event definition for the given event
@@ -73,12 +114,14 @@ end
 local function generate_event(wl, event, apiname)
     print("Generating event definition for "..event.id)
     event.description = event.description and event.description:gsub("\r\n", " "):gsub("\n", " ") or ""
+    ---@type string[]
     local params = {}
     for _, param in ipairs(event.signature.parameters) do
         params[#params+1] = param.name..(param.type and (": "..param.type.name) or "")
     end
-    params_str = table.concat(params, ", ")
-    wl("---@field ", event.signature.name, " fun(", params_str, "): ", event.signature.returnType and event.signature.returnType.name or "nil", " ", event.description)
+
+    -- wl("---@field ", event.signature.name, " fun(", params_str, "): ", event.signature.returnType and event.signature.returnType.name or "nil", " ", event.description)
+    wl(field(event.signature.name, fun(table.unpack(params))((event.signature.returnType or {}).name)))
 end
 
 ---Generates a method definition for the given method
@@ -95,23 +138,21 @@ local function generate_method(wl, method, apiname, class_method)
     for _, param in ipairs(sig.parameters) do
         params[#params+1] = param.name..(param.type and (" "..param.type.name) or "")
     end
-    params_str = table.concat(params, ", ")
+    -- params_str = table.concat(params, ", ")
 
     local ret = sig.returnType and sig.returnType.name or "nil"
 
-    --We need to remove the newlines from the description
-    method.description = method.description:gsub("\r\n", " "):gsub("\r", " "):gsub("\n", " ")
-    wl("---", method.description)
+    wl("--[[", method.description, "]]")
 
     --Params are one after the other, like this
     --[[
         ---@param param1 string
         ---@param param2 number
     ]]
-    for _, param in ipairs(sig.parameters) do
-        wl("---@param ", param.name, " ", param.type and param.type.name:gsub("::", ".") or "any")
+    for _, p in ipairs(sig.parameters) do
+        wl(param(p.name, p.type and p.type.name or "any"))
     end
-    wl("---@return ", ret)
+    wl(return_t(ret))
 
     --For the actual function definition, we must remove the (: <TYPE>) from the parameters
     params = {}
@@ -158,10 +199,11 @@ local function generate_cats_defintion(api, to)
         --If there is any C++ or JS code in the detail, remove the block
         api.detail = api.detail:gsub("```cpp.-```", ""):gsub("```js.-```", "")
 
-        wl("--[[\n", api.description, "\n", api.detail, "]]")
+        wl("--[[", api.detail, "]]")
         if api.name:find("%.") then
-            local class, sub = api.name:match("(.+)%.(.+)")
-            wl("---@class ", class, ".", sub, (api.inherit and " : "..api.inherit.name or ""))
+            local cls, sub = api.name:match("(.+)%.(.+)")
+            -- wl("---@class ", cls, ".", sub, (api.inherit and " : "..api.inherit.name or ""))
+            wl(class(cls.."."..sub, api.description, api.inherit and api.inherit.name or nil))
             if api.properties then
                 for _, property in ipairs(api.properties) do
                     generate_property(wl, property, api.name)
@@ -169,9 +211,9 @@ local function generate_cats_defintion(api, to)
                 end
                 nl()
             end
-            wl(class, ".", sub, " = {}")
+            wl(cls, ".", sub, " = {}")
         else
-            wl("---@class ", api.name, (api.inherit and " : "..api.inherit.name or ""))
+            wl(class(api.name, api.description, api.inherit and api.inherit.name or nil))
             if api.properties then
                 for _, property in ipairs(api.properties) do
                     generate_property(wl, property, api.name)

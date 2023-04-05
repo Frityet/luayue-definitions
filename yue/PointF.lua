@@ -1,8 +1,6 @@
 ---@meta
 
 --[[
-A point with x and y coordinate.
-
 This type is represented by a table with `x` and `y` properties.
 
 ```lua
@@ -16,7 +14,8 @@ unpack `x` and `y`:
 painter:moveto(11, 24)
 ```
 ]]
----@class PointF
+---A point with x and y coordinate.
+---@class PointF 
 ---@field x number X coordinate.
 ---@field y number Y coordinate.
 local PointF = {}

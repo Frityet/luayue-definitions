@@ -1,9 +1,8 @@
 ---@meta
 
---[[
-Options for layouting text.
-]]
----@class TextFormat
+--[[]]
+---Options for layouting text.
+---@class TextFormat 
 ---@field align TextAlign Horizontal text align, default is to the start of layout.
 ---@field valign TextAlign Vertical text align, default is to the start of layout.
 ---@field wrap boolean Whether to wrap lines, default is `true`.

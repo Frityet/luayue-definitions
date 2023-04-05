@@ -1,8 +1,6 @@
 ---@meta
 
---[[
-Rectangle type.
-This type defines a simple integer rectangle class. The containment semantics
+--[[This type defines a simple integer rectangle class. The containment semantics
 are array-like; that is, the coordinate (x, y) is considered to be
 contained by the rectangle, but the coordinate (x + width, y) is not.
 
@@ -20,7 +18,8 @@ unpack the properties:
 window:setbounds(11, 24, 100, 100)
 ```
 ]]
----@class RectF
+---Rectangle type.
+---@class RectF 
 ---@field x number X coordinate.
 ---@field y number Y coordinate.
 ---@field width number Rectangle width.

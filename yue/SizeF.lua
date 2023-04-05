@@ -1,8 +1,6 @@
 ---@meta
 
 --[[
-Size type.
-
 This type is represented by a table with `width` and `height` properties.
 
 ```lua
@@ -16,7 +14,8 @@ unpack `width` and `height`:
 window:setcontentsize(100, 100)
 ```
 ]]
----@class SizeF
+---Size type.
+---@class SizeF 
 ---@field width number Size width.
 ---@field height number Size height.
 local SizeF = {}
