@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Represent an item of `Toolbar`.
+--[[# Represent an item of `Toolbar`.
 
 ]]
 ---@class Toolbar.Item

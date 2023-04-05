@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Information about a dragging session.
+--[[# Information about a dragging session.
 
 This class can not be created by user, its instance can only be received in
 the drag and drop events.

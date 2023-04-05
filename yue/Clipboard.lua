@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Native clipboard.
+--[[# Native clipboard.
 
 The `Clipboard` class can not be created by user, its instance can only be
 recevied by using the factory methods.

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### A point with x and y coordinate.
+--[[# A point with x and y coordinate.
 
 
 This type is represented by a table with `x` and `y` properties.

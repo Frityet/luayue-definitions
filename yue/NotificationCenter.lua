@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Handle events of notifications.
+--[[# Handle events of notifications.
 
 The `NotificationCenter` API is responsible for handling events of
 notifications, for sending notifications, the `<!type>Notification` API should

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Read asar archives to serve custom protocol requests.
+--[[# Read asar archives to serve custom protocol requests.
 
 The asar format is a simple extensive archive format, information of it can be
 found at https://github.com/electron/asar.

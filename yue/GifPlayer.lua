@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Image view with animated GIF support.
+--[[# Image view with animated GIF support.
 
 It can also display other types of images, but only GIF images can be
 animated.

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Offscreen drawing.
+--[[# Offscreen drawing.
 
 ]]
 ---@class Canvas

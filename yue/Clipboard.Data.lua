@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Clipboard data.
+--[[# Clipboard data.
 
 ]]
 ---@class Clipboard.Data

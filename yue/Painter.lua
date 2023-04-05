@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Graphic context.
+--[[# Graphic context.
 
 The `Painter` class can not be created by user, its instance can only be recevied in drawing events or via the `<!type>Canvas` class.]]
 ---@class Painter

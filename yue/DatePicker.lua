@@ -1,6 +1,6 @@
 ---@meta
 
---[[### A view displays date and time with editing ability.
+--[[# A view displays date and time with editing ability.
 
 ]]
 ---@class DatePicker : View

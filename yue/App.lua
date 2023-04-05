@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Application class.
+--[[# Application class.
 
 This class represents current app and provides app wide APIs.
 

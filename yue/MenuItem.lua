@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Menu item.
+--[[# Menu item.
 
 ]]
 ---@class MenuItem

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Post events to main GUI message loop.
+--[[# Post events to main GUI message loop.
 
 Depending on the runtime you use, Yue may or may not provide this API.
 

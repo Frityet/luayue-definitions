@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Keyboard shortcut.
+--[[# Keyboard shortcut.
 
 Accelerators are represented by strings that contain multiple modifier and
 key codes, combined by the `+` character.

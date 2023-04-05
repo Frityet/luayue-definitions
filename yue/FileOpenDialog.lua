@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Dialog used for opening files or folders.
+--[[# Dialog used for opening files or folders.
 
 ]]
 ---@class FileOpenDialog : FileDialog

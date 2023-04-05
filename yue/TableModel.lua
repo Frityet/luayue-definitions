@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Base class for models of Table.
+--[[# Base class for models of Table.
 
 
 For simple use cases, the `<!type>SimpleTableModel` can be used.

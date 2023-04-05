@@ -10,6 +10,8 @@
 local json = require("json")
 local lfs = require("lfs")
 
+local unpack = table.unpack or unpack
+
 --[[
 These are more docs
 
@@ -96,7 +98,6 @@ local function generate_property(wl, property, apiname)
     print("Generating property definition for "..property.id)
     --Strip newline characters from the description
     property.description = property.description and property.description:gsub("\r\n", " "):gsub("\n", " ") or ""
-    -- wl("---@field ", property.name, " ", property.type.name, " ", property.description)
     wl(field(property.name, property.type.name, property.description))
 end
 
@@ -113,8 +114,7 @@ local function generate_event(wl, event, apiname)
         params[#params+1] = param.name..(param.type and (": "..param.type.name) or "")
     end
 
-    -- wl("---@field ", event.signature.name, " fun(", params_str, "): ", event.signature.returnType and event.signature.returnType.name or "nil", " ", event.description)
-    wl(field(event.signature.name, fun(table.unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description))
+    wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description))
 end
 
 ---Generates a method definition for the given method
@@ -182,7 +182,6 @@ local function generate_cats_defintion(api, to)
         if api.enums then
             wl("---@alias ", api.name)
             for _, enum in ipairs(api.enums) do
-                --First, remove the quotes from the enum name
                 wl("---| ", enum.name)
             end
             return
@@ -192,7 +191,7 @@ local function generate_cats_defintion(api, to)
         --If there is any C++ or JS code in the detail, remove the block
         api.detail = api.detail:gsub("```cpp.-```", ""):gsub("```js.-```", "")
 
-        wl("--[[### ", api.description, "\n\n", api.detail, "]]")
+        wl("--[[# ", api.description, "\n\n", api.detail, "]]")
         if api.name:find("%.") then
             local class, sub = api.name:match("(.+)%.(.+)")
             wl("---@class ", class, ".", sub, (api.inherit and " : "..api.inherit.name or ""))
@@ -314,3 +313,5 @@ for _, api in ipairs(apis) do
 end
 f:write("local yue = {}\n")
 f:write("return yue\n")
+
+f:close()

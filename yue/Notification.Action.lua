@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Describes the action button of `Notification`.
+--[[# Describes the action button of `Notification`.
 
 ]]
 ---@class Notification.Action

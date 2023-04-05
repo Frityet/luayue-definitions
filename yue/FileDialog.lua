@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Base class for file dialogs.
+--[[# Base class for file dialogs.
 
 ]]
 ---@class FileDialog

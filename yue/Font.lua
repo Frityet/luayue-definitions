@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Native font.
+--[[# Native font.
 
 ]]
 ---@class Font

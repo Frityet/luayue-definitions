@@ -1,6 +1,6 @@
 ---@meta
 
---[[### A slider bar for selecting numerical value.
+--[[# A slider bar for selecting numerical value.
 
 The default range is between `0` and `100`.]]
 ---@class Slider : View

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Base class of Window and View for event processing.
+--[[# Base class of Window and View for event processing.
 
 ]]
 ---@class Responder

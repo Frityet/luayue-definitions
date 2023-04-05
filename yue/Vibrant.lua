@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Translucency view.
+--[[# Translucency view.
 
 This view is only implemented for macOS by wrapping
 [`NSVisualEffectView`](https://developer.apple.com/documentation/appkit/nsvisualeffectview).

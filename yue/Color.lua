@@ -1,6 +1,6 @@
 ---@meta
 
---[[### 32-bit Color with alpha channel.
+--[[# 32-bit Color with alpha channel.
 
 
 `Color` is represented by a 32-bit ARGB integer.

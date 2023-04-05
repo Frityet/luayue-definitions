@@ -1,6 +1,6 @@
 ---@meta
 
---[[### FileDialog filters.
+--[[# FileDialog filters.
 
 ]]
 ---@class FileDialog.Filter

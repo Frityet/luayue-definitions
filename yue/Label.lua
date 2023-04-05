@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Display text.
+--[[# Display text.
 
 ]]
 ---@class Label : View

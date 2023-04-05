@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Choose a single item from a list of items.
+--[[# Choose a single item from a list of items.
 
 By default, the first item is automatically selected, and duplicate items
 are merged into one.

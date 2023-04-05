@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Text with styles.
+--[[# Text with styles.
 
 On Windows, due to the limitations of GdiPlus, it is only supported to change
 the whole text's color and font, i.e. the `SetFontFor` and `SetColorFor` APIs

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### A horizontal or vertical line.
+--[[# A horizontal or vertical line.
 
 ]]
 ---@class Separator : View

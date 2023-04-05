@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Keyboard event.
+--[[# Keyboard event.
 
 ]]
 ---@class KeyEvent : Event

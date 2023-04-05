@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Native webview using system browser.
+--[[# Native webview using system browser.
 
 Using `Browser` requires relatively new operating systems, for macOS the
 minimum version required is 10.10, for Linux it is required to install the

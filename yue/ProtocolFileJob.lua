@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Read file to serve custom protocol requests.
+--[[# Read file to serve custom protocol requests.
 
 ]]
 ---@class ProtocolFileJob : ProtocolJob

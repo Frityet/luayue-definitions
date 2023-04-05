@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Send native notifications.
+--[[# Send native notifications.
 
 The `Notification` API is responsible for sending notifications, for handling
 events of notifications, the `<!type>NotificationCenter` API should be used.

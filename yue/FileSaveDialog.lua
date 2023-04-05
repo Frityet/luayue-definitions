@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Dialog used for saveing files.
+--[[# Dialog used for saveing files.
 
 ]]
 ---@class FileSaveDialog : FileDialog

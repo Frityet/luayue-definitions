@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Operations of dragging.
+--[[# Operations of dragging.
 
 The `DragOperation` are integer masks that can be operated with bitwise
 operators.

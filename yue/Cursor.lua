@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Native cursor.
+--[[# Native cursor.
 
 ]]
 ---@class Cursor

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Popup menu.
+--[[# Popup menu.
 
 ]]
 ---@class Menu : MenuBase

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Single-line text input view.
+--[[# Single-line text input view.
 
 ]]
 ---@class Entry : View

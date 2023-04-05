@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Mouse event.
+--[[# Mouse event.
 
 ]]
 ---@class MouseEvent : Event

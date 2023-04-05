@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for creating browser.
+--[[# Options for creating browser.
 
 ]]
 ---@class Browser.Options

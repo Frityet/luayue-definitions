@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for drawing text.
+--[[# Options for drawing text.
 
 ]]
 ---@class TextAttributes : TextFormat

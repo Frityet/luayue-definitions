@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for creating start menu shortcut.
+--[[# Options for creating start menu shortcut.
 
 ]]
 ---@class App.ShortcutOptions

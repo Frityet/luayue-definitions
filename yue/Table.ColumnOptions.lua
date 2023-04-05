@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for columns of Table.
+--[[# Options for columns of Table.
 
 ]]
 ---@class Table.ColumnOptions

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Implement a custom TableModel.
+--[[# Implement a custom TableModel.
 
 To implement a custom `<!type>TableModel`, please implement all the methods
 in the Delegates section. It is also required to call the `Notify` methods of

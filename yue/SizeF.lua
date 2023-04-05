@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Size type.
+--[[# Size type.
 
 
 This type is represented by a table with `width` and `height` properties.

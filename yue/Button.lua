@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Native button, can also be used as checkbox and radio button.
+--[[# Native button, can also be used as checkbox and radio button.
 
 ]]
 ---@class Button : View

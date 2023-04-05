@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Information about user's appearance preferences.
+--[[# Information about user's appearance preferences.
 
 
 This class can not be created by user, you can only receive its global

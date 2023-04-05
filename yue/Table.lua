@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Table view.
+--[[# Table view.
 
 The `Table` does not store any data itself, to display data in `Table`, users
 have to provide a `<!type>TableModel`.

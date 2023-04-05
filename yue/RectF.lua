@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Rectangle type.
+--[[# Rectangle type.
 
 This type defines a simple integer rectangle class. The containment semantics
 are array-like; that is, the coordinate (x, y) is considered to be

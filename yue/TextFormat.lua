@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for layouting text.
+--[[# Options for layouting text.
 
 ]]
 ---@class TextFormat

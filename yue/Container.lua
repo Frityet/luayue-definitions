@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Drawable view with child views.
+--[[# Drawable view with child views.
 
 The `Container` view is mainly used for two purposes:
 * Show custom drawn content;

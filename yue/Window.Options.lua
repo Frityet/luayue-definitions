@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for creating window.
+--[[# Options for creating window.
 
 ]]
 ---@class Window.Options

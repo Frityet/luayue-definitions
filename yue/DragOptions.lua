@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for starting a drag operation.
+--[[# Options for starting a drag operation.
 
 ]]
 ---@class DragOptions

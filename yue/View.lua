@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Base class for GUI components.
+--[[# Base class for GUI components.
 
 `View` provides methods to receive and change various style properties.
 ]]

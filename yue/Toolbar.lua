@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Window toolbar.
+--[[# Window toolbar.
 
 This view is only implemented for macOS by wrapping
 [`NSToolbar`](https://developer.apple.com/documentation/appkit/nstoolbar).

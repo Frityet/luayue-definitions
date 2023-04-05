@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for creating COM server.
+--[[# Options for creating COM server.
 
 ]]
 ---@class NotificationCenter.COMServerOptions

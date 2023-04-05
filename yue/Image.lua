@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Native image.
+--[[# Native image.
 
 ## High DPI Image
 

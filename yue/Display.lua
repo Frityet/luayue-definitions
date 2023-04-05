@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Information of monitor.
+--[[# Information of monitor.
 
 ]]
 ---@class Display

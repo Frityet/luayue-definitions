@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Show a part of view with scrollbar.
+--[[# Show a part of view with scrollbar.
 
 The `Scroll` view can show an arbitrary content view inside it.
 

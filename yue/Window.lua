@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Native window.
+--[[# Native window.
 
 ]]
 ---@class Window : Responder

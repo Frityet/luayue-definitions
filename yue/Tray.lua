@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Tray item displayed in system notification area.
+--[[# Tray item displayed in system notification area.
 
 Platform limitations:
 

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Codes of keyboard keys.
+--[[# Codes of keyboard keys.
 
 
 Keyboard keys are represented with strings, in Yue we use the values of

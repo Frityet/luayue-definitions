@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Multipage view with tabs.
+--[[# Multipage view with tabs.
 
 ]]
 ---@class Tab : View

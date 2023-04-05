@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Generic input event type.
+--[[# Generic input event type.
 
 ]]
 ---@class Event

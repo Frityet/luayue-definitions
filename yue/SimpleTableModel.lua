@@ -1,6 +1,6 @@
 ---@meta
 
---[[### A simple implementation of TableModel.
+--[[# A simple implementation of TableModel.
 
 There is no need to call `Notify` methods when using `SimpleTableModel`.
 

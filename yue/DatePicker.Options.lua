@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Options for creating DatePicker.
+--[[# Options for creating DatePicker.
 
 ]]
 ---@class DatePicker.Options

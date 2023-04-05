@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Two dimensions vector.
+--[[# Two dimensions vector.
 
 
 This is represented by a table with `x` and `y` properties, indicating a

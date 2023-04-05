@@ -1,6 +1,6 @@
 ---@meta
 
---[[### A window showing some text and buttons.
+--[[# A window showing some text and buttons.
 
 ]]
 ---@class MessageBox

@@ -1,6 +1,6 @@
 ---@meta
 
---[[### Receive information about system’s monitor or screen.
+--[[# Receive information about system’s monitor or screen.
 
 
 This class can not be created by user, you can only receive its global
