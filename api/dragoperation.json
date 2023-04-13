@@ -1,9 +1,0 @@
-{
-  "name": "DragOperation",
-  "header": "nativeui/dragging_info.h",
-  "type": "integer",
-  "namespace": "nu",
-  "description": "Operations of dragging.",
-  "detail": "The `DragOperation` are integer masks that can be operated with bitwise\noperators.\n\nThe `None` operation means dragging is not allowed, and it should not be used\ntogether with other operations.\n\nThe values of `DragOperation` are available as the class properties of the\n`<!type>DraggingInfo` class.\n",
-  "id": "dragoperation"
-}
