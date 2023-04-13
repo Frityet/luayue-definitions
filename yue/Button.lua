@@ -52,6 +52,11 @@ function Button:getimage() end
 ---@return nil 
 function Button:setbuttonstyle(style) end
 
+--[[Set the control size of the button.]]
+---@param size ControlSize 
+---@return nil 
+function Button:setcontrolsize(size) end
+
 --[[Set whether the button has a border.]]
 ---@param yes boolean 
 ---@return nil 

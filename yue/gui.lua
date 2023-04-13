@@ -18,6 +18,7 @@
 ---@field Browser.Options Browser.Options
 ---@field Table.ColumnType Table.ColumnType
 ---@field MenuItem.Type MenuItem.Type
+---@field ControlSize ControlSize
 ---@field Tab Tab
 ---@field Clipboard.Data.Type Clipboard.Data.Type
 ---@field DatePicker DatePicker
