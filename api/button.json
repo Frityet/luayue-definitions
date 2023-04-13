@@ -198,6 +198,27 @@
     },
     {
       "signature": {
+        "name": "setcontrolsize",
+        "parameters": [
+          {
+            "type": {
+              "name": "ControlSize",
+              "id": "controlsize"
+            },
+            "name": "size"
+          }
+        ],
+        "shortStr": "setcontrolsize(size)",
+        "str": "setcontrolsize(size)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set the control size of the button.",
+      "id": "setcontrolsize-size"
+    },
+    {
+      "signature": {
         "name": "sethasborder",
         "parameters": [
           {

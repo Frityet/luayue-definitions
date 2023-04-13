@@ -24,6 +24,10 @@ function View:offsetfromwindow() end
 ---@return RectF 
 function View:getbounds() end
 
+--[[Return the position and size of the view in the screen.]]
+---@return RectF 
+function View:getboundsinscreen() end
+
 --[[Make the view re-recalculate its layout.]]
 ---@return nil 
 function View:layout() end
@@ -111,6 +115,22 @@ function View:registerdraggedtypes(types) end
 ---@param cursor Cursor 
 ---@return nil 
 function View:setcursor(cursor) end
+
+--[[Set the `tooltip` for the view.]]
+---@param tooltip string 
+---@return nil 
+function View:settooltip(tooltip) end
+
+--[[Add `tooltip` for a defined `rect` in the view and return an ID for it.]]
+---@param tooltip string 
+---@param rect RectF 
+---@return integer 
+function View:addtooltipforrect(tooltip, rect) end
+
+--[[Remove tooltip added by `<!name>AddTooltipForRect` with `id`.]]
+---@param id integer 
+---@return nil 
+function View:removetooltip(id) end
 
 --[[Change the font used for drawing text in the view.]]
 ---@param font Font 

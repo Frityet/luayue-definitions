@@ -860,6 +860,28 @@
     },
     {
       "signature": {
+        "name": "setmenubarvisible",
+        "parameters": [
+          {
+            "type": {
+              "name": "boolean"
+            },
+            "name": "visible"
+          }
+        ],
+        "shortStr": "setmenubarvisible(visible)",
+        "str": "setmenubarvisible(visible)"
+      },
+      "platform": [
+        "Windows",
+        "Linux"
+      ],
+      "description": "Set whether the window menu bar is visible.",
+      "detail": "The accelerators of menu items will still work when menu bar is hidden.\n\nCalling `<!name>SetMenu` will reset the menu bar to visible.\n",
+      "id": "setmenubarvisible-visible"
+    },
+    {
+      "signature": {
         "returnType": {
           "name": "Window",
           "id": "window"

@@ -63,6 +63,20 @@
     },
     {
       "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "getboundsinscreen",
+        "parameters": [],
+        "shortStr": "getboundsinscreen()",
+        "str": "getboundsinscreen()"
+      },
+      "description": "Return the position and size of the view in the screen.",
+      "id": "getboundsinscreen"
+    },
+    {
+      "signature": {
         "name": "layout",
         "parameters": [],
         "shortStr": "layout()",
@@ -365,6 +379,68 @@
       "description": "Set the cursor to show when hovering the view.",
       "detail": "On Linux, setting cursor would force the view to own its own GDK window.\nFor certain views like `Label`, this may have remove the view's background\ncolor.\n",
       "id": "setcursor-cursor"
+    },
+    {
+      "signature": {
+        "name": "settooltip",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "tooltip"
+          }
+        ],
+        "shortStr": "settooltip(tooltip)",
+        "str": "settooltip(tooltip)"
+      },
+      "description": "Set the `tooltip` for the view.",
+      "detail": "This method will clear all tooltips added by `<!name>AddTooltipForRect`.\n",
+      "id": "settooltip-tooltip"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "integer"
+        },
+        "name": "addtooltipforrect",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "tooltip"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "addtooltipforrect(tooltip, rect)",
+        "str": "addtooltipforrect(tooltip, rect)"
+      },
+      "description": "Add `tooltip` for a defined `rect` in the view and return an ID for it.",
+      "id": "addtooltipforrect-tooltip-rect"
+    },
+    {
+      "signature": {
+        "name": "removetooltip",
+        "parameters": [
+          {
+            "type": {
+              "name": "integer"
+            },
+            "name": "id"
+          }
+        ],
+        "shortStr": "removetooltip(id)",
+        "str": "removetooltip(id)"
+      },
+      "description": "Remove tooltip added by `<!name>AddTooltipForRect` with `id`.",
+      "id": "removetooltip-id"
     },
     {
       "signature": {

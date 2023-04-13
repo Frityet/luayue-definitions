@@ -1,0 +1,22 @@
+{
+  "name": "ControlSize",
+  "header": "nativeui/button.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "Maps to `NSControlSize`.",
+  "enums": [
+    {
+      "name": "\"mini\""
+    },
+    {
+      "name": "\"small\""
+    },
+    {
+      "name": "\"regular\""
+    },
+    {
+      "name": "\"large\""
+    }
+  ],
+  "id": "controlsize"
+}

@@ -261,6 +261,11 @@ function Window:setmenubar(menubar) end
 ---@return MenuBar 
 function Window:getmenubar() end
 
+--[[Set whether the window menu bar is visible.]]
+---@param visible boolean 
+---@return nil 
+function Window:setmenubarvisible(visible) end
+
 --[[Return the parent window.]]
 ---@return Window 
 function Window:getparentwindow() end
