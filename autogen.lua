@@ -12,6 +12,12 @@ local path = require("path")
 
 local unpack = table.unpack or unpack
 
+local written = {
+    functions = 0,
+    events = 0,
+    properties = 0,
+}
+
 ---@param prog string
 ---@param ... string
 ---@return string?
@@ -128,6 +134,7 @@ local function generate_property(wl, property, apiname)
     property.description = property.description and property.description:gsub("\r\n", " "):gsub("\n", " ") or ""
     wl(field(property.name, property.type.name, property.description))
     print(string.format("\x1b[32mGenerated \x1b[35mproperty \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, property.name))
+    written.properties = written.properties + 1
 end
 
 ---Generates a event definition for the given event
@@ -144,6 +151,7 @@ local function generate_event(wl, event, apiname)
 
     wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description))
     print(string.format("\x1b[32mGenerated \x1b[35mevent \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, event.signature.name))
+    written.events = written.events + 1
 end
 
 ---Generates a method definition for the given method
@@ -191,6 +199,7 @@ local function generate_method(wl, method, apiname, class_method)
     io.write("\x1b[0m)")
     io.write(": \x1b[36m"..(sig.returnType and sig.returnType.name or "nil"))
     io.write("\x1b[0m\n")
+    written.functions = written.functions + 1
 end
 
 ---Generates standard LuaLanguageServer (CATS) annotations for the libyue library
@@ -359,3 +368,15 @@ f:write("return yue\n")
 f:close()
 
 print("\x1b[32mDone!\x1b[0m")
+print("\x1b[1;33mInfo:\x1b[0m")
+print("\t- \x1b[1;32m"..#apis.."\x1b[33m APIs were parsed\x1b[0m")
+print("\t\t- \x1b[1;32m"..written.functions.."\x1b[33m functions\x1b[0m")
+print("\t\t- \x1b[1;32m"..written.properties.."\x1b[33m properties\x1b[0m")
+print("\t\t- \x1b[1;32m"..written.events.."\x1b[33m events\x1b[0m")
+
+local ok, err = exec("du", "-sh", tostring(yue_dir))
+if not ok then return end
+
+local kb_used = ok:match("(%d+)K")
+
+print("\t- \x1b[1;32m"..kb_used.."KB\x1b[33m of disk space was used\x1b[0m")
