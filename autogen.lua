@@ -8,17 +8,46 @@
 ---@field encode fun(value: any): string?
 ---@field decode fun(value: string): any?
 local json = require("json")
-local lfs = require("lfs")
+local Path = require("path")
 
 local unpack = table.unpack or unpack
 
---[[
-These are more docs
+---@param prog string
+---@param ... string
+---@return string?
+---@return string?
+local function exec(prog, ...)
+    local cmd = string.format("%s %s", prog, table.concat({...}, " "))
+    local f, err = io.popen(cmd)
+    if not f then return nil, err end
 
-```lua
-self:is_a("code block")
-```
-]]
+    local ret = f:read("*a")
+    if not f:close() then return nil, ret end
+    return ret
+end
+
+---Keywords cannot be symbol names, so we need to add an underscore
+
+local KEYWORDS = {
+    ["end"]     = "_end",
+    ["function"]= "_function",
+    ["local"]   = "_local",
+    ["return"]  = "_return",
+    ["for"]     = "_for",
+    ["in"]      = "_in",
+    ["repeat"]  = "_repeat",
+    ["until"]   = "_until",
+    ["if"]      = "_if",
+    ["then"]    = "_then",
+    ["elseif"]  = "_elseif",
+    ["else"]    = "_else"
+}
+
+setmetatable(KEYWORDS, {
+    __index = function (self, key) return rawget(self, key) or key end
+})
+
+
 ---@class APIDefinition.Type
 ---@field name string
 ---@field id string?
@@ -71,7 +100,7 @@ end
 ---@param desc string?
 ---@return string
 local function field(name, type, desc)
-    return string.format("---@field %s %s %s", name, type, desc or "")
+    return string.format("---@field %s %s %s", KEYWORDS[name], type, desc or "")
 end
 
 ---@param name string
@@ -80,7 +109,7 @@ end
 ---@return string
 local function param(name, type, desc)
     type = type:gsub("::", ".")
-    return string.format("---@param %s %s %s", name, type, desc or "")
+    return string.format("---@param %s %s %s", KEYWORDS[name], type, desc or "")
 end
 
 ---@param type string
@@ -95,10 +124,11 @@ end
 ---@param property APIDefinition.Property
 ---@param apiname string
 local function generate_property(wl, property, apiname)
-    print("Generating property definition for "..property.id)
     --Strip newline characters from the description
     property.description = property.description and property.description:gsub("\r\n", " "):gsub("\n", " ") or ""
-    wl(field(property.name, property.type.name, property.description))
+    local out = field(property.name, property.type.name, property.description)
+    wl(out)
+    print("Generated property "..out)
 end
 
 ---Generates a event definition for the given event
@@ -106,7 +136,6 @@ end
 ---@param event APIDefinition.MethodSignature
 ---@param apiname string
 local function generate_event(wl, event, apiname)
-    print("Generating event definition for "..event.id)
     event.description = event.description and event.description:gsub("\r\n", " "):gsub("\n", " ") or ""
     ---@type string[]
     local params = {}
@@ -114,7 +143,9 @@ local function generate_event(wl, event, apiname)
         params[#params+1] = param.name..(param.type and (": "..param.type.name) or "")
     end
 
-    wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description))
+    local out = field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description)
+    wl(out)
+    print("Generated event "..out)
 end
 
 ---Generates a method definition for the given method
@@ -123,13 +154,12 @@ end
 ---@param apiname string
 ---@param class_method boolean
 local function generate_method(wl, method, apiname, class_method)
-    print("Generating method definition for "..method.id..":"..method.signature.name.." in "..apiname)
 
     local sep = class_method and "." or ":"
     local sig = method.signature
     local params = {}
     for _, param in ipairs(sig.parameters) do
-        params[#params+1] = param.name..(param.type and (" "..param.type.name) or "")
+        params[#params+1] = KEYWORDS[param.name]..(param.type and (" "..param.type.name) or "")
     end
     -- params_str = table.concat(params, ", ")
 
@@ -150,21 +180,24 @@ local function generate_method(wl, method, apiname, class_method)
     --For the actual function definition, we must remove the (: <TYPE>) from the parameters
     params = {}
     for _, param in ipairs(sig.parameters) do
-        params[#params+1] = param.name
+        params[#params+1] = KEYWORDS[param.name]
     end
     params_str = table.concat(params, ", ")
-    wl("function ", apiname, sep, sig.name, "(", params_str, ") end")
+    local out = "function "..apiname..sep..sig.name.."("..params_str..") end"
+    wl(out)
+    print("Generated method "..out)
 end
 
 ---Generates standard LuaLanguageServer (CATS) annotations for the libyue library
 ---@param api APIDefinition
----@param to string
+---@param to Path
 ---@return boolean, thread | string
 local function generate_cats_defintion(api, to)
-    local f = io.open(to, "w+")
-    if not f then return false, "Failed to open "..to end
+    local f, err = to:create("file", "w+")
+    if not f then return false, "Failed to open "..tostring(to) end
+    --[[@cast f file*]]
 
-    print("Generating CATS definition for "..api.name.." to "..to)
+    print("Generating CATS definition for "..api.name.." to "..tostring(to))
     return true, coroutine.create(function ()
         local function wl(...)
             local args = {...}
@@ -258,36 +291,37 @@ end
 ---@type APIDefinition[]
 local apis = {}
 
-local cwd = lfs.currentdir()
-for api_file in lfs.dir(cwd.."/api") do
-    if api_file == "." or api_file == ".." then goto next end
-    local path = cwd.."/api/"..api_file
+local yue_dir = Path.current_directory/"yue"
+
+local api_dir = Path"./api"
+
+local ok, err = exec("git", "submodule", "update", "--remote", "--recursive", "--force")
+if not ok then error(err) end
+
+for file in (api_dir/"docs"/"latest"/"lua"/"api"):entries() do
+    if file:type() == "directory" or file:extension() ~= "json" then goto next end
+
+    print("Reading "..tostring(file))
+    local res, err = file:read_all()
+    if not res then error(err) end
     ---@type APIDefinition
-    local api do
-        local f = io.open(path, "r")
-        if not f then error("Failed to open "..path) end
-        print("Reading "..path)
-        api = json.decode(f:read("*a"))
+    local api = json.decode(res)
 
-        --replace :: with . for the name
-        api.name = api.name:gsub("::", ".")
+    --replace :: with . for the name
+    api.name = api.name:gsub("::", ".")
 
-
-        f:close()
-    end
     if api ~= nil then apis[#apis+1] = api end
 
     ::next::
 end
 
 --We multithreading (coroutines) this!
-
 local threads = {}
 
 for _, api in ipairs(apis) do
-    local ok, err = generate_cats_defintion(api, cwd.."/yue/"..api.name..".lua")
-    if not ok then error(err) end
-    threads[#threads+1] = err
+    local ok, thread = generate_cats_defintion(api, yue_dir/(api.name..".lua"))
+    if ok then threads[#threads+1] = thread
+    else error("Could not generate CATS definition for "..api.name..": "..thread.."\n") end
 end
 
 local done = false
@@ -299,18 +333,22 @@ while not done do
             break
         end
     end
+
     if #threads == 0 then done = true end
 end
+print("\x1b[32mDone generating CATS definitions\x1b[0m")
 
---Generate the last yue/gui.lua file, which will require all the other files and return the yue module
-local f = io.open(cwd.."/yue/gui.lua", "w+")
-if not f then error("Failed to open "..cwd.."/yue/gui.lua") end
+-- --Generate the last yue/gui.lua file, which will require all the other files and return the yue module
+local f, err = (yue_dir/"gui.lua"):create("file", "w+")
+if not f then error("Failed to open "..tostring(yue_dir/"gui.lua")..": "..err) end
+--[[@cast f file*]]
 
 f:write("---@meta\n")
 f:write("---@class yue.gui\n")
 for _, api in ipairs(apis) do
     f:write("---@field ", api.name, ' ', api.name, "\n")
 end
+
 f:write("local yue = {}\n")
 f:write("return yue\n")
 
