@@ -33,9 +33,9 @@ function AttributedText:setfont(font) end
 ]]
 ---@param font Font 
 ---@param start integer 
----@param end integer 
+---@param _end integer 
 ---@return nil 
-function AttributedText:setfontfor(font, start, end) end
+function AttributedText:setfontfor(font, start, _end) end
 
 --[[Set the whole text's `color`.]]
 ---@param color Color 
@@ -47,9 +47,9 @@ function AttributedText:setcolor(color) end
 ]]
 ---@param font Color 
 ---@param start integer 
----@param end integer 
+---@param _end integer 
 ---@return nil 
-function AttributedText:setcolorfor(font, start, end) end
+function AttributedText:setcolorfor(font, start, _end) end
 
 --[[Reset font and color to system default.]]
 ---@return nil 

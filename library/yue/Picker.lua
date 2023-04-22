@@ -22,6 +22,10 @@ function Picker:additem(title) end
 ---@return nil 
 function Picker:removeitemat(index) end
 
+--[[Remove all items.]]
+---@return nil 
+function Picker:clear() end
+
 --[[Return all items.]]
 ---@return table 
 function Picker:getitems() end

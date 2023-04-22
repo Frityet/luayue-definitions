@@ -50,6 +50,10 @@ function View:setvisible(visible) end
 ---@return boolean 
 function View:isvisible() end
 
+--[[Return whether the view and its ancestors are visible.]]
+---@return boolean 
+function View:isvisibleinhierarchy() end
+
 --[[Set whether the view is enabled.]]
 ---@param enable boolean 
 ---@return nil 

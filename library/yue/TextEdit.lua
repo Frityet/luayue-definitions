@@ -71,15 +71,15 @@ function TextEdit:getselectionrange() end
 
 --[[Select text between `start` and `end` positions.]]
 ---@param start integer 
----@param end integer 
+---@param _end integer 
 ---@return nil 
-function TextEdit:selectrange(start, end) end
+function TextEdit:selectrange(start, _end) end
 
 --[[Return the text between `start` and `end` positions.]]
 ---@param start integer 
----@param end integer 
+---@param _end integer 
 ---@return string 
-function TextEdit:gettextinrange(start, end) end
+function TextEdit:gettextinrange(start, _end) end
 
 --[[Insert `text` at current caret position.]]
 ---@param text string 
@@ -98,9 +98,9 @@ function TextEdit:delete() end
 
 --[[Delete text between `start` and `end` positions.]]
 ---@param start integer 
----@param end integer 
+---@param _end integer 
 ---@return nil 
-function TextEdit:deleterange(start, end) end
+function TextEdit:deleterange(start, _end) end
 
 --[[Set whether to use overlay scrolling.]]
 ---@param overlay boolean 
