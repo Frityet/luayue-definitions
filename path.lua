@@ -15,6 +15,8 @@
 -- You should have received a copy of the GNU General Public License
 -- along with luayue.  If not, see <http://www.gnu.org/licenses/>.
 
+local unpack = unpack or table.unpack
+
 local lfs = require("lfs")
 
 local is_windows = package.config:sub(1, 1) == "\\"
@@ -97,7 +99,7 @@ end
 ---@param path string | Path
 ---@return Path
 function Path:__div(path)
-    if type(path) == "table" then return Path.from(tostring(self), table.unpack(path.parts)) end
+    if type(path) == "table" then return Path.from(tostring(self), unpack(path.parts)) end
     --[[@cast path string]]
 
     local parts = {}
@@ -105,7 +107,7 @@ function Path:__div(path)
         table.insert(parts, part)
     end
 
-    return Path.from(tostring(self), table.unpack(parts))
+    return Path.from(tostring(self), unpack(parts))
 end
 
 ---Removes `n` parts from the end of the path
@@ -116,7 +118,7 @@ function Path:pop(n)
     for i = 1, #self.parts - n do
         table.insert(parts, self.parts[i])
     end
-    return Path.from(table.unpack(parts))
+    return Path.from(unpack(parts))
 end
 
 ---@return fun(): Path?

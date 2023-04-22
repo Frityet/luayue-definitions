@@ -8,7 +8,7 @@
 ---@field encode fun(value: any): string?
 ---@field decode fun(value: string): any?
 local json = require("json")
-local Path = require("path")
+local path = require("path")
 
 local unpack = table.unpack or unpack
 
@@ -126,9 +126,8 @@ end
 local function generate_property(wl, property, apiname)
     --Strip newline characters from the description
     property.description = property.description and property.description:gsub("\r\n", " "):gsub("\n", " ") or ""
-    local out = field(property.name, property.type.name, property.description)
-    wl(out)
-    print("Generated property "..out)
+    wl(field(property.name, property.type.name, property.description))
+    print(string.format("\x1b[32mGenerated \x1b[35mproperty \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, property.name))
 end
 
 ---Generates a event definition for the given event
@@ -143,9 +142,8 @@ local function generate_event(wl, event, apiname)
         params[#params+1] = param.name..(param.type and (": "..param.type.name) or "")
     end
 
-    local out = field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description)
-    wl(out)
-    print("Generated event "..out)
+    wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description))
+    print(string.format("\x1b[32mGenerated \x1b[35mevent \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, event.signature.name))
 end
 
 ---Generates a method definition for the given method
@@ -157,8 +155,7 @@ local function generate_method(wl, method, apiname, class_method)
 
     local sep = class_method and "." or ":"
     local sig = method.signature
-    local params = {}
-    for _, param in ipairs(sig.parameters) do
+    local params = {}    for _, param in ipairs(sig.parameters) do
         params[#params+1] = KEYWORDS[param.name]..(param.type and (" "..param.type.name) or "")
     end
     -- params_str = table.concat(params, ", ")
@@ -183,9 +180,17 @@ local function generate_method(wl, method, apiname, class_method)
         params[#params+1] = KEYWORDS[param.name]
     end
     params_str = table.concat(params, ", ")
-    local out = "function "..apiname..sep..sig.name.."("..params_str..") end"
-    wl(out)
-    print("Generated method "..out)
+    wl("function "..apiname..sep..sig.name.."("..params_str..") end")
+
+    io.write("\x1b[32mGenerated \x1b[35m"..(class_method and "class method" or "method").." \x1b[36m"..apiname..sep.."\x1b[34m"..sig.name.."\x1b[0m")
+    io.write("\x1b[0m(")
+    for i, prm in ipairs(sig.parameters) do
+        io.write("\x1b[34m"..KEYWORDS[prm.name].."\x1b[0m: \x1b[36m"..(prm.type and prm.type.name or "any"))
+        if i ~= #sig.parameters then io.write(", ") end
+    end
+    io.write("\x1b[0m)")
+    io.write(": \x1b[36m"..(sig.returnType and sig.returnType.name or "nil"))
+    io.write("\x1b[0m\n")
 end
 
 ---Generates standard LuaLanguageServer (CATS) annotations for the libyue library
@@ -197,7 +202,7 @@ local function generate_cats_defintion(api, to)
     if not f then return false, "Failed to open "..tostring(to) end
     --[[@cast f file*]]
 
-    print("Generating CATS definition for "..api.name.." to "..tostring(to))
+    print("\x1b[33mGenerating CATS definition for \x1b[36m"..api.name.."\x1b[33m to \x1b[36m"..tostring(to).."\x1b[0m")
     return true, coroutine.create(function ()
         local function wl(...)
             local args = {...}
@@ -291,9 +296,9 @@ end
 ---@type APIDefinition[]
 local apis = {}
 
-local yue_dir = Path.current_directory/"yue"
+local yue_dir = path "./yue"
 
-local api_dir = Path"./api"
+local api_dir = path "./api"
 
 local ok, err = exec("git", "submodule", "update", "--remote", "--recursive", "--force")
 if not ok then error(err) end
@@ -301,7 +306,7 @@ if not ok then error(err) end
 for file in (api_dir/"docs"/"latest"/"lua"/"api"):entries() do
     if file:type() == "directory" or file:extension() ~= "json" then goto next end
 
-    print("Reading "..tostring(file))
+    print("\x1b[33mReading \x1b[36m"..tostring(file))
     local res, err = file:read_all()
     if not res then error(err) end
     ---@type APIDefinition
@@ -336,7 +341,6 @@ while not done do
 
     if #threads == 0 then done = true end
 end
-print("\x1b[32mDone generating CATS definitions\x1b[0m")
 
 -- --Generate the last yue/gui.lua file, which will require all the other files and return the yue module
 local f, err = (yue_dir/"gui.lua"):create("file", "w+")
@@ -353,3 +357,5 @@ f:write("local yue = {}\n")
 f:write("return yue\n")
 
 f:close()
+
+print("\x1b[32mDone!\x1b[0m")
