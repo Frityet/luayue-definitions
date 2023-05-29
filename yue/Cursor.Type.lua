@@ -1,0 +1,15 @@
+---@meta
+
+---@alias Cursor.Type
+---| "default"
+---| "hand"
+---| "crosshair"
+---| "progress"
+---| "text"
+---| "not-allowed"
+---| "help"
+---| "move"
+---| "resize-ew"
+---| "resize-ns"
+---| "resize-nesw"
+---| "resize-nwse"

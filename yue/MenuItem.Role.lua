@@ -1,0 +1,19 @@
+---@meta
+
+---@alias MenuItem.Role
+---| "copy"
+---| "cut"
+---| "paste"
+---| "select-all"
+---| "undo"
+---| "redo"
+---| "minimize"
+---| "maximize"
+---| "close-window"
+---| "about"
+---| "hide"
+---| "hide-others"
+---| "unhide"
+---| "help"
+---| "window"
+---| "services"
