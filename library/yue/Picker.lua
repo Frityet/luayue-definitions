@@ -9,38 +9,38 @@ are merged into one.
 ---@field onselectionchange fun(self: Picker): nil Emitted when user has changed the selected item.
 local Picker = {}
 --[[Create a new `Picker` view.]]
----@return Picker
+---@return Picker 
 function Picker.create() end
 
 --[[Add an item with `title` to the end.]]
----@param title string
----@return nil
+---@param title string 
+---@return nil 
 function Picker:additem(title) end
 
 --[[Remove the item at `index`.]]
----@param index integer
----@return nil
+---@param index integer 
+---@return nil 
 function Picker:removeitemat(index) end
 
 --[[Remove all items.]]
----@return nil
+---@return nil 
 function Picker:clear() end
 
 --[[Return all items.]]
----@return table
+---@return table 
 function Picker:getitems() end
 
 --[[Select the item at `index`.]]
----@param index integer
----@return nil
+---@param index integer 
+---@return nil 
 function Picker:selectitemat(index) end
 
 --[[Return the title of selected item.]]
----@return string
+---@return string 
 function Picker:getselecteditem() end
 
 --[[Return the index of selected item.]]
----@return integer
+---@return integer 
 function Picker:getselecteditemindex() end
 
 return Picker

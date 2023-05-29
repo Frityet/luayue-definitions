@@ -27,6 +27,7 @@
 ---@field Screen Screen
 ---@field Clipboard.Data Clipboard.Data
 ---@field Scroll Scroll
+---@field Cookie Cookie
 ---@field TextAttributes TextAttributes
 ---@field AbstractTableModel AbstractTableModel
 ---@field RectF RectF
@@ -49,6 +50,7 @@
 ---@field Accelerator Accelerator
 ---@field DragOptions DragOptions
 ---@field SimpleTableModel SimpleTableModel
+---@field Locale Locale
 ---@field Window.Options Window.Options
 ---@field Toolbar Toolbar
 ---@field NotificationCenter.InputData NotificationCenter.InputData

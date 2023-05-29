@@ -6,7 +6,7 @@
 ---@class FileSaveDialog : FileDialog
 local FileSaveDialog = {}
 --[[Create an save dialog.]]
----@return FileSaveDialog
+---@return FileSaveDialog 
 function FileSaveDialog.create() end
 
 return FileSaveDialog

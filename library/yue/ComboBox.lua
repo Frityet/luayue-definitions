@@ -10,16 +10,16 @@ The `ComboBox` behaves differently from `Picker` that:
 ---@field ontextchange fun(self: Entry): nil Emitted when user has changed text.
 local ComboBox = {}
 --[[Create a new `ComboBox` view.]]
----@return ComboBox
+---@return ComboBox 
 function ComboBox.create() end
 
 --[[Change the text in the view.]]
----@param text string
----@return nil
+---@param text string 
+---@return nil 
 function ComboBox:settext(text) end
 
 --[[Return currently displayed text.]]
----@return string
+---@return string 
 function ComboBox:gettext() end
 
 return ComboBox

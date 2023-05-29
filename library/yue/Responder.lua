@@ -14,15 +14,21 @@
 ---@field oncapturelost fun(self: Responder): nil Emitted when the mouse capture on responder has been released.
 local Responder = {}
 --[[Set mouse capture to the responder.]]
----@return nil
+---@return nil 
 function Responder:setcapture() end
 
 --[[Release mouse capture if the responder has mouse capture.]]
----@return nil
+---@return nil 
 function Responder:releasecapture() end
 
 --[[Return whether the responder has mouse capture.]]
----@return boolean
+---@return boolean 
 function Responder:hascapture() end
+
+--[[Return a light userdata containing the pointer of underlying native
+widget wrapped by the responder.
+]]
+---@return userdata 
+function Responder:getnative() end
 
 return Responder
