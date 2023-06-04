@@ -7,6 +7,8 @@
 ---@class View : Responder
 ---@field ondragleave fun(self: View, info: DraggingInfo): nil Emitted when cursor leaves the view while dragging.
 ---@field onsizechanged fun(self: View): nil Emitted when the view's size has been changed.
+---@field onfocusin fun(self: View): boolean Emitted when the view gets keyboard focus.
+---@field onfocusout fun(self: View): boolean Emitted when the view loses keyboard focus.
 ---@field handledragenter fun(self: View, info: DraggingInfo, point: PointF): integer Called when user drags the cursor over the view for the first time. 
 ---@field handledragupdate fun(self: View, info: DraggingInfo, point: PointF): integer Called when user moves the cursor over the view while dragging. 
 ---@field handledrop fun(self: View, info: DraggingInfo, point: PointF): boolean Called when user releases the dragged data on the view.

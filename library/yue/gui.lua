@@ -104,6 +104,7 @@
 ---@field Browser Browser
 ---@field DragOperation DragOperation
 ---@field MessageBox MessageBox
+---@field GlobalShortcut GlobalShortcut
 ---@field ProtocolStringJob ProtocolStringJob
 ---@field ProtocolFileJob ProtocolFileJob
 ---@field MenuItem.Role MenuItem.Role
