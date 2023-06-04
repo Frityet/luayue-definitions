@@ -7,31 +7,31 @@
 ---@field ondatechange fun(self: DatePicker): nil Emitted when the selected date has been changed.
 local DatePicker = {}
 --[[Create a new `DatePicker` with `options`.]]
----@param options DatePicker.Options 
----@return DatePicker 
+---@param options DatePicker.Options
+---@return DatePicker
 function DatePicker.create(options) end
 
 --[[Set the selected date to `time`.]]
----@param time number 
----@return nil 
+---@param time number
+---@return nil
 function DatePicker:setdate(time) end
 
 --[[Get the selected date.]]
----@return number 
+---@return number
 function DatePicker:getdate() end
 
 --[[Set the `minimum` and `maximum` date values.]]
----@param minimum number 
----@param maximum number 
----@return nil 
+---@param minimum number
+---@param maximum number
+---@return nil
 function DatePicker:setrange(minimum, maximum) end
 
 --[[Return  the `minimum` and `maximum` date values.]]
----@return std::tuple 
+---@return std::tuple
 function DatePicker:getrange() end
 
 --[[Return whether there is a stepper attached to the text field.]]
----@return boolean 
+---@return boolean
 function DatePicker:hasstepper() end
 
 return DatePicker

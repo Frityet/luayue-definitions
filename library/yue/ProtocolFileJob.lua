@@ -7,8 +7,8 @@
 local ProtocolFileJob = {}
 --[[Create a `ProtocolFileJob` with `path` to a local file.
 ]]
----@param path string 
----@return ProtocolFileJob 
+---@param path string
+---@return ProtocolFileJob
 function ProtocolFileJob.create(path) end
 
 return ProtocolFileJob
