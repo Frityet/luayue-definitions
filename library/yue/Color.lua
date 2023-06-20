@@ -15,23 +15,23 @@ label:setcolor('#F000')
 ---@class Color
 local Color = {}
 --[[Return the color with theme `name`.]]
----@param name Color.Name 
----@return Color 
+---@param name Color.Name
+---@return Color
 function Color.get(name) end
 
 --[[Create an opaque RGB color.]]
----@param r integer 
----@param g integer 
----@param b integer 
----@return Color 
+---@param r integer
+---@param g integer
+---@param b integer
+---@return Color
 function Color.rgb(r, g, b) end
 
 --[[Create an ARGB color.]]
----@param a integer 
----@param r integer 
----@param g integer 
----@param b integer 
----@return Color 
+---@param a integer
+---@param r integer
+---@param g integer
+---@param b integer
+---@return Color
 function Color.argb(a, r, g, b) end
 
 return Color

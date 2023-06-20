@@ -7,289 +7,289 @@
 ---@field onclose fun(self: Window): nil Emitted when the window is closed.
 ---@field onfocus fun(self: Window): nil Emitted when the window is focused.
 ---@field onblur fun(self: Window): nil Emitted when the window lost focus.
----@field shouldclose fun(self: Window): boolean Called when user requests to close the window, should return whether the window can be closed. 
+---@field shouldclose fun(self: Window): boolean Called when user requests to close the window, should return whether the window can be closed.
 local Window = {}
 --[[Create a new window with `options`.]]
----@param options Window.Options 
----@return Window 
+---@param options Window.Options
+---@return Window
 function Window.create(options) end
 
 --[[Request to close the window.]]
----@return nil 
+---@return nil
 function Window:close() end
 
 --[[Return whether window has a native frame.]]
----@return boolean 
+---@return boolean
 function Window:hasframe() end
 
 --[[Return whether window is transparent.]]
----@return boolean 
+---@return boolean
 function Window:istransparent() end
 
 --[[Set whether window should have shadow.
 
 Depending on platform, this may not work.
 ]]
----@param has boolean 
----@return nil 
+---@param has boolean
+---@return nil
 function Window:sethasshadow(has) end
 
 --[[Return whether window has shadow.]]
----@return boolean 
+---@return boolean
 function Window:hasshadow() end
 
 --[[Set the content view of the window.
 
 The content view will always be resized to fill window's client area.
 ]]
----@param view View 
----@return nil 
+---@param view View
+---@return nil
 function Window:setcontentview(view) end
 
 --[[Return the content view of the window.]]
----@return View 
+---@return View
 function Window:getcontentview() end
 
 --[[Move the window to the center of the screen.]]
----@return nil 
+---@return nil
 function Window:center() end
 
 --[[Resize window to make the content view fit `size`.]]
----@param size SizeF 
----@return nil 
+---@param size SizeF
+---@return nil
 function Window:setcontentsize(size) end
 
 --[[Return the size of content view.]]
----@return SizeF 
+---@return SizeF
 function Window:getcontentsize() end
 
 --[[Change the position and size of the window.]]
----@param bounds RectF 
----@return nil 
+---@param bounds RectF
+---@return nil
 function Window:setbounds(bounds) end
 
 --[[Return the position and size of the window.]]
----@return RectF 
+---@return RectF
 function Window:getbounds() end
 
 --[[Set the minimum and maximum sizes of the window.
 
 Passing an empty size means no constraint.
 ]]
----@param minsize SizeF 
----@param maxsize SizeF 
----@return nil 
+---@param minsize SizeF
+---@param maxsize SizeF
+---@return nil
 function Window:setsizeconstraints(minsize, maxsize) end
 
 --[[Return minimum and maximum sizes of the window.]]
----@return std::tuple 
+---@return std::tuple
 function Window:getsizeconstraints() end
 
 --[[Set the minimum and maximum content sizes of the window.
 
 Passing an empty size means no constraint.
 ]]
----@param minsize SizeF 
----@param maxsize SizeF 
----@return nil 
+---@param minsize SizeF
+---@param maxsize SizeF
+---@return nil
 function Window:setcontentsizeconstraints(minsize, maxsize) end
 
 --[[Return minimum and maximum content sizes of the window.]]
----@return std::tuple 
+---@return std::tuple
 function Window:getcontentsizeconstraints() end
 
 --[[Show the window and activate it.]]
----@return nil 
+---@return nil
 function Window:activate() end
 
 --[[Move the focus away from the window.]]
----@return nil 
+---@return nil
 function Window:deactivate() end
 
 --[[Return whether window has focus.]]
----@return boolean 
+---@return boolean
 function Window:isactive() end
 
 --[[Show/hide the window.]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function Window:setvisible(visible) end
 
 --[[Return whether window is visible.]]
----@return boolean 
+---@return boolean
 function Window:isvisible() end
 
 --[[Make the window always show above other normal windows.]]
----@param top boolean 
----@return nil 
+---@param top boolean
+---@return nil
 function Window:setalwaysontop(top) end
 
 --[[Return whether window is always above other normal windows.]]
----@return boolean 
+---@return boolean
 function Window:isalwaysontop() end
 
 --[[Enter/leave fullscreen state.]]
----@param fullscreen boolean 
----@return nil 
+---@param fullscreen boolean
+---@return nil
 function Window:setfullscreen(fullscreen) end
 
 --[[Return whether window is in fullscreen.]]
----@return boolean 
+---@return boolean
 function Window:isfullscreen() end
 
 --[[Maximize the window.]]
----@return nil 
+---@return nil
 function Window:maximize() end
 
 --[[Unmaximize the window.]]
----@return nil 
+---@return nil
 function Window:unmaximize() end
 
 --[[Return whether window is maximized.]]
----@return boolean 
+---@return boolean
 function Window:ismaximized() end
 
 --[[Minimize the window.]]
----@return nil 
+---@return nil
 function Window:minimize() end
 
 --[[Restore the minimized window.]]
----@return nil 
+---@return nil
 function Window:restore() end
 
 --[[Return whether window is minimized.]]
----@return boolean 
+---@return boolean
 function Window:isminimized() end
 
 --[[Set whether window can be resized.]]
----@param resizable boolean 
----@return nil 
+---@param resizable boolean
+---@return nil
 function Window:setresizable(resizable) end
 
 --[[Return whether window can be resized.]]
----@return boolean 
+---@return boolean
 function Window:isresizable() end
 
 --[[Set whether window can be maximize.]]
----@param maximizable boolean 
----@return nil 
+---@param maximizable boolean
+---@return nil
 function Window:setmaximizable(maximizable) end
 
 --[[Return whether window can be maximize.]]
----@return boolean 
+---@return boolean
 function Window:ismaximizable() end
 
 --[[Set whether window can be minimized.]]
----@param minimizable boolean 
----@return nil 
+---@param minimizable boolean
+---@return nil
 function Window:setminimizable(minimizable) end
 
 --[[Return whether window can be minimized.]]
----@return boolean 
+---@return boolean
 function Window:isminimizable() end
 
 --[[Set whether window can be moved.]]
----@param movable boolean 
----@return nil 
+---@param movable boolean
+---@return nil
 function Window:setmovable(movable) end
 
 --[[Return whether window can be moved.]]
----@return boolean 
+---@return boolean
 function Window:ismovable() end
 
 --[[Set window title.]]
----@param title string 
----@return nil 
+---@param title string
+---@return nil
 function Window:settitle(title) end
 
 --[[Get window title.]]
----@return string 
+---@return string
 function Window:gettitle() end
 
 --[[Set the background color of the window.]]
----@param color Color 
----@return nil 
+---@param color Color
+---@return nil
 function Window:setbackgroundcolor(color) end
 
 --[[Return the scale factor of the window.]]
----@return number 
+---@return number
 function Window:getscalefactor() end
 
 --[[Set the window toolbar.]]
----@param toolbar Toolbar 
----@return nil 
+---@param toolbar Toolbar
+---@return nil
 function Window:settoolbar(toolbar) end
 
 --[[Return the window toolbar.]]
----@return Toolbar 
+---@return Toolbar
 function Window:gettoolbar() end
 
 --[[Set whether the title is visible, when title was hidden the toolber would
 be moved into the area previously occupied by the title.
 ]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function Window:settitlevisible(visible) end
 
 --[[Return whether title is visible.]]
----@return boolean 
+---@return boolean
 function Window:istitlevisible() end
 
 --[[Set the `NSWindowStyleMaskFullSizeContentView` style on the window.
 ]]
----@param full boolean 
----@return nil 
+---@param full boolean
+---@return nil
 function Window:setfullsizecontentview(full) end
 
 --[[Return whether the window has `NSWindowStyleMaskFullSizeContentView` style.
 ]]
----@return boolean 
+---@return boolean
 function Window:isfullsizecontentview() end
 
 --[[Set whether to hide the window from taskbar.]]
----@param skip boolean 
----@return nil 
+---@param skip boolean
+---@return nil
 function Window:setskiptaskbar(skip) end
 
 --[[Set the window icon.]]
----@param icon Image 
----@return nil 
+---@param icon Image
+---@return nil
 function Window:seticon(icon) end
 
 --[[Set the window menu bar.]]
----@param menubar MenuBar 
----@return nil 
+---@param menubar MenuBar
+---@return nil
 function Window:setmenubar(menubar) end
 
 --[[Return the window menu bar.]]
----@return MenuBar 
+---@return MenuBar
 function Window:getmenubar() end
 
 --[[Set whether the window menu bar is visible.]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function Window:setmenubarvisible(visible) end
 
 --[[Return a light userdata representing the HWND of the native window.]]
----@return userdata 
+---@return userdata
 function Window:gethwnd() end
 
 --[[Return the parent window.]]
----@return Window 
+---@return Window
 function Window:getparentwindow() end
 
 --[[Make `child` a child window of this window.]]
----@param child Window 
----@return nil 
+---@param child Window
+---@return nil
 function Window:addchildwindow(child) end
 
 --[[Remove this window as `child`'s parent window.]]
----@param child Window 
----@return nil 
+---@param child Window
+---@return nil
 function Window:removechildwindow(child) end
 
 --[[Return all the child windows of this window.]]
----@return table 
+---@return table
 function Window:getchildwindows() end
 
 return Window

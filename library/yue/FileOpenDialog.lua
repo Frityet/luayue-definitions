@@ -6,11 +6,11 @@
 ---@class FileOpenDialog : FileDialog
 local FileOpenDialog = {}
 --[[Create an open dialog.]]
----@return FileOpenDialog 
+---@return FileOpenDialog
 function FileOpenDialog.create() end
 
 --[[Return the chosen items in dialog.]]
----@return table 
+---@return table
 function FileOpenDialog:getresults() end
 
 return FileOpenDialog
