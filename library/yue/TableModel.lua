@@ -11,40 +11,40 @@ For implementing a custom `TableModel`, please see
 ---@class TableModel
 local TableModel = {}
 --[[Return how many rows are in the model.]]
----@return integer
+---@return integer 
 function TableModel:getrowcount() end
 
 --[[Return the data at `column` and `row`.]]
----@param column integer
----@param row integer
----@return any
+---@param column integer 
+---@param row integer 
+---@return any 
 function TableModel:getvalue(column, row) end
 
 --[[Change the `value` at `column` and `row`.]]
----@param column integer
----@param row integer
----@param value any
----@return nil
+---@param column integer 
+---@param row integer 
+---@param value any 
+---@return nil 
 function TableModel:setvalue(column, row, value) end
 
 --[[Called by implementers to notify the table that a row is inserted.
 ]]
----@param row integer
----@return nil
+---@param row integer 
+---@return nil 
 function TableModel:notifyrowinsertion(row) end
 
 --[[Called by implementers to notify the table that a row is removed.
 ]]
----@param row integer
----@return nil
+---@param row integer 
+---@return nil 
 function TableModel:notifyrowdeletion(row) end
 
 --[[Called by implementers to notify the table that the value at `column` and
 `row` has been changed.
 ]]
----@param column integer
----@param row integer
----@return nil
+---@param column integer 
+---@param row integer 
+---@return nil 
 function TableModel:notifyvaluechange(column, row) end
 
 return TableModel

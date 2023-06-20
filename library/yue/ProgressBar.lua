@@ -6,25 +6,25 @@
 ---@class ProgressBar : View
 local ProgressBar = {}
 --[[Create a new `ProgressBar`.]]
----@return ProgressBar
+---@return ProgressBar 
 function ProgressBar.create() end
 
 --[[Set the percent value between `0` and `100.0`.]]
----@param percent number
----@return nil
+---@param percent number 
+---@return nil 
 function ProgressBar:setvalue(percent) end
 
 --[[Return the percent value between `0` and `100.0`.]]
----@return number
+---@return number 
 function ProgressBar:getvalue() end
 
 --[[Set whether the progress bar is indeterminate.]]
----@param indeterminate boolean
----@return nil
+---@param indeterminate boolean 
+---@return nil 
 function ProgressBar:setindeterminate(indeterminate) end
 
 --[[Return whether the progress bar is indeterminate.]]
----@return boolean
+---@return boolean 
 function ProgressBar:isindeterminate() end
 
 return ProgressBar

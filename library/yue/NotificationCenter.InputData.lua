@@ -4,8 +4,8 @@
 
 ]]
 ---@class NotificationCenter.InputData
----@field key string
----@field value string
+---@field key string 
+---@field value string 
 
 NotificationCenter.InputData = {}
 return NotificationCenter.InputData
