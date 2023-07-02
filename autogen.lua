@@ -33,7 +33,7 @@ local function exec(prog, ...)
 end
 
 ---Keywords cannot be symbol names, so we need to add an underscore
-
+---@type { [string] : string }
 local KEYWORDS = {
     ["end"]     = "_end",
     ["function"]= "_function",
@@ -53,6 +53,38 @@ setmetatable(KEYWORDS, {
     __index = function (self, key) return rawget(self, key) or key end
 })
 
+
+---These cannot be prefixed with an underscore
+---@type { [string] : string }
+local TYPES = {
+    ["nil"]     = "nil",
+    ["boolean"] = "boolean",
+    ["number"]  = "number",
+    ["integer"] = "integer",
+    ["string"]  = "string",
+    ["table"]   = "table",
+    ["function"]= "function",
+    ["thread"]  = "thread",
+    ["userdata"]= "userdata",
+    ["any"]     = "any"
+}
+
+setmetatable(TYPES, {
+    ---@param self { [string] : string }
+    ---@param key string
+    ---@return string
+    __index = function (self, key)
+        if key:sub(1, 1) == '(' or key:sub(1, 3) == "yue" then return key end
+
+        return rawget(self, key) or ("yue.gui."..key)
+    end
+})
+
+---@class MyClass
+---@field func fun(x: number, y: number): number
+
+---@class SubClass : MyClass
+---@field func nil
 
 ---@class APIDefinition.Type
 ---@field name string
@@ -97,7 +129,7 @@ local yield = coroutine.yield
 local function fun(...)
     local args = {...}
     return function (ret)
-        return string.format("fun(%s): %s", table.concat(args, ', '), ret)
+        return string.format("(fun(%s): %s)", table.concat(args, ', '), ret)
     end
 end
 
@@ -106,7 +138,7 @@ end
 ---@param desc string?
 ---@return string
 local function field(name, type, desc)
-    return string.format("---@field %s %s %s", KEYWORDS[name], type, desc or "")
+    return string.format("---@field %s %s %s", KEYWORDS[name], TYPES[type], desc or "")
 end
 
 ---@param name string
@@ -115,14 +147,14 @@ end
 ---@return string
 local function param(name, type, desc)
     type = type:gsub("::", ".")
-    return string.format("---@param %s %s %s", KEYWORDS[name], type, desc or "")
+    return string.format("---@param %s %s %s", KEYWORDS[name], TYPES[type], desc or "")
 end
 
 ---@param type string
 ---@param desc string?
 ---@return string
 local function return_t(type, desc)
-    return string.format("---@return %s %s", type, desc or "")
+    return string.format("---@return %s %s", TYPES[type], desc or "")
 end
 
 ---Generates a property definition for the given property
@@ -146,11 +178,28 @@ local function generate_event(wl, event, apiname)
     ---@type string[]
     local params = {}
     for _, param in ipairs(event.signature.parameters) do
+        params[#params+1] = param.name..(param.type and (": "..TYPES[param.type.name]) or "")
+    end
+
+    wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), "| yue.gui.Signal "..event.description))
+    print(string.format("\x1b[32mGenerated \x1b[35mevent \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, event.signature.name))
+    written.events = written.events + 1
+end
+
+---Generates a event definition for the given event
+---@param wl fun(...)
+---@param delegate APIDefinition.MethodSignature
+---@param apiname string
+local function generate_delegate(wl, delegate, apiname)
+    delegate.description = delegate.description and delegate.description:gsub("\r\n", " "):gsub("\n", " ") or ""
+    ---@type string[]
+    local params = {}
+    for _, param in ipairs(delegate.signature.parameters) do
         params[#params+1] = param.name..(param.type and (": "..param.type.name) or "")
     end
 
-    wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), event.description))
-    print(string.format("\x1b[32mGenerated \x1b[35mevent \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, event.signature.name))
+    wl(field(delegate.signature.name, fun(unpack(params))(delegate.signature.returnType and delegate.signature.returnType.name or "nil"), delegate.description))
+    print(string.format("\x1b[32mGenerated \x1b[35mdelegate \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, delegate.signature.name))
     written.events = written.events + 1
 end
 
@@ -193,11 +242,11 @@ local function generate_method(wl, method, apiname, class_method)
     io.write("\x1b[32mGenerated \x1b[35m"..(class_method and "class method" or "method").." \x1b[36m"..apiname..sep.."\x1b[34m"..sig.name.."\x1b[0m")
     io.write("\x1b[0m(")
     for i, prm in ipairs(sig.parameters) do
-        io.write("\x1b[34m"..KEYWORDS[prm.name].."\x1b[0m: \x1b[36m"..(prm.type and prm.type.name or "any"))
+        io.write("\x1b[34m"..KEYWORDS[prm.name].."\x1b[0m: \x1b[36m"..(prm.type and TYPES[prm.type.name] or "any"))
         if i ~= #sig.parameters then io.write(", ") end
     end
     io.write("\x1b[0m)")
-    io.write(": \x1b[36m"..(sig.returnType and sig.returnType.name or "nil"))
+    io.write(": \x1b[36m"..(sig.returnType and TYPES[sig.returnType.name] or "nil"))
     io.write("\x1b[0m\n")
     written.functions = written.functions + 1
 end
@@ -227,7 +276,7 @@ local function generate_cats_defintion(api, to)
 
         --- If its an enum, we just need to generate the enum definition
         if api.enums then
-            wl("---@alias ", api.name)
+            wl("---@alias ", TYPES[api.name])
             for _, enum in ipairs(api.enums) do
                 wl("---| ", enum.name)
             end
@@ -238,10 +287,10 @@ local function generate_cats_defintion(api, to)
         --If there is any C++ or JS code in the detail, remove the block
         api.detail = api.detail:gsub("```cpp.-```", ""):gsub("```js.-```", "")
 
-        wl("--[[# ", api.description, "\n\n", api.detail, "]]")
+        wl("--[[# ", api.name, "\n\n### ", api.description, "\n\n", api.detail, "]]")
         if api.name:find("%.") then
             local class, sub = api.name:match("(.+)%.(.+)")
-            wl("---@class ", class, ".", sub, (api.inherit and " : "..api.inherit.name or ""))
+            wl("---@class ", TYPES[class], ".", sub, (api.inherit and " : "..TYPES[api.inherit.name] or ""))
             if api.properties then
                 for _, property in ipairs(api.properties) do
                     generate_property(wl, property, api.name)
@@ -251,7 +300,7 @@ local function generate_cats_defintion(api, to)
             end
             wl(class, ".", sub, " = {}")
         else
-            wl("---@class ", api.name, (api.inherit and " : "..api.inherit.name or ""))
+            wl("---@class ", TYPES[api.name], (api.inherit and " : "..TYPES[api.inherit.name] or ""))
             if api.properties then
                 for _, property in ipairs(api.properties) do
                     generate_property(wl, property, api.name)
@@ -272,7 +321,7 @@ local function generate_cats_defintion(api, to)
 
             if api.delegates then
                 for _, delegate in ipairs(api.delegates) do
-                    generate_event(wl, delegate, api.name)
+                    generate_delegate(wl, delegate, api.name)
                     yield()
                 end
             end
@@ -305,7 +354,7 @@ end
 ---@type APIDefinition[]
 local apis = {}
 
-local yue_dir = path "./yue"
+local yue_dir = path "./yue/gui"
 
 local api_dir = path "./api"
 
