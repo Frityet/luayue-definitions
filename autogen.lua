@@ -74,17 +74,16 @@ setmetatable(TYPES, {
     ---@param key string
     ---@return string
     __index = function (self, key)
-        if key:sub(1, 1) == '(' or key:sub(1, 3) == "yue" then return key end
+        if key:sub(1, 1) == '(' or key:sub(1, 2) == "nu" then return key end
 
-        return rawget(self, key) or ("yue.gui."..key)
+        return rawget(self, key) or ("nu."..key:gsub("::", "."))
     end
 })
 
----@class MyClass
----@field func fun(x: number, y: number): number
-
----@class SubClass : MyClass
----@field func nil
+---@alias APIDefinition.Platform
+---| "Windows"
+---| "Linux"
+---| "macOS"
 
 ---@class APIDefinition.Type
 ---@field name string
@@ -100,6 +99,8 @@ setmetatable(TYPES, {
 ---@class APIDefinition.MethodSignature
 ---@field signature APIDefinition.ClassMethodSignature
 ---@field description string
+---@field detail string?
+---@field platform APIDefinition.Platform[]?
 ---@field id string
 
 ---@class APIDefinition.Property : APIDefinition.Type
@@ -115,7 +116,7 @@ setmetatable(TYPES, {
 ---@field description string
 ---@field detail string
 ---@field properties APIDefinition.Property[]?
----@field enums { name: string }[]?
+---@field enums { name: string, description: string? }[]?
 ---@field class_methods APIDefinition.MethodSignature[]?
 ---@field methods APIDefinition.MethodSignature[]?
 ---@field events APIDefinition.MethodSignature[]?
@@ -133,12 +134,49 @@ local function fun(...)
     end
 end
 
+---@param text string?
+---@return string
+local function one_line(text) return text and (text:gsub("\r\n", " "):gsub("\n", " ")) or "" end
+
+---@param text string
+---@return string
+local function markdown_alert(text)
+    local start = ("| ❗ %s ❗ |"):format(text)
+    local fin = ('|'..('-'):rep(#start-3).."|\n")
+
+    return start..'\n'..fin
+end
+
+---@param text string?
+---@return string
+local function detail(text)
+    if not text then return ""
+    else return "### Details\n\n"..text.."" end
+end
+
+local URL_FMT = "https://libyue.com/docs/latest/lua/api/%s.html#%s"
+
+---@param module string
+---@param sub string?
+---@return string
+local function api_url(module, sub) return URL_FMT:format(module:lower(), sub or "") end
+
+---@param module string
+---@param method string
+---@param param_names string[]?
+---@return string
+local function method_api_url(module, method, param_names)
+    param_names = #param_names > 0 and param_names or nil
+    local name = method..(param_names and ("-"..table.concat(param_names, "-")) or "")
+    return api_url(module, name)
+end
+
 ---@param name string
 ---@param type string
 ---@param desc string?
 ---@return string
 local function field(name, type, desc)
-    return string.format("---@field %s %s %s", KEYWORDS[name], TYPES[type], desc or "")
+    return string.format("---@field %s %s %s", KEYWORDS[name], TYPES[type], one_line(desc))
 end
 
 ---@param name string
@@ -147,14 +185,14 @@ end
 ---@return string
 local function param(name, type, desc)
     type = type:gsub("::", ".")
-    return string.format("---@param %s %s %s", KEYWORDS[name], TYPES[type], desc or "")
+    return string.format("---@param %s %s %s", KEYWORDS[name], TYPES[type], one_line(desc))
 end
 
 ---@param type string
 ---@param desc string?
 ---@return string
 local function return_t(type, desc)
-    return string.format("---@return %s %s", TYPES[type], desc or "")
+    return string.format("---@return %s %s", TYPES[type], one_line(desc))
 end
 
 ---Generates a property definition for the given property
@@ -163,7 +201,7 @@ end
 ---@param apiname string
 local function generate_property(wl, property, apiname)
     --Strip newline characters from the description
-    property.description = property.description and property.description:gsub("\r\n", " "):gsub("\n", " ") or ""
+    property.description = one_line(property.description)
     wl(field(property.name, property.type.name, property.description))
     print(string.format("\x1b[32mGenerated \x1b[35mproperty \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, property.name))
     written.properties = written.properties + 1
@@ -174,7 +212,7 @@ end
 ---@param event APIDefinition.MethodSignature
 ---@param apiname string
 local function generate_event(wl, event, apiname)
-    event.description = event.description and event.description:gsub("\r\n", " "):gsub("\n", " ") or ""
+    event.description = one_line(event.description)
     ---@type string[]
     local params = {}
     for _, param in ipairs(event.signature.parameters) do
@@ -191,11 +229,11 @@ end
 ---@param delegate APIDefinition.MethodSignature
 ---@param apiname string
 local function generate_delegate(wl, delegate, apiname)
-    delegate.description = delegate.description and delegate.description:gsub("\r\n", " "):gsub("\n", " ") or ""
+    delegate.description = one_line(delegate.description)
     ---@type string[]
     local params = {}
     for _, param in ipairs(delegate.signature.parameters) do
-        params[#params+1] = param.name..(param.type and (": "..param.type.name) or "")
+        params[#params+1] = param.name..(param.type and (": "..TYPES[param.type.name]) or "")
     end
 
     wl(field(delegate.signature.name, fun(unpack(params))(delegate.signature.returnType and delegate.signature.returnType.name or "nil"), delegate.description))
@@ -209,17 +247,37 @@ end
 ---@param apiname string
 ---@param class_method boolean
 local function generate_method(wl, method, apiname, class_method)
-
     local sep = class_method and "." or ":"
     local sig = method.signature
-    local params = {}    for _, param in ipairs(sig.parameters) do
+    local params = {}
+    for _, param in ipairs(sig.parameters) do
         params[#params+1] = KEYWORDS[param.name]..(param.type and (" "..param.type.name) or "")
     end
     -- params_str = table.concat(params, ", ")
 
     local ret = sig.returnType and sig.returnType.name or "nil"
 
-    wl("--[[", method.description, "]]")
+    ---@type string?
+    local plats do
+        if method.platform then
+            plats = markdown_alert("This method is only available on the following platforms: "..table.concat(method.platform, ", "))
+        end
+    end
+
+    local param_names do
+        if #params > 0 then
+            param_names = {}
+            for _, param in ipairs(sig.parameters) do
+                param_names[#param_names+1] = param.name
+            end
+        end
+    end
+
+    wl("--[[## ", method.description, "\n\n",
+        plats or "",
+        detail(method.detail), "\n\n",
+        -- "[API Documentation]("..method_api_url(apiname, sig.name, param_names)..")\n",
+    "]]")
 
     --Params are one after the other, like this
     --[[
@@ -278,16 +336,24 @@ local function generate_cats_defintion(api, to)
         if api.enums then
             wl("---@alias ", TYPES[api.name])
             for _, enum in ipairs(api.enums) do
-                wl("---| ", enum.name)
+                wl("---| ", enum.name, (" "..one_line(enum.description)) or "")
             end
             return
         end
 
-        api.detail = api.detail or ""
+        api.detail = detail(api.detail)
         --If there is any C++ or JS code in the detail, remove the block
         api.detail = api.detail:gsub("```cpp.-```", ""):gsub("```js.-```", "")
 
-        wl("--[[# ", api.name, "\n\n### ", api.description, "\n\n", api.detail, "]]")
+        --Colors can also be represented in a hex string
+        if api.name == "Color" then api.inherit = { name = "string" } end
+
+        wl("--[[# ", api.name, "\n\n",
+                "### ", api.description, "\n\n",
+                "### Detail\n\n",
+                api.detail,
+                "[API Documentation]("..api_url(api.name)..")\n",
+                "]]")
         if api.name:find("%.") then
             local class, sub = api.name:match("(.+)%.(.+)")
             wl("---@class ", TYPES[class], ".", sub, (api.inherit and " : "..TYPES[api.inherit.name] or ""))
@@ -401,14 +467,14 @@ while not done do
 end
 
 -- --Generate the last yue/gui.lua file, which will require all the other files and return the yue module
-local f, err = (yue_dir/"gui.lua"):create("file", "w+")
-if not f then error("Failed to open "..tostring(yue_dir/"gui.lua")..": "..err) end
+local f, err = (yue_dir/"init.lua"):create("file", "w+")
+if not f then error("Failed to open "..tostring(yue_dir/"init.lua")..": "..err) end
 --[[@cast f file*]]
 
 f:write("---@meta\n")
 f:write("---@class yue.gui\n")
 for _, api in ipairs(apis) do
-    f:write("---@field ", api.name, ' ', api.name, "\n")
+    f:write("---@field ", api.name, ' ', TYPES[api.name], "\n")
 end
 
 f:write("local yue = {}\n")
