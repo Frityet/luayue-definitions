@@ -30,7 +30,7 @@ local Image = {}
 
 
 ]]
----@return nu.Image 
+---@return nu.Image
 function Image.createempty() end
 
 --[[## Create an image by reading from `path`.
@@ -38,8 +38,8 @@ function Image.createempty() end
 
 
 ]]
----@param path string 
----@return nu.Image 
+---@param path string
+---@return nu.Image
 function Image.createfrompath(path) end
 
 --[[## Create an image from `buffer` in memory, with `scale_factor`.
@@ -48,9 +48,9 @@ function Image.createfrompath(path) end
 
 
 ]]
----@param buffer string 
----@param scalefactor number 
----@return nu.Image 
+---@param buffer string
+---@param scalefactor number
+---@return nu.Image
 function Image.createfrombuffer(buffer, scalefactor) end
 
 --[[## Return whether the image has any data.
@@ -58,7 +58,7 @@ function Image.createfrombuffer(buffer, scalefactor) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Image:isempty() end
 
 --[[## Set whether the image is a template image.
@@ -66,8 +66,8 @@ function Image:isempty() end
 
 
 ]]
----@param is boolean 
----@return nil 
+---@param is boolean
+---@return nil
 function Image:settemplate(is) end
 
 --[[## Return whether the image is a template image.
@@ -75,7 +75,7 @@ function Image:settemplate(is) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Image:istemplate() end
 
 --[[## Return image's size in DIP.
@@ -83,7 +83,7 @@ function Image:istemplate() end
 
 
 ]]
----@return nu.SizeF 
+---@return nu.SizeF
 function Image:getsize() end
 
 --[[## Return image's scale factor.
@@ -91,7 +91,7 @@ function Image:getsize() end
 
 
 ]]
----@return number 
+---@return number
 function Image:getscalefactor() end
 
 --[[## Return a new image that has tint color applied.
@@ -104,8 +104,8 @@ might very likely look different on Windows.
 
 
 ]]
----@param color nu.Color 
----@return nu.Image 
+---@param color nu.Color
+---@return nu.Image
 function Image:tint(color) end
 
 --[[## Return a new image resized to `new_size` with `scale_factor`.
@@ -113,9 +113,9 @@ function Image:tint(color) end
 
 
 ]]
----@param newsize nu.SizeF 
----@param scalefactor number 
----@return nu.Image 
+---@param newsize nu.SizeF
+---@param scalefactor number
+---@return nu.Image
 function Image:resize(newsize, scalefactor) end
 
 --[[## Return a buffer containing the image's PNG encoded data.
@@ -123,7 +123,7 @@ function Image:resize(newsize, scalefactor) end
 
 
 ]]
----@return string 
+---@return string
 function Image:topng() end
 
 --[[## Return a buffer containing the image's JPEG encoded data.
@@ -131,8 +131,8 @@ function Image:topng() end
 
 
 ]]
----@param quality integer 
----@return string 
+---@param quality integer
+---@return string
 function Image:tojpeg(quality) end
 
 return Image

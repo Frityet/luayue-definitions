@@ -14,8 +14,8 @@ local Cursor = {}
 
 
 ]]
----@param type nu.Cursor.Type 
----@return nu.Font 
+---@param type nu.Cursor.Type
+---@return nu.Font
 function Cursor.createwithtype(type) end
 
 return Cursor

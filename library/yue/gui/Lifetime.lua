@@ -15,8 +15,8 @@ When using this class, you must create `Lifetime` before creating `State`.
 [API Documentation](https://libyue.com/docs/latest/lua/api/lifetime.html#)
 ]]
 ---@class nu.Lifetime
----@field onready (fun(): nil) | nu.Signal Emitted when received `applicationDidFinishLaunching` notification. 
----@field onactivate (fun(): nil) | nu.Signal Emitted when received `applicationShouldHandleReopen` notification and there is no visible windows. This usually happens when the app is activated by Finder, or user clicks on the dock icon. 
+---@field onready (fun(): nil) | nu.Signal Emitted when received `applicationDidFinishLaunching` notification.
+---@field onactivate (fun(): nil) | nu.Signal Emitted when received `applicationShouldHandleReopen` notification and there is no visible windows. This usually happens when the app is activated by Finder, or user clicks on the dock icon.
 ---@field openfiles (fun(files: table): Lifetime::Reply) Called when received message to open files.
 local Lifetime = {}
 return Lifetime

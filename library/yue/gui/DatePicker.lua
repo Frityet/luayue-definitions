@@ -15,8 +15,8 @@ local DatePicker = {}
 
 
 ]]
----@param options nu.DatePicker.Options 
----@return nu.DatePicker 
+---@param options nu.DatePicker.Options
+---@return nu.DatePicker
 function DatePicker.create(options) end
 
 --[[## Set the selected date to `time`.
@@ -24,8 +24,8 @@ function DatePicker.create(options) end
 
 
 ]]
----@param time number 
----@return nil 
+---@param time number
+---@return nil
 function DatePicker:setdate(time) end
 
 --[[## Get the selected date.
@@ -33,7 +33,7 @@ function DatePicker:setdate(time) end
 
 
 ]]
----@return number 
+---@return number
 function DatePicker:getdate() end
 
 --[[## Set the `minimum` and `maximum` date values.
@@ -41,9 +41,9 @@ function DatePicker:getdate() end
 
 
 ]]
----@param minimum number 
----@param maximum number 
----@return nil 
+---@param minimum number
+---@param maximum number
+---@return nil
 function DatePicker:setrange(minimum, maximum) end
 
 --[[## Return  the `minimum` and `maximum` date values.
@@ -51,7 +51,7 @@ function DatePicker:setrange(minimum, maximum) end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function DatePicker:getrange() end
 
 --[[## Return whether there is a stepper attached to the text field.
@@ -59,7 +59,7 @@ function DatePicker:getrange() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function DatePicker:hasstepper() end
 
 return DatePicker

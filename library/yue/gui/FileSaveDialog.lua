@@ -14,7 +14,7 @@ local FileSaveDialog = {}
 
 
 ]]
----@return nu.FileSaveDialog 
+---@return nu.FileSaveDialog
 function FileSaveDialog.create() end
 
 return FileSaveDialog

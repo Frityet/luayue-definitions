@@ -21,8 +21,8 @@ On Linux the dragged data is only available in the `handle_drop` delegate.
 
 
 ]]
----@param type nu.Clipboard.Data.Type 
----@return boolean 
+---@param type nu.Clipboard.Data.Type
+---@return boolean
 function DraggingInfo:isdataavailable(type) end
 
 --[[## Get the data of `type` from clipboard.
@@ -35,8 +35,8 @@ You should always check the type of returned data before using it.
 
 
 ]]
----@param type nu.Clipboard.Data.Type 
----@return nu.Clipboard.Data 
+---@param type nu.Clipboard.Data.Type
+---@return nu.Clipboard.Data
 function DraggingInfo:getdata(type) end
 
 --[[## Return the drag operation supported by drag source.
@@ -48,7 +48,7 @@ check whether an operation is supported by using bitwise AND operator.
 
 
 ]]
----@return integer 
+---@return integer
 function DraggingInfo:getdragoperations() end
 
 return DraggingInfo
