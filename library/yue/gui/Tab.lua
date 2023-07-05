@@ -16,7 +16,7 @@ local Tab = {}
 
 
 ]]
----@return nu.Tab 
+---@return nu.Tab
 function Tab.create() end
 
 --[[## Add `view` as a new page with `title`.
@@ -24,9 +24,9 @@ function Tab.create() end
 
 
 ]]
----@param title string 
----@param view nu.View 
----@return nil 
+---@param title string
+---@param view nu.View
+---@return nil
 function Tab:addpage(title, view) end
 
 --[[## Remove the page that shows `view`.
@@ -34,8 +34,8 @@ function Tab:addpage(title, view) end
 
 
 ]]
----@param view nu.View 
----@return nil 
+---@param view nu.View
+---@return nil
 function Tab:removepage(view) end
 
 --[[## Return the number of pages.
@@ -43,7 +43,7 @@ function Tab:removepage(view) end
 
 
 ]]
----@return integer 
+---@return integer
 function Tab:pagecount() end
 
 --[[## Return the view of page at `index`.
@@ -51,8 +51,8 @@ function Tab:pagecount() end
 
 
 ]]
----@param index integer 
----@return nu.View 
+---@param index integer
+---@return nu.View
 function Tab:pageat(index) end
 
 --[[## Select the page at `index`.
@@ -60,8 +60,8 @@ function Tab:pageat(index) end
 
 
 ]]
----@param index integer 
----@return nil 
+---@param index integer
+---@return nil
 function Tab:selectpageat(index) end
 
 --[[## Return the index of selected page.
@@ -69,7 +69,7 @@ function Tab:selectpageat(index) end
 
 
 ]]
----@return integer 
+---@return integer
 function Tab:getselectedpageindex() end
 
 --[[## Return the view of selected page.
@@ -77,7 +77,7 @@ function Tab:getselectedpageindex() end
 
 
 ]]
----@return nu.View 
+---@return nu.View
 function Tab:getselectedpage() end
 
 return Tab

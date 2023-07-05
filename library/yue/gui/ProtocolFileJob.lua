@@ -16,8 +16,8 @@ local ProtocolFileJob = {}
 
 
 ]]
----@param path string 
----@return nu.ProtocolFileJob 
+---@param path string
+---@return nu.ProtocolFileJob
 function ProtocolFileJob.create(path) end
 
 return ProtocolFileJob

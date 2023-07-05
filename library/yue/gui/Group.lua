@@ -15,8 +15,8 @@ local Group = {}
 
 
 ]]
----@param title string 
----@return nu.Group 
+---@param title string
+---@return nu.Group
 function Group.create(title) end
 
 --[[## Set the content view.
@@ -24,8 +24,8 @@ function Group.create(title) end
 
 
 ]]
----@param view nu.Container 
----@return nil 
+---@param view nu.Container
+---@return nil
 function Group:setcontentview(view) end
 
 --[[## Return the content view.
@@ -33,7 +33,7 @@ function Group:setcontentview(view) end
 
 
 ]]
----@return nu.Container 
+---@return nu.Container
 function Group:getcontentview() end
 
 --[[## Set the title.
@@ -41,8 +41,8 @@ function Group:getcontentview() end
 
 
 ]]
----@param title string 
----@return nil 
+---@param title string
+---@return nil
 function Group:settitle(title) end
 
 --[[## Return the title.
@@ -50,7 +50,7 @@ function Group:settitle(title) end
 
 
 ]]
----@return string 
+---@return string
 function Group:gettitle() end
 
 return Group

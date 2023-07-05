@@ -1,12 +1,12 @@
 ---@meta
 
 ---@alias nu.Font.Weight
----| "thin" 
----| "extra-light" 
----| "light" 
----| "normal" 
----| "medium" 
----| "semi-bold" 
----| "bold" 
----| "extra-bold" 
----| "black" 
+---| "thin"
+---| "extra-light"
+---| "light"
+---| "normal"
+---| "medium"
+---| "semi-bold"
+---| "bold"
+---| "extra-bold"
+---| "black"

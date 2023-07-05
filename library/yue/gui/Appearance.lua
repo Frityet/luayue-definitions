@@ -36,8 +36,8 @@ use this API when developing custom-drawn apps.
 
 
 ]]
----@param enable boolean 
----@return nil 
+---@param enable boolean
+---@return nil
 function Appearance:setdarkmodeenabled(enable) end
 
 --[[## Return whether this app is using a dark color scheme.
@@ -50,7 +50,7 @@ with `<!name>SetDarkModeEnabled`.
 
 
 ]]
----@return boolean 
+---@return boolean
 function Appearance:isdarkscheme() end
 
 return Appearance

@@ -15,7 +15,7 @@ local FileOpenDialog = {}
 
 
 ]]
----@return nu.FileOpenDialog 
+---@return nu.FileOpenDialog
 function FileOpenDialog.create() end
 
 --[[## Return the chosen items in dialog.
@@ -23,7 +23,7 @@ function FileOpenDialog.create() end
 
 
 ]]
----@return table 
+---@return table
 function FileOpenDialog:getresults() end
 
 return FileOpenDialog

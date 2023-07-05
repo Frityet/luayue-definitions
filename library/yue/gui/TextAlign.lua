@@ -1,6 +1,6 @@
 ---@meta
 
 ---@alias nu.TextAlign
----| "start" 
----| "center" 
----| "end" 
+---| "start"
+---| "center"
+---| "end"

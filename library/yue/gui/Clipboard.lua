@@ -43,7 +43,7 @@ local Clipboard = {}
 
 
 ]]
----@return nu.Clipboard 
+---@return nu.Clipboard
 function Clipboard.get() end
 
 --[[## Return the clipboard with `type`.
@@ -51,8 +51,8 @@ function Clipboard.get() end
 
 
 ]]
----@param type nu.Clipboard.Type 
----@return nu.Clipboard 
+---@param type nu.Clipboard.Type
+---@return nu.Clipboard
 function Clipboard.fromtype(type) end
 
 --[[## Clear the clipboard.
@@ -60,7 +60,7 @@ function Clipboard.fromtype(type) end
 
 
 ]]
----@return nil 
+---@return nil
 function Clipboard:clear() end
 
 --[[## Set `text` as clipboard's content.
@@ -68,8 +68,8 @@ function Clipboard:clear() end
 
 
 ]]
----@param text string 
----@return nil 
+---@param text string
+---@return nil
 function Clipboard:settext(text) end
 
 --[[## Return the content of clipboard as text.
@@ -77,7 +77,7 @@ function Clipboard:settext(text) end
 
 
 ]]
----@return string 
+---@return string
 function Clipboard:gettext() end
 
 --[[## Return whether the data of `type` is available.
@@ -85,8 +85,8 @@ function Clipboard:gettext() end
 
 
 ]]
----@param type nu.Clipboard.Data.Type 
----@return boolean 
+---@param type nu.Clipboard.Data.Type
+---@return boolean
 function Clipboard:isdataavailable(type) end
 
 --[[## Get the data of `type` from clipboard.
@@ -96,8 +96,8 @@ function Clipboard:isdataavailable(type) end
 You should always check the type of returned data before using it.
 
 ]]
----@param type nu.Clipboard.Data.Type 
----@return nu.Clipboard.Data 
+---@param type nu.Clipboard.Data.Type
+---@return nu.Clipboard.Data
 function Clipboard:getdata(type) end
 
 --[[## Set clipboard's content.
@@ -105,8 +105,8 @@ function Clipboard:getdata(type) end
 
 
 ]]
----@param objects table 
----@return nil 
+---@param objects table
+---@return nil
 function Clipboard:setdata(objects) end
 
 --[[## Start watching clipboard's content.
@@ -121,7 +121,7 @@ event is implemented by polling every 500ms.
 
 
 ]]
----@return nil 
+---@return nil
 function Clipboard:startwatching() end
 
 --[[## Stop watching clipboard's content.
@@ -129,7 +129,7 @@ function Clipboard:startwatching() end
 
 
 ]]
----@return nil 
+---@return nil
 function Clipboard:stopwatching() end
 
 return Clipboard

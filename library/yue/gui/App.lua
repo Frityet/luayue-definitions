@@ -35,8 +35,8 @@ On macOS it is strong recommended to use the same name with the
 
 
 ]]
----@param name string 
----@return nil 
+---@param name string
+---@return nil
 function App:setname(name) end
 
 --[[## Return current app's name.
@@ -49,7 +49,7 @@ or the app bundle information, or the executable file's base name.
 
 
 ]]
----@return string 
+---@return string
 function App:getname() end
 
 --[[## Set the application ID.
@@ -75,8 +75,8 @@ and this API should not be used.
 
 
 ]]
----@param id string 
----@return nil 
+---@param id string
+---@return nil
 function App:setid(id) end
 
 --[[## Return the application ID.
@@ -94,7 +94,7 @@ app, empty string will be returned.
 
 
 ]]
----@return string 
+---@return string
 function App:getid() end
 
 --[[## Set the application menu bar.
@@ -104,8 +104,8 @@ function App:getid() end
 
 
 ]]
----@param menu nu.MenuBar 
----@return nil 
+---@param menu nu.MenuBar
+---@return nil
 function App:setapplicationmenu(menu) end
 
 --[[## Return the application menu bar.
@@ -115,7 +115,7 @@ function App:setapplicationmenu(menu) end
 
 
 ]]
----@return nu.MenuBar 
+---@return nu.MenuBar
 function App:getapplicationmenu() end
 
 --[[## Set the `label` to be displayed in dock’s badging area.
@@ -125,8 +125,8 @@ function App:getapplicationmenu() end
 
 
 ]]
----@param label string 
----@return nil 
+---@param label string
+---@return nil
 function App:setdockbadgelabel(label) end
 
 --[[## Get the label displayed in dock’s badging area.
@@ -136,7 +136,7 @@ function App:setdockbadgelabel(label) end
 
 
 ]]
----@return string 
+---@return string
 function App:getdockbadgelabel() end
 
 --[[## Return whether app is running as UWP/Desktop Bridge.
@@ -154,7 +154,7 @@ API can be used to detect the environment.
 
 
 ]]
----@return boolean 
+---@return boolean
 function App:isrunningasuwp() end
 
 --[[## Create a start menu shortcut for current user linking to current process.
@@ -174,8 +174,8 @@ or users themselves. This API is usually used for testing purpose.
 
 
 ]]
----@param options nu.App.ShortcutOptions 
----@return boolean 
+---@param options nu.App.ShortcutOptions
+---@return boolean
 function App:createstartmenushortcut(options) end
 
 --[[## Return file path to the shortcut created by the `<!method>App::CreateStartMenuShortcut(options)` API.
@@ -185,7 +185,7 @@ function App:createstartmenushortcut(options) end
 
 
 ]]
----@return string 
+---@return string
 function App:getstartmenushortcutpath() end
 
 --[[## Make current app the active app.
@@ -203,8 +203,8 @@ be active immediately after sending this message.
 
 
 ]]
----@param force boolean 
----@return nil 
+---@param force boolean
+---@return nil
 function App:activate(force) end
 
 --[[## Deactivate current app.
@@ -214,7 +214,7 @@ function App:activate(force) end
 
 
 ]]
----@return nil 
+---@return nil
 function App:deactivate() end
 
 --[[## Return whether current app is the active app.
@@ -224,7 +224,7 @@ function App:deactivate() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function App:isactive() end
 
 --[[## Modify the app's activation policy.
@@ -234,8 +234,8 @@ function App:isactive() end
 
 
 ]]
----@param policy nu.App.ActivationPolicy 
----@return nil 
+---@param policy nu.App.ActivationPolicy
+---@return nil
 function App:setactivationpolicy(policy) end
 
 --[[## Return app's activation policy.
@@ -245,7 +245,7 @@ function App:setactivationpolicy(policy) end
 
 
 ]]
----@return nu.App.ActivationPolicy 
+---@return nu.App.ActivationPolicy
 function App:getactivationpolicy() end
 
 return App

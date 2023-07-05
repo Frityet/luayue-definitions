@@ -25,7 +25,7 @@ local Table = {}
 
 
 ]]
----@return nu.Table 
+---@return nu.Table
 function Table.create() end
 
 --[[## Set `model` as table's data source.
@@ -33,8 +33,8 @@ function Table.create() end
 
 
 ]]
----@param model nu.TableModel 
----@return nil 
+---@param model nu.TableModel
+---@return nil
 function Table:setmodel(model) end
 
 --[[## Return table's model.
@@ -42,7 +42,7 @@ function Table:setmodel(model) end
 
 
 ]]
----@return nu.TableModel 
+---@return nu.TableModel
 function Table:getmodel() end
 
 --[[## Add a new column with `title`, which shows readonly text.
@@ -50,8 +50,8 @@ function Table:getmodel() end
 
 
 ]]
----@param title string 
----@return nil 
+---@param title string
+---@return nil
 function Table:addcolumn(title) end
 
 --[[## Add a new column with `title` and `options`.
@@ -59,9 +59,9 @@ function Table:addcolumn(title) end
 
 
 ]]
----@param title string 
----@param options nu.Table.ColumnOptions 
----@return nil 
+---@param title string
+---@param options nu.Table.ColumnOptions
+---@return nil
 function Table:addcolumnwithoptions(title, options) end
 
 --[[## Return the number of columns.
@@ -69,7 +69,7 @@ function Table:addcolumnwithoptions(title, options) end
 
 
 ]]
----@return integer 
+---@return integer
 function Table:getcolumncount() end
 
 --[[## Set whether the columns header is visible.
@@ -84,8 +84,8 @@ for consistent behaviors between platforms.
 
 
 ]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function Table:setcolumnsvisible(visible) end
 
 --[[## Return whether the columns header is visible.
@@ -93,7 +93,7 @@ function Table:setcolumnsvisible(visible) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Table:iscolumnsvisible() end
 
 --[[## Set the `height` of each row.
@@ -110,8 +110,8 @@ already been added.
 
 
 ]]
----@param height number 
----@return nil 
+---@param height number
+---@return nil
 function Table:setrowheight(height) end
 
 --[[## Return the `height` of each row.
@@ -119,7 +119,7 @@ function Table:setrowheight(height) end
 
 
 ]]
----@return number 
+---@return number
 function Table:getrowheight() end
 
 --[[## Set whether the view has border.
@@ -127,8 +127,8 @@ function Table:getrowheight() end
 
 
 ]]
----@param has boolean 
----@return nil 
+---@param has boolean
+---@return nil
 function Table:sethasborder(has) end
 
 --[[## Return whether the view has border.
@@ -136,7 +136,7 @@ function Table:sethasborder(has) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Table:hasborder() end
 
 --[[## Set whether it is allowed to select more than one row at a time.
@@ -145,8 +145,8 @@ function Table:hasborder() end
 
 
 ]]
----@param enable boolean 
----@return nil 
+---@param enable boolean
+---@return nil
 function Table:enablemultipleselection(enable) end
 
 --[[## Return whether it is allowed to select more than one row at a time.
@@ -155,7 +155,7 @@ function Table:enablemultipleselection(enable) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Table:ismultipleselectionenabled() end
 
 --[[## Select a `row`.
@@ -163,8 +163,8 @@ function Table:ismultipleselectionenabled() end
 
 
 ]]
----@param row integer 
----@return nil 
+---@param row integer
+---@return nil
 function Table:selectrow(row) end
 
 --[[## Return the index of selected row.
@@ -176,7 +176,7 @@ first selected row. When no row is selected, `-1` will be returned.
 
 
 ]]
----@return integer 
+---@return integer
 function Table:getselectedrow() end
 
 --[[## Select multiple `rows`.
@@ -184,8 +184,8 @@ function Table:getselectedrow() end
 
 
 ]]
----@param rows table 
----@return nil 
+---@param rows table
+---@return nil
 function Table:selectrows(rows) end
 
 --[[## Return selected rows' indexes.
@@ -193,7 +193,7 @@ function Table:selectrows(rows) end
 
 
 ]]
----@return table 
+---@return table
 function Table:getselectedrows() end
 
 return Table

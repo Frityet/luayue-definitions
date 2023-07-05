@@ -10,15 +10,15 @@
 ]]
 ---@class nu.MenuItem
 ---@field onclick (fun(self: nu.MenuItem): nil) | yue.gui.Signal Emitted when item is clicked.
----@field validate (fun(self: nu.MenuItem): boolean) Called before the item shows or activates, should return whether the item is enabled. 
+---@field validate (fun(self: nu.MenuItem): boolean) Called before the item shows or activates, should return whether the item is enabled.
 local MenuItem = {}
 --[[## Create a menu item with `type`.
 
 
 
 ]]
----@param type nu.MenuItem.Type 
----@return nu.MenuItem 
+---@param type nu.MenuItem.Type
+---@return nu.MenuItem
 function MenuItem.create(type) end
 
 --[[## Create a menu item with `options`.
@@ -26,8 +26,8 @@ function MenuItem.create(type) end
 
 
 ]]
----@param options table 
----@return nu.MenuItem 
+---@param options table
+---@return nu.MenuItem
 function MenuItem.create(options) end
 
 --[[## Emulate user clicking the menu item.
@@ -35,7 +35,7 @@ function MenuItem.create(options) end
 
 
 ]]
----@return nil 
+---@return nil
 function MenuItem:click() end
 
 --[[## Change the item's label.
@@ -43,8 +43,8 @@ function MenuItem:click() end
 
 
 ]]
----@param label string 
----@return nil 
+---@param label string
+---@return nil
 function MenuItem:setlabel(label) end
 
 --[[## Return the item's label.
@@ -52,7 +52,7 @@ function MenuItem:setlabel(label) end
 
 
 ]]
----@return string 
+---@return string
 function MenuItem:getlabel() end
 
 --[[## Set the submenu attached to the item.
@@ -63,8 +63,8 @@ This method only works for `submenu` type menu items.
 
 
 ]]
----@param submenu nu.Menu 
----@return nil 
+---@param submenu nu.Menu
+---@return nil
 function MenuItem:setsubmenu(submenu) end
 
 --[[## Return the submenu attached to the item.
@@ -72,7 +72,7 @@ function MenuItem:setsubmenu(submenu) end
 
 
 ]]
----@return nu.Menu 
+---@return nu.Menu
 function MenuItem:getsubmenu() end
 
 --[[## Set the `checked` state of the item.
@@ -83,8 +83,8 @@ This method only works for `radio` and `checkbox` type menu items.
 
 
 ]]
----@param checked boolean 
----@return nil 
+---@param checked boolean
+---@return nil
 function MenuItem:setchecked(checked) end
 
 --[[## Return the `checked` state of the item.
@@ -92,7 +92,7 @@ function MenuItem:setchecked(checked) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function MenuItem:ischecked() end
 
 --[[## Enable/disable the item.
@@ -100,8 +100,8 @@ function MenuItem:ischecked() end
 
 
 ]]
----@param enabled boolean 
----@return nil 
+---@param enabled boolean
+---@return nil
 function MenuItem:setenabled(enabled) end
 
 --[[## Return whether the item is enabled.
@@ -109,7 +109,7 @@ function MenuItem:setenabled(enabled) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function MenuItem:isenabled() end
 
 --[[## Show/hide the item.
@@ -117,8 +117,8 @@ function MenuItem:isenabled() end
 
 
 ]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function MenuItem:setvisible(visible) end
 
 --[[## Return whether the item is visible to users.
@@ -126,7 +126,7 @@ function MenuItem:setvisible(visible) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function MenuItem:isvisible() end
 
 --[[## Set the `accelerator` used to activate the item.
@@ -134,8 +134,8 @@ function MenuItem:isvisible() end
 
 
 ]]
----@param accelerator nu.Accelerator 
----@return nil 
+---@param accelerator nu.Accelerator
+---@return nil
 function MenuItem:setaccelerator(accelerator) end
 
 --[[## Set the item's image.
@@ -145,8 +145,8 @@ function MenuItem:setaccelerator(accelerator) end
 
 
 ]]
----@param image nu.Image 
----@return nil 
+---@param image nu.Image
+---@return nil
 function MenuItem:setimage(image) end
 
 --[[## Return the item's image.
@@ -156,7 +156,7 @@ function MenuItem:setimage(image) end
 
 
 ]]
----@return nu.Image 
+---@return nu.Image
 function MenuItem:getimage() end
 
 return MenuItem

@@ -63,7 +63,7 @@ local Notification = {}
 
 
 ]]
----@return nu.Notification 
+---@return nu.Notification
 function Notification.create() end
 
 --[[## Display the notification.
@@ -79,7 +79,7 @@ notification can be updated after it has been displayed.
 
 
 ]]
----@return nil 
+---@return nil
 function Notification:show() end
 
 --[[## Close the notification.
@@ -87,7 +87,7 @@ function Notification:show() end
 
 
 ]]
----@return nil 
+---@return nil
 function Notification:close() end
 
 --[[## Set the title of the notification.
@@ -95,8 +95,8 @@ function Notification:close() end
 
 
 ]]
----@param title string 
----@return nil 
+---@param title string
+---@return nil
 function Notification:settitle(title) end
 
 --[[## Set the body text of the notification.
@@ -104,8 +104,8 @@ function Notification:settitle(title) end
 
 
 ]]
----@param body string 
----@return nil 
+---@param body string
+---@return nil
 function Notification:setbody(body) end
 
 --[[## Set the user info to be attached to the notification.
@@ -117,8 +117,8 @@ the user info will be passed to the event handler.
 
 
 ]]
----@param info string 
----@return nil 
+---@param info string
+---@return nil
 function Notification:setinfo(info) end
 
 --[[## Return the attached user info.
@@ -126,7 +126,7 @@ function Notification:setinfo(info) end
 
 
 ]]
----@return string 
+---@return string
 function Notification:getinfo() end
 
 --[[## Set the buttons to be displayed in the notification.
@@ -138,8 +138,8 @@ will be emitted when user clicks one of the buttons.
 
 
 ]]
----@param actions table 
----@return nil 
+---@param actions table
+---@return nil
 function Notification:setactions(actions) end
 
 --[[## Set whether to play sound when the notification is displayed.
@@ -147,8 +147,8 @@ function Notification:setactions(actions) end
 
 
 ]]
----@param silent boolean 
----@return nil 
+---@param silent boolean
+---@return nil
 function Notification:setsilent(silent) end
 
 --[[## Set the image shown in the content of the notification.
@@ -160,8 +160,8 @@ is no guarentee on where the image is placed.
 
 
 ]]
----@param image nu.Image 
----@return nil 
+---@param image nu.Image
+---@return nil
 function Notification:setimage(image) end
 
 --[[## Set the file path of the image shown in the content of the notification.
@@ -178,8 +178,8 @@ is no guarentee on where the image is placed.
 
 
 ]]
----@param path string 
----@return nil 
+---@param path string
+---@return nil
 function Notification:setimagepath(path) end
 
 --[[## Set the `placement` attribute of the image.
@@ -192,8 +192,8 @@ The most common used `placement`s are `"appLogoOverride"` and `"hero"`.
 
 
 ]]
----@param placement string 
----@return nil 
+---@param placement string
+---@return nil
 function Notification:setimageplacement(placement) end
 
 --[[## Set whether to display an input field and a reply button in the
@@ -209,8 +209,8 @@ will be emitted when user sends a reply in the notification.
 
 
 ]]
----@param has boolean 
----@return nil 
+---@param has boolean
+---@return nil
 function Notification:sethasreplybutton(has) end
 
 --[[## The the placeholder of the input field.
@@ -220,8 +220,8 @@ function Notification:sethasreplybutton(has) end
 
 
 ]]
----@param placeholder string 
----@return nil 
+---@param placeholder string
+---@return nil
 function Notification:setresponseplaceholder(placeholder) end
 
 --[[## Set an unique `identifier` that can identifies a notification.
@@ -242,8 +242,8 @@ and call its `<!name>Show` method.
 
 
 ]]
----@param identifier string 
----@return nil 
+---@param identifier string
+---@return nil
 function Notification:setidentifier(identifier) end
 
 --[[## Return the unique identifier of the notification.
@@ -253,7 +253,7 @@ function Notification:setidentifier(identifier) end
 
 
 ]]
----@return string 
+---@return string
 function Notification:getidentifier() end
 
 --[[## Set custom XML of the toast notification.
@@ -272,8 +272,8 @@ at [here](https://docs.microsoft.com/en-us/windows/apps/design/shell/tiles-and-n
 
 
 ]]
----@param xml string 
----@return nil 
+---@param xml string
+---@return nil
 function Notification:setxml(xml) end
 
 --[[## Return the XML representation of the toast notification.
@@ -283,7 +283,7 @@ function Notification:setxml(xml) end
 
 
 ]]
----@return string 
+---@return string
 function Notification:getxml() end
 
 return Notification

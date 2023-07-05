@@ -21,8 +21,8 @@ local SimpleTableModel = {}
 
 
 ]]
----@param columns integer 
----@return nu.SimpleTableModel 
+---@param columns integer
+---@return nu.SimpleTableModel
 function SimpleTableModel.create(columns) end
 
 --[[## Add a row.
@@ -32,8 +32,8 @@ function SimpleTableModel.create(columns) end
 The length of `row` should not be smaller than columns number.
 
 ]]
----@param row table 
----@return nil 
+---@param row table
+---@return nil
 function SimpleTableModel:addrow(row) end
 
 --[[## Remove the row at `index`.
@@ -41,8 +41,8 @@ function SimpleTableModel:addrow(row) end
 
 
 ]]
----@param index integer 
----@return nil 
+---@param index integer
+---@return nil
 function SimpleTableModel:removerowat(index) end
 
 return SimpleTableModel

@@ -27,7 +27,7 @@ local Screen = {}
 
 
 ]]
----@return nu.Display 
+---@return nu.Display
 function Screen:getprimarydisplay() end
 
 --[[## Return the list of displays that are currently available.
@@ -35,7 +35,7 @@ function Screen:getprimarydisplay() end
 
 
 ]]
----@return table 
+---@return table
 function Screen:getalldisplays() end
 
 --[[## Return the display nearest the specified `window`.
@@ -43,8 +43,8 @@ function Screen:getalldisplays() end
 
 
 ]]
----@param window nu.Window 
----@return nu.Display 
+---@param window nu.Window
+---@return nu.Display
 function Screen:getdisplaynearestwindow(window) end
 
 --[[## Return the display nearest the specified DIP `point`.
@@ -52,8 +52,8 @@ function Screen:getdisplaynearestwindow(window) end
 
 
 ]]
----@param point nu.PointF 
----@return nu.Display 
+---@param point nu.PointF
+---@return nu.Display
 function Screen:getdisplaynearestpoint(point) end
 
 --[[## Return the current absolute position of the mouse pointer.
@@ -61,7 +61,7 @@ function Screen:getdisplaynearestpoint(point) end
 
 
 ]]
----@return nu.PointF 
+---@return nu.PointF
 function Screen:getcursorscreenpoint() end
 
 return Screen

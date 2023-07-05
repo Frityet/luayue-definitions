@@ -15,8 +15,8 @@ local Menu = {}
 
 
 ]]
----@param items table 
----@return nu.Menu 
+---@param items table
+---@return nu.Menu
 function Menu.create(items) end
 
 --[[## Show the popup menu at current mouse position, this method will block
@@ -26,7 +26,7 @@ until the menu is dismissed.
 
 
 ]]
----@return nil 
+---@return nil
 function Menu:popup() end
 
 --[[## Show the popup menu at |point|, this method will block until the menu is
@@ -36,8 +36,8 @@ dismissed.
 
 
 ]]
----@param point nu.PointF 
----@return nil 
+---@param point nu.PointF
+---@return nil
 function Menu:popupat(point) end
 
 return Menu

@@ -19,7 +19,7 @@ local Slider = {}
 
 
 ]]
----@return nu.Slider 
+---@return nu.Slider
 function Slider.create() end
 
 --[[## Set the value.
@@ -27,8 +27,8 @@ function Slider.create() end
 
 
 ]]
----@param value number 
----@return nil 
+---@param value number
+---@return nil
 function Slider:setvalue(value) end
 
 --[[## Return the value.
@@ -36,7 +36,7 @@ function Slider:setvalue(value) end
 
 
 ]]
----@return number 
+---@return number
 function Slider:getvalue() end
 
 --[[## Set the step value of the slider.
@@ -44,8 +44,8 @@ function Slider:getvalue() end
 
 
 ]]
----@param step number 
----@return nil 
+---@param step number
+---@return nil
 function Slider:setstep(step) end
 
 --[[## Return the step value of the slider.
@@ -53,7 +53,7 @@ function Slider:setstep(step) end
 
 
 ]]
----@return number 
+---@return number
 function Slider:getstep() end
 
 --[[## Set the range of the slider.
@@ -61,9 +61,9 @@ function Slider:getstep() end
 
 
 ]]
----@param min number 
----@param max number 
----@return nil 
+---@param min number
+---@param max number
+---@return nil
 function Slider:setrange(min, max) end
 
 --[[## Return the range of the slider.
@@ -71,7 +71,7 @@ function Slider:setrange(min, max) end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function Slider:getrange() end
 
 return Slider

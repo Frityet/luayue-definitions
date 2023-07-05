@@ -15,7 +15,7 @@ local Font = {}
 
 
 ]]
----@return nu.Font 
+---@return nu.Font
 function Font.default() end
 
 --[[## Create a Font implementation with the specified `name`, DIP `size`,
@@ -25,11 +25,11 @@ function Font.default() end
 
 
 ]]
----@param name string 
----@param size number 
----@param weight nu.Font.Weight 
----@param style nu.Font.Style 
----@return nu.Font 
+---@param name string
+---@param size number
+---@param weight nu.Font.Weight
+---@param style nu.Font.Style
+---@return nu.Font
 function Font.create(name, size, weight, style) end
 
 --[[## Create a Font by reading from |path|. If the font file contains multiple
@@ -39,9 +39,9 @@ families or weights, only the first encountered font will be used.
 
 
 ]]
----@param path string 
----@param size number 
----@return nu.Font 
+---@param path string
+---@param size number
+---@return nu.Font
 function Font.createfrompath(path, size) end
 
 --[[## Returns a new Font derived from the existing font.
@@ -51,10 +51,10 @@ function Font.createfrompath(path, size) end
 The `size_delta` is the size in DIP to add to the current font.
 
 ]]
----@param sizedelta number 
----@param weight nu.Font.Weight 
----@param style nu.Font.Style 
----@return nu.Font 
+---@param sizedelta number
+---@param weight nu.Font.Weight
+---@param style nu.Font.Style
+---@return nu.Font
 function Font:derive(sizedelta, weight, style) end
 
 --[[## Return font's family name.
@@ -62,7 +62,7 @@ function Font:derive(sizedelta, weight, style) end
 
 
 ]]
----@return string 
+---@return string
 function Font:getname() end
 
 --[[## Return font's DIP size.
@@ -70,7 +70,7 @@ function Font:getname() end
 
 
 ]]
----@return number 
+---@return number
 function Font:getsize() end
 
 --[[## Return the font weight.
@@ -78,7 +78,7 @@ function Font:getsize() end
 
 
 ]]
----@return nu.Font.Weight 
+---@return nu.Font.Weight
 function Font:getweight() end
 
 --[[## Return the font style.
@@ -86,7 +86,7 @@ function Font:getweight() end
 
 
 ]]
----@return nu.Font.Style 
+---@return nu.Font.Style
 function Font:getstyle() end
 
 return Font

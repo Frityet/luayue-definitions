@@ -23,7 +23,7 @@ local Scroll = {}
 
 
 ]]
----@return nu.Scroll 
+---@return nu.Scroll
 function Scroll.create() end
 
 --[[## Set the content `view`.
@@ -31,8 +31,8 @@ function Scroll.create() end
 
 
 ]]
----@param view nu.View 
----@return nil 
+---@param view nu.View
+---@return nil
 function Scroll:setcontentview(view) end
 
 --[[## Return the content `view`.
@@ -40,7 +40,7 @@ function Scroll:setcontentview(view) end
 
 
 ]]
----@return nu.View 
+---@return nu.View
 function Scroll:getcontentview() end
 
 --[[## Set the size of content view.
@@ -48,8 +48,8 @@ function Scroll:getcontentview() end
 
 
 ]]
----@param size nu.SizeF 
----@return nil 
+---@param size nu.SizeF
+---@return nil
 function Scroll:setcontentsize(size) end
 
 --[[## Return the size of content view.
@@ -57,7 +57,7 @@ function Scroll:setcontentsize(size) end
 
 
 ]]
----@return nu.SizeF 
+---@return nu.SizeF
 function Scroll:getcontentsize() end
 
 --[[## Scroll to the `horizon` and `vertical` position.
@@ -65,9 +65,9 @@ function Scroll:getcontentsize() end
 
 
 ]]
----@param horizon number 
----@param vertical number 
----@return nil 
+---@param horizon number
+---@param vertical number
+---@return nil
 function Scroll:setscrollposition(horizon, vertical) end
 
 --[[## Return the horizon and vertical scroll position.
@@ -75,7 +75,7 @@ function Scroll:setscrollposition(horizon, vertical) end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function Scroll:getscrollposition() end
 
 --[[## Return the maximum horizon and vertical scroll position.
@@ -83,7 +83,7 @@ function Scroll:getscrollposition() end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function Scroll:getmaximumscrollposition() end
 
 --[[## Set whether to use overlay scrolling.
@@ -93,8 +93,8 @@ function Scroll:getmaximumscrollposition() end
 
 
 ]]
----@param overlay boolean 
----@return nil 
+---@param overlay boolean
+---@return nil
 function Scroll:setoverlayscrollbar(overlay) end
 
 --[[## Return whether overlay scrolling is used.
@@ -104,7 +104,7 @@ function Scroll:setoverlayscrollbar(overlay) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Scroll:isoverlayscrollbar() end
 
 --[[## Set the policy for displaying horizontal and vertical scrollbars.
@@ -113,9 +113,9 @@ function Scroll:isoverlayscrollbar() end
 
 
 ]]
----@param hpolicy nu.Scroll.Policy 
----@param vpolicy nu.Scroll.Policy 
----@return nil 
+---@param hpolicy nu.Scroll.Policy
+---@param vpolicy nu.Scroll.Policy
+---@return nil
 function Scroll:setscrollbarpolicy(hpolicy, vpolicy) end
 
 --[[## Return the display policy of horizontal and vertical scrollbars.
@@ -124,7 +124,7 @@ function Scroll:setscrollbarpolicy(hpolicy, vpolicy) end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function Scroll:getscrollbarpolicy() end
 
 --[[## Set horizontal and vertical scroll elasticity (bounce).
@@ -135,9 +135,9 @@ function Scroll:getscrollbarpolicy() end
 
 
 ]]
----@param helasticity nu.Scroll.Elasticity 
----@param velasticity nu.Scroll.Elasticity 
----@return nil 
+---@param helasticity nu.Scroll.Elasticity
+---@param velasticity nu.Scroll.Elasticity
+---@return nil
 function Scroll:setscrollelasticity(helasticity, velasticity) end
 
 --[[## Return the horizontal and vertical scroll elasticity.
@@ -148,7 +148,7 @@ function Scroll:setscrollelasticity(helasticity, velasticity) end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function Scroll:getscrollelasticity() end
 
 return Scroll

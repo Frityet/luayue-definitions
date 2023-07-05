@@ -23,8 +23,8 @@ The signature of `slot` must match the event's type.
 
 
 ]]
----@param slot function 
----@return integer 
+---@param slot function
+---@return integer
 function Signal:connect(slot) end
 
 --[[## Disconnect the `id` from the signal.
@@ -32,8 +32,8 @@ function Signal:connect(slot) end
 
 
 ]]
----@param id integer 
----@return nil 
+---@param id integer
+---@return nil
 function Signal:disconnect(id) end
 
 --[[## Disconnect all slots in the signal.
@@ -41,7 +41,7 @@ function Signal:disconnect(id) end
 
 
 ]]
----@return nil 
+---@return nil
 function Signal:disconnectall() end
 
 --[[## Return `true` if there is no slot connected to the signal.
@@ -49,7 +49,7 @@ function Signal:disconnectall() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Signal:isempty() end
 
 return Signal

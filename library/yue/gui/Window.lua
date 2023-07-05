@@ -12,15 +12,15 @@
 ---@field onclose (fun(self: nu.Window): nil) | yue.gui.Signal Emitted when the window is closed.
 ---@field onfocus (fun(self: nu.Window): nil) | yue.gui.Signal Emitted when the window is focused.
 ---@field onblur (fun(self: nu.Window): nil) | yue.gui.Signal Emitted when the window lost focus.
----@field shouldclose (fun(self: nu.Window): boolean) Called when user requests to close the window, should return whether the window can be closed. 
+---@field shouldclose (fun(self: nu.Window): boolean) Called when user requests to close the window, should return whether the window can be closed.
 local Window = {}
 --[[## Create a new window with `options`.
 
 
 
 ]]
----@param options nu.Window.Options 
----@return nu.Window 
+---@param options nu.Window.Options
+---@return nu.Window
 function Window.create(options) end
 
 --[[## Request to close the window.
@@ -28,7 +28,7 @@ function Window.create(options) end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:close() end
 
 --[[## Return whether window has a native frame.
@@ -36,7 +36,7 @@ function Window:close() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:hasframe() end
 
 --[[## Return whether window is transparent.
@@ -44,7 +44,7 @@ function Window:hasframe() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:istransparent() end
 
 --[[## Set whether window should have shadow.
@@ -55,8 +55,8 @@ Depending on platform, this may not work.
 
 
 ]]
----@param has boolean 
----@return nil 
+---@param has boolean
+---@return nil
 function Window:sethasshadow(has) end
 
 --[[## Return whether window has shadow.
@@ -64,7 +64,7 @@ function Window:sethasshadow(has) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:hasshadow() end
 
 --[[## Set the content view of the window.
@@ -75,8 +75,8 @@ The content view will always be resized to fill window's client area.
 
 
 ]]
----@param view nu.View 
----@return nil 
+---@param view nu.View
+---@return nil
 function Window:setcontentview(view) end
 
 --[[## Return the content view of the window.
@@ -84,7 +84,7 @@ function Window:setcontentview(view) end
 
 
 ]]
----@return nu.View 
+---@return nu.View
 function Window:getcontentview() end
 
 --[[## Move the window to the center of the screen.
@@ -92,7 +92,7 @@ function Window:getcontentview() end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:center() end
 
 --[[## Resize window to make the content view fit `size`.
@@ -100,8 +100,8 @@ function Window:center() end
 
 
 ]]
----@param size nu.SizeF 
----@return nil 
+---@param size nu.SizeF
+---@return nil
 function Window:setcontentsize(size) end
 
 --[[## Return the size of content view.
@@ -109,7 +109,7 @@ function Window:setcontentsize(size) end
 
 
 ]]
----@return nu.SizeF 
+---@return nu.SizeF
 function Window:getcontentsize() end
 
 --[[## Change the position and size of the window.
@@ -117,8 +117,8 @@ function Window:getcontentsize() end
 
 
 ]]
----@param bounds nu.RectF 
----@return nil 
+---@param bounds nu.RectF
+---@return nil
 function Window:setbounds(bounds) end
 
 --[[## Return the position and size of the window.
@@ -126,7 +126,7 @@ function Window:setbounds(bounds) end
 
 
 ]]
----@return nu.RectF 
+---@return nu.RectF
 function Window:getbounds() end
 
 --[[## Set the minimum and maximum sizes of the window.
@@ -137,9 +137,9 @@ Passing an empty size means no constraint.
 
 
 ]]
----@param minsize nu.SizeF 
----@param maxsize nu.SizeF 
----@return nil 
+---@param minsize nu.SizeF
+---@param maxsize nu.SizeF
+---@return nil
 function Window:setsizeconstraints(minsize, maxsize) end
 
 --[[## Return minimum and maximum sizes of the window.
@@ -147,7 +147,7 @@ function Window:setsizeconstraints(minsize, maxsize) end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function Window:getsizeconstraints() end
 
 --[[## Set the minimum and maximum content sizes of the window.
@@ -158,9 +158,9 @@ Passing an empty size means no constraint.
 
 
 ]]
----@param minsize nu.SizeF 
----@param maxsize nu.SizeF 
----@return nil 
+---@param minsize nu.SizeF
+---@param maxsize nu.SizeF
+---@return nil
 function Window:setcontentsizeconstraints(minsize, maxsize) end
 
 --[[## Return minimum and maximum content sizes of the window.
@@ -168,7 +168,7 @@ function Window:setcontentsizeconstraints(minsize, maxsize) end
 
 
 ]]
----@return nu.std.tuple 
+---@return nu.std.tuple
 function Window:getcontentsizeconstraints() end
 
 --[[## Show the window and activate it.
@@ -176,7 +176,7 @@ function Window:getcontentsizeconstraints() end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:activate() end
 
 --[[## Move the focus away from the window.
@@ -184,7 +184,7 @@ function Window:activate() end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:deactivate() end
 
 --[[## Return whether window has focus.
@@ -192,7 +192,7 @@ function Window:deactivate() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isactive() end
 
 --[[## Show/hide the window.
@@ -200,8 +200,8 @@ function Window:isactive() end
 
 
 ]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function Window:setvisible(visible) end
 
 --[[## Return whether window is visible.
@@ -209,7 +209,7 @@ function Window:setvisible(visible) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isvisible() end
 
 --[[## Make the window always show above other normal windows.
@@ -217,8 +217,8 @@ function Window:isvisible() end
 
 
 ]]
----@param top boolean 
----@return nil 
+---@param top boolean
+---@return nil
 function Window:setalwaysontop(top) end
 
 --[[## Return whether window is always above other normal windows.
@@ -226,7 +226,7 @@ function Window:setalwaysontop(top) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isalwaysontop() end
 
 --[[## Enter/leave fullscreen state.
@@ -234,8 +234,8 @@ function Window:isalwaysontop() end
 
 
 ]]
----@param fullscreen boolean 
----@return nil 
+---@param fullscreen boolean
+---@return nil
 function Window:setfullscreen(fullscreen) end
 
 --[[## Return whether window is in fullscreen.
@@ -243,7 +243,7 @@ function Window:setfullscreen(fullscreen) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isfullscreen() end
 
 --[[## Maximize the window.
@@ -251,7 +251,7 @@ function Window:isfullscreen() end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:maximize() end
 
 --[[## Unmaximize the window.
@@ -259,7 +259,7 @@ function Window:maximize() end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:unmaximize() end
 
 --[[## Return whether window is maximized.
@@ -267,7 +267,7 @@ function Window:unmaximize() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:ismaximized() end
 
 --[[## Minimize the window.
@@ -275,7 +275,7 @@ function Window:ismaximized() end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:minimize() end
 
 --[[## Restore the minimized window.
@@ -283,7 +283,7 @@ function Window:minimize() end
 
 
 ]]
----@return nil 
+---@return nil
 function Window:restore() end
 
 --[[## Return whether window is minimized.
@@ -291,7 +291,7 @@ function Window:restore() end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isminimized() end
 
 --[[## Set whether window can be resized.
@@ -299,8 +299,8 @@ function Window:isminimized() end
 
 
 ]]
----@param resizable boolean 
----@return nil 
+---@param resizable boolean
+---@return nil
 function Window:setresizable(resizable) end
 
 --[[## Return whether window can be resized.
@@ -308,7 +308,7 @@ function Window:setresizable(resizable) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isresizable() end
 
 --[[## Set whether window can be maximize.
@@ -316,8 +316,8 @@ function Window:isresizable() end
 
 
 ]]
----@param maximizable boolean 
----@return nil 
+---@param maximizable boolean
+---@return nil
 function Window:setmaximizable(maximizable) end
 
 --[[## Return whether window can be maximize.
@@ -325,7 +325,7 @@ function Window:setmaximizable(maximizable) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:ismaximizable() end
 
 --[[## Set whether window can be minimized.
@@ -333,8 +333,8 @@ function Window:ismaximizable() end
 
 
 ]]
----@param minimizable boolean 
----@return nil 
+---@param minimizable boolean
+---@return nil
 function Window:setminimizable(minimizable) end
 
 --[[## Return whether window can be minimized.
@@ -342,7 +342,7 @@ function Window:setminimizable(minimizable) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isminimizable() end
 
 --[[## Set whether window can be moved.
@@ -350,8 +350,8 @@ function Window:isminimizable() end
 
 
 ]]
----@param movable boolean 
----@return nil 
+---@param movable boolean
+---@return nil
 function Window:setmovable(movable) end
 
 --[[## Return whether window can be moved.
@@ -359,7 +359,7 @@ function Window:setmovable(movable) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:ismovable() end
 
 --[[## Set window title.
@@ -367,8 +367,8 @@ function Window:ismovable() end
 
 
 ]]
----@param title string 
----@return nil 
+---@param title string
+---@return nil
 function Window:settitle(title) end
 
 --[[## Get window title.
@@ -376,7 +376,7 @@ function Window:settitle(title) end
 
 
 ]]
----@return string 
+---@return string
 function Window:gettitle() end
 
 --[[## Set the background color of the window.
@@ -384,8 +384,8 @@ function Window:gettitle() end
 
 
 ]]
----@param color nu.Color 
----@return nil 
+---@param color nu.Color
+---@return nil
 function Window:setbackgroundcolor(color) end
 
 --[[## Return the scale factor of the window.
@@ -393,7 +393,7 @@ function Window:setbackgroundcolor(color) end
 
 
 ]]
----@return number 
+---@return number
 function Window:getscalefactor() end
 
 --[[## Set the window toolbar.
@@ -403,8 +403,8 @@ function Window:getscalefactor() end
 
 
 ]]
----@param toolbar nu.Toolbar 
----@return nil 
+---@param toolbar nu.Toolbar
+---@return nil
 function Window:settoolbar(toolbar) end
 
 --[[## Return the window toolbar.
@@ -414,7 +414,7 @@ function Window:settoolbar(toolbar) end
 
 
 ]]
----@return nu.Toolbar 
+---@return nu.Toolbar
 function Window:gettoolbar() end
 
 --[[## Set whether the title is visible, when title was hidden the toolber would
@@ -426,8 +426,8 @@ be moved into the area previously occupied by the title.
 
 
 ]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function Window:settitlevisible(visible) end
 
 --[[## Return whether title is visible.
@@ -437,7 +437,7 @@ function Window:settitlevisible(visible) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:istitlevisible() end
 
 --[[## Set the `NSWindowStyleMaskFullSizeContentView` style on the window.
@@ -448,8 +448,8 @@ function Window:istitlevisible() end
 
 
 ]]
----@param full boolean 
----@return nil 
+---@param full boolean
+---@return nil
 function Window:setfullsizecontentview(full) end
 
 --[[## Return whether the window has `NSWindowStyleMaskFullSizeContentView` style.
@@ -460,7 +460,7 @@ function Window:setfullsizecontentview(full) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Window:isfullsizecontentview() end
 
 --[[## Set whether to hide the window from taskbar.
@@ -470,8 +470,8 @@ function Window:isfullsizecontentview() end
 
 
 ]]
----@param skip boolean 
----@return nil 
+---@param skip boolean
+---@return nil
 function Window:setskiptaskbar(skip) end
 
 --[[## Set the window icon.
@@ -481,8 +481,8 @@ function Window:setskiptaskbar(skip) end
 
 
 ]]
----@param icon nu.Image 
----@return nil 
+---@param icon nu.Image
+---@return nil
 function Window:seticon(icon) end
 
 --[[## Set the window menu bar.
@@ -492,8 +492,8 @@ function Window:seticon(icon) end
 
 
 ]]
----@param menubar nu.MenuBar 
----@return nil 
+---@param menubar nu.MenuBar
+---@return nil
 function Window:setmenubar(menubar) end
 
 --[[## Return the window menu bar.
@@ -503,7 +503,7 @@ function Window:setmenubar(menubar) end
 
 
 ]]
----@return nu.MenuBar 
+---@return nu.MenuBar
 function Window:getmenubar() end
 
 --[[## Set whether the window menu bar is visible.
@@ -518,8 +518,8 @@ Calling `<!name>SetMenu` will reset the menu bar to visible.
 
 
 ]]
----@param visible boolean 
----@return nil 
+---@param visible boolean
+---@return nil
 function Window:setmenubarvisible(visible) end
 
 --[[## Return a light userdata representing the HWND of the native window.
@@ -533,7 +533,7 @@ to HWND, instead of reading the memory of the light userdata.
 
 
 ]]
----@return userdata 
+---@return userdata
 function Window:gethwnd() end
 
 --[[## Return the parent window.
@@ -541,7 +541,7 @@ function Window:gethwnd() end
 
 
 ]]
----@return nu.Window 
+---@return nu.Window
 function Window:getparentwindow() end
 
 --[[## Make `child` a child window of this window.
@@ -551,8 +551,8 @@ function Window:getparentwindow() end
 This method will do nothing if `child` already has a parent window.
 
 ]]
----@param child nu.Window 
----@return nil 
+---@param child nu.Window
+---@return nil
 function Window:addchildwindow(child) end
 
 --[[## Remove this window as `child`'s parent window.
@@ -560,8 +560,8 @@ function Window:addchildwindow(child) end
 
 
 ]]
----@param child nu.Window 
----@return nil 
+---@param child nu.Window
+---@return nil
 function Window:removechildwindow(child) end
 
 --[[## Return all the child windows of this window.
@@ -569,7 +569,7 @@ function Window:removechildwindow(child) end
 
 
 ]]
----@return table 
+---@return table
 function Window:getchildwindows() end
 
 return Window

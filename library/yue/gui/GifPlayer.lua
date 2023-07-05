@@ -25,7 +25,7 @@ local GifPlayer = {}
 
 
 ]]
----@return nu.GifPlayer 
+---@return nu.GifPlayer
 function GifPlayer.create() end
 
 --[[## Set the image.
@@ -37,8 +37,8 @@ automatically.
 
 
 ]]
----@param image nu.Image 
----@return nil 
+---@param image nu.Image
+---@return nil
 function GifPlayer:setimage(image) end
 
 --[[## Return the image.
@@ -46,7 +46,7 @@ function GifPlayer:setimage(image) end
 
 
 ]]
----@return nu.Image 
+---@return nu.Image
 function GifPlayer:getimage() end
 
 --[[## Set whether the animated image should be played.
@@ -54,8 +54,8 @@ function GifPlayer:getimage() end
 
 
 ]]
----@param animating boolean 
----@return nil 
+---@param animating boolean
+---@return nil
 function GifPlayer:setanimating(animating) end
 
 --[[## Return whether the image is animating.
@@ -63,7 +63,7 @@ function GifPlayer:setanimating(animating) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function GifPlayer:isanimating() end
 
 --[[## Set the scaling mode.
@@ -73,8 +73,8 @@ function GifPlayer:isanimating() end
 The default scaling mode is `<!enum class>None`.
 
 ]]
----@param scale nu.ImageScale 
----@return nil 
+---@param scale nu.ImageScale
+---@return nil
 function GifPlayer:setscale(scale) end
 
 --[[## Return the scaling mode.
@@ -82,7 +82,7 @@ function GifPlayer:setscale(scale) end
 
 
 ]]
----@return nu.ImageScale 
+---@return nu.ImageScale
 function GifPlayer:getscale() end
 
 return GifPlayer

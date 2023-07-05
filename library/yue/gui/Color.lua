@@ -26,8 +26,8 @@ local Color = {}
 
 
 ]]
----@param name nu.Color.Name 
----@return nu.Color 
+---@param name nu.Color.Name
+---@return nu.Color
 function Color.get(name) end
 
 --[[## Create an opaque RGB color.
@@ -35,10 +35,10 @@ function Color.get(name) end
 
 
 ]]
----@param r integer 
----@param g integer 
----@param b integer 
----@return nu.Color 
+---@param r integer
+---@param g integer
+---@param b integer
+---@return nu.Color
 function Color.rgb(r, g, b) end
 
 --[[## Create an ARGB color.
@@ -46,11 +46,11 @@ function Color.rgb(r, g, b) end
 
 
 ]]
----@param a integer 
----@param r integer 
----@param g integer 
----@param b integer 
----@return nu.Color 
+---@param a integer
+---@param r integer
+---@param g integer
+---@param b integer
+---@return nu.Color
 function Color.argb(a, r, g, b) end
 
 return Color

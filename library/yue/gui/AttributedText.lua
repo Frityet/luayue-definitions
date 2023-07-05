@@ -20,9 +20,9 @@ local AttributedText = {}
 
 
 ]]
----@param text string 
----@param attributes nu.TextAttributes 
----@return nu.AttributedText 
+---@param text string
+---@param attributes nu.TextAttributes
+---@return nu.AttributedText
 function AttributedText.create(text, attributes) end
 
 --[[## Overwrite styles with `format`.
@@ -30,8 +30,8 @@ function AttributedText.create(text, attributes) end
 
 
 ]]
----@param format nu.TextFormat 
----@return nil 
+---@param format nu.TextFormat
+---@return nil
 function AttributedText:setformat(format) end
 
 --[[## Return current styles.
@@ -39,7 +39,7 @@ function AttributedText:setformat(format) end
 
 
 ]]
----@return nu.TextFormat 
+---@return nu.TextFormat
 function AttributedText:getformat() end
 
 --[[## Set the whole text's `font`.
@@ -47,8 +47,8 @@ function AttributedText:getformat() end
 
 
 ]]
----@param font nu.Font 
----@return nil 
+---@param font nu.Font
+---@return nil
 function AttributedText:setfont(font) end
 
 --[[## Set the `font` of text between character range `[start, end)`. Passing
@@ -60,10 +60,10 @@ function AttributedText:setfont(font) end
 
 
 ]]
----@param font nu.Font 
----@param start integer 
----@param _end integer 
----@return nil 
+---@param font nu.Font
+---@param start integer
+---@param _end integer
+---@return nil
 function AttributedText:setfontfor(font, start, _end) end
 
 --[[## Set the whole text's `color`.
@@ -71,8 +71,8 @@ function AttributedText:setfontfor(font, start, _end) end
 
 
 ]]
----@param color nu.Color 
----@return nil 
+---@param color nu.Color
+---@return nil
 function AttributedText:setcolor(color) end
 
 --[[## Set the `color` of text between character range `[start, end)`. Passing
@@ -84,10 +84,10 @@ function AttributedText:setcolor(color) end
 
 
 ]]
----@param font nu.Color 
----@param start integer 
----@param _end integer 
----@return nil 
+---@param font nu.Color
+---@param start integer
+---@param _end integer
+---@return nil
 function AttributedText:setcolorfor(font, start, _end) end
 
 --[[## Reset font and color to system default.
@@ -95,7 +95,7 @@ function AttributedText:setcolorfor(font, start, _end) end
 
 
 ]]
----@return nil 
+---@return nil
 function AttributedText:clear() end
 
 --[[## Return the bounds required to draw the text within `size`.
@@ -103,8 +103,8 @@ function AttributedText:clear() end
 
 
 ]]
----@param size nu.SizeF 
----@return nu.RectF 
+---@param size nu.SizeF
+---@return nu.RectF
 function AttributedText:getboundsfor(size) end
 
 --[[## Change the text content.
@@ -112,8 +112,8 @@ function AttributedText:getboundsfor(size) end
 
 
 ]]
----@param text string 
----@return nil 
+---@param text string
+---@return nil
 function AttributedText:settext(text) end
 
 --[[## Return the plain text.
@@ -121,7 +121,7 @@ function AttributedText:settext(text) end
 
 
 ]]
----@return string 
+---@return string
 function AttributedText:gettext() end
 
 return AttributedText
