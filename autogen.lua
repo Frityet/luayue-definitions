@@ -166,7 +166,7 @@ local function api_url(module, sub) return URL_FMT:format(module:lower(), sub or
 ---@param param_names string[]?
 ---@return string
 local function method_api_url(module, method, param_names)
-    param_names = #param_names > 0 and param_names or nil
+    param_names = param_names and (#param_names > 0 and param_names or nil)
     local name = method..(param_names and ("-"..table.concat(param_names, "-")) or "")
     return api_url(module, name)
 end
@@ -219,7 +219,7 @@ local function generate_event(wl, event, apiname)
         params[#params+1] = param.name..(param.type and (": "..TYPES[param.type.name]) or "")
     end
 
-    wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), "| yue.gui.Signal "..event.description))
+    wl(field(event.signature.name, fun(unpack(params))(event.signature.returnType and event.signature.returnType.name or "nil"), "| nu.Signal "..event.description))
     print(string.format("\x1b[32mGenerated \x1b[35mevent \x1b[36m%s.\x1b[34m%s\x1b[0m", apiname, event.signature.name))
     written.events = written.events + 1
 end
@@ -350,9 +350,8 @@ local function generate_cats_defintion(api, to)
 
         wl("--[[# ", api.name, "\n\n",
                 "### ", api.description, "\n\n",
-                "### Detail\n\n",
                 api.detail,
-                "[API Documentation]("..api_url(api.name)..")\n",
+                "\n[API Documentation]("..api_url(api.name)..")\n",
                 "]]")
         if api.name:find("%.") then
             local class, sub = api.name:match("(.+)%.(.+)")
