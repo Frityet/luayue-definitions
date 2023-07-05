@@ -4,9 +4,7 @@
 
 ### Post events to main GUI message loop.
 
-### Detail
-
-### Details
+#### Details
 
 Depending on the runtime you use, Yue may or may not provide this API.
 
@@ -20,6 +18,7 @@ This class can not be created by user, you can only call its class methods.
 local gui = require('yue.gui')
 gui.MessageLoop.run()
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/messageloop.html#)
 ]]
 ---@class nu.MessageLoop
@@ -29,7 +28,7 @@ local MessageLoop = {}
 
 
 ]]
----@return nil
+---@return nil 
 function MessageLoop.run() end
 
 --[[## Quit current message loop.
@@ -37,7 +36,7 @@ function MessageLoop.run() end
 
 
 ]]
----@return nil
+---@return nil 
 function MessageLoop.quit() end
 
 --[[## Post a `task` to main thread's message loop.
@@ -45,8 +44,8 @@ function MessageLoop.quit() end
 
 
 ]]
----@param task function
----@return nil
+---@param task function 
+---@return nil 
 function MessageLoop.posttask(task) end
 
 --[[## Post a `task` to main thread's message loop and execute it after `ms`.
@@ -55,9 +54,9 @@ function MessageLoop.posttask(task) end
 
 
 ]]
----@param ms integer
----@param task function
----@return nil
+---@param ms integer 
+---@param task function 
+---@return nil 
 function MessageLoop.postdelayedtask(ms, task) end
 
 return MessageLoop

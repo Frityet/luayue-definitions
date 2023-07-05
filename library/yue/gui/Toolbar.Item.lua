@@ -4,7 +4,6 @@
 
 ### Represent an item of `Toolbar`.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/toolbar.item.html#)
 ]]

@@ -4,9 +4,7 @@
 
 ### Native image.
 
-### Detail
-
-### Details
+#### Details
 
 ## High DPI Image
 
@@ -22,6 +20,7 @@ its base filename, for example `iconTemplate.png` and `iconTemplate@2x.png`.
 Template images should consist of only black and clear colors, and macOS will
 mix with other content to create best appearance. This is useful for tray
 icons and menu item icons that automatically adjust to light and dark themes.
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/image.html#)
 ]]
 ---@class nu.Image
@@ -31,7 +30,7 @@ local Image = {}
 
 
 ]]
----@return nu.Image
+---@return nu.Image 
 function Image.createempty() end
 
 --[[## Create an image by reading from `path`.
@@ -39,8 +38,8 @@ function Image.createempty() end
 
 
 ]]
----@param path string
----@return nu.Image
+---@param path string 
+---@return nu.Image 
 function Image.createfrompath(path) end
 
 --[[## Create an image from `buffer` in memory, with `scale_factor`.
@@ -49,9 +48,9 @@ function Image.createfrompath(path) end
 
 
 ]]
----@param buffer string
----@param scalefactor number
----@return nu.Image
+---@param buffer string 
+---@param scalefactor number 
+---@return nu.Image 
 function Image.createfrombuffer(buffer, scalefactor) end
 
 --[[## Return whether the image has any data.
@@ -59,7 +58,7 @@ function Image.createfrombuffer(buffer, scalefactor) end
 
 
 ]]
----@return boolean
+---@return boolean 
 function Image:isempty() end
 
 --[[## Set whether the image is a template image.
@@ -67,8 +66,8 @@ function Image:isempty() end
 
 
 ]]
----@param is boolean
----@return nil
+---@param is boolean 
+---@return nil 
 function Image:settemplate(is) end
 
 --[[## Return whether the image is a template image.
@@ -76,7 +75,7 @@ function Image:settemplate(is) end
 
 
 ]]
----@return boolean
+---@return boolean 
 function Image:istemplate() end
 
 --[[## Return image's size in DIP.
@@ -84,7 +83,7 @@ function Image:istemplate() end
 
 
 ]]
----@return nu.SizeF
+---@return nu.SizeF 
 function Image:getsize() end
 
 --[[## Return image's scale factor.
@@ -92,12 +91,12 @@ function Image:getsize() end
 
 
 ]]
----@return number
+---@return number 
 function Image:getscalefactor() end
 
 --[[## Return a new image that has tint color applied.
 
-### Details
+#### Details
 
 On Windows the tint color is applied by using color matrix, while other
 platforms use `<!enum class>SourceAtop` blend mode. So the result image
@@ -105,8 +104,8 @@ might very likely look different on Windows.
 
 
 ]]
----@param color nu.Color
----@return nu.Image
+---@param color nu.Color 
+---@return nu.Image 
 function Image:tint(color) end
 
 --[[## Return a new image resized to `new_size` with `scale_factor`.
@@ -114,9 +113,9 @@ function Image:tint(color) end
 
 
 ]]
----@param newsize nu.SizeF
----@param scalefactor number
----@return nu.Image
+---@param newsize nu.SizeF 
+---@param scalefactor number 
+---@return nu.Image 
 function Image:resize(newsize, scalefactor) end
 
 --[[## Return a buffer containing the image's PNG encoded data.
@@ -124,7 +123,7 @@ function Image:resize(newsize, scalefactor) end
 
 
 ]]
----@return string
+---@return string 
 function Image:topng() end
 
 --[[## Return a buffer containing the image's JPEG encoded data.
@@ -132,8 +131,8 @@ function Image:topng() end
 
 
 ]]
----@param quality integer
----@return string
+---@param quality integer 
+---@return string 
 function Image:tojpeg(quality) end
 
 return Image

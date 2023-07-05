@@ -4,9 +4,7 @@
 
 ### Image view with animated GIF support.
 
-### Detail
-
-### Details
+#### Details
 
 It can also display other types of images, but only GIF images can be
 animated.
@@ -16,6 +14,7 @@ unrecommended to constantly display animated GIF images.
 
 For optimization, hiding the view would automatically pause the animation,
 and showing the view would automatically resume previous state.
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/gifplayer.html#)
 ]]
 ---@class nu.GifPlayer : nu.View
@@ -25,20 +24,20 @@ local GifPlayer = {}
 
 
 ]]
----@return nu.GifPlayer
+---@return nu.GifPlayer 
 function GifPlayer.create() end
 
 --[[## Set the image.
 
-### Details
+#### Details
 
 After setting the image, the animated image will start playing
 automatically.
 
 
 ]]
----@param image nu.Image
----@return nil
+---@param image nu.Image 
+---@return nil 
 function GifPlayer:setimage(image) end
 
 --[[## Return the image.
@@ -46,7 +45,7 @@ function GifPlayer:setimage(image) end
 
 
 ]]
----@return nu.Image
+---@return nu.Image 
 function GifPlayer:getimage() end
 
 --[[## Set whether the animated image should be played.
@@ -54,8 +53,8 @@ function GifPlayer:getimage() end
 
 
 ]]
----@param animating boolean
----@return nil
+---@param animating boolean 
+---@return nil 
 function GifPlayer:setanimating(animating) end
 
 --[[## Return whether the image is animating.
@@ -63,18 +62,18 @@ function GifPlayer:setanimating(animating) end
 
 
 ]]
----@return boolean
+---@return boolean 
 function GifPlayer:isanimating() end
 
 --[[## Set the scaling mode.
 
-### Details
+#### Details
 
 The default scaling mode is `<!enum class>None`.
 
 ]]
----@param scale nu.ImageScale
----@return nil
+---@param scale nu.ImageScale 
+---@return nil 
 function GifPlayer:setscale(scale) end
 
 --[[## Return the scaling mode.
@@ -82,7 +81,7 @@ function GifPlayer:setscale(scale) end
 
 
 ]]
----@return nu.ImageScale
+---@return nu.ImageScale 
 function GifPlayer:getscale() end
 
 return GifPlayer

@@ -4,7 +4,6 @@
 
 ### Dialog used for saveing files.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/filesavedialog.html#)
 ]]
@@ -15,7 +14,7 @@ local FileSaveDialog = {}
 
 
 ]]
----@return nu.FileSaveDialog
+---@return nu.FileSaveDialog 
 function FileSaveDialog.create() end
 
 return FileSaveDialog

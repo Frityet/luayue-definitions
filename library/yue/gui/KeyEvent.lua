@@ -4,7 +4,6 @@
 
 ### Keyboard event.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/keyevent.html#)
 ]]

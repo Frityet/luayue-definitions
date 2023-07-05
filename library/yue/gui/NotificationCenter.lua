@@ -4,9 +4,7 @@
 
 ### Handle events of notifications.
 
-### Detail
-
-### Details
+#### Details
 
 The `NotificationCenter` API is responsible for handling events of
 notifications, for sending notifications, the `<!type>Notification` API should
@@ -63,19 +61,20 @@ is done automatcially when any event is subscribed. This behavior can be
 turned off with `<!method>NotificationCenter::SetCOMServerOptions(options)`,
 and the item in registry can be removed with
 `<!method>NotificationCenter::RemoveCOMServerFromRegistry()`.
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/notificationcenter.html#)
 ]]
 ---@class nu.NotificationCenter
----@field onnotificationshow (fun(info: string): nil) | yue.gui.Signal Emitted when a notification has been displayed, the custom `info` of the notification is passed.
----@field onnotificationclose (fun(info: string): nil) | yue.gui.Signal Emitted when a notification has been closed without activation, the custom `info` of the notification is passed.
----@field onnotificationclick (fun(info: string): nil) | yue.gui.Signal Emitted when user clicks on the body of a notification, the custom `info` of the notification is passed.
----@field onnotificationaction (fun(actioninfo: string): nil) | yue.gui.Signal Emitted when user clicks on an action button of a notification, the custom `<!name>action_info` string of the action button is passed.
----@field onnotificationreply (fun(info: string, reply: string): nil) | yue.gui.Signal Emitted when user sends a text using inline reply in a notification, the custom `info` of the notification, and the `reply` string will be passed.
----@field ontoastactivate (fun(appusermodelid: string, invokedargs: string, data: table): boolean) | yue.gui.Signal Emitted when the notification activator COM server receives the Activate message.
+---@field onnotificationshow (fun(info: string): nil) | nu.Signal Emitted when a notification has been displayed, the custom `info` of the notification is passed. 
+---@field onnotificationclose (fun(info: string): nil) | nu.Signal Emitted when a notification has been closed without activation, the custom `info` of the notification is passed. 
+---@field onnotificationclick (fun(info: string): nil) | nu.Signal Emitted when user clicks on the body of a notification, the custom `info` of the notification is passed. 
+---@field onnotificationaction (fun(actioninfo: string): nil) | nu.Signal Emitted when user clicks on an action button of a notification, the custom `<!name>action_info` string of the action button is passed. 
+---@field onnotificationreply (fun(info: string, reply: string): nil) | nu.Signal Emitted when user sends a text using inline reply in a notification, the custom `info` of the notification, and the `reply` string will be passed. 
+---@field ontoastactivate (fun(appusermodelid: string, invokedargs: string, data: table): boolean) | nu.Signal Emitted when the notification activator COM server receives the Activate message. 
 local NotificationCenter = {}
 --[[## Remove all notifications sent by this app.
 
-### Details
+#### Details
 
 Due to the limitations of system APIs, on Linux only notifications created
 by current process can be cleared, and on Windows clearing notifications
@@ -83,7 +82,7 @@ won't emit the `<!name>on_notification_close` event.
 
 
 ]]
----@return nil
+---@return nil 
 function NotificationCenter:clear() end
 
 --[[## Set COM server related options, `false` will be returned if the passed
@@ -92,20 +91,20 @@ function NotificationCenter:clear() end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-### Details
+#### Details
 
 This API should be only called before subscribing to any event.
 
 ]]
----@param options nu.NotificationCenter.COMServerOptions
----@return boolean
+---@param options nu.NotificationCenter.COMServerOptions 
+---@return boolean 
 function NotificationCenter:setcomserveroptions(options) end
 
 --[[## Register the COM server.
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-### Details
+#### Details
 
 Usually the COM server is automatcially registered when any event is
 subscribed, but this API can be used to register COM server manully if
@@ -113,7 +112,7 @@ subscribed, but this API can be used to register COM server manully if
 
 
 ]]
----@return boolean
+---@return boolean 
 function NotificationCenter:registercomserver() end
 
 --[[## Remove the app's COM server from registry.
@@ -123,7 +122,7 @@ function NotificationCenter:registercomserver() end
 
 
 ]]
----@return nil
+---@return nil 
 function NotificationCenter:removecomserverfromregistry() end
 
 --[[## Return current `ToastActivatorCLSID`.
@@ -133,7 +132,7 @@ function NotificationCenter:removecomserverfromregistry() end
 
 
 ]]
----@return string
+---@return string 
 function NotificationCenter:gettoastactivatorclsid() end
 
 return NotificationCenter

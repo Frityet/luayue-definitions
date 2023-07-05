@@ -4,7 +4,6 @@
 
 ### FileDialog filters.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/filedialog.filter.html#)
 ]]

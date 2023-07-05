@@ -4,9 +4,7 @@
 
 ### Receive information about system’s monitor or screen.
 
-### Detail
-
-### Details
+#### Details
 
 
 This class can not be created by user, you can only receive its global
@@ -15,19 +13,20 @@ instance from the `screen` property of the module:
 ```lua
 gui.screen:getprimarydisplay()
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/screen.html#)
 ]]
 ---@class nu.Screen
----@field onadddisplay (fun(display: nu.Display): nil) | yue.gui.Signal Emitted when a new `display` is available.
----@field onremovedisplay (fun(display: nu.Display): nil) | yue.gui.Signal Emitted when the `display` has been removed.
----@field onupdatedisplay (fun(display: nu.Display): nil) | yue.gui.Signal Emitted when there are changes happened to `display`.
+---@field onadddisplay (fun(display: nu.Display): nil) | nu.Signal Emitted when a new `display` is available.
+---@field onremovedisplay (fun(display: nu.Display): nil) | nu.Signal Emitted when the `display` has been removed.
+---@field onupdatedisplay (fun(display: nu.Display): nil) | nu.Signal Emitted when there are changes happened to `display`.
 local Screen = {}
 --[[## Return the primary display.
 
 
 
 ]]
----@return nu.Display
+---@return nu.Display 
 function Screen:getprimarydisplay() end
 
 --[[## Return the list of displays that are currently available.
@@ -35,7 +34,7 @@ function Screen:getprimarydisplay() end
 
 
 ]]
----@return table
+---@return table 
 function Screen:getalldisplays() end
 
 --[[## Return the display nearest the specified `window`.
@@ -43,8 +42,8 @@ function Screen:getalldisplays() end
 
 
 ]]
----@param window nu.Window
----@return nu.Display
+---@param window nu.Window 
+---@return nu.Display 
 function Screen:getdisplaynearestwindow(window) end
 
 --[[## Return the display nearest the specified DIP `point`.
@@ -52,8 +51,8 @@ function Screen:getdisplaynearestwindow(window) end
 
 
 ]]
----@param point nu.PointF
----@return nu.Display
+---@param point nu.PointF 
+---@return nu.Display 
 function Screen:getdisplaynearestpoint(point) end
 
 --[[## Return the current absolute position of the mouse pointer.
@@ -61,7 +60,7 @@ function Screen:getdisplaynearestpoint(point) end
 
 
 ]]
----@return nu.PointF
+---@return nu.PointF 
 function Screen:getcursorscreenpoint() end
 
 return Screen

@@ -4,9 +4,7 @@
 
 ### Send native notifications.
 
-### Detail
-
-### Details
+#### Details
 
 The `Notification` API is responsible for sending notifications, for handling
 events of notifications, the `<!type>NotificationCenter` API should be used.
@@ -54,6 +52,7 @@ shortcut file.
 
 Also on Windows `Notification` uses toast notifications under the hood, and
 currently only Windows 10 and above are supported.
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/notification.html#)
 ]]
 ---@class nu.Notification
@@ -63,12 +62,12 @@ local Notification = {}
 
 
 ]]
----@return nu.Notification
+---@return nu.Notification 
 function Notification.create() end
 
 --[[## Display the notification.
 
-### Details
+#### Details
 
 If the notification has already been displayed, calling this method again
 will update the contents of the notification. If the notification has been
@@ -79,7 +78,7 @@ notification can be updated after it has been displayed.
 
 
 ]]
----@return nil
+---@return nil 
 function Notification:show() end
 
 --[[## Close the notification.
@@ -87,7 +86,7 @@ function Notification:show() end
 
 
 ]]
----@return nil
+---@return nil 
 function Notification:close() end
 
 --[[## Set the title of the notification.
@@ -95,8 +94,8 @@ function Notification:close() end
 
 
 ]]
----@param title string
----@return nil
+---@param title string 
+---@return nil 
 function Notification:settitle(title) end
 
 --[[## Set the body text of the notification.
@@ -104,21 +103,21 @@ function Notification:settitle(title) end
 
 
 ]]
----@param body string
----@return nil
+---@param body string 
+---@return nil 
 function Notification:setbody(body) end
 
 --[[## Set the user info to be attached to the notification.
 
-### Details
+#### Details
 
 When handling notification events with `<!type>NotificationCenter`, only
 the user info will be passed to the event handler.
 
 
 ]]
----@param info string
----@return nil
+---@param info string 
+---@return nil 
 function Notification:setinfo(info) end
 
 --[[## Return the attached user info.
@@ -126,20 +125,20 @@ function Notification:setinfo(info) end
 
 
 ]]
----@return string
+---@return string 
 function Notification:getinfo() end
 
 --[[## Set the buttons to be displayed in the notification.
 
-### Details
+#### Details
 
 The `<!name>on_notification_action` event of `<!type>NotificationCenter`
 will be emitted when user clicks one of the buttons.
 
 
 ]]
----@param actions table
----@return nil
+---@param actions table 
+---@return nil 
 function Notification:setactions(actions) end
 
 --[[## Set whether to play sound when the notification is displayed.
@@ -147,27 +146,27 @@ function Notification:setactions(actions) end
 
 
 ]]
----@param silent boolean
----@return nil
+---@param silent boolean 
+---@return nil 
 function Notification:setsilent(silent) end
 
 --[[## Set the image shown in the content of the notification.
 
-### Details
+#### Details
 
 Different platforms may choose to put the image in different places, there
 is no guarentee on where the image is placed.
 
 
 ]]
----@param image nu.Image
----@return nil
+---@param image nu.Image 
+---@return nil 
 function Notification:setimage(image) end
 
 --[[## Set the file path of the image shown in the content of the notification.
 
 
-### Details
+#### Details
 
 This method is usually faster than reading a file from disk and passing
 its content to `<!name>SetImage`, so it is recommended to use this
@@ -178,22 +177,22 @@ is no guarentee on where the image is placed.
 
 
 ]]
----@param path string
----@return nil
+---@param path string 
+---@return nil 
 function Notification:setimagepath(path) end
 
 --[[## Set the `placement` attribute of the image.
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-### Details
+#### Details
 
 The most common used `placement`s are `"appLogoOverride"` and `"hero"`.
 
 
 ]]
----@param placement string
----@return nil
+---@param placement string 
+---@return nil 
 function Notification:setimageplacement(placement) end
 
 --[[## Set whether to display an input field and a reply button in the
@@ -202,15 +201,15 @@ notification.
 
 | ❗ This method is only available on the following platforms: macOS, Windows ❗ |
 |---------------------------------------------------------------------------------|
-### Details
+#### Details
 
 The `<!name>on_notification_reply` event of `<!type>NotificationCenter`
 will be emitted when user sends a reply in the notification.
 
 
 ]]
----@param has boolean
----@return nil
+---@param has boolean 
+---@return nil 
 function Notification:sethasreplybutton(has) end
 
 --[[## The the placeholder of the input field.
@@ -220,15 +219,15 @@ function Notification:sethasreplybutton(has) end
 
 
 ]]
----@param placeholder string
----@return nil
+---@param placeholder string 
+---@return nil 
 function Notification:setresponseplaceholder(placeholder) end
 
 --[[## Set an unique `identifier` that can identifies a notification.
 
 | ❗ This method is only available on the following platforms: macOS, Windows ❗ |
 |---------------------------------------------------------------------------------|
-### Details
+#### Details
 
 When there is already a displayed notification with the same identifier,
 showing this notification will update its contents.
@@ -242,8 +241,8 @@ and call its `<!name>Show` method.
 
 
 ]]
----@param identifier string
----@return nil
+---@param identifier string 
+---@return nil 
 function Notification:setidentifier(identifier) end
 
 --[[## Return the unique identifier of the notification.
@@ -253,14 +252,14 @@ function Notification:setidentifier(identifier) end
 
 
 ]]
----@return string
+---@return string 
 function Notification:getidentifier() end
 
 --[[## Set custom XML of the toast notification.
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-### Details
+#### Details
 
 On Windows the notification can have rich contents and the Notification
 APIs do not cover all the possible features. In case you want to show
@@ -272,8 +271,8 @@ at [here](https://docs.microsoft.com/en-us/windows/apps/design/shell/tiles-and-n
 
 
 ]]
----@param xml string
----@return nil
+---@param xml string 
+---@return nil 
 function Notification:setxml(xml) end
 
 --[[## Return the XML representation of the toast notification.
@@ -283,7 +282,7 @@ function Notification:setxml(xml) end
 
 
 ]]
----@return string
+---@return string 
 function Notification:getxml() end
 
 return Notification

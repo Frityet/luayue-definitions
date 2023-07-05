@@ -4,7 +4,6 @@
 
 ### Options for drawing text.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/textattributes.html#)
 ]]

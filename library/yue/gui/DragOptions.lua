@@ -4,7 +4,6 @@
 
 ### Options for starting a drag operation.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/dragoptions.html#)
 ]]

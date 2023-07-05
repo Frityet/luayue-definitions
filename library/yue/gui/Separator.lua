@@ -4,7 +4,6 @@
 
 ### A horizontal or vertical line.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/separator.html#)
 ]]
@@ -15,8 +14,8 @@ local Separator = {}
 
 
 ]]
----@param orientation nu.Orientation
----@return nu.Separator
+---@param orientation nu.Orientation 
+---@return nu.Separator 
 function Separator.create(orientation) end
 
 return Separator

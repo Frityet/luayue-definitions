@@ -4,9 +4,7 @@
 
 ### Implement a custom TableModel.
 
-### Detail
-
-### Details
+#### Details
 
 To implement a custom `<!type>TableModel`, please implement all the methods
 in the Delegates section. It is also required to call the `Notify` methods of
@@ -14,6 +12,7 @@ in the Delegates section. It is also required to call the `Notify` methods of
 `<!type>Table` can correctly update.
 
 For simple use cases, the `<!type>SimpleTableModel` can be used.
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/abstracttablemodel.html#)
 ]]
 ---@class nu.AbstractTableModel : nu.TableModel

@@ -4,7 +4,6 @@
 
 ### Options for creating browser.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/browser.options.html#)
 ]]

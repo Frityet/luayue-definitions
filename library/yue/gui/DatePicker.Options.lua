@@ -4,7 +4,6 @@
 
 ### Options for creating DatePicker.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/datepicker.options.html#)
 ]]

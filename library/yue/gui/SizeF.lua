@@ -4,9 +4,7 @@
 
 ### Size type.
 
-### Detail
-
-### Details
+#### Details
 
 
 This type is represented by a table with `width` and `height` properties.
@@ -21,6 +19,7 @@ unpack `width` and `height`:
 ```lua
 window:setcontentsize(100, 100)
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/sizef.html#)
 ]]
 ---@class nu.SizeF

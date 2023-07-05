@@ -4,7 +4,6 @@
 
 ### Information of monitor.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/display.html#)
 ]]

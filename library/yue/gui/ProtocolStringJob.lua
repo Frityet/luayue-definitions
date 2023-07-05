@@ -4,7 +4,6 @@
 
 ### Use string as response to custom protocol requests.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/protocolstringjob.html#)
 ]]
@@ -16,9 +15,9 @@ local ProtocolStringJob = {}
 
 
 ]]
----@param mimetype string
----@param content string
----@return nu.ProtocolStringJob
+---@param mimetype string 
+---@param content string 
+---@return nu.ProtocolStringJob 
 function ProtocolStringJob.create(mimetype, content) end
 
 return ProtocolStringJob

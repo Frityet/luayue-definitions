@@ -4,7 +4,6 @@
 
 ### Offscreen drawing.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/canvas.html#)
 ]]
@@ -16,9 +15,9 @@ local Canvas = {}
 
 
 ]]
----@param size nu.SizeF
----@param scalefactor number
----@return nu.Canvas
+---@param size nu.SizeF 
+---@param scalefactor number 
+---@return nu.Canvas 
 function Canvas.create(size, scalefactor) end
 
 --[[## Create a new canvas with `size` using default scale factor.
@@ -31,8 +30,8 @@ DPI.
 
 
 ]]
----@param size nu.SizeF
----@return nu.Canvas
+---@param size nu.SizeF 
+---@return nu.Canvas 
 function Canvas.createformainscreen(size) end
 
 --[[## Return the scale factor of the canvas.
@@ -40,7 +39,7 @@ function Canvas.createformainscreen(size) end
 
 
 ]]
----@return number
+---@return number 
 function Canvas:getscalefactor() end
 
 --[[## Return the Painter that can be used to draw on the canvas.
@@ -48,7 +47,7 @@ function Canvas:getscalefactor() end
 
 
 ]]
----@return nu.Painter
+---@return nu.Painter 
 function Canvas:getpainter() end
 
 --[[## Return the DIP size of canvas.
@@ -56,7 +55,7 @@ function Canvas:getpainter() end
 
 
 ]]
----@return nu.SizeF
+---@return nu.SizeF 
 function Canvas:getsize() end
 
 return Canvas

@@ -4,7 +4,6 @@
 
 ### Describes the action button of `Notification`.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/notification.action.html#)
 ]]

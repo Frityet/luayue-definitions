@@ -4,9 +4,7 @@
 
 ### Window toolbar.
 
-### Detail
-
-### Details
+#### Details
 
 This view is only implemented for macOS by wrapping
 [`NSToolbar`](https://developer.apple.com/documentation/appkit/nstoolbar).
@@ -18,10 +16,11 @@ have to implement the `get_item` delegate which creates items on request, and
 then call `SetDefaultItemIdentifiers` to specify the default items to show.
 
 
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/toolbar.html#)
 ]]
 ---@class nu.Toolbar
----@field getitem (fun(toolbar: nu.Toolbar, identifier: string): Toolbar::Item) Called lazily when the toolbar is going to get the item with `identifier`.  You should not cache the item to be returned.
+---@field getitem (fun(toolbar: nu.Toolbar, identifier: string): Toolbar::Item) Called lazily when the toolbar is going to get the item with `identifier`.  You should not cache the item to be returned. 
 local Toolbar = {}
 --[[## Create a new `Toolbar` view with `identifier`.
 
@@ -34,8 +33,8 @@ for toolbars that save their configuration.
 
 
 ]]
----@param identifier string
----@return nu.Toolbar
+---@param identifier string 
+---@return nu.Toolbar 
 function Toolbar.create(identifier) end
 
 --[[## Set the identifiers of default items that would show in toolbar.
@@ -44,8 +43,8 @@ function Toolbar.create(identifier) end
 
 
 ]]
----@param identifiers table
----@return nil
+---@param identifiers table 
+---@return nil 
 function Toolbar:setdefaultitemidentifiers(identifiers) end
 
 --[[## Set the identifiers of the items that are allowed to show in toolbar.
@@ -54,8 +53,8 @@ function Toolbar:setdefaultitemidentifiers(identifiers) end
 
 
 ]]
----@param identifiers table
----@return nil
+---@param identifiers table 
+---@return nil 
 function Toolbar:setalloweditemidentifiers(identifiers) end
 
 --[[## Set whether users are allowed to customize the toolbar.
@@ -64,8 +63,8 @@ function Toolbar:setalloweditemidentifiers(identifiers) end
 
 
 ]]
----@param allow boolean
----@return nil
+---@param allow boolean 
+---@return nil 
 function Toolbar:setallowcustomization(allow) end
 
 --[[## Set the display mode of the toolbar items.
@@ -73,8 +72,8 @@ function Toolbar:setallowcustomization(allow) end
 
 
 ]]
----@param mode nu.Toolbar.DisplayMode
----@return nil
+---@param mode nu.Toolbar.DisplayMode 
+---@return nil 
 function Toolbar:setdisplaymode(mode) end
 
 --[[## Set whether toolbar is visible.
@@ -82,8 +81,8 @@ function Toolbar:setdisplaymode(mode) end
 
 
 ]]
----@param visible boolean
----@return nil
+---@param visible boolean 
+---@return nil 
 function Toolbar:setvisible(visible) end
 
 --[[## Return whether toolbar is visible.
@@ -91,7 +90,7 @@ function Toolbar:setvisible(visible) end
 
 
 ]]
----@return boolean
+---@return boolean 
 function Toolbar:isvisible() end
 
 --[[## Return the identifier of the toolbar.
@@ -99,7 +98,7 @@ function Toolbar:isvisible() end
 
 
 ]]
----@return string
+---@return string 
 function Toolbar:getidentifier() end
 
 return Toolbar

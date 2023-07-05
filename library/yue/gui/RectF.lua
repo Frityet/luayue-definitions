@@ -4,9 +4,7 @@
 
 ### Rectangle type.
 
-### Detail
-
-### Details
+#### Details
 
 This type defines a simple integer rectangle class. The containment semantics
 are array-like; that is, the coordinate (x, y) is considered to be
@@ -25,6 +23,7 @@ unpack the properties:
 ```lua
 window:setbounds(11, 24, 100, 100)
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/rectf.html#)
 ]]
 ---@class nu.RectF

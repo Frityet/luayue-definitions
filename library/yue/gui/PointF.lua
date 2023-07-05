@@ -4,9 +4,7 @@
 
 ### A point with x and y coordinate.
 
-### Detail
-
-### Details
+#### Details
 
 
 This type is represented by a table with `x` and `y` properties.
@@ -21,6 +19,7 @@ unpack `x` and `y`:
 ```lua
 painter:moveto(11, 24)
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/pointf.html#)
 ]]
 ---@class nu.PointF

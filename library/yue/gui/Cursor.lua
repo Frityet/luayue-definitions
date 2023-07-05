@@ -4,7 +4,6 @@
 
 ### Native cursor.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/cursor.html#)
 ]]
@@ -15,8 +14,8 @@ local Cursor = {}
 
 
 ]]
----@param type nu.Cursor.Type
----@return nu.Font
+---@param type nu.Cursor.Type 
+---@return nu.Font 
 function Cursor.createwithtype(type) end
 
 return Cursor

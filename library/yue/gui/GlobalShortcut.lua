@@ -4,9 +4,7 @@
 
 ### Register global keyboard shortcuts.
 
-### Detail
-
-### Details
+#### Details
 
 
 This class can not be created by user, you can only receive its global
@@ -15,6 +13,7 @@ instance from the `globalshortcut` property of the module:
 ```lua
 gui.globalshortcut:unregisterall()
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/globalshortcut.html#)
 ]]
 ---@class nu.GlobalShortcut
@@ -23,7 +22,7 @@ local GlobalShortcut = {}
 `accelerator` is pressed.
 
 
-### Details
+#### Details
 
 An unsigned ID will returned on success, which can be used to undo the
 registration. -1 will be returned on error.
@@ -34,9 +33,9 @@ registered by other apps.
 
 
 ]]
----@param accelerator nu.Accelerator
----@param callback function
----@return integer
+---@param accelerator nu.Accelerator 
+---@param callback function 
+---@return integer 
 function GlobalShortcut:register(accelerator, callback) end
 
 --[[## Unregister the shortcut with the `id` returned by `<!name>Register`.
@@ -45,8 +44,8 @@ function GlobalShortcut:register(accelerator, callback) end
 
 
 ]]
----@param id integer
----@return nil
+---@param id integer 
+---@return nil 
 function GlobalShortcut:unregister(id) end
 
 --[[## Unregister all shortcuts registered in this app.
@@ -54,7 +53,7 @@ function GlobalShortcut:unregister(id) end
 
 
 ]]
----@return nil
+---@return nil 
 function GlobalShortcut:unregisterall() end
 
 return GlobalShortcut

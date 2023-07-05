@@ -4,7 +4,6 @@
 
 ### Read file to serve custom protocol requests.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/protocolfilejob.html#)
 ]]
@@ -16,8 +15,8 @@ local ProtocolFileJob = {}
 
 
 ]]
----@param path string
----@return nu.ProtocolFileJob
+---@param path string 
+---@return nu.ProtocolFileJob 
 function ProtocolFileJob.create(path) end
 
 return ProtocolFileJob

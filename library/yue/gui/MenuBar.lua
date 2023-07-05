@@ -4,7 +4,6 @@
 
 ### Menu bar.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/menubar.html#)
 ]]
@@ -15,8 +14,8 @@ local MenuBar = {}
 
 
 ]]
----@param items table
----@return nu.MenuBar
+---@param items table 
+---@return nu.MenuBar 
 function MenuBar.create(items) end
 
 return MenuBar

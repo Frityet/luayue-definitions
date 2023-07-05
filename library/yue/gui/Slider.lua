@@ -4,22 +4,21 @@
 
 ### A slider bar for selecting numerical value.
 
-### Detail
+#### Details
 
-### Details
-
-The default range is between `0` and `100`.[API Documentation](https://libyue.com/docs/latest/lua/api/slider.html#)
+The default range is between `0` and `100`.
+[API Documentation](https://libyue.com/docs/latest/lua/api/slider.html#)
 ]]
 ---@class nu.Slider : nu.View
----@field onvaluechange (fun(self: nu.Slider): nil) | yue.gui.Signal Emitted when user is changing the slider.
----@field onslidingcomplete (fun(self: nu.Slider): nil) | yue.gui.Signal Emitted when user releases the slider.
+---@field onvaluechange (fun(self: nu.Slider): nil) | nu.Signal Emitted when user is changing the slider.
+---@field onslidingcomplete (fun(self: nu.Slider): nil) | nu.Signal Emitted when user releases the slider.
 local Slider = {}
 --[[## Create a new `Slider` view.
 
 
 
 ]]
----@return nu.Slider
+---@return nu.Slider 
 function Slider.create() end
 
 --[[## Set the value.
@@ -27,8 +26,8 @@ function Slider.create() end
 
 
 ]]
----@param value number
----@return nil
+---@param value number 
+---@return nil 
 function Slider:setvalue(value) end
 
 --[[## Return the value.
@@ -36,7 +35,7 @@ function Slider:setvalue(value) end
 
 
 ]]
----@return number
+---@return number 
 function Slider:getvalue() end
 
 --[[## Set the step value of the slider.
@@ -44,8 +43,8 @@ function Slider:getvalue() end
 
 
 ]]
----@param step number
----@return nil
+---@param step number 
+---@return nil 
 function Slider:setstep(step) end
 
 --[[## Return the step value of the slider.
@@ -53,7 +52,7 @@ function Slider:setstep(step) end
 
 
 ]]
----@return number
+---@return number 
 function Slider:getstep() end
 
 --[[## Set the range of the slider.
@@ -61,9 +60,9 @@ function Slider:getstep() end
 
 
 ]]
----@param min number
----@param max number
----@return nil
+---@param min number 
+---@param max number 
+---@return nil 
 function Slider:setrange(min, max) end
 
 --[[## Return the range of the slider.
@@ -71,7 +70,7 @@ function Slider:setrange(min, max) end
 
 
 ]]
----@return nu.std.tuple
+---@return nu.std.tuple 
 function Slider:getrange() end
 
 return Slider

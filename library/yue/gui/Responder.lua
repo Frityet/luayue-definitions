@@ -4,26 +4,25 @@
 
 ### Base class of Window and View for event processing.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/responder.html#)
 ]]
 ---@class nu.Responder
----@field onmousedown (fun(self: nu.Responder, event: nu.MouseEvent): boolean) | yue.gui.Signal Emitted when pressing mouse buttons.
----@field onmouseup (fun(self: nu.Responder, event: nu.MouseEvent): boolean) | yue.gui.Signal Emitted when releasing mouse buttons.
----@field onmousemove (fun(self: nu.Responder, event: nu.MouseEvent): nil) | yue.gui.Signal Emitted when user moves mouse in the responder.
----@field onmouseenter (fun(self: nu.Responder, event: nu.MouseEvent): nil) | yue.gui.Signal Emitted when mouse enters the responder.
----@field onmouseleave (fun(self: nu.Responder, event: nu.MouseEvent): nil) | yue.gui.Signal Emitted when mouse leaves the responder.
----@field onkeydown (fun(self: nu.Responder, event: nu.KeyEvent): boolean) | yue.gui.Signal Emitted when pressing keyboard.
----@field onkeyup (fun(self: nu.Responder, event: nu.KeyEvent): boolean) | yue.gui.Signal Emitted when releasing keyboard.
----@field oncapturelost (fun(self: nu.Responder): nil) | yue.gui.Signal Emitted when the mouse capture on responder has been released.
+---@field onmousedown (fun(self: nu.Responder, event: nu.MouseEvent): boolean) | nu.Signal Emitted when pressing mouse buttons.
+---@field onmouseup (fun(self: nu.Responder, event: nu.MouseEvent): boolean) | nu.Signal Emitted when releasing mouse buttons.
+---@field onmousemove (fun(self: nu.Responder, event: nu.MouseEvent): nil) | nu.Signal Emitted when user moves mouse in the responder.
+---@field onmouseenter (fun(self: nu.Responder, event: nu.MouseEvent): nil) | nu.Signal Emitted when mouse enters the responder.
+---@field onmouseleave (fun(self: nu.Responder, event: nu.MouseEvent): nil) | nu.Signal Emitted when mouse leaves the responder.
+---@field onkeydown (fun(self: nu.Responder, event: nu.KeyEvent): boolean) | nu.Signal Emitted when pressing keyboard.
+---@field onkeyup (fun(self: nu.Responder, event: nu.KeyEvent): boolean) | nu.Signal Emitted when releasing keyboard.
+---@field oncapturelost (fun(self: nu.Responder): nil) | nu.Signal Emitted when the mouse capture on responder has been released.
 local Responder = {}
 --[[## Set mouse capture to the responder.
 
 
 
 ]]
----@return nil
+---@return nil 
 function Responder:setcapture() end
 
 --[[## Release mouse capture if the responder has mouse capture.
@@ -31,7 +30,7 @@ function Responder:setcapture() end
 
 
 ]]
----@return nil
+---@return nil 
 function Responder:releasecapture() end
 
 --[[## Return whether the responder has mouse capture.
@@ -39,7 +38,7 @@ function Responder:releasecapture() end
 
 
 ]]
----@return boolean
+---@return boolean 
 function Responder:hascapture() end
 
 --[[## Return a light userdata containing the pointer of underlying native
@@ -48,7 +47,7 @@ widget wrapped by the responder.
 
 | ❗ This method is only available on the following platforms: Linux, macOS ❗ |
 |-------------------------------------------------------------------------------|
-### Details
+#### Details
 
 On Linux the C++ type of the pointer is `GtkWidget*`, and on macOS it is
 `NSResponder*`. The actual subclass type depends on which type this
@@ -65,7 +64,7 @@ features in future.
 
 
 ]]
----@return userdata
+---@return userdata 
 function Responder:getnative() end
 
 return Responder

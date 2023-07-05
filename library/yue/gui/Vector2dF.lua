@@ -4,9 +4,7 @@
 
 ### Two dimensions vector.
 
-### Detail
-
-### Details
+#### Details
 
 
 This is represented by a table with `x` and `y` properties, indicating a
@@ -16,6 +14,7 @@ distance in two dimensions between two points.
 print(view:offsetfromwindow())
 -- { x=100, y=100 }
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/vector2df.html#)
 ]]
 ---@class nu.Vector2dF

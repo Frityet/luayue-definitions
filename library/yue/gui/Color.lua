@@ -4,9 +4,7 @@
 
 ### 32-bit Color with alpha channel.
 
-### Detail
-
-### Details
+#### Details
 
 
 `Color` is represented by a 32-bit ARGB integer.
@@ -17,6 +15,7 @@ the color, like `"#A123"`, `"#123"`, `"#AA112233"`, `"#112233"`.
 ```lua
 label:setcolor('#F000')
 ```
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/color.html#)
 ]]
 ---@class nu.Color : string
@@ -26,8 +25,8 @@ local Color = {}
 
 
 ]]
----@param name nu.Color.Name
----@return nu.Color
+---@param name nu.Color.Name 
+---@return nu.Color 
 function Color.get(name) end
 
 --[[## Create an opaque RGB color.
@@ -35,10 +34,10 @@ function Color.get(name) end
 
 
 ]]
----@param r integer
----@param g integer
----@param b integer
----@return nu.Color
+---@param r integer 
+---@param g integer 
+---@param b integer 
+---@return nu.Color 
 function Color.rgb(r, g, b) end
 
 --[[## Create an ARGB color.
@@ -46,11 +45,11 @@ function Color.rgb(r, g, b) end
 
 
 ]]
----@param a integer
----@param r integer
----@param g integer
----@param b integer
----@return nu.Color
+---@param a integer 
+---@param r integer 
+---@param g integer 
+---@param b integer 
+---@return nu.Color 
 function Color.argb(a, r, g, b) end
 
 return Color

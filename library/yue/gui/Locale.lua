@@ -4,7 +4,6 @@
 
 ### Information about localization.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/locale.html#)
 ]]
@@ -15,12 +14,12 @@ local Locale = {}
 
 
 ]]
----@return string
+---@return string 
 function Locale.getcurrentidentifier() end
 
 --[[## Return an ordered list of user's preferred languages.
 
-### Details
+#### Details
 
 Users choose a primary language when configuring a device, they may also
 specify one or more secondary languages in order of preference for use
@@ -31,7 +30,7 @@ presented as an array of locale identifier strings.
 
 
 ]]
----@return table
+---@return table 
 function Locale.getpreferredlanguages() end
 
 return Locale

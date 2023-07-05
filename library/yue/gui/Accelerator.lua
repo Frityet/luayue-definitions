@@ -4,9 +4,7 @@
 
 ### Keyboard shortcut.
 
-### Detail
-
-### Details
+#### Details
 
 Accelerators are represented by strings that contain multiple modifier and
 key codes, combined by the `+` character.
@@ -71,6 +69,7 @@ useful when defining some common keyboard shortcuts.
 * `Space`
 * `Subtract`
 * `Tab`
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/accelerator.html#)
 ]]
 ---@class nu.Accelerator

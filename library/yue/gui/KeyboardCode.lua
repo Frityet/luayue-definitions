@@ -4,9 +4,7 @@
 
 ### Codes of keyboard keys.
 
-### Detail
-
-### Details
+#### Details
 
 
 Keyboard keys are represented with strings, in Yue we use the values of
@@ -16,6 +14,7 @@ keys can be found at:
 
 There is an exception that the <kbd>Space Bar</kbd> is represented as
 `"Space"` in Yue instead of `" "`.
+
 [API Documentation](https://libyue.com/docs/latest/lua/api/keyboardcode.html#)
 ]]
 ---@class nu.KeyboardCode

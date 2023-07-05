@@ -4,7 +4,6 @@
 
 ### Options for creating start menu shortcut.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/app.shortcutoptions.html#)
 ]]

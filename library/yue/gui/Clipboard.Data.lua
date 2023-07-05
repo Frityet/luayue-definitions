@@ -4,7 +4,6 @@
 
 ### Clipboard data.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/clipboard.data.html#)
 ]]

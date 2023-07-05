@@ -4,7 +4,6 @@
 
 ### Horizontal bar showing progress.
 
-### Detail
 
 [API Documentation](https://libyue.com/docs/latest/lua/api/progressbar.html#)
 ]]
@@ -15,7 +14,7 @@ local ProgressBar = {}
 
 
 ]]
----@return nu.ProgressBar
+---@return nu.ProgressBar 
 function ProgressBar.create() end
 
 --[[## Set the percent value between `0` and `100.0`.
@@ -23,8 +22,8 @@ function ProgressBar.create() end
 
 
 ]]
----@param percent number
----@return nil
+---@param percent number 
+---@return nil 
 function ProgressBar:setvalue(percent) end
 
 --[[## Return the percent value between `0` and `100.0`.
@@ -32,7 +31,7 @@ function ProgressBar:setvalue(percent) end
 
 
 ]]
----@return number
+---@return number 
 function ProgressBar:getvalue() end
 
 --[[## Set whether the progress bar is indeterminate.
@@ -40,8 +39,8 @@ function ProgressBar:getvalue() end
 
 
 ]]
----@param indeterminate boolean
----@return nil
+---@param indeterminate boolean 
+---@return nil 
 function ProgressBar:setindeterminate(indeterminate) end
 
 --[[## Return whether the progress bar is indeterminate.
@@ -49,7 +48,7 @@ function ProgressBar:setindeterminate(indeterminate) end
 
 
 ]]
----@return boolean
+---@return boolean 
 function ProgressBar:isindeterminate() end
 
 return ProgressBar
