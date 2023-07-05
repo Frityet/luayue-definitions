@@ -8,5 +8,5 @@
         "/usr/local/lib/lua/5.1/",
         "${3rd}/lfs/library"
     ],
-    "Lua.workspace.useGitIgnore": true,
+    "Lua.workspace.useGitIgnore": false,
 }
