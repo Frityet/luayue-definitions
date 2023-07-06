@@ -4,7 +4,7 @@
 
 ### Plain text input view.
 
-#### Details
+### Details
 
 The selection range in `TextEdit` use 0-based index, the `start` and `end`
 both start from 0, and `end` is the index of the character after the range.

@@ -4,7 +4,7 @@
 
 ### Receive information about system’s monitor or screen.
 
-#### Details
+### Details
 
 
 This class can not be created by user, you can only receive its global

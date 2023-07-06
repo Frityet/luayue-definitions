@@ -4,7 +4,7 @@
 
 ### Native webview using system browser.
 
-#### Details
+### Details
 
 Using `Browser` requires relatively new operating systems, for macOS the
 minimum version required is 10.10, for Linux it is required to install the
@@ -60,7 +60,7 @@ function Browser.create(options) end
 
 --[[## Register a custom protocol with `scheme` and `handler`.
 
-#### Details
+### Details
 
 When the browser sends a request with `scheme`, the `handler` will be
 called with `handler(url)`, and the `handler` must return an instance of
@@ -79,7 +79,7 @@ function Browser.registerprotocol(scheme, handler) end
 
 --[[## Unregister the custom protocol with `scheme`.
 
-#### Details
+### Details
 
 This API is not supported on Windows with WebView2 backend.
 
@@ -99,7 +99,7 @@ function Browser:loadurl(url) end
 
 --[[## Set the webpage contents and base URL.
 
-#### Details
+### Details
 
 On Windows with WebView2 backend, `baseurl` is not respected.
 
@@ -127,7 +127,7 @@ function Browser:gettitle() end
 
 --[[## Change browser's user agent.
 
-#### Details
+### Details
 
 On Windows, due to Internet Explorer's limitations, calling `SetUserAgent`
 would change all web pages' user agents in current process.
@@ -163,7 +163,7 @@ function Browser:setmagnifiable(magnifiable) end
 
 --[[## Evaluate `code` in browser and get the evaluated result.
 
-#### Details
+### Details
 
 The `callback` will be called with `callback(success, result)`, the
 `result` argument is a generic value that created from the result of
@@ -187,7 +187,7 @@ function Browser:executejavascript(code, callback) end
 
 --[[## Receive cookies under `url`.
 
-#### Details
+### Details
 
 This API will include HTTP only cookies.
 
@@ -262,7 +262,7 @@ function Browser:isloading() end
 
 --[[## Set the `name` of object which would have the native bindings.
 
-#### Details
+### Details
 
 By default native bindings are added to the `window` object, by calling
 this API, native bindings will be added to the `window[name]` object.
@@ -275,7 +275,7 @@ function Browser:setbindingname(name) end
 
 --[[## Add a native binding to web page with `name`.
 
-#### Details
+### Details
 
 The `func` will be called with automatically converted arguments.
 
@@ -288,7 +288,7 @@ function Browser:addbinding(name, func) end
 
 --[[## Add a raw handler to web page with `name`.
 
-#### Details
+### Details
 
 The `func` will be called with a list of arguments passed from JavaScript.
 
@@ -312,7 +312,7 @@ function Browser:removebinding(name) end
 `<!name>EndAddingBindings` is called.
 
 
-#### Details
+### Details
 
 Adding a native binding is an expensive operation, if you are adding a
 lot of bindings, it is recommended to wrap the `<!name>AddBinding` calls

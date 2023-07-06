@@ -4,7 +4,7 @@
 
 ### Base class of menu bar and popup menu.
 
-#### Details
+### Details
 
 
 Note that the `index` counts from `1`, following lua's convention.

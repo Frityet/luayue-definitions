@@ -4,7 +4,7 @@
 
 ### A simple implementation of TableModel.
 
-#### Details
+### Details
 
 There is no need to call `Notify` methods when using `SimpleTableModel`.
 
@@ -26,7 +26,7 @@ function SimpleTableModel.create(columns) end
 
 --[[## Add a row.
 
-#### Details
+### Details
 
 The length of `row` should not be smaller than columns number.
 

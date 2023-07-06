@@ -4,7 +4,7 @@
 
 ### Send native notifications.
 
-#### Details
+### Details
 
 The `Notification` API is responsible for sending notifications, for handling
 events of notifications, the `<!type>NotificationCenter` API should be used.
@@ -67,7 +67,7 @@ function Notification.create() end
 
 --[[## Display the notification.
 
-#### Details
+### Details
 
 If the notification has already been displayed, calling this method again
 will update the contents of the notification. If the notification has been
@@ -109,7 +109,7 @@ function Notification:setbody(body) end
 
 --[[## Set the user info to be attached to the notification.
 
-#### Details
+### Details
 
 When handling notification events with `<!type>NotificationCenter`, only
 the user info will be passed to the event handler.
@@ -130,7 +130,7 @@ function Notification:getinfo() end
 
 --[[## Set the buttons to be displayed in the notification.
 
-#### Details
+### Details
 
 The `<!name>on_notification_action` event of `<!type>NotificationCenter`
 will be emitted when user clicks one of the buttons.
@@ -152,7 +152,7 @@ function Notification:setsilent(silent) end
 
 --[[## Set the image shown in the content of the notification.
 
-#### Details
+### Details
 
 Different platforms may choose to put the image in different places, there
 is no guarentee on where the image is placed.
@@ -166,7 +166,7 @@ function Notification:setimage(image) end
 --[[## Set the file path of the image shown in the content of the notification.
 
 
-#### Details
+### Details
 
 This method is usually faster than reading a file from disk and passing
 its content to `<!name>SetImage`, so it is recommended to use this
@@ -185,7 +185,7 @@ function Notification:setimagepath(path) end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 The most common used `placement`s are `"appLogoOverride"` and `"hero"`.
 
@@ -201,7 +201,7 @@ notification.
 
 | ❗ This method is only available on the following platforms: macOS, Windows ❗ |
 |---------------------------------------------------------------------------------|
-#### Details
+### Details
 
 The `<!name>on_notification_reply` event of `<!type>NotificationCenter`
 will be emitted when user sends a reply in the notification.
@@ -227,7 +227,7 @@ function Notification:setresponseplaceholder(placeholder) end
 
 | ❗ This method is only available on the following platforms: macOS, Windows ❗ |
 |---------------------------------------------------------------------------------|
-#### Details
+### Details
 
 When there is already a displayed notification with the same identifier,
 showing this notification will update its contents.
@@ -259,7 +259,7 @@ function Notification:getidentifier() end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 On Windows the notification can have rich contents and the Notification
 APIs do not cover all the possible features. In case you want to show

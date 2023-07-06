@@ -4,7 +4,7 @@
 
 ### Table view.
 
-#### Details
+### Details
 
 The `Table` does not store any data itself, to display data in `Table`, users
 have to provide a `<!type>TableModel`.
@@ -73,7 +73,7 @@ function Table:getcolumncount() end
 
 --[[## Set whether the columns header is visible.
 
-#### Details
+### Details
 
 On macOS adding column after hiding the header will result in missing
 columns in the header even after making the header visible again.
@@ -97,7 +97,7 @@ function Table:iscolumnsvisible() end
 
 --[[## Set the `height` of each row.
 
-#### Details
+### Details
 
 It is not recommended to change row height unless you are drawing all
 cells yourself, as the default text cells may not show decently under
@@ -168,7 +168,7 @@ function Table:selectrow(row) end
 
 --[[## Return the index of selected row.
 
-#### Details
+### Details
 
 For table that allows multiple selections, this will return the index of
 first selected row. When no row is selected, `-1` will be returned.

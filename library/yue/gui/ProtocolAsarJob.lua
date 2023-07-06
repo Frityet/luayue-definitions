@@ -4,7 +4,7 @@
 
 ### Read asar archives to serve custom protocol requests.
 
-#### Details
+### Details
 
 The asar format is a simple extensive archive format, information of it can be
 found at https://github.com/electron/asar.
@@ -32,7 +32,7 @@ function ProtocolAsarJob.create(asar, path) end
 `false` when the `key` and `iv` are not 16 bytes length.
 
 
-#### Details
+### Details
 
 The encrypted asar archives use AES128 ECB algorithm for encryption, with
 PKCS#7 padding.

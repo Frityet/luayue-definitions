@@ -4,7 +4,7 @@
 
 ### Base class for models of Table.
 
-#### Details
+### Details
 
 
 For simple use cases, the `<!type>SimpleTableModel` can be used.
@@ -26,7 +26,7 @@ function TableModel:getrowcount() end
 
 --[[## Return the data at `column` and `row`.
 
-#### Details
+### Details
 
 Note that the returned value will be stored as primary types, native
 objects (for example `Image`s) can not be passed to renderer.
@@ -40,7 +40,7 @@ function TableModel:getvalue(column, row) end
 
 --[[## Change the `value` at `column` and `row`.
 
-#### Details
+### Details
 
 
 Note that the value will be stored as primary types, native objects (for

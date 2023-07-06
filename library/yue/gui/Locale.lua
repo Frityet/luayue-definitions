@@ -19,7 +19,7 @@ function Locale.getcurrentidentifier() end
 
 --[[## Return an ordered list of user's preferred languages.
 
-#### Details
+### Details
 
 Users choose a primary language when configuring a device, they may also
 specify one or more secondary languages in order of preference for use

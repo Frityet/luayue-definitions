@@ -4,7 +4,7 @@
 
 ### Handle events of notifications.
 
-#### Details
+### Details
 
 The `NotificationCenter` API is responsible for handling events of
 notifications, for sending notifications, the `<!type>Notification` API should
@@ -74,7 +74,7 @@ and the item in registry can be removed with
 local NotificationCenter = {}
 --[[## Remove all notifications sent by this app.
 
-#### Details
+### Details
 
 Due to the limitations of system APIs, on Linux only notifications created
 by current process can be cleared, and on Windows clearing notifications
@@ -91,7 +91,7 @@ function NotificationCenter:clear() end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 This API should be only called before subscribing to any event.
 
@@ -104,7 +104,7 @@ function NotificationCenter:setcomserveroptions(options) end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 Usually the COM server is automatcially registered when any event is
 subscribed, but this API can be used to register COM server manully if

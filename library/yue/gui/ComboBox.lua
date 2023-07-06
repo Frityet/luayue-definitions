@@ -4,7 +4,7 @@
 
 ### Choose a single item from a list of items or type a custom value.
 
-#### Details
+### Details
 
 The `ComboBox` behaves differently from `Picker` that:
 1. no item is selected by default;

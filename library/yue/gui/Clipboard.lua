@@ -4,7 +4,7 @@
 
 ### Native clipboard.
 
-#### Details
+### Details
 
 The `Clipboard` class can not be created by user, its instance can only be
 recevied by using the factory methods.
@@ -90,7 +90,7 @@ function Clipboard:isdataavailable(type) end
 
 --[[## Get the data of `type` from clipboard.
 
-#### Details
+### Details
 
 You should always check the type of returned data before using it.
 
@@ -110,7 +110,7 @@ function Clipboard:setdata(objects) end
 
 --[[## Start watching clipboard's content.
 
-#### Details
+### Details
 
 The `<!name>on_change` event will be emitted when clipboard's content has
 been changed.

@@ -4,7 +4,7 @@
 
 ### Tray item displayed in system notification area.
 
-#### Details
+### Details
 
 Platform limitations:
 
@@ -90,7 +90,7 @@ function Tray:setpressedimage(image) end
 
 --[[## Set the menu attached with the tray item.
 
-#### Details
+### Details
 
 On most platforms the menu will show when clicking on the icon, while on
 Windows the menu will only show when when right-clicking on the icon.

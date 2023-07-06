@@ -45,7 +45,7 @@ function Font.createfrompath(path, size) end
 
 --[[## Returns a new Font derived from the existing font.
 
-#### Details
+### Details
 
 The `size_delta` is the size in DIP to add to the current font.
 

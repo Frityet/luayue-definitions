@@ -4,7 +4,7 @@
 
 ### Application class.
 
-#### Details
+### Details
 
 This class represents current app and provides app wide APIs.
 
@@ -21,7 +21,7 @@ gui.app:getapplicationmenu()
 local App = {}
 --[[## Set the name of current app.
 
-#### Details
+### Details
 
 The app name should be something like "My App", it will be used in vairous
 places, such as folder name when storing user data, or key name when
@@ -40,7 +40,7 @@ function App:setname(name) end
 
 --[[## Return current app's name.
 
-#### Details
+### Details
 
 If `<!method>App::SetName(name)` has never been called, this API will try to guess a
 name from existing information, for example the executable's version info,
@@ -55,7 +55,7 @@ function App:getname() end
 
 | ❗ This method is only available on the following platforms: Windows, Linux ❗ |
 |---------------------------------------------------------------------------------|
-#### Details
+### Details
 
 The application ID must be globally unique, and it is recommended to use
 something like "org.myself.myapp".
@@ -80,7 +80,7 @@ function App:setid(id) end
 
 --[[## Return the application ID.
 
-#### Details
+### Details
 
 On macOS if the app is bundled, the app bundle ID will be returned,
 otherwise empty string will be returned.
@@ -142,7 +142,7 @@ function App:getdockbadgelabel() end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 On Windows the Win32 apps can run as UWP apps by using
 [Desktop Bridge](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/desktop-bridge-8211-the-bridge-between-desktop-apps-and-the/ba-p/316488),
@@ -160,7 +160,7 @@ function App:isrunningasuwp() end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 This API will write the `AppUserModelID` and `ToastActivatorCLSID` to the
 shortcut file, and the shortcut file's name will be the app's name, so it
@@ -191,7 +191,7 @@ function App:getstartmenushortcutpath() end
 
 | ❗ This method is only available on the following platforms: macOS ❗ |
 |------------------------------------------------------------------------|
-#### Details
+### Details
 
 The `force` parameter is normally set to false. When the Finder launches
 an app, using a value of false for `force` allows the app to become active

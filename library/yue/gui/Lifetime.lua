@@ -4,7 +4,7 @@
 
 ### Application lifetime.
 
-#### Details
+### Details
 
 This class does system GUI toolkit intializations, and provides APIs around
 native GUI toolkit's application lifetime APIs. You should not use this API

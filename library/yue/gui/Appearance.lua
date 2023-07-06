@@ -4,7 +4,7 @@
 
 ### Information about user's appearance preferences.
 
-#### Details
+### Details
 
 
 This class can not be created by user, you can only receive its global
@@ -23,7 +23,7 @@ local Appearance = {}
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 The dark mode of Windows 10 does not support Win32 apps officially and
 this API makes use of private APIs to force enabling dark mode for current
@@ -41,7 +41,7 @@ function Appearance:setdarkmodeenabled(enable) end
 
 --[[## Return whether this app is using a dark color scheme.
 
-#### Details
+### Details
 
 Note that on Windows the dark mode does not support Win32 apps, and this
 method will always return false unless dark mode is explicitly enabled

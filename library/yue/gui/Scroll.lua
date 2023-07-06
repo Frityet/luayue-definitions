@@ -4,7 +4,7 @@
 
 ### Show a part of view with scrollbar.
 
-#### Details
+### Details
 
 The `Scroll` view can show an arbitrary content view inside it.
 

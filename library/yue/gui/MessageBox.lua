@@ -74,7 +74,7 @@ function MessageBox:close() end
 the message box.
 
 
-#### Details
+### Details
 
 On macOS there is no visual difference between `information` and `warning`
 types.
@@ -125,7 +125,7 @@ presses the <kbd>Esc</kbd> key or when the window is closed without
 clicking any button.
 
 
-#### Details
+### Details
 
 The default cancel response ID is -1.
 
@@ -178,7 +178,7 @@ function MessageBox:getaccessoryview() end
 
 --[[## Set the custom icon displayed in the message box.
 
-#### Details
+### Details
 
 On macOS the default icon is the app's icon, on Windows and Linux there
 is no default icon.

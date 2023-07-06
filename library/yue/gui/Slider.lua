@@ -4,7 +4,7 @@
 
 ### A slider bar for selecting numerical value.
 
-#### Details
+### Details
 
 The default range is between `0` and `100`.
 [API Documentation](https://libyue.com/docs/latest/lua/api/slider.html#)

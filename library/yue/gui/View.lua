@@ -4,7 +4,7 @@
 
 ### Base class for GUI components.
 
-#### Details
+### Details
 
 `View` provides methods to receive and change various style properties.
 
@@ -104,7 +104,7 @@ function View:isvisibleinhierarchy() end
 
 --[[## Set whether the view is enabled.
 
-#### Details
+### Details
 
 The enabled state of each view is not affected by its parent, disabling
 a container-like view does not have any effect.
@@ -158,7 +158,7 @@ function View:isfocusable() end
 
 --[[## Set whether dragging mouse would move the window.
 
-#### Details
+### Details
 
 For most platforms this method only works for frameless windows, having
 this feature may also prevent mouse events to happen.
@@ -197,7 +197,7 @@ function View:dodrag(data, operations) end
 
 --[[## Start a drag session.
 
-#### Details
+### Details
 
 The return value is a `<!type>DragOperation` indicating the result of
 dragging.
@@ -248,7 +248,7 @@ function View:registerdraggedtypes(types) end
 
 --[[## Set the cursor to show when hovering the view.
 
-#### Details
+### Details
 
 On Linux, setting cursor would force the view to own its own GDK window.
 For certain views like `Label`, this may have remove the view's background
@@ -262,7 +262,7 @@ function View:setcursor(cursor) end
 
 --[[## Set the `tooltip` for the view.
 
-#### Details
+### Details
 
 This method will clear all tooltips added by `<!name>AddTooltipForRect`.
 
@@ -293,7 +293,7 @@ function View:removetooltip(id) end
 
 --[[## Change the font used for drawing text in the view.
 
-#### Details
+### Details
 
 This methods only works for `View`s that display text, like `Label` or
 `Entry`.
@@ -306,7 +306,7 @@ function View:setfont(font) end
 
 --[[## Change the color used for drawing text in the view.
 
-#### Details
+### Details
 
 This methods only works for `View`s that display text, like `Label` or
 `Entry`.
@@ -328,14 +328,14 @@ function View:setbackgroundcolor(color) end
 
 --[[## Change the styles of the view.
 
-#### Details
+### Details
 
 Available style properties can be found at
 [Layout System](../guides/layout_system.html).
 
 
 ]]
----@param styles table
+---@param styles nu.Styles
 ---@return nil
 function View:setstyle(styles) end
 

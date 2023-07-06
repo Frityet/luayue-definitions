@@ -4,7 +4,7 @@
 
 ### Graphic context.
 
-#### Details
+### Details
 
 The `Painter` class can not be created by user, its instance can only be recevied in drawing events or via the `<!type>Canvas` class.
 [API Documentation](https://libyue.com/docs/latest/lua/api/painter.html#)
@@ -29,7 +29,7 @@ function Painter:restore() end
 
 --[[## Set how sample values are composited.
 
-#### Details
+### Details
 
 On Windows only `<!enum class>Normal` and `<!enum class>Copy` are supported.
 

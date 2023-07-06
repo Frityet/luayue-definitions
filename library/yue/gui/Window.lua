@@ -509,7 +509,7 @@ function Window:getmenubar() end
 
 | ❗ This method is only available on the following platforms: Windows, Linux ❗ |
 |---------------------------------------------------------------------------------|
-#### Details
+### Details
 
 The accelerators of menu items will still work when menu bar is hidden.
 
@@ -525,7 +525,7 @@ function Window:setmenubarvisible(visible) end
 
 | ❗ This method is only available on the following platforms: Windows ❗ |
 |--------------------------------------------------------------------------|
-#### Details
+### Details
 
 To get the value of HWND, you should directly convert the light userdata
 to HWND, instead of reading the memory of the light userdata.
@@ -545,7 +545,7 @@ function Window:getparentwindow() end
 
 --[[## Make `child` a child window of this window.
 
-#### Details
+### Details
 
 This method will do nothing if `child` already has a parent window.
 

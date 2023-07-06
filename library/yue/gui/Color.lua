@@ -4,7 +4,7 @@
 
 ### 32-bit Color with alpha channel.
 
-#### Details
+### Details
 
 
 `Color` is represented by a 32-bit ARGB integer.

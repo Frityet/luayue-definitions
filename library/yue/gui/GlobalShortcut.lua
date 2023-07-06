@@ -4,7 +4,7 @@
 
 ### Register global keyboard shortcuts.
 
-#### Details
+### Details
 
 
 This class can not be created by user, you can only receive its global
@@ -22,7 +22,7 @@ local GlobalShortcut = {}
 `accelerator` is pressed.
 
 
-#### Details
+### Details
 
 An unsigned ID will returned on success, which can be used to undo the
 registration. -1 will be returned on error.

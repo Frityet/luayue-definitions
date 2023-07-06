@@ -47,7 +47,7 @@ widget wrapped by the responder.
 
 | ❗ This method is only available on the following platforms: Linux, macOS ❗ |
 |-------------------------------------------------------------------------------|
-#### Details
+### Details
 
 On Linux the C++ type of the pointer is `GtkWidget*`, and on macOS it is
 `NSResponder*`. The actual subclass type depends on which type this

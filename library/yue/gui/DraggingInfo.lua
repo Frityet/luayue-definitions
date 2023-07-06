@@ -4,7 +4,7 @@
 
 ### Information about a dragging session.
 
-#### Details
+### Details
 
 This class can not be created by user, its instance can only be received in
 the drag and drop events.
@@ -15,7 +15,7 @@ the drag and drop events.
 local DraggingInfo = {}
 --[[## Return whether the data of `type` is available.
 
-#### Details
+### Details
 
 On Linux the dragged data is only available in the `handle_drop` delegate.
 
@@ -27,7 +27,7 @@ function DraggingInfo:isdataavailable(type) end
 
 --[[## Get the data of `type` from clipboard.
 
-#### Details
+### Details
 
 On Linux the dragged data is only available in the `handle_drop` delegate.
 
@@ -41,7 +41,7 @@ function DraggingInfo:getdata(type) end
 
 --[[## Return the drag operation supported by drag source.
 
-#### Details
+### Details
 
 Most drag sources support multiple types of operations, you should always
 check whether an operation is supported by using bitwise AND operator.

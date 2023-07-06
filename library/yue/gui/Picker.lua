@@ -4,7 +4,7 @@
 
 ### Choose a single item from a list of items.
 
-#### Details
+### Details
 
 By default, the first item is automatically selected, and duplicate items
 are merged into one.
@@ -67,7 +67,7 @@ function Picker:selectitemat(index) end
 
 --[[## Return the title of selected item.
 
-#### Details
+### Details
 
 Empty string is returned if there is no selected item.
 
@@ -77,7 +77,7 @@ function Picker:getselecteditem() end
 
 --[[## Return the index of selected item.
 
-#### Details
+### Details
 
 -1 is returned if there is no selected item.
 

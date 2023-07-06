@@ -4,7 +4,7 @@
 
 ### Window toolbar.
 
-#### Details
+### Details
 
 This view is only implemented for macOS by wrapping
 [`NSToolbar`](https://developer.apple.com/documentation/appkit/nstoolbar).

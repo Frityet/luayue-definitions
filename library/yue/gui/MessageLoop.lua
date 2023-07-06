@@ -4,7 +4,7 @@
 
 ### Post events to main GUI message loop.
 
-#### Details
+### Details
 
 Depending on the runtime you use, Yue may or may not provide this API.
 

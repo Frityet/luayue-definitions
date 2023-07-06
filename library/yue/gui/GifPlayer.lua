@@ -4,7 +4,7 @@
 
 ### Image view with animated GIF support.
 
-#### Details
+### Details
 
 It can also display other types of images, but only GIF images can be
 animated.
@@ -29,7 +29,7 @@ function GifPlayer.create() end
 
 --[[## Set the image.
 
-#### Details
+### Details
 
 After setting the image, the animated image will start playing
 automatically.
@@ -67,7 +67,7 @@ function GifPlayer:isanimating() end
 
 --[[## Set the scaling mode.
 
-#### Details
+### Details
 
 The default scaling mode is `<!enum class>None`.
 

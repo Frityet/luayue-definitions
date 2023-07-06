@@ -4,7 +4,7 @@
 
 ### Drawable view with child views.
 
-#### Details
+### Details
 
 The `Container` view is mainly used for two purposes:
 * Show custom drawn content;

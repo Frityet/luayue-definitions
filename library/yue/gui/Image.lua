@@ -4,7 +4,7 @@
 
 ### Native image.
 
-#### Details
+### Details
 
 ## High DPI Image
 
@@ -96,7 +96,7 @@ function Image:getscalefactor() end
 
 --[[## Return a new image that has tint color applied.
 
-#### Details
+### Details
 
 On Windows the tint color is applied by using color matrix, while other
 platforms use `<!enum class>SourceAtop` blend mode. So the result image
