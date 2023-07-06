@@ -1,0 +1,22 @@
+--[[
+## Styles provided by [Yoga](https://yogalayout.com/docs/#style-props)
+]]
+---@class nu.Styles
+---@field align "Auto" | "FlexStart" | "Center" | "FlexEnd" | "Stretch" | "Baseline" | "SpaceBetween" | "SpaceAround"
+---@field dimension "Width" | "Height"
+---@field direction "Inherit" | "LTR" | "RTL"
+---@field display "Flex" | "None"
+---@field edge "Left" | "Top" | "Right" | "Bottom" | "Start" | "End" | "Horizontal" | "Vertical" | "All"
+---@field errata "None" | "StretchFlexBasis" | "All" | "Classic"
+---@field experimentalfeature "WebFlexBasis" | "AbsolutePercentageAgainstPaddingEdge" | "FixJNILocalRefOverflows"
+---@field flexdirection "Column" | "ColumnReverse" | "Row" | "RowReverse"
+---@field gutter "Column" | "Row" | "All"
+---@field justify "FlexStart" | "Center" | "FlexEnd" | "SpaceBetween" | "SpaceAround" | "SpaceEvenly"
+---@field loglevel "Error" | "Warn" | "Info" | "Debug" | "Verbose" | "Fatal"
+---@field measuremode "Undefined" | "Exactly" | "AtMost"
+---@field nodetype "Default" | "Text"
+---@field overflow "Visible" | "Hidden" | "Scroll"
+---@field positiontype "Static" | "Relative" | "Absolute"
+---@field printoptions "Layout" | "Style" | "Children"
+---@field unit "Undefined" | "Point" | "Percent" | "Auto"
+---@field wrap "NoWrap" | "Wrap" | "WrapReverse"

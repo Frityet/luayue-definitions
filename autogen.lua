@@ -285,7 +285,14 @@ local function generate_method(wl, method, apiname, class_method)
         ---@param param2 number
     ]]
     for _, prm in ipairs(sig.parameters) do
-        wl(param(prm.name, prm.type and prm.type.name or "any"))
+        local type = prm.type and prm.type.name or "any"
+
+        --View:setstyle(styles) must have the `styles` parameter be nu.Styles
+        if apiname == "View" and sig.name == "setstyle" and prm.name == "styles" then
+            type = "nu.Styles"
+        end
+
+        wl(param(prm.name, type))
     end
     wl(return_t(ret))
 
@@ -465,7 +472,16 @@ while not done do
     if #threads == 0 then done = true end
 end
 
--- --Generate the last yue/gui.lua file, which will require all the other files and return the yue module
+--Copy over `./Styles.lua` into `yue/gui/Styles.lua`
+local styles, err = (path.current_directory/"Styles.lua"):read_all()
+if not styles then error("Failed to read Styles.lua: "..err) end
+local f, err = (yue_dir/"Styles.lua"):create("file", "w+")
+if not f or type(f) == "boolean" then error("Failed to open "..tostring(yue_dir/"Styles.lua")..": "..err) end
+--[[@cast f file*]]
+f:write(styles)
+f:close()
+
+---Generate the last yue/gui.lua file, which will require all the other files and return the yue module
 local f, err = (yue_dir/"init.lua"):create("file", "w+")
 if not f then error("Failed to open "..tostring(yue_dir/"init.lua")..": "..err) end
 --[[@cast f file*]]
