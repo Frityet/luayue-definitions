@@ -1,0 +1,135 @@
+---@alias nu.Styles.Align "auto" | "flex-start" | "center" | "flex-end" | "stretch" | "baseline" | "space-between" | "space-around"
+---@alias nu.Styles.Dimension "width" | "height"
+---@alias nu.Styles.Direction "inherit" | "ltr" | "rtl"
+---@alias nu.Styles.Display "flex" | "none"
+---@alias nu.Styles.Edge "left" | "top" | "right" | "bottom" | "start" | "end" | "horizontal" | "vertical" | "all"
+---@alias nu.Styles.Errata "none" | "stretch-flex-basis" | "all" | "classic"
+---@alias nu.Styles.ExperimentalFeature "web-flex-basis" | "absolute-percentage-against-padding-edge" | "fix-jni-local-ref-overflows"
+---@alias nu.Styles.FlexDirection "column" | "column-reverse" | "row" | "row-reverse"
+---@alias nu.Styles.Gutter "column" | "row" | "all"
+---@alias nu.Styles.Justify "flex-start" | "center" | "flex-end" | "space-between" | "space-around" | "space-evenly"
+---@alias nu.Styles.LogLevel "error" | "warn" | "info" | "debug" | "verbose" | "fatal"
+---@alias nu.Styles.MeasureMode "undefined" | "exactly" | "at-most"
+---@alias nu.Styles.NodeType "default" | "text"
+---@alias nu.Styles.Overflow "visible" | "hidden" | "scroll"
+---@alias nu.Styles.PositionType "static" | "relative" | "absolute"
+---@alias nu.Styles.PrintOptions "layout" | "style" | "children"
+---@alias nu.Styles.Unit "undefined" | "point" | "percent" | "auto"
+---@alias nu.Styles.Wrap "no-wrap" | "wrap" | "wrap-reverse"
+
+--[[
+## Styles for views
+[Documentation](https://yogalayout.com/docs)
+]]
+---@class nu.Styles
+---@field ["align-content"] nu.Styles.Align
+---@field ["align-items"] nu.Styles.Align
+---@field ["align-self"] nu.Styles.Align
+---
+---@field ["aspect-ratio"] number
+---
+---@field ["border-left"] number
+---@field ["border-top"] number
+---@field ["border-right"] number
+---@field ["border-bottom"] number
+---@field ["border-start"] number
+---@field ["border-end"] number
+---@field ["border-horizontal"] number
+---@field ["border-vertical"] number
+---@field ["border-all"] number
+---
+---@field ["display"] nu.Styles.Display
+---
+---@field ["flex"] number
+---@field ["flex-basis"] "auto" | number
+---@field ["flex-basis-percent"] number
+---@field ["flex-basis-auto"] boolean
+---@field ["flex-direction"] nu.Styles.FlexDirection
+---@field ["flex-grow"] number
+---@field ["flex-shrink"] number
+---@field ["flex-wrap"] nu.Styles.Wrap
+---
+---@field ["height"] "auto" | number
+---@field ["height-percent"] number
+---@field ["is-reference-baseline"] boolean
+---
+---@field ["justify-content"] nu.Styles.Justify
+---
+---@field ["gap-column"] number
+---@field ["gap-row"] number
+---@field ["gap-all"] number
+---
+---@field ["margin-left"] "auto" | number
+---@field ["margin-top"] "auto" | number
+---@field ["margin-right"] "auto" | number
+---@field ["margin-bottom"] "auto" | number
+---@field ["margin-start"] "auto" | number
+---@field ["margin-end"] "auto" | number
+---@field ["margin-horizontal"] "auto" | number
+---@field ["margin-vertical"] "auto" | number
+---@field ["margin-all"] "auto" | number
+---@field ["margin-left-percent"] number
+---@field ["margin-top-percent"] number
+---@field ["margin-right-percent"] number
+---@field ["margin-bottom-percent"] number
+---@field ["margin-start-percent"] number
+---@field ["margin-end-percent"] number
+---@field ["margin-horizontal-percent"] number
+---@field ["margin-vertical-percent"] number
+---@field ["margin-all-percent"] number
+---
+---@field ["max-height"] "auto" | number
+---@field ["max-height-percent"] number
+---@field ["max-width"] "auto" | number
+---@field ["max-width-percent"] number
+---@field ["min-height"] "auto" | number
+---@field ["min-height-percent"] number
+---@field ["min-width"] "auto" | number
+---@field ["min-width-percent"] number
+---
+---@field ["overflow"] nu.Styles.Overflow
+---
+---@field ["padding-left"] number
+---@field ["padding-top"] number
+---@field ["padding-right"] number
+---@field ["padding-bottom"] number
+---@field ["padding-start"] number
+---@field ["padding-end"] number
+---@field ["padding-horizontal"] number
+---@field ["padding-vertical"] number
+---@field ["padding-all"] number
+---@field ["padding-left-percent"] number
+---@field ["padding-top-percent"] number
+---@field ["padding-right-percent"] number
+---@field ["padding-bottom-percent"] number
+---@field ["padding-start-percent"] number
+---@field ["padding-end-percent"] number
+---@field ["padding-horizontal-percent"] number
+---@field ["padding-vertical-percent"] number
+---@field ["padding-all-percent"] number
+---
+---@field ["position-left"] number
+---@field ["position-top"] number
+---@field ["position-right"] number
+---@field ["position-bottom"] number
+---@field ["position-start"] number
+---@field ["position-end"] number
+---@field ["position-horizontal"] number
+---@field ["position-vertical"] number
+---@field ["position-all"] number
+---@field ["position-left-percent"] number
+---@field ["position-top-percent"] number
+---@field ["position-right-percent"] number
+---@field ["position-bottom-percent"] number
+---@field ["position-start-percent"] number
+---@field ["position-end-percent"] number
+---@field ["position-horizontal-percent"] number
+---@field ["position-vertical-percent"] number
+---@field ["position-all-percent"] number
+---
+---@field ["position-type"] nu.Styles.PositionType
+---
+---@field ["width"] "auto" | number
+---@field ["width-percent"] number
+---
+---@field ["wrap"] nu.Styles.Wrap
