@@ -20,7 +20,7 @@ local ComboBox = {}
 
 
 ]]
----@return nu.ComboBox 
+---@return nu.ComboBox
 function ComboBox.create() end
 
 --[[## Change the text in the view.
@@ -28,8 +28,8 @@ function ComboBox.create() end
 
 
 ]]
----@param text string 
----@return nil 
+---@param text string
+---@return nil
 function ComboBox:settext(text) end
 
 --[[## Return currently displayed text.
@@ -37,7 +37,7 @@ function ComboBox:settext(text) end
 
 
 ]]
----@return string 
+---@return string
 function ComboBox:gettext() end
 
 return ComboBox

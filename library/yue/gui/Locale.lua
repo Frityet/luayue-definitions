@@ -14,7 +14,7 @@ local Locale = {}
 
 
 ]]
----@return string 
+---@return string
 function Locale.getcurrentidentifier() end
 
 --[[## Return an ordered list of user's preferred languages.
@@ -30,7 +30,7 @@ presented as an array of locale identifier strings.
 
 
 ]]
----@return table 
+---@return table
 function Locale.getpreferredlanguages() end
 
 return Locale

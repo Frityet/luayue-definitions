@@ -33,9 +33,9 @@ registered by other apps.
 
 
 ]]
----@param accelerator nu.Accelerator 
----@param callback function 
----@return integer 
+---@param accelerator nu.Accelerator
+---@param callback function
+---@return integer
 function GlobalShortcut:register(accelerator, callback) end
 
 --[[## Unregister the shortcut with the `id` returned by `<!name>Register`.
@@ -44,8 +44,8 @@ function GlobalShortcut:register(accelerator, callback) end
 
 
 ]]
----@param id integer 
----@return nil 
+---@param id integer
+---@return nil
 function GlobalShortcut:unregister(id) end
 
 --[[## Unregister all shortcuts registered in this app.
@@ -53,7 +53,7 @@ function GlobalShortcut:unregister(id) end
 
 
 ]]
----@return nil 
+---@return nil
 function GlobalShortcut:unregisterall() end
 
 return GlobalShortcut

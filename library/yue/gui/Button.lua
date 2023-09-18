@@ -15,8 +15,8 @@ local Button = {}
 
 
 ]]
----@param title string 
----@return nu.Button 
+---@param title string
+---@return nu.Button
 function Button.create(title) end
 
 --[[## Create a button by reading `options`.
@@ -24,8 +24,8 @@ function Button.create(title) end
 
 
 ]]
----@param options table 
----@return nu.Button 
+---@param options table
+---@return nu.Button
 function Button.create(options) end
 
 --[[## Mark this button as default button.
@@ -33,7 +33,7 @@ function Button.create(options) end
 
 
 ]]
----@return nil 
+---@return nil
 function Button:makedefault() end
 
 --[[## Set button title.
@@ -41,8 +41,8 @@ function Button:makedefault() end
 
 
 ]]
----@param title string 
----@return nil 
+---@param title string
+---@return nil
 function Button:settitle(title) end
 
 --[[## Return the button title.
@@ -50,7 +50,7 @@ function Button:settitle(title) end
 
 
 ]]
----@return string 
+---@return string
 function Button:gettitle() end
 
 --[[## Set `checked` state of checkbox or radio.
@@ -58,8 +58,8 @@ function Button:gettitle() end
 
 
 ]]
----@param checked boolean 
----@return nil 
+---@param checked boolean
+---@return nil
 function Button:setchecked(checked) end
 
 --[[## Return whether checkbox or radio is checked.
@@ -67,7 +67,7 @@ function Button:setchecked(checked) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Button:ischecked() end
 
 --[[## Set the image of button.
@@ -75,8 +75,8 @@ function Button:ischecked() end
 
 
 ]]
----@param image nu.Image 
----@return nil 
+---@param image nu.Image
+---@return nil
 function Button:setimage(image) end
 
 --[[## Return the image of button.
@@ -84,7 +84,7 @@ function Button:setimage(image) end
 
 
 ]]
----@return nu.Image 
+---@return nu.Image
 function Button:getimage() end
 
 --[[## Set the visual style of the button.
@@ -94,8 +94,8 @@ function Button:getimage() end
 
 
 ]]
----@param style nu.Button.Style 
----@return nil 
+---@param style nu.Button.Style
+---@return nil
 function Button:setbuttonstyle(style) end
 
 --[[## Set the control size of the button.
@@ -105,8 +105,8 @@ function Button:setbuttonstyle(style) end
 
 
 ]]
----@param size nu.ControlSize 
----@return nil 
+---@param size nu.ControlSize
+---@return nil
 function Button:setcontrolsize(size) end
 
 --[[## Set whether the button has a border.
@@ -116,8 +116,8 @@ function Button:setcontrolsize(size) end
 
 
 ]]
----@param yes boolean 
----@return nil 
+---@param yes boolean
+---@return nil
 function Button:sethasborder(yes) end
 
 --[[## Return whether the button has a border.
@@ -127,7 +127,7 @@ function Button:sethasborder(yes) end
 
 
 ]]
----@return boolean 
+---@return boolean
 function Button:hasborder() end
 
 return Button

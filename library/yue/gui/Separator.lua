@@ -14,8 +14,8 @@ local Separator = {}
 
 
 ]]
----@param orientation nu.Orientation 
----@return nu.Separator 
+---@param orientation nu.Orientation
+---@return nu.Separator
 function Separator.create(orientation) end
 
 return Separator

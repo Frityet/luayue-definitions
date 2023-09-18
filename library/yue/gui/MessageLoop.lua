@@ -28,7 +28,7 @@ local MessageLoop = {}
 
 
 ]]
----@return nil 
+---@return nil
 function MessageLoop.run() end
 
 --[[## Quit current message loop.
@@ -36,7 +36,7 @@ function MessageLoop.run() end
 
 
 ]]
----@return nil 
+---@return nil
 function MessageLoop.quit() end
 
 --[[## Post a `task` to main thread's message loop.
@@ -44,8 +44,8 @@ function MessageLoop.quit() end
 
 
 ]]
----@param task function 
----@return nil 
+---@param task function
+---@return nil
 function MessageLoop.posttask(task) end
 
 --[[## Post a `task` to main thread's message loop and execute it after `ms`.
@@ -54,9 +54,9 @@ function MessageLoop.posttask(task) end
 
 
 ]]
----@param ms integer 
----@param task function 
----@return nil 
+---@param ms integer
+---@param task function
+---@return nil
 function MessageLoop.postdelayedtask(ms, task) end
 
 return MessageLoop

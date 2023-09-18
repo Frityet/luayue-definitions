@@ -1,5 +1,5 @@
 ---@meta
 
 ---@alias nu.Orientation
----| "horizontal" 
----| "vertical" 
+---| "horizontal"
+---| "vertical"

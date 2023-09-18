@@ -1,7 +1,7 @@
 ---@meta
 
 ---@alias nu.Button.Type
----| "normal" 
----| "checkbox" 
----| "radio" 
+---| "normal"
+---| "checkbox"
+---| "radio"
 ---| "disclosure" Only available on macOS.
