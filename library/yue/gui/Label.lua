@@ -14,8 +14,8 @@ local Label = {}
 
 
 ]]
----@param text string
----@return nu.Label
+---@param text string 
+---@return nu.Label 
 function Label.create(text) end
 
 --[[## Create a new `Label` with attributed `text`.
@@ -23,8 +23,8 @@ function Label.create(text) end
 
 
 ]]
----@param text nu.AttributedText
----@return nu.Label
+---@param text nu.AttributedText 
+---@return nu.Label 
 function Label.createwithattributedtext(text) end
 
 --[[## Set the text to display.
@@ -32,8 +32,8 @@ function Label.createwithattributedtext(text) end
 
 
 ]]
----@param text string
----@return nil
+---@param text string 
+---@return nil 
 function Label:settext(text) end
 
 --[[## Return the text displayed.
@@ -41,7 +41,7 @@ function Label:settext(text) end
 
 
 ]]
----@return string
+---@return string 
 function Label:gettext() end
 
 --[[## Set horizontal text alignment.
@@ -49,8 +49,8 @@ function Label:gettext() end
 
 
 ]]
----@param align nu.TextAlign
----@return nil
+---@param align nu.TextAlign 
+---@return nil 
 function Label:setalign(align) end
 
 --[[## Set vertical text alignment.
@@ -58,8 +58,8 @@ function Label:setalign(align) end
 
 
 ]]
----@param align nu.TextAlign
----@return nil
+---@param align nu.TextAlign 
+---@return nil 
 function Label:setvalign(align) end
 
 --[[## Set the attributed text to display.
@@ -67,8 +67,8 @@ function Label:setvalign(align) end
 
 
 ]]
----@param text nu.AttributedText
----@return nil
+---@param text nu.AttributedText 
+---@return nil 
 function Label:setattributedtext(text) end
 
 --[[## Return the attributed text displayed.
@@ -76,7 +76,7 @@ function Label:setattributedtext(text) end
 
 
 ]]
----@return nu.AttributedText
+---@return nu.AttributedText 
 function Label:getattributedtext() end
 
 return Label

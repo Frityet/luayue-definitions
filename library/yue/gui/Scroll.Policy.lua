@@ -1,6 +1,6 @@
 ---@meta
 
 ---@alias nu.Scroll.Policy
----| "always"
----| "never"
----| "automatic"
+---| "always" 
+---| "never" 
+---| "automatic" 

@@ -1,15 +1,15 @@
 ---@meta
 
 ---@alias nu.MenuItem.Role
----| "copy"
----| "cut"
----| "paste"
----| "select-all"
----| "undo"
----| "redo"
----| "minimize"
----| "maximize"
----| "close-window"
+---| "copy" 
+---| "cut" 
+---| "paste" 
+---| "select-all" 
+---| "undo" 
+---| "redo" 
+---| "minimize" 
+---| "maximize" 
+---| "close-window" 
 ---| "about" Only available on macOS.
 ---| "hide" Only available on macOS.
 ---| "hide-others" Only available on macOS.

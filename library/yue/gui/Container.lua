@@ -15,14 +15,14 @@ Note that the `index` counts from `1`, following lua's convention.
 [API Documentation](https://libyue.com/docs/latest/lua/api/container.html#)
 ]]
 ---@class nu.Container : nu.View
----@field ondraw (fun(self: nu.Container, painter: nu.Painter, dirty: nu.RectF): nil) | nu.Signal Emitted when button the operating system or application requests to draw a portion of the view.
+---@field ondraw (fun(self: nu.Container, painter: nu.Painter, dirty: nu.RectF): nil) | nu.Signal Emitted when button the operating system or application requests to draw a portion of the view. 
 local Container = {}
 --[[## Create a new container view.
 
 
 
 ]]
----@return nu.Container
+---@return nu.Container 
 function Container.create() end
 
 --[[## Get the minimum size to show all children of the view.
@@ -35,7 +35,7 @@ width/height to show the children.
 
 
 ]]
----@return nu.SizeF
+---@return nu.SizeF 
 function Container:getpreferredsize() end
 
 --[[## Return the minimum height to show all child of the view for the `width`.
@@ -44,8 +44,8 @@ function Container:getpreferredsize() end
 
 
 ]]
----@param width number
----@return number
+---@param width number 
+---@return number 
 function Container:getpreferredheightforwidth(width) end
 
 --[[## Return the minimum width to show all child of the view for the `height`.
@@ -54,8 +54,8 @@ function Container:getpreferredheightforwidth(width) end
 
 
 ]]
----@param height number
----@return number
+---@param height number 
+---@return number 
 function Container:getpreferredwidthforheight(height) end
 
 --[[## Append a child `view` to the container.
@@ -66,8 +66,8 @@ This method will silently fail if the `view` already has a parent.
 
 
 ]]
----@param view nu.View
----@return nil
+---@param view nu.View 
+---@return nil 
 function Container:addchildview(view) end
 
 --[[## Add a child `view` to the container at `index`.
@@ -78,9 +78,9 @@ This method will silently fail if the `view` already has a parent.
 
 
 ]]
----@param view nu.View
----@param index integer
----@return nil
+---@param view nu.View 
+---@param index integer 
+---@return nil 
 function Container:addchildviewat(view, index) end
 
 --[[## Remove a child `view` from this container.
@@ -92,8 +92,8 @@ container.
 
 
 ]]
----@param view nu.View
----@return nil
+---@param view nu.View 
+---@return nil 
 function Container:removechildview(view) end
 
 --[[## Return the count of children in the container.
@@ -101,7 +101,7 @@ function Container:removechildview(view) end
 
 
 ]]
----@return integer
+---@return integer 
 function Container:childcount() end
 
 --[[## Return the child `view` at `index`.
@@ -112,8 +112,8 @@ This method will silently fail if the `index` is out of range.
 
 
 ]]
----@param index integer
----@return nu.View
+---@param index integer 
+---@return nu.View 
 function Container:childat(index) end
 
 return Container

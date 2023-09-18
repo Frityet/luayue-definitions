@@ -19,7 +19,7 @@ local Picker = {}
 
 
 ]]
----@return nu.Picker
+---@return nu.Picker 
 function Picker.create() end
 
 --[[## Add an item with `title` to the end.
@@ -27,8 +27,8 @@ function Picker.create() end
 
 
 ]]
----@param title string
----@return nil
+---@param title string 
+---@return nil 
 function Picker:additem(title) end
 
 --[[## Remove the item at `index`.
@@ -36,8 +36,8 @@ function Picker:additem(title) end
 
 
 ]]
----@param index integer
----@return nil
+---@param index integer 
+---@return nil 
 function Picker:removeitemat(index) end
 
 --[[## Remove all items.
@@ -45,7 +45,7 @@ function Picker:removeitemat(index) end
 
 
 ]]
----@return nil
+---@return nil 
 function Picker:clear() end
 
 --[[## Return all items.
@@ -53,7 +53,7 @@ function Picker:clear() end
 
 
 ]]
----@return table
+---@return table 
 function Picker:getitems() end
 
 --[[## Select the item at `index`.
@@ -61,8 +61,8 @@ function Picker:getitems() end
 
 
 ]]
----@param index integer
----@return nil
+---@param index integer 
+---@return nil 
 function Picker:selectitemat(index) end
 
 --[[## Return the title of selected item.
@@ -72,7 +72,7 @@ function Picker:selectitemat(index) end
 Empty string is returned if there is no selected item.
 
 ]]
----@return string
+---@return string 
 function Picker:getselecteditem() end
 
 --[[## Return the index of selected item.
@@ -82,7 +82,7 @@ function Picker:getselecteditem() end
 -1 is returned if there is no selected item.
 
 ]]
----@return integer
+---@return integer 
 function Picker:getselecteditemindex() end
 
 return Picker

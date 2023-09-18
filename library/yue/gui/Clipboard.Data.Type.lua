@@ -1,8 +1,8 @@
 ---@meta
 
 ---@alias nu.Clipboard.Data.Type
----| "text"
----| "html"
----| "image"
----| "file-paths"
----| "none"
+---| "text" 
+---| "html" 
+---| "image" 
+---| "file-paths" 
+---| "none" 

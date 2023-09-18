@@ -22,7 +22,7 @@ local Responder = {}
 
 
 ]]
----@return nil
+---@return nil 
 function Responder:setcapture() end
 
 --[[## Release mouse capture if the responder has mouse capture.
@@ -30,7 +30,7 @@ function Responder:setcapture() end
 
 
 ]]
----@return nil
+---@return nil 
 function Responder:releasecapture() end
 
 --[[## Return whether the responder has mouse capture.
@@ -38,7 +38,7 @@ function Responder:releasecapture() end
 
 
 ]]
----@return boolean
+---@return boolean 
 function Responder:hascapture() end
 
 --[[## Return a light userdata containing the pointer of underlying native
@@ -64,7 +64,7 @@ features in future.
 
 
 ]]
----@return userdata
+---@return userdata 
 function Responder:getnative() end
 
 return Responder

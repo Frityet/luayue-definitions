@@ -18,14 +18,14 @@ programming languages without Unicode support.
 ]]
 ---@class nu.TextEdit : nu.View
 ---@field ontextchange (fun(self: nu.TextEdit): nil) | nu.Signal Emitted when user has changed text.
----@field shouldinsertnewline (fun(self: nu.TextEdit): boolean) Called when user presses `Return` to insert new line, should return whether it is allowed.
+---@field shouldinsertnewline (fun(self: nu.TextEdit): boolean) Called when user presses `Return` to insert new line, should return whether it is allowed. 
 local TextEdit = {}
 --[[## Create a new `TextEdit`.
 
 
 
 ]]
----@return nu.TextEdit
+---@return nu.TextEdit 
 function TextEdit.create() end
 
 --[[## Change the text in the view.
@@ -33,8 +33,8 @@ function TextEdit.create() end
 
 
 ]]
----@param text string
----@return nil
+---@param text string 
+---@return nil 
 function TextEdit:settext(text) end
 
 --[[## Return currently displayed text.
@@ -42,7 +42,7 @@ function TextEdit:settext(text) end
 
 
 ]]
----@return string
+---@return string 
 function TextEdit:gettext() end
 
 --[[## Undo the last edit operation in the undo queue.
@@ -50,7 +50,7 @@ function TextEdit:gettext() end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:undo() end
 
 --[[## Return whether there are any actions in undo queue.
@@ -58,7 +58,7 @@ function TextEdit:undo() end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:canundo() end
 
 --[[## Redo the next action in the redo queue
@@ -66,7 +66,7 @@ function TextEdit:canundo() end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:redo() end
 
 --[[## Return whether there are any actions in redo queue.
@@ -74,7 +74,7 @@ function TextEdit:redo() end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:canredo() end
 
 --[[## Delete (cut) the current selection, if any, copy the deleted text to the
@@ -84,7 +84,7 @@ clipboard.
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:cut() end
 
 --[[## Copy current selection to clipboard.
@@ -92,7 +92,7 @@ function TextEdit:cut() end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:copy() end
 
 --[[## Copy the current content of the clipboard to current caret position.
@@ -101,7 +101,7 @@ function TextEdit:copy() end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:paste() end
 
 --[[## Select all text.
@@ -109,7 +109,7 @@ function TextEdit:paste() end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:selectall() end
 
 --[[## Return the start position and end position of current selection.
@@ -120,7 +120,7 @@ If nothing is selected, the cursor position will be returned as both values, ie.
 
 
 ]]
----@return nu.std.tuple
+---@return nu.std.tuple 
 function TextEdit:getselectionrange() end
 
 --[[## Select text between `start` and `end` positions.
@@ -128,9 +128,9 @@ function TextEdit:getselectionrange() end
 
 
 ]]
----@param start integer
----@param _end integer
----@return nil
+---@param start integer 
+---@param _end integer 
+---@return nil 
 function TextEdit:selectrange(start, _end) end
 
 --[[## Return the text between `start` and `end` positions.
@@ -138,9 +138,9 @@ function TextEdit:selectrange(start, _end) end
 
 
 ]]
----@param start integer
----@param _end integer
----@return string
+---@param start integer 
+---@param _end integer 
+---@return string 
 function TextEdit:gettextinrange(start, _end) end
 
 --[[## Insert `text` at current caret position.
@@ -148,8 +148,8 @@ function TextEdit:gettextinrange(start, _end) end
 
 
 ]]
----@param text string
----@return nil
+---@param text string 
+---@return nil 
 function TextEdit:inserttext(text) end
 
 --[[## Insert `text` at the `position`.
@@ -157,9 +157,9 @@ function TextEdit:inserttext(text) end
 
 
 ]]
----@param text string
----@param position integer
----@return nil
+---@param text string 
+---@param position integer 
+---@return nil 
 function TextEdit:inserttextat(text, position) end
 
 --[[## Delete text of current selection.
@@ -167,7 +167,7 @@ function TextEdit:inserttextat(text, position) end
 
 
 ]]
----@return nil
+---@return nil 
 function TextEdit:delete() end
 
 --[[## Delete text between `start` and `end` positions.
@@ -175,9 +175,9 @@ function TextEdit:delete() end
 
 
 ]]
----@param start integer
----@param _end integer
----@return nil
+---@param start integer 
+---@param _end integer 
+---@return nil 
 function TextEdit:deleterange(start, _end) end
 
 --[[## Set whether to use overlay scrolling.
@@ -187,8 +187,8 @@ function TextEdit:deleterange(start, _end) end
 
 
 ]]
----@param overlay boolean
----@return nil
+---@param overlay boolean 
+---@return nil 
 function TextEdit:setoverlayscrollbar(overlay) end
 
 --[[## Set the policy for displaying horizontal and vertical scrollbars.
@@ -197,9 +197,9 @@ function TextEdit:setoverlayscrollbar(overlay) end
 
 
 ]]
----@param hpolicy nu.Scroll.Policy
----@param vpolicy nu.Scroll.Policy
----@return nil
+---@param hpolicy nu.Scroll.Policy 
+---@param vpolicy nu.Scroll.Policy 
+---@return nil 
 function TextEdit:setscrollbarpolicy(hpolicy, vpolicy) end
 
 --[[## Set horizontal and vertical scroll elasticity (bounce).
@@ -210,9 +210,9 @@ function TextEdit:setscrollbarpolicy(hpolicy, vpolicy) end
 
 
 ]]
----@param helasticity nu.Scroll.Elasticity
----@param velasticity nu.Scroll.Elasticity
----@return nil
+---@param helasticity nu.Scroll.Elasticity 
+---@param velasticity nu.Scroll.Elasticity 
+---@return nil 
 function TextEdit:setscrollelasticity(helasticity, velasticity) end
 
 --[[## Return the horizontal and vertical scroll elasticity.
@@ -223,7 +223,7 @@ function TextEdit:setscrollelasticity(helasticity, velasticity) end
 
 
 ]]
----@return nu.std.tuple
+---@return nu.std.tuple 
 function TextEdit:getscrollelasticity() end
 
 --[[## Return the text extend.
@@ -231,7 +231,7 @@ function TextEdit:getscrollelasticity() end
 
 
 ]]
----@return nu.RectF
+---@return nu.RectF 
 function TextEdit:gettextbounds() end
 
 return TextEdit

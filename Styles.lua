@@ -22,114 +22,115 @@
 [Documentation](https://yogalayout.com/docs)
 ]]
 ---@class nu.Styles
----@field ["align-content"] nu.Styles.Align
----@field ["align-items"] nu.Styles.Align
----@field ["align-self"] nu.Styles.Align
+---@field ["align-content"] nu.Styles.Align | nil
+---@field ["align-items"] nu.Styles.Align | nil
+---@field ["align-self"] nu.Styles.Align | nil
 ---
----@field ["aspect-ratio"] number
+---@field ["aspect-ratio"] number | nil
 ---
----@field ["border-left"] number
----@field ["border-top"] number
----@field ["border-right"] number
----@field ["border-bottom"] number
----@field ["border-start"] number
----@field ["border-end"] number
----@field ["border-horizontal"] number
----@field ["border-vertical"] number
----@field ["border-all"] number
+---@field ["border-left"] number | nil
+---@field ["border-top"] number | nil
+---@field ["border-right"] number | nil
+---@field ["border-bottom"] number | nil
+---@field ["border-start"] number | nil
+---@field ["border-end"] number | nil
+---@field ["border-horizontal"] number | nil
+---@field ["border-vertical"] number | nil
+---@field ["border-all"] number | nil
 ---
----@field ["display"] nu.Styles.Display
+---@field ["display"] nu.Styles.Display | nil
 ---
 ---@field ["flex"] number
----@field ["flex-basis"] "auto" | number
----@field ["flex-basis-percent"] number
----@field ["flex-basis-auto"] boolean
----@field ["flex-direction"] nu.Styles.FlexDirection
----@field ["flex-grow"] number
----@field ["flex-shrink"] number
----@field ["flex-wrap"] nu.Styles.Wrap
+---@field ["flex-basis"] "auto" | number | nil
+---@field ["flex-basis-percent"] number | nil
+---@field ["flex-basis-auto"] boolean | nil
+---@field ["flex-direction"] nu.Styles.FlexDirection | nil
+---@field ["flex-grow"] number | nil
+---@field ["flex-shrink"] number | nil
+---@field ["flex-wrap"] nu.Styles.Wrap | nil
 ---
----@field ["height"] "auto" | number
----@field ["height-percent"] number
----@field ["is-reference-baseline"] boolean
+---@field ["height"] "auto" | number | nil
+---@field ["height-percent"] number | nil
+---@field ["is-reference-baseline"] boolean | nil
 ---
----@field ["justify-content"] nu.Styles.Justify
+---@field ["justify-content"] nu.Styles.Justify | nil
 ---
----@field ["gap-column"] number
----@field ["gap-row"] number
----@field ["gap-all"] number
+---@field ["gap-column"] number | nil
+---@field ["gap-row"] number | nil
+---@field ["gap-all"] number | nil
 ---
----@field ["margin-left"] "auto" | number
----@field ["margin-top"] "auto" | number
----@field ["margin-right"] "auto" | number
----@field ["margin-bottom"] "auto" | number
----@field ["margin-start"] "auto" | number
----@field ["margin-end"] "auto" | number
----@field ["margin-horizontal"] "auto" | number
----@field ["margin-vertical"] "auto" | number
----@field ["margin-all"] "auto" | number
----@field ["margin-left-percent"] number
----@field ["margin-top-percent"] number
----@field ["margin-right-percent"] number
----@field ["margin-bottom-percent"] number
----@field ["margin-start-percent"] number
----@field ["margin-end-percent"] number
----@field ["margin-horizontal-percent"] number
----@field ["margin-vertical-percent"] number
----@field ["margin-all-percent"] number
+---@field ["margin-left"] "auto" | number | nil
+---@field ["margin-top"] "auto" | number | nil
+---@field ["margin-right"] "auto" | number | nil
+---@field ["margin-bottom"] "auto" | number | nil
+---@field ["margin-start"] "auto" | number | nil
+---@field ["margin-end"] "auto" | number | nil
+---@field ["margin-horizontal"] "auto" | number | nil
+---@field ["margin-vertical"] "auto" | number | nil
+---@field ["margin-all"] "auto" | number | nil
+---@field ["margin-left-percent"] number | nil
+---@field ["margin-top-percent"] number | nil
+---@field ["margin-right-percent"] number | nil
+---@field ["margin-bottom-percent"] number | nil
+---@field ["margin-start-percent"] number | nil
+---@field ["margin-end-percent"] number | nil
+---@field ["margin-horizontal-percent"] number | nil
+---@field ["margin-vertical-percent"] number | nil
+---@field ["margin-all-percent"] number | nil
 ---
----@field ["max-height"] "auto" | number
----@field ["max-height-percent"] number
----@field ["max-width"] "auto" | number
----@field ["max-width-percent"] number
----@field ["min-height"] "auto" | number
----@field ["min-height-percent"] number
----@field ["min-width"] "auto" | number
----@field ["min-width-percent"] number
+---@field ["max-height"] "auto" | number | nil
+---@field ["max-height-percent"] number | nil
+---@field ["max-width"] "auto" | number | nil
+---@field ["max-width-percent"] number | nil
+---@field ["min-height"] "auto" | number | nil
+---@field ["min-height-percent"] number | nil
+---@field ["min-width"] "auto" | number | nil
+---@field ["min-width-percent"] number | nil
 ---
----@field ["overflow"] nu.Styles.Overflow
+---@field ["overflow"] nu.Styles.Overflow | nil
 ---
----@field ["padding-left"] number
----@field ["padding-top"] number
----@field ["padding-right"] number
----@field ["padding-bottom"] number
----@field ["padding-start"] number
----@field ["padding-end"] number
----@field ["padding-horizontal"] number
----@field ["padding-vertical"] number
----@field ["padding-all"] number
----@field ["padding-left-percent"] number
----@field ["padding-top-percent"] number
----@field ["padding-right-percent"] number
----@field ["padding-bottom-percent"] number
----@field ["padding-start-percent"] number
----@field ["padding-end-percent"] number
----@field ["padding-horizontal-percent"] number
----@field ["padding-vertical-percent"] number
----@field ["padding-all-percent"] number
+---@field ["padding-left"] number | nil
+---@field ["padding-top"] number | nil
+---@field ["padding-right"] number | nil
+---@field ["padding-bottom"] number | nil
+---@field ["padding-start"] number | nil
+---@field ["padding-end"] number | nil
+---@field ["padding-horizontal"] number | nil
+---@field ["padding-vertical"] number | nil
+---@field ["padding-all"] number | nil
+---@field ["padding-left-percent"] number | nil
+---@field ["padding-top-percent"] number | nil
+---@field ["padding-right-percent"] number | nil
+---@field ["padding-bottom-percent"] number | nil
+---@field ["padding-start-percent"] number | nil
+---@field ["padding-end-percent"] number | nil
+---@field ["padding-horizontal-percent"] number | nil
+---@field ["padding-vertical-percent"] number | nil
+---@field ["padding-all-percent"] number | nil
 ---
----@field ["position-left"] number
----@field ["position-top"] number
----@field ["position-right"] number
----@field ["position-bottom"] number
----@field ["position-start"] number
----@field ["position-end"] number
----@field ["position-horizontal"] number
----@field ["position-vertical"] number
----@field ["position-all"] number
----@field ["position-left-percent"] number
----@field ["position-top-percent"] number
----@field ["position-right-percent"] number
----@field ["position-bottom-percent"] number
----@field ["position-start-percent"] number
----@field ["position-end-percent"] number
----@field ["position-horizontal-percent"] number
----@field ["position-vertical-percent"] number
----@field ["position-all-percent"] number
+---@field ["position-left"] number | nil
+---@field ["position-top"] number | nil
+---@field ["position-right"] number | nil
+---@field ["position-bottom"] number | nil
+---@field ["position-start"] number | nil
+---@field ["position-end"] number | nil
+---@field ["position-horizontal"] number | nil
+---@field ["position-vertical"] number | nil
+---@field ["position-all"] number | nil
+---@field ["position-left-percent"] number | nil
+---@field ["position-top-percent"] number | nil
+---@field ["position-right-percent"] number | nil
+---@field ["position-bottom-percent"] number | nil
+---@field ["position-start-percent"] number | nil
+---@field ["position-end-percent"] number | nil
+---@field ["position-horizontal-percent"] number | nil
+---@field ["position-vertical-percent"] number | nil
+---@field ["position-all-percent"] number | nil
 ---
----@field ["position-type"] nu.Styles.PositionType
+---@field ["position-type"] nu.Styles.PositionType | nil
 ---
----@field ["width"] "auto" | number
----@field ["width-percent"] number
+---@field ["width"] "auto" | number | nil
+---@field ["width-percent"] number | nil
 ---
----@field ["wrap"] nu.Styles.Wrap
+---@field ["wrap"] nu.Styles.Wrap | nil
+---

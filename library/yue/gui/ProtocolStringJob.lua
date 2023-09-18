@@ -15,9 +15,9 @@ local ProtocolStringJob = {}
 
 
 ]]
----@param mimetype string
----@param content string
----@return nu.ProtocolStringJob
+---@param mimetype string 
+---@param content string 
+---@return nu.ProtocolStringJob 
 function ProtocolStringJob.create(mimetype, content) end
 
 return ProtocolStringJob

@@ -18,8 +18,8 @@ local MenuBase = {}
 
 
 ]]
----@param item nu.MenuItem
----@return nil
+---@param item nu.MenuItem 
+---@return nil 
 function MenuBase:append(item) end
 
 --[[## Insert the `item` at `index` to the menu.
@@ -27,9 +27,9 @@ function MenuBase:append(item) end
 
 
 ]]
----@param item nu.MenuItem
----@param index integer
----@return nil
+---@param item nu.MenuItem 
+---@param index integer 
+---@return nil 
 function MenuBase:insert(item, index) end
 
 --[[## Remove the `item` from the menu.
@@ -37,8 +37,8 @@ function MenuBase:insert(item, index) end
 
 
 ]]
----@param item nu.MenuItem
----@return nil
+---@param item nu.MenuItem 
+---@return nil 
 function MenuBase:remove(item) end
 
 --[[## Return the count of items in the menu.
@@ -46,7 +46,7 @@ function MenuBase:remove(item) end
 
 
 ]]
----@return integer
+---@return integer 
 function MenuBase:itemcount() end
 
 --[[## Return the item at `index`.
@@ -54,8 +54,8 @@ function MenuBase:itemcount() end
 
 
 ]]
----@param index integer
----@return nu.MenuItem
+---@param index integer 
+---@return nu.MenuItem 
 function MenuBase:itemat(index) end
 
 return MenuBase

@@ -54,8 +54,8 @@ local Browser = {}
 
 
 ]]
----@param options nu.Browser.Options
----@return nu.Browser
+---@param options nu.Browser.Options 
+---@return nu.Browser 
 function Browser.create(options) end
 
 --[[## Register a custom protocol with `scheme` and `handler`.
@@ -72,9 +72,9 @@ This API is not supported on Windows with WebView2 backend.
 
 
 ]]
----@param scheme string
----@param handler function
----@return boolean
+---@param scheme string 
+---@param handler function 
+---@return boolean 
 function Browser.registerprotocol(scheme, handler) end
 
 --[[## Unregister the custom protocol with `scheme`.
@@ -84,8 +84,8 @@ function Browser.registerprotocol(scheme, handler) end
 This API is not supported on Windows with WebView2 backend.
 
 ]]
----@param scheme string
----@return nil
+---@param scheme string 
+---@return nil 
 function Browser.unregisterprotocol(scheme) end
 
 --[[## Load the URL.
@@ -93,8 +93,8 @@ function Browser.unregisterprotocol(scheme) end
 
 
 ]]
----@param url string
----@return nil
+---@param url string 
+---@return nil 
 function Browser:loadurl(url) end
 
 --[[## Set the webpage contents and base URL.
@@ -104,9 +104,9 @@ function Browser:loadurl(url) end
 On Windows with WebView2 backend, `baseurl` is not respected.
 
 ]]
----@param html string
----@param baseurl string
----@return nil
+---@param html string 
+---@param baseurl string 
+---@return nil 
 function Browser:loadhtml(html, baseurl) end
 
 --[[## Return current URL.
@@ -114,7 +114,7 @@ function Browser:loadhtml(html, baseurl) end
 
 
 ]]
----@return string
+---@return string 
 function Browser:geturl() end
 
 --[[## Return the title of document.
@@ -122,7 +122,7 @@ function Browser:geturl() end
 
 
 ]]
----@return string
+---@return string 
 function Browser:gettitle() end
 
 --[[## Change browser's user agent.
@@ -136,8 +136,8 @@ This API is not supported on Windows with WebView2 backend.
 
 
 ]]
----@param useragent string
----@return nil
+---@param useragent string 
+---@return nil 
 function Browser:setuseragent(useragent) end
 
 --[[## Return whether page's magnification can be changed with gestures.
@@ -147,7 +147,7 @@ function Browser:setuseragent(useragent) end
 
 
 ]]
----@return boolean
+---@return boolean 
 function Browser:ismagnifiable() end
 
 --[[## Set whether page's magnification can be changed with gestures.
@@ -157,8 +157,8 @@ function Browser:ismagnifiable() end
 
 
 ]]
----@param magnifiable boolean
----@return nil
+---@param magnifiable boolean 
+---@return nil 
 function Browser:setmagnifiable(magnifiable) end
 
 --[[## Evaluate `code` in browser and get the evaluated result.
@@ -180,9 +180,9 @@ the `callback` is called before this API returns.
 
 
 ]]
----@param code string
----@param callback function
----@return nil
+---@param code string 
+---@param callback function 
+---@return nil 
 function Browser:executejavascript(code, callback) end
 
 --[[## Receive cookies under `url`.
@@ -195,9 +195,9 @@ This API is not implemented on Windows with IE backend.
 
 
 ]]
----@param url string
----@param callback function
----@return nil
+---@param url string 
+---@param callback function 
+---@return nil 
 function Browser:getcookiesforurl(url, callback) end
 
 --[[## Navigate to the back item in the back-forward list.
@@ -205,7 +205,7 @@ function Browser:getcookiesforurl(url, callback) end
 
 
 ]]
----@return nil
+---@return nil 
 function Browser:goback() end
 
 --[[## Return whether there is a back item in the back-forward list that can be
@@ -215,7 +215,7 @@ navigated to.
 
 
 ]]
----@return boolean
+---@return boolean 
 function Browser:cangoback() end
 
 --[[## Navigate to the forward item in the back-forward list.
@@ -223,7 +223,7 @@ function Browser:cangoback() end
 
 
 ]]
----@return nil
+---@return nil 
 function Browser:goforward() end
 
 --[[## Return whether there is a forward item in the back-forward list that can
@@ -233,7 +233,7 @@ be navigated to.
 
 
 ]]
----@return boolean
+---@return boolean 
 function Browser:cangoforward() end
 
 --[[## Reload current page.
@@ -241,7 +241,7 @@ function Browser:cangoforward() end
 
 
 ]]
----@return nil
+---@return nil 
 function Browser:reload() end
 
 --[[## Stop loading all resources on the current page.
@@ -249,7 +249,7 @@ function Browser:reload() end
 
 
 ]]
----@return nil
+---@return nil 
 function Browser:stop() end
 
 --[[## Return whether current page is loading content.
@@ -257,7 +257,7 @@ function Browser:stop() end
 
 
 ]]
----@return boolean
+---@return boolean 
 function Browser:isloading() end
 
 --[[## Set the `name` of object which would have the native bindings.
@@ -269,8 +269,8 @@ this API, native bindings will be added to the `window[name]` object.
 
 
 ]]
----@param name string
----@return nil
+---@param name string 
+---@return nil 
 function Browser:setbindingname(name) end
 
 --[[## Add a native binding to web page with `name`.
@@ -281,9 +281,9 @@ The `func` will be called with automatically converted arguments.
 
 
 ]]
----@param name string
----@param func function
----@return nil
+---@param name string 
+---@param func function 
+---@return nil 
 function Browser:addbinding(name, func) end
 
 --[[## Add a raw handler to web page with `name`.
@@ -294,9 +294,9 @@ The `func` will be called with a list of arguments passed from JavaScript.
 
 
 ]]
----@param name string
----@param func function
----@return nil
+---@param name string 
+---@param func function 
+---@return nil 
 function Browser:addrawbinding(name, func) end
 
 --[[## Remove the native binding with `name`.
@@ -304,8 +304,8 @@ function Browser:addrawbinding(name, func) end
 
 
 ]]
----@param name string
----@return nil
+---@param name string 
+---@return nil 
 function Browser:removebinding(name) end
 
 --[[## Buffer following calls of `<!name>AddBinding` until
@@ -321,7 +321,7 @@ which will buffer the bindings and reduce the cost to minimal.
 
 
 ]]
----@return nil
+---@return nil 
 function Browser:beginaddingbindings() end
 
 --[[## Consolidate bindings added.
@@ -329,7 +329,7 @@ function Browser:beginaddingbindings() end
 
 
 ]]
----@return nil
+---@return nil 
 function Browser:endaddingbindings() end
 
 return Browser
