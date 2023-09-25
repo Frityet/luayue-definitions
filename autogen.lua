@@ -32,6 +32,12 @@ local function exec(prog, ...)
     return ret
 end
 
+---@param self string
+---@return string
+function string.remove_newlines(self)
+    return (self:gsub("\r", ""):gsub("\n", ""))
+end
+
 ---Keywords cannot be symbol names, so we need to add an underscore
 ---@type { [string] : string }
 local KEYWORDS = {
@@ -151,7 +157,7 @@ end
 ---@return string
 local function detail(text)
     if not text then return ""
-    else return "### Details\n\n"..text.."" end
+    else return "#### Details\n\n"..text.."" end
 end
 
 local URL_FMT = "https://libyue.com/docs/latest/lua/api/%s.html#%s"
@@ -273,7 +279,7 @@ local function generate_method(wl, method, apiname, class_method)
         end
     end
 
-    wl("--[[## ", method.description, "\n\n",
+    wl("--[[## ", method.description:remove_newlines(), "\n\n",
         plats or "",
         detail(method.detail), "\n\n",
         -- "[API Documentation]("..method_api_url(apiname, sig.name, param_names)..")\n",
@@ -318,25 +324,22 @@ end
 
 ---Generates standard LuaLanguageServer (CATS) annotations for the libyue library
 ---@param api APIDefinition
----@param to Path
+---@param write_to { [string] : string }
 ---@return boolean, thread | string
-local function generate_cats_defintion(api, to)
-    local f, err = to:create("file", "w+")
-    if not f then return false, "Failed to open "..tostring(to) end
-    --[[@cast f file*]]
-
-    print("\x1b[33mGenerating CATS definition for \x1b[36m"..api.name.."\x1b[33m to \x1b[36m"..tostring(to).."\x1b[0m")
+local function generate_cats_defintion(api, write_to)
+    api.name = "nu."..api.name
+    print("\x1b[33mGenerating CATS definition for \x1b[36m"..api.name.."\x1b[0m")
     return true, coroutine.create(function ()
+        write_to[api.name] = ""
+        local function nl() write_to[api.name] = write_to[api.name]..'\n' end
         local function wl(...)
             local args = {...}
-            for i = 1, #args do f:write(args[i]) end
-            return f:write('\n')
+            for _, v in ipairs(args) do write_to[api.name] = write_to[api.name]..tostring(v) end
+            return nl()
         end
 
-        local function nl() return f:write('\n') end
-
-        wl("---@meta")
-        nl()
+        -- wl("---@meta")
+        -- nl()
         yield()
 
         --- If its an enum, we just need to generate the enum definition
@@ -368,7 +371,7 @@ local function generate_cats_defintion(api, to)
                     generate_property(wl, property, api.name)
                     yield()
                 end
-                nl()
+                -- nl()
             end
             wl(class, ".", sub, " = {}")
         else
@@ -398,7 +401,7 @@ local function generate_cats_defintion(api, to)
                 end
             end
 
-            wl("local ", api.name, " = {}")
+            wl(api.name, " = {}\n\n")
         end
         yield()
 
@@ -418,7 +421,7 @@ local function generate_cats_defintion(api, to)
             end
         end
 
-        wl("return ", api.name)
+        -- wl("return ", api.name)
         return true
     end)
 end
@@ -426,7 +429,7 @@ end
 ---@type APIDefinition[]
 local apis = {}
 
-local yue_dir = path "./yue/gui"
+local yue_dir = path "./yue/"
 
 local api_dir = path "./api"
 
@@ -453,8 +456,10 @@ end
 --We multithreading (coroutines) this!
 local threads = {}
 
+---@type { [string] : string }
+local classes = {}
 for _, api in ipairs(apis) do
-    local ok, thread = generate_cats_defintion(api, yue_dir/(api.name..".lua"))
+    local ok, thread = generate_cats_defintion(api, classes)
     if ok then threads[#threads+1] = thread
     else error("Could not generate CATS definition for "..api.name..": "..thread.."\n") end
 end
@@ -472,30 +477,30 @@ while not done do
     if #threads == 0 then done = true end
 end
 
+local gui_file, err = (yue_dir/"gui.lua"):create("file", "w+")
+if not gui_file then error("Could not open gui.lua: "..err) end
+--[[@cast gui_file file*]]
+
+gui_file:write("---@meta\n")
+gui_file:write("---@class nu\n")
+gui_file:write("local nu = {}\n")
+
+for k, v in pairs(classes) do
+    gui_file:write(v)
+end
+
 --Copy over `./Styles.lua` into `yue/gui/Styles.lua`
 local styles, err = (path.current_directory/"Styles.lua"):read_all()
 if not styles then error("Failed to read Styles.lua: "..err) end
-local f, err = (yue_dir/"Styles.lua"):create("file", "w+")
-if not f or type(f) == "boolean" then error("Failed to open "..tostring(yue_dir/"Styles.lua")..": "..err) end
---[[@cast f file*]]
-f:write(styles)
-f:close()
 
----Generate the last yue/gui.lua file, which will require all the other files and return the yue module
-local f, err = (yue_dir/"init.lua"):create("file", "w+")
-if not f then error("Failed to open "..tostring(yue_dir/"init.lua")..": "..err) end
---[[@cast f file*]]
+gui_file:write(styles)
 
-f:write("---@meta\n")
-f:write("---@class yue.gui\n")
-for _, api in ipairs(apis) do
-    f:write("---@field ", api.name, ' ', TYPES[api.name], "\n")
-end
+gui_file:write("return nu\n")
 
-f:write("local yue = {}\n")
-f:write("return yue\n")
+gui_file:close()
 
-f:close()
+print("\x1b[33mRunning \x1b[32mstylua\x1b[33m...\x1b[0m")
+-- exec("stylua", "-g", "**/*.lua", "--", "yue/gui")
 
 print("\x1b[32mDone!\x1b[0m")
 print("\x1b[1;33mInfo:\x1b[0m")
@@ -510,3 +515,4 @@ if not ok then return end
 local kb_used = ok:match("(%d+)K")
 
 print("\t- \x1b[1;32m"..kb_used.."KB\x1b[33m of disk space was used\x1b[0m")
+
