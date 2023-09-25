@@ -327,9 +327,10 @@ end
 ---@param write_to { [string] : string }
 ---@return boolean, thread | string
 local function generate_cats_defintion(api, write_to)
-    api.name = "nu."..api.name
     print("\x1b[33mGenerating CATS definition for \x1b[36m"..api.name.."\x1b[0m")
     return true, coroutine.create(function ()
+        local api_var_name = "nu."..api.name
+
         write_to[api.name] = ""
         local function nl() write_to[api.name] = write_to[api.name]..'\n' end
         local function wl(...)
@@ -373,7 +374,7 @@ local function generate_cats_defintion(api, write_to)
                 end
                 -- nl()
             end
-            wl(class, ".", sub, " = {}")
+            wl("nu.", class, ".", sub, " = {}")
         else
             wl("---@class ", TYPES[api.name], (api.inherit and " : "..TYPES[api.inherit.name] or ""))
             if api.properties then
@@ -389,25 +390,25 @@ local function generate_cats_defintion(api, write_to)
                     ---@field <EVENT_NAME> fun(<PARAMS>): (<RETURN> | nil) <DESCRIPTION>
                 ]]
                 for _, event in ipairs(api.events) do
-                    generate_event(wl, event, api.name)
+                    generate_event(wl, event, api_var_name)
                     yield()
                 end
             end
 
             if api.delegates then
                 for _, delegate in ipairs(api.delegates) do
-                    generate_delegate(wl, delegate, api.name)
+                    generate_delegate(wl, delegate, api_var_name)
                     yield()
                 end
             end
 
-            wl(api.name, " = {}\n\n")
+            wl(api_var_name, " = {}\n\n")
         end
         yield()
 
         if api.class_methods then
             for _, method in ipairs(api.class_methods) do
-                generate_method(wl, method, api.name, true)
+                generate_method(wl, method, api_var_name, true)
                 nl()
                 yield()
             end
@@ -415,7 +416,7 @@ local function generate_cats_defintion(api, write_to)
 
         if api.methods then
             for _, method in ipairs(api.methods) do
-                generate_method(wl, method, api.name, false)
+                generate_method(wl, method, api_var_name, false)
                 nl()
                 yield()
             end
